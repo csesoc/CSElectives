@@ -4,9 +4,9 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-import HomePage from './components/home-page.js';
-import CoursePage from './components/course-page.js';
-import ReviewPage from './components/review-page.js';
+import HomePage from './pages/home-page.js';
+import CoursePage from './pages/course-page.js';
+import ReviewPage from './pages/review-page.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 

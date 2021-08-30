@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
-import CourseReviewCard from './course-review-card';
+import CourseReviewCard from '../components/course-review-card.js';
 
 const HomePage = () => {
   return (
