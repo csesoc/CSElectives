@@ -1,4 +1,5 @@
 import { Dropdown, Header, Input } from "semantic-ui-react";
+import CourseReviewCard from "./course-review-card";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,10 @@ const HomePage = () => {
       />
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
+
+      <CourseReviewCard code="COMP1511"/>
+      <CourseReviewCard code="COMP2521"/>
+      <CourseReviewCard code="SENG2011"/>
 
       <div>Add your 💩shit here...</div>
     </>
