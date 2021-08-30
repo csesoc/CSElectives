@@ -5,7 +5,6 @@ import HomePage from './components/home-page.js';
 import CoursePage from './components/course-page.js';
 import ReviewPage from './components/review-page.js';
 
-
 const App = () => {
   return (
     <Router>
