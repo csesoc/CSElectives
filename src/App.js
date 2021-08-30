@@ -1,7 +1,8 @@
+import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 import { Container } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css';
 
 import HomePage from './components/home-page.js';
 import CoursePage from './components/course-page.js';

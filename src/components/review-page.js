@@ -1,4 +1,5 @@
-import { Checkbox, Form, Header, Input, TextArea } from "semantic-ui-react";
+import React from 'react';
+import { Checkbox, Form, Header, Input, TextArea } from 'semantic-ui-react';
 
 const ReviewPage = () => {
   return (

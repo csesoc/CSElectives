@@ -1,4 +1,5 @@
-import { Header, Label, Progress } from "semantic-ui-react";
+import React from 'react';
+import { Header, Label, Progress } from 'semantic-ui-react';
 
 const CoursePage = () => {
   return (
@@ -15,8 +16,11 @@ const CoursePage = () => {
       <div>This is an unrestricted width progress component</div>
       <Progress percent={10} />
 
-      <div style={{maxWidth: '25%', border: '1px solid black'}}>
-        <span>Spans don't put new lines which you might find handy. You can restrict the width of the parent div to control the length of the progress component</span>
+      <div style={{ maxWidth: '25%', border: '1px solid black' }}>
+        <span>
+          Spans dont put new lines which you might find handy.
+          You can restrict the width of the parent div to control the length of the progress component
+        </span>
         <Progress percent={10} />
       </div>
 
