@@ -2,6 +2,8 @@ import React from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
 import CourseReviewCard from '../components/course-review-card.js';
 
+import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
+
 const HomePage = () => {
   return (
     <>
@@ -17,6 +19,9 @@ const HomePage = () => {
         selection
         placeholder="Or you could use a search dropdown!"
       />
+
+      {/* Toggle other tags button */}
+      <ToggleOtherTagsButton></ToggleOtherTagsButton>
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
