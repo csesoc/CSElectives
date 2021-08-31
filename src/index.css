@@ -16,3 +16,7 @@ code {
   display: flex;
   justify-content: space-between;
 }
+
+.search-section-background {
+  background-color: white!important;
+}
