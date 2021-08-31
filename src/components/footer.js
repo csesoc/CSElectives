@@ -9,14 +9,14 @@ const Footer = () => {
     <div style={{ backgroundColor: '#3A76F8', padding: '1.5em' }}>
       <Container style={{ color: 'white' }}>
         <Grid columns='equal'>
-          <Grid.Column>
+          <Grid.Column width={3}>
             <Image src={CSESocLogo} size='small'/>
             <br/>
             <p>
         © 2021 — CSESoc UNSW
             </p>
           </Grid.Column>
-          <Grid.Column width={11}>
+          <Grid.Column>
             <p>
         CSESoc is the constituent student society of UNSW’s School of Computer Science and Engineering.
         We do not represent the School, Faculty, or University.
