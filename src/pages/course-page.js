@@ -1,5 +1,7 @@
 import React from 'react';
-import { Header, Label, Progress } from 'semantic-ui-react';
+import { Header, Label, Progress, Card, Grid } from 'semantic-ui-react';
+import ReviewCard from '../components/review-card.js';
+
 
 const CoursePage = () => {
   return (
@@ -23,8 +25,23 @@ const CoursePage = () => {
         </span>
         <Progress percent={10} />
       </div>
-
-      <div>Add your 💩shit here...</div>
+      <div>
+        <Grid columns={2} divided>
+          <Grid.Row>
+            <Grid.Column>
+              <ReviewCard reviewTitle="hi"/>
+            </Grid.Column>
+            <Grid.Column>
+              <div className="card-displayer">
+                <ReviewCard reviewTitle="COMP2521"/>
+              </div>
+              <div className="card-displayer">
+                <ReviewCard reviewTitle="COMP1511"/>
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
     </>
   );
 };
