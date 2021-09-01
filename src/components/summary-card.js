@@ -12,7 +12,9 @@ const SummaryCard = (props) => {
         <Card.Content>
           <Grid>
             <Grid.Row>
-              <Label className='my-label' color='blue'>level one</Label>
+              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Level One</Label>
+              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Introductory Course</Label>
+              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>something really long</Label>
             </Grid.Row>
             <Grid.Row columns={2}>
               <Grid.Column>

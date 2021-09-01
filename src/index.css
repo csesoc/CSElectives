@@ -21,8 +21,9 @@ code {
   margin: 0 10px;
 }
 
-.my-label {
-  margin: 0 10px;
+.course-label {
+  margin: 0 0 8px 10px;
+  color: var(--csesoc-blue);
 }
 
 footer {
