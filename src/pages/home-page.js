@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
 import CourseReviewCard from '../components/course-review-card.js';
+import { Segment } from 'semantic-ui-react';
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 
@@ -8,6 +9,10 @@ const HomePage = () => {
   return (
     <>
       <Header as='h1'>Home Page</Header>
+
+      <Segment className="search-section-background">
+
+      </Segment>
 
       {/* Input component: https://react.semantic-ui.com/elements/input/ */}
       <Input placeholder="You'll need a text box!"/>
