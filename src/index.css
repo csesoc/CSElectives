@@ -1,3 +1,8 @@
+:root {
+  --csesoc-blue: #3A76F8;
+  --csesoc-white: white;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,7 +17,49 @@ code {
     monospace;
 }
 
+.my-grid-row {
+  margin: 0 10px;
+}
+
+.course-label {
+  margin: 0 0 8px 10px;
+  color: var(--csesoc-blue);
+}
+
+.ui.progress.bar-chart {
+  margin: 1px;
+}
+
+footer {
+  background-color: var(--csesoc-blue);
+  padding: 1.5rem;
+  color: var(--csesoc-white);
+}
+
+.csesoc-logo {
+  margin-bottom: 1.5rem;
+}
+
 .card-displayer {
   display: flex;
   justify-content: space-between;
+}
+
+.search-section-background {
+  background-color: white!important;
+}
+
+.my-front-page-card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction:row;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-front-page-tags {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }

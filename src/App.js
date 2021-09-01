@@ -12,27 +12,25 @@ import Footer from './components/footer.js';
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <header>
         <Header />
       </header>
 
       <main>
         <Container>
-          <BrowserRouter>
-            <Switch>
-              <Route path="/course" component={CoursePage} />
-              <Route path="/review" component={ReviewPage} />
-              <Route path="/" component={HomePage} />
-            </Switch>
-          </BrowserRouter>
+          <Switch>
+            <Route path="/course" component={CoursePage} />
+            <Route path="/review" component={ReviewPage} />
+            <Route path="/" component={HomePage} />
+          </Switch>
         </Container>
       </main>
 
       <footer>
         <Footer />
       </footer>
-    </>
+    </BrowserRouter>
   );
 };
 
