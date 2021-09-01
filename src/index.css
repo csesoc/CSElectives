@@ -21,8 +21,8 @@ code {
   margin: 0 10px;
 }
 
-.my-label {
-  margin: 0 10px;
+.ui.progress.bar-chart {
+  margin: 1px;
 }
 
 footer {
