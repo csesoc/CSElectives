@@ -4,6 +4,7 @@ import CourseReviewCard from '../components/course-review-card.js';
 import { Segment } from 'semantic-ui-react';
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
+import LabelExampleIcon from '../components/tags.js';
 
 const HomePage = () => {
   return (
@@ -28,9 +29,14 @@ const HomePage = () => {
       {/* Toggle other tags button */}
       <ToggleOtherTagsButton></ToggleOtherTagsButton>
 
+      {/* Tags component */}
+      <div className='my-front-page-tags'>
+        <LabelExampleIcon code="Level 1"/>
+      </div>
+
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
-      <div className="card-displayer">
+      <div className="my-front-page-card">
         <CourseReviewCard code="COMP1511"/>
         <CourseReviewCard code="COMP2521"/>
         <CourseReviewCard code="SENG2011"/>
