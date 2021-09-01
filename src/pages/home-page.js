@@ -32,8 +32,8 @@ const HomePage = () => {
       {/* Tags component */}
       <div className='my-front-page-tags'>
         <LabelExampleIcon code="Level 1"/>
-        <LabelExampleIcon code="Security"/>
-        <LabelExampleIcon code="Term 2"/>
+        {/* <LabelExampleIcon code="Security"/>
+        <LabelExampleIcon code="Term 2"/> */}
       </div>
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
