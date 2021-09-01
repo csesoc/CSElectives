@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
 import CourseReviewCard from '../components/course-review-card.js';
+import DropdownTags from '../components/dropdown-tag-menu';
 
 const HomePage = () => {
   return (
@@ -17,7 +18,7 @@ const HomePage = () => {
         selection
         placeholder="Or you could use a search dropdown!"
       />
-
+      <DropdownTags title = 'Major' tags = {['Yes']}/>
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
       <div className="card-displayer">
