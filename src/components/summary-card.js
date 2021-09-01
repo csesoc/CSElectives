@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Label, Grid, Card } from 'semantic-ui-react';
+import { Label, Grid, Card, Progress, Rating } from 'semantic-ui-react';
+
 
 const SummaryCard = (props) => {
   const { summaryTitle } = props;
@@ -16,17 +17,36 @@ const SummaryCard = (props) => {
               <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Introductory Course</Label>
               <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>something really long</Label>
             </Grid.Row>
-            <Grid.Row columns={2}>
-              <Grid.Column>
+            <Grid.Row className='my-grid-row'>
+              <div>
                 <Card.Header>{summaryTitle}</Card.Header>
-                <a href="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/">
+                <a href="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/"
+                  rel="noreferrer" target="_blank">
                     COMP1511 Handbook
-                </a>
-                <Card.Meta>Stars + Num of reviews</Card.Meta>
-              </Grid.Column>
-              <Grid.Column>
-                <p>Bar graph</p>
-              </Grid.Column>
+                </a> <br/>
+                <Rating icon='star' defaultRating={3} maxRating={5} disabled/>
+                <Card.Meta>42 reviews</Card.Meta>
+              </div>
+            </Grid.Row>
+            <Grid.Row className='my-grid-row'>
+              <div style={{ width: '100%' }}>
+                <span>
+                  Usefulness
+                </span>
+                <Progress className='bar-chart' color='blue' value={3} total='5' progress='ratio' size='standard'/>
+                <span>
+                  Workload
+                </span>
+                <Progress className='bar-chart' color='blue' value={2} total='5' progress='ratio' size='standard'/>
+                <span>
+                  Enjoyment
+                </span>
+                <Progress className='bar-chart' color='blue' value={4} total='5' progress='ratio' size='standard'/>
+                <span>
+                  Difficulty
+                </span>
+                <Progress className='bar-chart' color='blue' value={2} total='5' progress='ratio' size='standard'/>
+              </div>
             </Grid.Row>
             <Grid.Row className='my-grid-row'>
               <Card.Content>

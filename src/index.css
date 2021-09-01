@@ -26,6 +26,10 @@ code {
   color: var(--csesoc-blue);
 }
 
+.ui.progress.bar-chart {
+  margin: 1px;
+}
+
 footer {
   background-color: var(--csesoc-blue);
   padding: 1.5rem;
