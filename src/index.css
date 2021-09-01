@@ -49,8 +49,14 @@ footer {
   background-color: white!important;
 }
 
+.my-card {
+  display: block;
+  margin-bottom: 2rem;
+}
+
 .my-front-page-card {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   flex-direction:row;
   margin-top: 1.5rem;
