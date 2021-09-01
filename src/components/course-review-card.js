@@ -8,7 +8,7 @@ const CourseReviewCard = (props) => {
   const { code, name, desc } = props;
 
   return (
-    <div className='my-card'>
+    <div className='course-review-card'>
       <Card>
         <Card.Content>
           <Card.Header>{code}</Card.Header>
