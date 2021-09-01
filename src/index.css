@@ -1,13 +1,11 @@
 :root {
   --csesoc-blue: #3A76F8;
-  --csesoc-white: white;
+  --csesoc-navy: #40404C;
+  --csesoc-white: #FFFFFF;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,6 +26,10 @@ code {
 
 .ui.progress.bar-chart {
   margin: 1px;
+}
+
+.display-wrapper {
+  min-height: 100vh;
 }
 
 footer {

@@ -9,23 +9,29 @@ import CoursePage from './pages/course-page.js';
 import ReviewPage from './pages/review-page.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
+import LoginPage from './pages/login-page.js';
+import NotFoundPage from './pages/not-found-page.js';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <header>
-        <Header />
-      </header>
+      <div className='display-wrapper'>
+        <header>
+          <Header />
+        </header>
 
-      <main>
-        <Container>
-          <Switch>
-            <Route path="/course" component={CoursePage} />
-            <Route path="/review" component={ReviewPage} />
-            <Route path="/" component={HomePage} />
-          </Switch>
-        </Container>
-      </main>
+        <main>
+          <Container>
+            <Switch>
+              <Route exact path='/course' component={CoursePage} />
+              <Route exact path='/review' component={ReviewPage} />
+              <Route exact path='/login' component={LoginPage} />
+              <Route exact path='/' component={HomePage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Container>
+        </main>
+      </div>
 
       <footer>
         <Footer />
