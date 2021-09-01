@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
 import CourseReviewCard from '../components/course-review-card.js';
+import DropdownTags from '../components/dropdown-tag-menu';
 import { Segment } from 'semantic-ui-react';
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
@@ -14,6 +15,9 @@ const HomePage = () => {
       <Segment className="search-section-background">
         {/* Toggle other tags button */}
         <ToggleOtherTagsButton></ToggleOtherTagsButton>
+        <DropdownTags title = 'Major' tags = {['Yes']}/>
+        <DropdownTags title = 'Level' tags = {['Yes']}/>
+        <DropdownTags title = 'Term Offering' tags = {['Yes']}/>
         {/* Manually increasing the segment size for now */}
         <br></br>
         <br></br>
