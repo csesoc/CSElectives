@@ -1,6 +1,8 @@
 import React from 'react';
-import { Header, Label, Progress, Card, Grid } from 'semantic-ui-react';
+import { Header, Label, Progress, Grid } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
+import SummaryCard from '../components/summary-card.js';
+import CourseReviewCard from '../components/course-review-card.js';
 
 
 const CoursePage = () => {
@@ -26,32 +28,36 @@ const CoursePage = () => {
         <Progress percent={10} />
       </div>
       <div>
-        <Grid columns={2} divided>
+        <Grid columns={2}>
           <Grid.Row>
-            <Grid.Column>
-              <ReviewCard reviewTitle="hi"/>
+            <Grid.Column width={6}>
+              <div className="card-displayer">
+                <SummaryCard summaryTitle="COMP1511"/>
+              </div>
             </Grid.Column>
             <Grid.Column >
-              <div className="card-displayer">
-                <ReviewCard
-                  reviewDate="10/2/20"
-                  reviewTitle="wow i love this subject"
-                  usefulProgress="20"
-                  workloadProgress="90"
-                  enjoymentProgress="20"
-                  difficultyProgress="80"
-                />
-              </div>
-              <div className="card-displayer">
-                <ReviewCard
-                  reviewDate="10/2/19"
-                  reviewTitle="its okay..."
-                  usefulProgress="100"
-                  workloadProgress="40"
-                  enjoymentProgress="60"
-                  difficultyProgress="10"
-                />
-              </div>
+              <Grid.Column width={10}>
+                <div className="card-displayer">
+                  <ReviewCard
+                    reviewDate="10/2/20"
+                    reviewTitle="wow i love this subject"
+                    usefulProgress="20"
+                    workloadProgress="90"
+                    enjoymentProgress="20"
+                    difficultyProgress="80"
+                  />
+                </div>
+                <div className="card-displayer">
+                  <ReviewCard
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    usefulProgress="100"
+                    workloadProgress="40"
+                    enjoymentProgress="60"
+                    difficultyProgress="10"
+                  />
+                </div>
+              </Grid.Column>
             </Grid.Column>
           </Grid.Row>
         </Grid>

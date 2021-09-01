@@ -18,6 +18,7 @@
         "react"
     ],
     "rules": {
+        "linebreak-style": 0,
         "indent": ["error", 2],
         "no-unused-expressions": "warn",
         "no-unused-vars": "warn",
@@ -25,4 +26,5 @@
         "max-len": ["error", { "code": 120 }],
         "operator-linebreak": ["error", "before"]
     }
+    
 }
