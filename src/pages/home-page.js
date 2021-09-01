@@ -11,7 +11,18 @@ const HomePage = () => {
       <Header as='h1'>Home Page</Header>
 
       <Segment className="search-section-background">
+        {/* Toggle other tags button */}
+        <ToggleOtherTagsButton></ToggleOtherTagsButton>
+        {/* Manually increasing the segment size for now */}
+        <br></br>
+        <br></br>
 
+        {/* TODO
+          Add ELEC 69
+          Add ELEC 68
+          Add ELEC 69
+          Add ELEC 75
+        */}
       </Segment>
 
       {/* Input component: https://react.semantic-ui.com/elements/input/ */}
@@ -25,8 +36,6 @@ const HomePage = () => {
         placeholder="Or you could use a search dropdown!"
       />
 
-      {/* Toggle other tags button */}
-      <ToggleOtherTagsButton></ToggleOtherTagsButton>
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
