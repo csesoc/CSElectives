@@ -10,17 +10,17 @@ const ReviewCard = (props) => {
     <div style={{ display: 'block', margin: '20px' }}>
       <Card fluid>
         <Card.Content>
-          <Grid columns={2} divided>
-            <Grid.Row>
-              <Grid.Column>
+          <Grid divided>
+            <Grid.Row columns={2}>
+              <Grid.Column width={11}>
                 <Card.Header>{reviewTitle}</Card.Header>
                 <Card.Meta>Stars</Card.Meta>
                 <Card.Description>
-                 This is a long description of the above course describing what the course entails
-                 and what to expect when you enroll in the course
+                 This is a long description of the above course describing containing the users review
                 </Card.Description>
               </Grid.Column>
-              <Grid.Column>
+              <Grid.Column width={5}>
+                Bar graph
               </Grid.Column>
             </Grid.Row>
           </Grid>
