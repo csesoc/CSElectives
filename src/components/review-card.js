@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Grid, Card, Progress } from 'semantic-ui-react';
+import { Grid, Card, Progress, Rating } from 'semantic-ui-react';
 
 const ReviewCard = (props) => {
-  const { reviewTitle, usefulProgress, workloadProgress, difficultyProgress, enjoymentProgress, reviewDate } = props;
+  const { reviewTitle, usefulProgress, workloadProgress, difficultyProgress,
+    enjoymentProgress, reviewDate, overallRating } = props;
 
   return (
     <div style={{ display: 'block', margin: '20px' }}>
@@ -12,11 +13,11 @@ const ReviewCard = (props) => {
         <Card.Content>
           <Grid columns={2} divided>
             <Grid.Row>
-              <Grid.Column >
+              <Grid.Column width={11}>
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
-                <Card.Meta>
+                <Card.Meta style={{ margin: '5px 0' }}>
                   Overall:
-                  <div className="ui star rating" data-rating="4"></div>
+                  <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled/>
                 </Card.Meta>
                 <Card.Description >
                 I took COMP3311(databases) and it was one of my
@@ -28,30 +29,30 @@ const ReviewCard = (props) => {
                 it at your own pace. I like Jas as a lecturer too.
                 </Card.Description>
               </Grid.Column>
-              <Grid.Column >
+              <Grid.Column width={5} >
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
-                <div style={{ margin: '10px' }}>
+                <div style={{ margin: '2px' }}>
                   Usefulness
-                  <div className="ui red progress">
-                    <Progress percent={usefulProgress}/>
+                  <div className="ui blue progress">
+                    <Progress value={usefulProgress} total='5' progress='ratio' size='standard'/>
                   </div>
                 </div>
-                <div style={{ margin: '10px' }}>
+                <div style={{ margin: '2px' }}>
                 Workload
-                  <div className="ui brown progress">
-                    <Progress percent={workloadProgress}/>
+                  <div className="ui blue progress">
+                    <Progress value={workloadProgress} total='5' progress='ratio' size='standard'/>
                   </div>
                 </div>
-                <div style={{ margin: '10px' }}>
+                <div style={{ margin: '2px' }}>
                 Enjoyment
-                  <div className="ui yellow progress">
-                    <Progress percent={enjoymentProgress}/>
+                  <div className="ui blue progress">
+                    <Progress value={enjoymentProgress} total='5' progress='ratio' size='standard'/>
                   </div>
                 </div>
-                <div style={{ margin: '10px' }}>
+                <div style={{ margin: '2px' }}>
                 Difficulty
-                  <div className="ui green progress">
-                    <Progress percent={difficultyProgress}/>
+                  <div className="ui blue progress">
+                    <Progress value={difficultyProgress} total='5' progress='ratio' size='standard'/>
                   </div>
                 </div>
               </Grid.Column>
@@ -70,6 +71,7 @@ ReviewCard.propTypes = {
   enjoymentProgress: PropTypes.number,
   difficultyProgress: PropTypes.number,
   reviewDate: PropTypes.number,
+  overallRating: PropTypes.number,
 };
 
 export default ReviewCard;

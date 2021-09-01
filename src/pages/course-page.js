@@ -39,22 +39,24 @@ const CoursePage = () => {
               <Grid.Column width={10}>
                 <div className="card-displayer">
                   <ReviewCard
+                    overallRating="4"
                     reviewDate="10/2/20"
                     reviewTitle="wow i love this subject"
-                    usefulProgress="20"
-                    workloadProgress="90"
-                    enjoymentProgress="20"
-                    difficultyProgress="80"
+                    usefulProgress="3"
+                    workloadProgress="2"
+                    enjoymentProgress="4"
+                    difficultyProgress="1"
                   />
                 </div>
                 <div className="card-displayer">
                   <ReviewCard
+                    overallRating="2"
                     reviewDate="10/2/19"
                     reviewTitle="its okay..."
-                    usefulProgress="100"
-                    workloadProgress="40"
-                    enjoymentProgress="60"
-                    difficultyProgress="10"
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
                   />
                 </div>
               </Grid.Column>
