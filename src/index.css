@@ -1,5 +1,6 @@
 :root {
   --csesoc-blue: #3A76F8;
+  --csesoc-white: white;
 }
 
 body {
@@ -16,10 +17,18 @@ code {
     monospace;
 }
 
+.my-grid-row {
+  margin: 0 10px;
+}
+
+.my-label {
+  margin: 0 10px;
+}
+
 footer {
   background-color: var(--csesoc-blue);
   padding: 1.5rem;
-  color: white;
+  color: var(--csesoc-white);
 }
 
 .csesoc-logo {

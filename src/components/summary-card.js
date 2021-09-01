@@ -12,7 +12,7 @@ const SummaryCard = (props) => {
         <Card.Content>
           <Grid>
             <Grid.Row>
-              <Label color='blue' style={{ margin: '0 10px' }}>level one</Label>
+              <Label className='my-label' color='blue'>level one</Label>
             </Grid.Row>
             <Grid.Row columns={2}>
               <Grid.Column>
@@ -26,13 +26,13 @@ const SummaryCard = (props) => {
                 <p>Bar graph</p>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row style={{ margin: '0 10px' }}>
+            <Grid.Row className='my-grid-row'>
               <Card.Content>
               This is a long description of the above course describing containing what to expect
               from the course etc
               </Card.Content>
             </Grid.Row>
-            <Grid.Row style={{ margin: '0 10px' }}>
+            <Grid.Row className='my-grid-row'>
               <Card.Content>
                 <h4>Topics</h4>
                 <li>topic one</li>
