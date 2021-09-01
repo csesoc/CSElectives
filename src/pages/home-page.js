@@ -50,9 +50,12 @@ const HomePage = () => {
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
       <div className="my-front-page-card">
-        <CourseReviewCard code="COMP1511"/>
-        <CourseReviewCard code="COMP2521"/>
-        <CourseReviewCard code="SENG2011"/>
+        <CourseReviewCard code="COMP1511" desc="Programming Fundamentals"/>
+        <CourseReviewCard code="COMP1521" desc="Computer Systems Fundamentals"/>
+        <CourseReviewCard code="COMP1531" desc="Software Engineering Fundamentals"/>
+        <CourseReviewCard code="COMP2511" desc="Object Oriented Progamming"/>
+        <CourseReviewCard code="COMP2521" desc="Data Structures and Algorithms"/>
+        <CourseReviewCard code="SENG2011" desc="Workshop on Reasoning about Programs"/>
       </div>
 
       <div>Add your 💩shit here...</div>
