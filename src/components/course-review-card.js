@@ -14,6 +14,7 @@ const CourseReviewCard = (props) => {
           <Card.Header>{code}</Card.Header>
           <Card.Meta>{desc}</Card.Meta>
           <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+          <Card.Meta> 42 reviews </Card.Meta>
           <Card.Description>
           This is a long description of the above course describing what the course entails
           and what to expect when you enroll in the course
