@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown, StepTitle } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
 
 
 const DropdownTags = (props) => {
