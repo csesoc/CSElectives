@@ -16,6 +16,7 @@ const DropdownTags = (props) => {
     <Dropdown
       placeholder = {title}
       selection
+      clearable
       className='icon'
 
       options = {tagOptions}
