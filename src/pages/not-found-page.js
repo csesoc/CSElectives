@@ -1,13 +1,16 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Header, Image } from 'semantic-ui-react';
+import Error404Image from '../assets/not-found.jpg';
 
 const NotFoundPage = () => {
   return (
-    <>
+    <div>
       <Header as='h1'>404 Not Found Page</Header>
-
-      <div>Add your 💩shit here...</div>
-    </>
+      <Image src={Error404Image} size='massive' centered />
+      <h1 align="center">
+        Oops looks like you might be lost in the CyberSpacE
+      </h1>
+    </div>
   );
 };
 
