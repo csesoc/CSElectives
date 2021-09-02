@@ -2,6 +2,7 @@ import React from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
 import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTags from '../components/dropdown-tag-menu';
+import DropdownSort from '../components/dropdown-sort-menu';
 import { Segment, Grid } from 'semantic-ui-react';
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
@@ -16,10 +17,25 @@ const HomePage = () => {
       <Segment className="search-section-background">
         <DropdownCourseSearchSelection className="searchbar"/>
         {/* Toggle other tags button */}
-        <ToggleOtherTagsButton></ToggleOtherTagsButton>
-        <DropdownTags title = 'Major' tags = {['Yes']}/>
-        <DropdownTags title = 'Level' tags = {['Yes']}/>
-        <DropdownTags title = 'Term Offering' tags = {['Yes']}/>
+        {/* <ToggleOtherTagsButton></ToggleOtherTagsButton>*/}
+        <div className='sort-dropdown-parent'>
+          <div className='sort-dropdown-text'>
+            Sort by:
+          </div>
+          <div className='sort-dropdown-menu'>
+            <DropdownSort/>
+          </div>
+
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title = 'Major' tags = {['Yes']} className='dropdown-tags'/>
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title = 'Level' tags = {['Yes']} className='dropdown-tags'/>
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title = 'Term Offering' tags = {['Yes']} className='dropdown-tags'/>
+        </div>
         {/* Manually increasing the segment size for now */}
         <br></br>
         <br></br>
