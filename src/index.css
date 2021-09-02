@@ -92,6 +92,10 @@ footer {
   margin-bottom: 1.5rem;
 }
 
+.logo-size {
+  width: 30%;
+}
+
 .not-found-page-background {
   background: url('./assets/not-found.jpg');
   width: 100vw;
@@ -107,4 +111,8 @@ footer {
 
 .searchbar{
   margin-bottom: 1rem;
+}
+
+.ui.menu.secondary.pointing.item{
+  float: left;
 }

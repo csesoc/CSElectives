@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Menu } from 'semantic-ui-react';
+import { Button, Container, Image, Menu, Input } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../assets/logo.svg';
@@ -13,44 +13,48 @@ const Header = () => {
 
   return (
     <Menu pointing secondary>
-      <Menu.Item
-        as={Link}
-        to="/"
-        name='home'
-        onClick={handleItemClick}
-      >
-        <Image src={Logo} className='logo-size'/>
-      </Menu.Item>
-      {/* ELEC-79 Change this link to link to the login page */}
-      <Menu.Item
-        as={Link}
-        to="/"
-        name='login'
-        active={activeItem === 'login'}
-        onClick={handleItemClick}
-      >
-        Log In
-      </Menu.Item>
-      <Menu.Item
-        as={Link}
-        to="/course"
-        name='courses'
-        active={activeItem === 'courses'}
-        onClick={handleItemClick}
-      >
+      <Container>
+        <Menu.Item
+          as={Link}
+          to="/"
+          name='home'
+          onClick={handleItemClick}
+        >
+          <Image src={Logo} size='small'/>
+        </Menu.Item>
+        <Menu.Item
+          as={Link}
+          to="/course"
+          name='courses'
+          active={activeItem === 'courses'}
+          onClick={handleItemClick}
+        >
       Courses
-      </Menu.Item>
-      <Menu.Item
-        as={Link}
-        to="/review"
-        name='review'
-        active={activeItem === 'review'}
-        onClick={handleItemClick}
-      >
+        </Menu.Item>
+        <Menu.Item
+          as={Link}
+          to="/review"
+          name='review'
+          active={activeItem === 'review'}
+          onClick={handleItemClick}
+        >
       Submit a review
-      </Menu.Item>
+        </Menu.Item>
+        <Menu.Item
+          position='right'
+        >
+          <Input icon='search' placeholder='COMP1511' />
+        </Menu.Item>
+        <Menu.Item
+          as={Link}
+          to="/login"
+          name='login'
+          onClick={handleItemClick}
+        >
+          <Button primary>Log In</Button>
+        </Menu.Item>
+      </Container>
     </Menu>
-
   );
 };
 
