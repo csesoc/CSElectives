@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
 import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTags from '../components/dropdown-tag-menu';
-import { Segment } from 'semantic-ui-react';
+import { Segment, Grid } from 'semantic-ui-react';
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
@@ -49,20 +49,37 @@ const HomePage = () => {
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
-      <div className="my-front-page-card">
-        <CourseReviewCard code="COMP1511" name="Programming Fundamentals"
-          desc="This is a placeholder for the actual course description."/>
-        <CourseReviewCard code="COMP1521" name="Computer Systems Fundamentals"
-          desc="This is a placeholder for the actual course description."/>
-        <CourseReviewCard code="COMP1531" name="Software Engineering Fundamentals"
-          desc="This is a placeholder for the actual course description."/>
-        <CourseReviewCard code="COMP2511" name="Object Oriented Progamming"
-          desc="This is a placeholder for the actual course description."/>
-        <CourseReviewCard code="COMP2521" name="Data Structures and Algorithms"
-          desc="This is a placeholder for the actual course description."/>
-        <CourseReviewCard code="SENG2011" name="Workshop on Reasoning about Programs"
-          desc="This is a placeholder for the actual course description."/>
-      </div>
+      <Grid columns={3}>
+        <Grid.Row>
+          <Grid.Column>
+            <CourseReviewCard code="COMP1511" name="Programming Fundamentals"
+              desc="This is a placeholder for the actual course description."/>
+          </Grid.Column>
+          <Grid.Column>
+            <CourseReviewCard code="COMP1521" name="Computer Systems Fundamentals"
+              desc="This is a placeholder for the actual course description."/>
+          </Grid.Column>
+          <Grid.Column>
+            <CourseReviewCard code="COMP1531" name="Software Engineering Fundamentals"
+              desc="This is a placeholder for the actual course description."/>
+          </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row>
+          <Grid.Column>
+            <CourseReviewCard code="COMP2511" name="Object Oriented Progamming"
+              desc="This is a placeholder for the actual course description."/>
+          </Grid.Column>
+          <Grid.Column>
+            <CourseReviewCard code="COMP2521" name="Data Structures and Algorithms"
+              desc="This is a placeholder for the actual course description."/>
+          </Grid.Column>
+          <Grid.Column>
+            <CourseReviewCard code="SENG2011" name="Workshop on Reasoning about Programs"
+              desc="This is a placeholder for the actual course description."/>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
 
       <div>Add your 💩shit here...</div>
     </>
