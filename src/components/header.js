@@ -1,29 +1,52 @@
-import React from 'react';
-import { Image, Menu } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Button, Image, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../assets/logo.svg';
 
 // This header will appear on all pages
 const Header = () => {
-  return (
+  const [activeItem, setActiveItem] = useState('home');
+  const handleItemClick = (e, { name }) => {
+    setActiveItem(name);
+  };
 
-    // Menu component: https://react.semantic-ui.com/collections/menu/
-    // You will want to check out the 'pointing' and 'secondary' attributes to
-    // achieve the line effect specified in the Figma.
-    <Menu>
-      <Menu.Item as={Link} to="/">
+  return (
+    <Menu pointing secondary>
+      <Menu.Item
+        as={Link}
+        to="/"
+        name='home'
+        onClick={handleItemClick}
+      >
         <Image src={Logo}/>
       </Menu.Item>
-      {/* ELEC-79 Change this link to link to the login page */}
-      <Menu.Item as={Link} to="/">
-        <b>Log In</b>
-      </Menu.Item>
-      <Menu.Item as={Link} to="/course">
+      <Menu.Item
+        as={Link}
+        to="/course"
+        name='courses'
+        active={activeItem === 'courses'}
+        onClick={handleItemClick}
+      >
       Courses
       </Menu.Item>
-      <Menu.Item as={Link} to="/review">
+      <Menu.Item
+        as={Link}
+        to="/review"
+        name='review'
+        active={activeItem === 'review'}
+        onClick={handleItemClick}
+      >
       Submit a review
+      </Menu.Item>
+      <Menu.Item
+        as={Link}
+        to="/login"
+        name='login'
+        onClick={handleItemClick}
+        position='right'
+      >
+        <Button>Log In</Button>
       </Menu.Item>
     </Menu>
 
