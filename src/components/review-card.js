@@ -34,25 +34,25 @@ const ReviewCard = (props) => {
                 <div style={{ margin: '2px' }}>
                   Usefulness
                   <div>
-                    <Progress value={usefulProgress} total='5' progress='ratio' size='standard' color='blue'/>
+                    <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
                 <div style={{ margin: '2px' }}>
                 Workload
                   <div>
-                    <Progress value={workloadProgress} total='5' progress='ratio' size='standard' color='blue'/>
+                    <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
                 <div style={{ margin: '2px' }}>
                 Enjoyment
                   <div>
-                    <Progress value={enjoymentProgress} total='5' progress='ratio' size='standard' color='blue'/>
+                    <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
                 <div style={{ margin: '2px' }}>
                 Difficulty
                   <div>
-                    <Progress value={difficultyProgress} total='5' progress='ratio' size='standard' color='blue'/>
+                    <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
               </Grid.Column>
