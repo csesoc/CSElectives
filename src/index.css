@@ -68,7 +68,8 @@ footer {
 
 .course-review-card {
   display: block;
-  margin-bottom: 2rem;
+  height: 230px;
+  width: 400px;
 }
 
 .my-front-page-tags {

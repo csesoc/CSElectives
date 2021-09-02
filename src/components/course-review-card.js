@@ -9,13 +9,13 @@ const CourseReviewCard = (props) => {
   let { desc } = props;
 
   // Truncate desc and add elipsis to end if too long
-  if (desc.length > 200) {
-    desc = desc.substring(200, length) + '...';
+  if (desc.length > 220) {
+    desc = desc.substring(220, length) + '...';
   }
 
   return (
-    <div className='course-review-card'>
-      <Card>
+    <div>
+      <Card className='course-review-card'>
         <Card.Content>
           <Card.Header>{code}</Card.Header>
           <Card.Meta>{name}</Card.Meta>
