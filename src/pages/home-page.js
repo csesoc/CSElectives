@@ -6,6 +6,7 @@ import { Segment } from 'semantic-ui-react';
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
+import DropdownCourseSearchSelection from '../components/searchbar.js';
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Header as='h1'>Home Page</Header>
 
       <Segment className="search-section-background">
+        <DropdownCourseSearchSelection className="searchbar"/>
         {/* Toggle other tags button */}
         <ToggleOtherTagsButton></ToggleOtherTagsButton>
         <DropdownTags title = 'Major' tags = {['Yes']}/>
@@ -30,6 +32,7 @@ const HomePage = () => {
         */}
       </Segment>
 
+
       {/* Input component: https://react.semantic-ui.com/elements/input/ */}
       <Input placeholder="You'll need a text box!"/>
 
@@ -40,7 +43,6 @@ const HomePage = () => {
         selection
         placeholder="Or you could use a search dropdown!"
       />
-
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
