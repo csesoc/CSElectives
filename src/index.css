@@ -16,7 +16,22 @@ code {
 }
 
 .my-grid-row {
-  margin: 0 10px;
+  margin: 0 25px;
+}
+
+.my-grid-top {
+  margin: 0 25px;
+  margin-top: 15px; 
+}
+
+.my-grid-bottom {
+  margin: 0 25px;
+  margin-bottom: 15px;
+}
+
+.my-review-row {
+  margin: 0 15px;
+  margin-top: 3px;
 }
 
 .course-label {

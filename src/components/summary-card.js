@@ -9,17 +9,17 @@ const SummaryCard = (props) => {
 
   return (
     <div style={{ display: 'block', margin: '20px' }}>
-      <Card fluid>
+      <Card fluid raised>
         <Card.Content>
           <Grid>
-            <Grid.Row>
+            <Grid.Row className='my-grid-top'>
               <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Level One</Label>
               <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Introductory Course</Label>
               <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>something really long</Label>
             </Grid.Row>
             <Grid.Row className='my-grid-row'>
               <div>
-                <Card.Header>{summaryTitle}</Card.Header>
+                <Card.Header as='h2'>{summaryTitle}</Card.Header>
                 <a href="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/"
                   rel="noreferrer" target="_blank">
                     COMP1511 Handbook
@@ -54,7 +54,7 @@ const SummaryCard = (props) => {
               from the course etc
               </Card.Content>
             </Grid.Row>
-            <Grid.Row className='my-grid-row'>
+            <Grid.Row className='my-grid-bottom'>
               <Card.Content>
                 <h4>Topics</h4>
                 <li>topic one</li>
