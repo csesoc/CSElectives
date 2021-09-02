@@ -1,13 +1,11 @@
 :root {
   --csesoc-blue: #3A76F8;
-  --csesoc-white: white;
+  --csesoc-navy: #40404C;
+  --csesoc-white: #FFFFFF;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,8 +19,17 @@ code {
   margin: 0 10px;
 }
 
-.my-label {
-  margin: 0 10px;
+.course-label {
+  margin: 0 0 8px 10px;
+  color: var(--csesoc-blue);
+}
+
+.ui.progress.bar-chart {
+  margin: 1px;
+}
+
+.display-wrapper {
+  min-height: 100vh;
 }
 
 footer {
@@ -42,4 +49,25 @@ footer {
 
 .search-section-background {
   background-color: white!important;
+}
+
+.course-review-card {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.my-front-page-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction:row;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-front-page-tags {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
