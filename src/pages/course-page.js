@@ -1,11 +1,16 @@
 import React from 'react';
-import { Header, Label, Progress, Grid } from 'semantic-ui-react';
+import { Header, Label, Progress, Grid, Dropdown, Button } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import CourseReviewCard from '../components/course-review-card.js';
+import { useHistory } from 'react-router-dom';
 
 
 const CoursePage = () => {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push('/review');
+  };
   return (
     <>
       <Header as='h1' style={{ padding: 20 }}>Course Page</Header>
@@ -37,6 +42,30 @@ const CoursePage = () => {
             </Grid.Column>
             <Grid.Column >
               <Grid.Column width={10}>
+                <Grid columns={3}>
+                  <Grid.Row>
+                    <Grid.Column width={4}>
+                      <div className='review-heading'>
+                        <h2>Reviews</h2>
+                      </div>
+                    </Grid.Column>
+                    <Grid.Column width={4}>
+                      <div className='sort-reviews'>
+                        <Dropdown text = 'Sort by'>
+                          <Dropdown.Menu>
+                            <Dropdown.Item text='Most Popular' />
+                            <Dropdown.Item text='Most Recent' />
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </div>
+                    </Grid.Column>
+                    <Grid.Column width={7}>
+                      <Button class="ui button" onClick={handleClick} className='review-button'>
+                        Submit a review
+                      </Button>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
                 <div className="card-displayer">
                   <ReviewCard
                     overallRating="4"
