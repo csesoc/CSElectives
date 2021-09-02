@@ -96,6 +96,19 @@ footer {
   width: 30%;
 }
 
+.not-found-page-background {
+  background: url('./assets/not-found.jpg');
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+  background-position: center;
+  z-index: -5;
+}
+
 .searchbar{
   margin-bottom: 1rem;
 }
