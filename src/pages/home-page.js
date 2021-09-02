@@ -15,19 +15,25 @@ const HomePage = () => {
 
       <Segment className="search-section-background">
         {/* Toggle other tags button */}
-        <ToggleOtherTagsButton></ToggleOtherTagsButton>
-        <div className='sortDropdownParent'>
-          <div className='sortDropdownText'>
+        {/* <ToggleOtherTagsButton></ToggleOtherTagsButton>*/}
+        <div className='sort-dropdown-parent'>
+          <div className='sort-dropdown-text'>
             Sort by:
           </div>
-          <div className='sortDropdownMenu'>
+          <div className='sort-dropdown-menu'>
             <DropdownSort/>
           </div>
 
         </div>
-        <DropdownTags title = 'Major' tags = {['Yes']}/>
-        <DropdownTags title = 'Level' tags = {['Yes']}/>
-        <DropdownTags title = 'Term Offering' tags = {['Yes']}/>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title = 'Major' tags = {['Yes']} className='dropdown-tags'/>
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title = 'Level' tags = {['Yes']} className='dropdown-tags'/>
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title = 'Term Offering' tags = {['Yes']} className='dropdown-tags'/>
+        </div>
         {/* Manually increasing the segment size for now */}
         <br></br>
         <br></br>
