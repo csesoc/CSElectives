@@ -19,7 +19,7 @@ const Header = () => {
         name='home'
         onClick={handleItemClick}
       >
-        <Image src={Logo} style={{ width: '15%', margin: '0 10px' }}/>
+        <Image src={Logo}/>
       </Menu.Item>
       <Menu.Item
         as={Link}
