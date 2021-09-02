@@ -67,7 +67,8 @@ const HomePage = () => {
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
-      <Grid columns='three'>
+      {/* Code, name and desc hardcoded for testing purposes */}
+      <Grid columns={3}>
         <Grid.Row>
           <Grid.Column>
             <CourseReviewCard code="COMP1511" name="Programming Fundamentals"
@@ -146,7 +147,6 @@ const HomePage = () => {
         </Grid.Row>
       </Grid>
 
-      <div>Add your 💩shit here...</div>
     </>
   );
 };
