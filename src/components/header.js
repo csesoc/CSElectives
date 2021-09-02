@@ -20,7 +20,7 @@ const Header = () => {
           name='home'
           onClick={handleItemClick}
         >
-          <Image src={Logo} className='logo-size'/>
+          <Image src={Logo} size='small'/>
         </Menu.Item>
         <Menu.Item
           as={Link}
@@ -50,9 +50,8 @@ const Header = () => {
           to="/login"
           name='login'
           onClick={handleItemClick}
-          position='right'
         >
-          <Button>Log In</Button>
+          <Button primary>Log In</Button>
         </Menu.Item>
       </Container>
     </Menu>
