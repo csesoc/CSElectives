@@ -10,7 +10,7 @@ const CoursePage = () => {
     <>
 
       <Header>
-        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px' }}>COMP1511</h1>
+        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>COMP1511</h1>
       </Header>
 
 
