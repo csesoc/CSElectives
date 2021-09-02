@@ -36,7 +36,7 @@ const App = () => {
         </header>
 
         <main>
-          <Container>
+          <Container className='main-wrapper'>
             <Switch>
               <Route exact path='/course' component={CoursePage} />
               <Route exact path='/review' component={ReviewPage} />

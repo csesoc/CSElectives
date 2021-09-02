@@ -10,6 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  position: relative;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -61,6 +65,11 @@ code {
   min-height: 100vh;
 }
 
+.main-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 footer {
   background-color: var(--csesoc-blue);
   padding: 1.5rem;
@@ -84,7 +93,8 @@ footer {
 
 .course-review-card {
   display: block;
-  margin-bottom: 2rem;
+  height: 230px;
+  width: 400px;
 }
 
 .my-front-page-tags {
@@ -150,6 +160,7 @@ footer {
   height: 100vh;
   position: absolute;
   left: 0;
+  top: 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: local;
