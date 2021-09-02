@@ -19,7 +19,7 @@ const Header = () => {
         name='home'
         onClick={handleItemClick}
       >
-        <Image src={Logo}/>
+        <Image src={Logo} className='logo-size'/>
       </Menu.Item>
       {/* ELEC-79 Change this link to link to the login page */}
       <Menu.Item

@@ -16,12 +16,41 @@ code {
 }
 
 .my-grid-row {
-  margin: 0 10px;
+  margin: 0 25px;
+}
+
+.my-grid-top {
+  margin: 0 25px;
+  margin-top: 15px; 
+}
+
+.my-grid-bottom {
+  margin: 0 25px;
+  margin-bottom: 15px;
+}
+
+.my-review-row {
+  margin: 0 15px;
+  margin-top: 3px;
 }
 
 .course-label {
   margin: 0 0 8px 10px;
   color: var(--csesoc-blue);
+}
+
+.review-heading {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.sort-reviews {
+  margin-top: 23px;
+  margin-left: 10px;
+}
+
+.review-button {
+  
 }
 
 .ui.progress.bar-chart {
@@ -56,15 +85,6 @@ footer {
   margin-bottom: 2rem;
 }
 
-.my-front-page-card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-direction:row;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 .my-front-page-tags {
   display: flex;
   flex-direction: row;
@@ -83,4 +103,8 @@ footer {
   background-attachment: local;
   background-position: center;
   z-index: -5;
+}
+
+.searchbar{
+  margin-bottom: 1rem;
 }
