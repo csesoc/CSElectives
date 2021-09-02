@@ -12,7 +12,7 @@ const ReviewCard = (props) => {
       <Card fluid raised>
         <Card.Content>
           <Grid columns={2} divided>
-            <Grid.Row>
+            <Grid.Row className='my-review-row'>
               <Grid.Column width={11}>
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta style={{ margin: '5px 0' }}>
@@ -31,25 +31,25 @@ const ReviewCard = (props) => {
               </Grid.Column>
               <Grid.Column width={5} >
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
-                <div style={{ margin: '2px' }}>
+                <div style={{ margin: '0 2px' }}>
                   Usefulness
                   <div>
                     <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
-                <div style={{ margin: '2px' }}>
+                <div style={{ margin: '0 2px' }}>
                 Workload
                   <div>
                     <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
-                <div style={{ margin: '2px' }}>
+                <div style={{ margin: '0 2px' }}>
                 Enjoyment
                   <div>
                     <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
-                <div style={{ margin: '2px' }}>
+                <div style={{ margin: '0 2px' }}>
                 Difficulty
                   <div>
                     <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue'/>
