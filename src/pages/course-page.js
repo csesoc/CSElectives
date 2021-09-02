@@ -33,7 +33,7 @@ const CoursePage = () => {
         <Progress percent={10} />
       </div>
       <div>
-        <Grid columns={2}>
+        <Grid columns={2} stackable>
           <Grid.Row>
             <Grid.Column width={6}>
               <div className="card-displayer">
