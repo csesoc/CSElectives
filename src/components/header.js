@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Image, Menu } from 'semantic-ui-react';
+import { Image, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../assets/logo.svg';
@@ -19,7 +19,17 @@ const Header = () => {
         name='home'
         onClick={handleItemClick}
       >
-        <Image src={Logo}/>
+        <Image src={Logo} className='logo-size'/>
+      </Menu.Item>
+      {/* ELEC-79 Change this link to link to the login page */}
+      <Menu.Item
+        as={Link}
+        to="/"
+        name='login'
+        active={activeItem === 'login'}
+        onClick={handleItemClick}
+      >
+        Log In
       </Menu.Item>
       <Menu.Item
         as={Link}
@@ -38,15 +48,6 @@ const Header = () => {
         onClick={handleItemClick}
       >
       Submit a review
-      </Menu.Item>
-      <Menu.Item
-        as={Link}
-        to="/login"
-        name='login'
-        onClick={handleItemClick}
-        position='right'
-      >
-        <Button>Log In</Button>
       </Menu.Item>
     </Menu>
 
