@@ -78,6 +78,8 @@ footer {
 
 .search-section-background {
   background-color: white!important;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .course-review-card {
@@ -92,6 +94,52 @@ footer {
   margin-bottom: 1.5rem;
 }
 
+.sort-dropdown-parent {
+  width:20%;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort-dropdown-text {
+  width: 30%;
+  font-size: 16px;
+  margin-right: 0;
+  float: left;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-end;
+  
+
+}
+
+.sort-dropdown-menu {
+  width: 70%;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.dropdown-tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-tags-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  margin-left: 1rem;
+}
+ 
 .logo-size {
   width: 30%;
 }
