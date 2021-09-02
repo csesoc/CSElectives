@@ -9,7 +9,9 @@ const CoursePage = () => {
   return (
     <>
 
-      <Header styles={{ padding: 20, textAlign: 'center' }}> <h1>Course Page</h1></Header>
+      <Header>
+        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px' }}>COMP1511</h1>
+      </Header>
 
 
       <div>
