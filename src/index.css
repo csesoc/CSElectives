@@ -79,6 +79,7 @@ footer {
 .search-section-background {
   background-color: white!important;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .course-review-card {
