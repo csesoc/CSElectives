@@ -5,13 +5,8 @@ import { Card } from 'semantic-ui-react';
 import { Rating } from 'semantic-ui-react';
 
 const CourseReviewCard = (props) => {
-  const { code, name } = props;
-  let { desc } = props;
-
-  // Truncate desc and add elipsis to end if too long
-  if (desc.length > 220) {
-    desc = desc.substring(220, length) + '...';
-  }
+  const { code, name, desc } = props;
+  const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
 
   return (
     <div>
@@ -22,7 +17,7 @@ const CourseReviewCard = (props) => {
           <Rating icon='star' defaultRating={3} maxRating={5} disabled />
           <Card.Meta> 42 reviews </Card.Meta>
           <Card.Description>
-            {desc}
+            {displayDesc}
           </Card.Description>
         </Card.Content>
       </Card>
