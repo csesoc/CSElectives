@@ -20,7 +20,6 @@ const ReviewCard = (props) => {
                   <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled/>
                 </Card.Meta>
                 <Card.Description >
-
                   {description}
                 </Card.Description>
               </Grid.Column>

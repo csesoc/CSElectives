@@ -186,3 +186,20 @@ footer {
 .bar-chart-rows {
   margin: '0 2px';
 }
+
+.overall-star-ratings {
+  margin: '5px 0';
+}
+
+.review-cards {
+  display: 'block';
+  margin: 20px;
+}
+
+.ratings-only-review-header {
+
+  margin-top: 0px;
+  margin-bottom: 260px;
+  margin-right: 0px;
+  margin-left: 0px;
+}

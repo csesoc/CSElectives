@@ -12,32 +12,19 @@ const RatingsCard = (props) => {
     <div style={{ display: 'block', margin: '20px' }}>
       <Card fluid raised>
         <Card.Content>
-          {/* <div style={{ margin: '100' }}>
-            <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
-          </div> */}
 
           <Grid>
             <Grid.Row className='review-row-ratings-only'>
-
               <Grid.Column width={16}>
-
                 <div style={{ margin: '0px 260px 0px 0' }}></div>
                 <span style={{ float: 'right' }}>{reviewDate}</span>
-
-                <Card.Header className="header-test">
+                <Card.Header >
                   <span>
-                    <h3 className='header-test' >{reviewTitle}</h3>
-
-
+                    <h3 >{reviewTitle}</h3>
                   </span>
-
-
                 </Card.Header>
-
-
                 <Card.Meta style={{ margin: '5px 0' }}>
                     Overall: <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
-
                 </Card.Meta>
 
                 <div className='bar-chart-rows' >
