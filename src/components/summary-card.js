@@ -14,9 +14,9 @@ const SummaryCard = (props) => {
         <Card.Content>
           <Grid>
             <Grid.Row className='my-grid-top'>
-              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Level One</Label>
-              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Introductory Course</Label>
-              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>something really long</Label>
+              <Label color= 'blue' style={{ margin: '0 5px 8px 5px' }}>Level One</Label>
+              <Label color= 'blue' style={{ margin: '0 5px 8px 5px' }}>Introductory Course</Label>
+              <Label color= 'blue' style={{ margin: '0 5px 8px 5px' }}>something really long</Label>
             </Grid.Row>
             <Grid.Row className='my-grid-row'>
               <div>
