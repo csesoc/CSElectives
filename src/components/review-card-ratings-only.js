@@ -18,38 +18,26 @@ const RatingsCard = (props) => {
               <Grid.Column width={16}>
                 <div style={{ margin: '0px 260px 0px 0' }}></div>
                 <span style={{ float: 'right' }}>{reviewDate}</span>
-                <Card.Header >
-                  <span>
-                    <h3 >{reviewTitle}</h3>
-                  </span>
-                </Card.Header>
+                <Card.Header className='ratings-only-review-header' as='h3' content={reviewTitle}/>
                 <Card.Meta style={{ margin: '5px 0' }}>
                     Overall: <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
                 </Card.Meta>
 
                 <div className='bar-chart-rows' >
-                      Usefulness
-                  <div>
-                    <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue'/>
-                  </div>
+                  <label>Usefulness</label>
+                  <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue'/>
                 </div>
                 <div className='bar-chart-rows'>
-                    Workload
-                  <div>
-                    <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue'/>
-                  </div>
+                  <label>Workload</label>
+                  <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue'/>
                 </div>
                 <div className='bar-chart-rows'>
-                    Enjoyment
-                  <div>
-                    <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
-                  </div>
+                  <label>Enjoyment</label>
+                  <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
                 </div>
                 <div className='bar-chart-rows'>
-                    Difficulty
-                  <div>
-                    <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue'/>
-                  </div>
+                  <label>Difficulty</label>
+                  <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue'/>
                 </div>
               </Grid.Column>
             </Grid.Row>
