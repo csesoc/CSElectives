@@ -2,7 +2,6 @@ import React from 'react';
 import { Header, Label, Progress, Grid, Dropdown, Button } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import CourseReviewCard from '../components/course-review-card.js';
 import { useHistory } from 'react-router-dom';
 
 
@@ -17,14 +16,14 @@ const CoursePage = () => {
         <Grid columns={2} stackable>
           <Grid.Row>
             <Grid.Column width={6}>
-              <div className="card-displayer">
+              <div className="my-summary-card">
                 <SummaryCard
                   summaryTitle="COMP1511 - Intro to Programming"
                   summaryLink="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/"
                   overallRating="4"
                   numReviews="42"
                   summaryDesc=
-                    "This is a long description of the above course describing containing what to expect in the course"
+                    "This is a long description of the above course describing"
                   usefulAvg="3"
                   workloadAvg="2"
                   difficultyAvg="4"
@@ -67,6 +66,50 @@ const CoursePage = () => {
                     workloadProgress="2"
                     enjoymentProgress="4"
                     difficultyProgress="1"
+                  />
+                </div>
+                <div className="card-displayer">
+                  <ReviewCard
+                    overallRating="2"
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
+                <div className="card-displayer">
+                  <ReviewCard
+                    overallRating="2"
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
+                <div className="card-displayer">
+                  <ReviewCard
+                    overallRating="2"
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
+                <div className="card-displayer">
+                  <ReviewCard
+                    overallRating="2"
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
                   />
                 </div>
                 <div className="card-displayer">

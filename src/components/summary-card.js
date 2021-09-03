@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Label, Grid, Card, Progress, Rating } from 'semantic-ui-react';
+import LabelExampleIcon from '../components/tags.js';
 
 
 const SummaryCard = (props) => {
@@ -14,9 +15,9 @@ const SummaryCard = (props) => {
         <Card.Content>
           <Grid>
             <Grid.Row className='my-grid-top'>
-              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Level One</Label>
-              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>Introductory Course</Label>
-              <Label color= 'blue' style={{ margin: '0 0 8px 10px' }}>something really long</Label>
+              <div className='my-course-page-tags'>
+                <LabelExampleIcon code="Level 1"/>
+              </div>
             </Grid.Row>
             <Grid.Row className='my-grid-row'>
               <div>
@@ -62,6 +63,8 @@ const SummaryCard = (props) => {
                 <h4>Topics</h4>
                 <li>topic one</li>
                 <li>topic two</li>
+                <li>topic three</li>
+                <li>topic four</li>
               </Card.Content>
             </Grid.Row>
           </Grid>
