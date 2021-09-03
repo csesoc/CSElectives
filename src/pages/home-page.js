@@ -9,6 +9,7 @@ import { Segment, Grid } from 'semantic-ui-react';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import DropdownCourseSearchSelection from '../components/searchbar.js';
+import ViewOptionsToggle from '../components/view-options-toggle.js';
 
 const majorOptions = [
   {
@@ -126,6 +127,8 @@ const HomePage = () => {
       <div className='my-front-page-tags'>
         <LabelExampleIcon code="Level 1"/>
       </div>
+
+      <ViewOptionsToggle/>
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
