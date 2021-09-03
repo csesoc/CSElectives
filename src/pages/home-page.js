@@ -1,14 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Dropdown, Header, Input } from 'semantic-ui-react';
 import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTags from '../components/dropdown-tag-menu';
+import DropdownSort from '../components/dropdown-sort-menu';
 import { Segment, Grid } from 'semantic-ui-react';
+
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import DropdownCourseSearchSelection from '../components/searchbar.js';
 
+const majorOptions = [
+  {
+    key: 'Artificial Intelligence',
+    text: 'Artificial Intelligence',
+    value: 'Artificial Intelligence',
+  },
+  {
+    key: 'Computer Networks',
+    text: 'Computer Networks',
+    value: 'Computer Networks',
+  },
+  {
+    key: 'Database Systems',
+    text: 'Database Systems',
+    value: 'Database Systems',
+  },
+  {
+    key: 'eCommerce Systems',
+    text: 'eCommerce Systems',
+    value: 'eCommerce Systems',
+  },
+  {
+    key: 'Embedded Systems',
+    text: 'Embedded Systems',
+    value: 'Embedded Systems',
+  },
+  {
+    key: 'Programming Languages',
+    text: 'Programming Languages',
+    value: 'Programming Languages',
+  },
+  {
+    key: 'Security Engineering',
+    text: 'Security Engineering',
+    value: 'Security Engineering',
+  },
+];
+
+const termOptions = [
+  {
+    key: 'Term 1',
+    text: 'Term 1',
+    value: 'Term 1',
+  },
+  {
+    key: 'Term 2',
+    text: 'Term 2',
+    value: 'Term 2',
+  },
+  {
+    key: 'Term 3',
+    text: 'Term 3',
+    value: 'Term 3',
+  },
+];
+
 const HomePage = () => {
+  const [activeTags, setActiveTags] = useState( [] );
+
   return (
     <>
       <Header as='h1'>Home Page</Header>
@@ -16,10 +76,28 @@ const HomePage = () => {
       <Segment className="search-section-background">
         <DropdownCourseSearchSelection className="searchbar"/>
         {/* Toggle other tags button */}
-        <ToggleOtherTagsButton></ToggleOtherTagsButton>
-        <DropdownTags title = 'Major' tags = {['Yes']}/>
-        <DropdownTags title = 'Level' tags = {['Yes']}/>
-        <DropdownTags title = 'Term Offering' tags = {['Yes']}/>
+        {/* <ToggleOtherTagsButton></ToggleOtherTagsButton>*/}
+        <div className='sort-dropdown-parent'>
+          <div className='sort-dropdown-text'>
+            Sort by:
+          </div>
+          <div className='sort-dropdown-menu'>
+            <DropdownSort/>
+          </div>
+
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title='Major'
+            tagOptions = {majorOptions}
+            setActiveTags={setActiveTags}
+            className='dropdown-tags'/>
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTags title='Term Offering'
+            tagOptions = {termOptions}
+            setActiveTags={setActiveTags}
+            className='dropdown-tags'/>
+        </div>
         {/* Manually increasing the segment size for now */}
         <br></br>
         <br></br>
@@ -33,16 +111,16 @@ const HomePage = () => {
       </Segment>
 
 
-      {/* Input component: https://react.semantic-ui.com/elements/input/ */}
+      {/* Input component: https://react.semantic-ui.com/elements/input/ *
       <Input placeholder="You'll need a text box!"/>
 
       {/* Dropdown component --> scroll to search selection to implement options:
-      https://react.semantic-ui.com/modules/dropdown/ */}
+      https://react.semantic-ui.com/modules/dropdown/
       <Dropdown
         search
         selection
         placeholder="Or you could use a search dropdown!"
-      />
+      /> */}
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
@@ -51,7 +129,8 @@ const HomePage = () => {
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
-      <Grid columns='three'>
+      {/* Code, name and desc hardcoded for testing purposes */}
+      <Grid columns={3}>
         <Grid.Row>
           <Grid.Column>
             <CourseReviewCard code="COMP1511" name="Programming Fundamentals"
@@ -130,7 +209,6 @@ const HomePage = () => {
         </Grid.Row>
       </Grid>
 
-      <div>Add your 💩shit here...</div>
     </>
   );
 };

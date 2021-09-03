@@ -1,39 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown, StepTitle } from 'semantic-ui-react';
-
+import { Dropdown } from 'semantic-ui-react';
 
 const DropdownTags = (props) => {
-  const { title, tags } = props;
+  const { title, tagOptions, activeTags, setActiveTags } = props;
 
   const tagItems = (x) => {
     return (<Dropdown.Item>{x}</Dropdown.Item>);
   };
 
+  // Need to change how an item is on the tag menu is displayed after selected
+
   return (
     <Dropdown
-      text= {title}
-      icon='filter'
-      floating
-      labeled
-      button
+      placeholder = {title}
+      selection
+      clearable
       className='icon'
+
+      options = {tagOptions}
     >
-      <Dropdown.Menu>
-        <Dropdown.Header icon='tags' content='Filter by tag' />
-        {tags.map(tagItems)}
-        <Dropdown.Item>Important</Dropdown.Item>
-        <Dropdown.Item>Announcement</Dropdown.Item>
-        <Dropdown.Item>Discussion</Dropdown.Item>
-      </Dropdown.Menu>
     </Dropdown>
   );
 };
 
 DropdownTags.propTypes = {
   title: PropTypes.string,
-  tags: PropTypes.array,
+  tagOptions: PropTypes.array,
+  activeTags: PropTypes.array,
+  setActiveTags: PropTypes.func,
 };
 
 export default DropdownTags;
