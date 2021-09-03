@@ -59,10 +59,12 @@ const CoursePage = () => {
                         </Dropdown>
                       </div>
                     </Grid.Column>
-                    <Grid.Column width={7}>
-                      <Button class="ui button" onClick={handleClick} className='review-button'>
-                        Submit a review
-                      </Button>
+                    <Grid.Column width={8}>
+                      <div className='review-button'>
+                        <Button class="ui button" onClick={handleClick} className='review-button'>
+                          Submit a review
+                        </Button>
+                      </div>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>

@@ -54,7 +54,8 @@ code {
 }
 
 .review-button {
-  
+  margin-top: 10px;
+  margin-left: 50px;
 }
 
 .ui.progress.bar-chart {
