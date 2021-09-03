@@ -13,6 +13,12 @@ const CoursePage = () => {
   };
   return (
     <>
+
+      <Header>
+        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>COMP1511</h1>
+      </Header>
+
+
       <div>
         <Grid columns={2} stackable>
           <Grid.Row>
@@ -31,6 +37,8 @@ const CoursePage = () => {
                   enjoymentAvg="3"
                 />
               </div>
+
+
             </Grid.Column>
             <Grid.Column >
               <Grid.Column width={10}>
@@ -80,6 +88,19 @@ const CoursePage = () => {
                     difficultyProgress="2"
                   />
                 </div>
+                <div className="card-displayer">
+                  <ReviewCard
+                    overallRating="2"
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
+
+
               </Grid.Column>
             </Grid.Column>
           </Grid.Row>
