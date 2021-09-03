@@ -175,3 +175,10 @@ footer {
 .ui.menu.secondary.pointing.item{
   float: left;
 }
+
+.review-row-ratings-only {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 190px;
+  margin-left: 190px;
+}
