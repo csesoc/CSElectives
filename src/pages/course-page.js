@@ -89,10 +89,7 @@ const CoursePage = () => {
                   <ReviewCard
                     description="I took COMP3311(databases) and it was one of my
                     favourite (and highest mark courses). The assignments
-                    and exams are actually fun. Why? Because they are
-                    somewhat relatable, e.g. Where can I buy a type of
-                    Pizza that serves it, but also is the cheapest, blah,
-                    blah. "
+                    and exams are actually fun. "
                     overallRating="2"
                     reviewDate="10/2/19"
                     reviewTitle="its okay..."
@@ -102,6 +99,7 @@ const CoursePage = () => {
                     difficultyProgress="2"
                   />
                 </div>
+
                 <div className="card-displayer">
                   <ReviewCard
                     overallRating="2"
@@ -109,30 +107,27 @@ const CoursePage = () => {
                     reviewTitle="its okay..."
                     description="I took COMP3311(databases) and it was one of my
                     favourite (and highest mark courses). The assignments
-                    and exams are actually fun."
+                    and exams are actually fun. Why? Because they are
+                    somewhat relatable, e.g. Where can I buy a type of
+                    Pizza that serves it, but also is the cheapest, blah,
+                    blah. "
                     usefulProgress="2"
                     workloadProgress="5"
                     enjoymentProgress="3"
                     difficultyProgress="2"
                   />
                 </div>
-
-
                 <div className="card-displayer">
-
                   <RatingsCard
-                    overallRating="2"
+                    overallRating="4"
                     reviewDate="11/2/19"
-                    reviewTitle="Ratings 2"
+                    reviewTitle="Random Title"
                     usefulProgress="2"
                     workloadProgress="5"
                     enjoymentProgress="3"
                     difficultyProgress="2"
                   />
-
-
                 </div>
-
 
               </Grid.Column>
             </Grid.Column>

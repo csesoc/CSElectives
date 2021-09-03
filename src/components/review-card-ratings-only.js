@@ -8,43 +8,57 @@ const RatingsCard = (props) => {
     enjoymentProgress, reviewDate, overallRating } = props;
 
   return (
+
     <div style={{ display: 'block', margin: '20px' }}>
       <Card fluid raised>
         <Card.Content>
+          {/* <div style={{ margin: '100' }}>
+            <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
+          </div> */}
+
           <Grid>
             <Grid.Row className='review-row-ratings-only'>
+
               <Grid.Column width={16}>
-                <Card.Header><h3>{reviewTitle}</h3></Card.Header>
+
+                <div style={{ margin: '0px 260px 0px 0' }}></div>
+                <span style={{ float: 'right' }}>{reviewDate}</span>
+
+                <Card.Header className="header-test">
+                  <span>
+                    <h3 className='header-test' >{reviewTitle}</h3>
+
+
+                  </span>
+
+
+                </Card.Header>
+
+
                 <Card.Meta style={{ margin: '5px 0' }}>
-                      Overall:
-                  <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled/>
+                    Overall: <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
+
                 </Card.Meta>
-                <Card.Description >
 
-
-                </Card.Description>
-
-
-                <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='bar-chart-rows' >
                       Usefulness
                   <div>
                     <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='bar-chart-rows'>
                     Workload
                   <div>
                     <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='bar-chart-rows'>
                     Enjoyment
                   <div>
                     <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
                   </div>
                 </div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='bar-chart-rows'>
                     Difficulty
                   <div>
                     <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue'/>
