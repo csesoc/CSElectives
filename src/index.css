@@ -93,8 +93,8 @@ footer {
 }
 
 .course-review-card {
-  display: block;
-  height: 230px;
+  display: flex;
+  min-height: 230px;
   width: 400px;
 }
 
