@@ -19,8 +19,18 @@ const CoursePage = () => {
           <Grid.Row>
             <Grid.Column width={6}>
               <div className="card-displayer">
-                <SummaryCard summaryTitle="COMP1511"/>
-
+                <SummaryCard
+                  summaryTitle="COMP1511 - Intro to Programming"
+                  summaryLink="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/"
+                  overallRating="4"
+                  numReviews="42"
+                  summaryDesc=
+                    "This is a long description of the above course describing containing what to expect in the course"
+                  usefulAvg="3"
+                  workloadAvg="2"
+                  difficultyAvg="4"
+                  enjoymentAvg="3"
+                />
               </div>
 
 
