@@ -10,6 +10,7 @@ import DropdownSort from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import DropdownCourseSearchSelection from '../components/searchbar.js';
+import ViewOptionsToggle from '../components/view-options-toggle.js';
 import { LoadingContext } from '../App.js';
 
 const createDropdownOption = (Item) => {
@@ -120,6 +121,8 @@ const HomePage = (props) => {
       <div className='my-front-page-tags'>
         <LabelExampleIcon code="Level 1"/>
       </div>
+
+      <ViewOptionsToggle/>
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
