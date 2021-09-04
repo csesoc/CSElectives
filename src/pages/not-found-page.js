@@ -5,7 +5,6 @@ const NotFoundPage = () => {
   return (
     <>
       <Header as='h1'>404 Not Found Page</Header>
-
       <div>Add your 💩shit here...</div>
     </>
   );

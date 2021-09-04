@@ -7,7 +7,6 @@ import { Segment } from 'semantic-ui-react';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import DropdownCourseSearchSelection from '../components/searchbar.js';
-
 const HomePage = () => {
   return (
     <>
@@ -31,7 +30,6 @@ const HomePage = () => {
           Add ELEC 75
         */}
       </Segment>
-
 
       {/* Input component: https://react.semantic-ui.com/elements/input/ */}
       <Input placeholder="You'll need a text box!"/>
