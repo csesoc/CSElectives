@@ -12,61 +12,45 @@ import LabelExampleIcon from '../components/tags.js';
 import DropdownCourseSearchSelection from '../components/searchbar.js';
 import { LoadingContext } from '../App.js';
 
-const majorOptions = [
-  {
-    key: 'Artificial Intelligence',
-    text: 'Artificial Intelligence',
-    value: 'Artificial Intelligence',
-  },
-  {
-    key: 'Computer Networks',
-    text: 'Computer Networks',
-    value: 'Computer Networks',
-  },
-  {
-    key: 'Database Systems',
-    text: 'Database Systems',
-    value: 'Database Systems',
-  },
-  {
-    key: 'eCommerce Systems',
-    text: 'eCommerce Systems',
-    value: 'eCommerce Systems',
-  },
-  {
-    key: 'Embedded Systems',
-    text: 'Embedded Systems',
-    value: 'Embedded Systems',
-  },
-  {
-    key: 'Programming Languages',
-    text: 'Programming Languages',
-    value: 'Programming Languages',
-  },
-  {
-    key: 'Security Engineering',
-    text: 'Security Engineering',
-    value: 'Security Engineering',
-  },
+const createDropdownOption = (Item) => {
+  return {
+    key: Item,
+    text: Item,
+    value: Item,
+  };
+};
+
+const majors = [
+  'Artificial Intelligence',
+  'Computer Networks',
+  'Database Systems',
+  'eCommerce Systems',
+  'Embedded Systems',
+  'Programming Languages',
+  'Security Engineering',
 ];
 
-const termOptions = [
-  {
-    key: 'Term 1',
-    text: 'Term 1',
-    value: 'Term 1',
-  },
-  {
-    key: 'Term 2',
-    text: 'Term 2',
-    value: 'Term 2',
-  },
-  {
-    key: 'Term 3',
-    text: 'Term 3',
-    value: 'Term 3',
-  },
+const terms = [
+  '0',
+  '1',
+  '2',
+  '3',
 ];
+
+const sorts = [
+  'Most Popular',
+  'Most Useful',
+  'Most Enjoyable',
+  'Lowest Difficulty',
+];
+
+const majorOptions = majors.map((item) => createDropdownOption(item));
+
+const termOptions = terms.map((item) => createDropdownOption(item));
+
+const sortOptions = sorts.map((item) => createDropdownOption(item));
+
+console.log(majorOptions);
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
@@ -92,7 +76,7 @@ const HomePage = (props) => {
             Sort by:
           </div>
           <div className='sort-dropdown-menu'>
-            <DropdownSort/>
+            <DropdownSort options={sortOptions}/>
           </div>
 
         </div>
