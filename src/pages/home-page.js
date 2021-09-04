@@ -51,8 +51,6 @@ const termOptions = terms.map((item) => createDropdownOption(item));
 
 const sortOptions = sorts.map((item) => createDropdownOption(item));
 
-console.log(majorOptions);
-
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
