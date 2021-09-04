@@ -4,6 +4,7 @@ import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import CourseReviewCard from '../components/course-review-card.js';
 
 
 const CoursePage = (props) => {
@@ -13,13 +14,63 @@ const CoursePage = (props) => {
   const handleClick = () => {
     history.push('/review');
   };
+  const getAvgOverall = () => {
+    let total = 0;
+    let count = 0;
+    courses.COMP1511.reviews.forEach((review) => {
+      total += review.rating.overall;
+      count++;
+    });
+    return total / count;
+  };
+
+  const getAvgUsefulness = () => {
+    let total = 0;
+    let count = 0;
+    courses.COMP1511.reviews.forEach((review) => {
+      total += review.rating.usefulness;
+      count++;
+    });
+    return total / count;
+  };
+
+  const getAvgWorkload = () => {
+    let total = 0;
+    let count = 0;
+    courses.COMP1511.reviews.forEach((review) => {
+      total += review.rating.workload;
+      count++;
+    });
+    return total / count;
+  };
+
+  const getAvgEnjoyment = () => {
+    let total = 0;
+    let count = 0;
+    courses.COMP1511.reviews.forEach((review) => {
+      total += review.rating.enjoyment;
+      count++;
+    });
+    return total / count;
+  };
+
+  const getAvgDifficulty = () => {
+    let total = 0;
+    let count = 0;
+    courses.COMP1511.reviews.forEach((review) => {
+      total += review.rating.difficulty;
+      count++;
+    });
+    return total / count;
+  };
+
   if (Object.keys(courses).length === 0) {
     return <span>loading...</span>;
   } else {
-    console.log(courses);
+    console.log(courses.COMP1511);
+    console.log(courses.COMP1511.reviews);
     const year = new Date().getFullYear();
     console.log(year);
-
     return (
       <>
         <Header>
@@ -34,15 +85,16 @@ const CoursePage = (props) => {
                 <SummaryCard
                   summaryTitle={courses.COMP1511.code + ' - ' + courses.COMP1511.title}
                   summaryLink=
-                    {'https://www.handbook.unsw.edu.au/undergraduate/courses/' + year + '/'
+                    {'https://www.handbook.unsw.edu.au/undergraduate/courses/'
+                    + year + '/'
                     + courses.COMP1511.code + '/'}
-                  overallRating="4"
+                  overallRating={getAvgOverall()}
                   numReviews={courses.COMP1511.reviews.length}
                   summaryDesc={courses.COMP1511.description}
-                  usefulAvg="3"
-                  workloadAvg="2"
-                  difficultyAvg="4"
-                  enjoymentAvg="3"
+                  usefulAvg={getAvgUsefulness()}
+                  workloadAvg={getAvgWorkload()}
+                  difficultyAvg={getAvgDifficulty()}
+                  enjoymentAvg={getAvgEnjoyment()}
                 />
               </div>
             </Grid.Column>
@@ -73,72 +125,22 @@ const CoursePage = (props) => {
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
-              <div className="card-displayer">
-                <ReviewCard
-                  overallRating="4"
-                  reviewDate="10/2/20"
-                  reviewTitle="wow i love this subject"
-                  usefulProgress="3"
-                  workloadProgress="2"
-                  enjoymentProgress="4"
-                  difficultyProgress="1"
-                />
-              </div>
-              <div className="card-displayer">
-                <ReviewCard
-                  overallRating="2"
-                  reviewDate="10/2/19"
-                  reviewTitle="its okay..."
-                  usefulProgress="2"
-                  workloadProgress="5"
-                  enjoymentProgress="3"
-                  difficultyProgress="2"
-                />
-              </div>
-              <div className="card-displayer">
-                <ReviewCard
-                  overallRating="2"
-                  reviewDate="10/2/19"
-                  reviewTitle="its okay..."
-                  usefulProgress="2"
-                  workloadProgress="5"
-                  enjoymentProgress="3"
-                  difficultyProgress="2"
-                />
-              </div>
-              <div className="card-displayer">
-                <ReviewCard
-                  overallRating="2"
-                  reviewDate="10/2/19"
-                  reviewTitle="its okay..."
-                  usefulProgress="2"
-                  workloadProgress="5"
-                  enjoymentProgress="3"
-                  difficultyProgress="2"
-                />
-              </div>
-              <div className="card-displayer">
-                <ReviewCard
-                  overallRating="2"
-                  reviewDate="10/2/19"
-                  reviewTitle="its okay..."
-                  usefulProgress="2"
-                  workloadProgress="5"
-                  enjoymentProgress="3"
-                  difficultyProgress="2"
-                />
-              </div>
-              <div className="card-displayer">
-                <ReviewCard
-                  overallRating="2"
-                  reviewDate="10/2/19"
-                  reviewTitle="its okay..."
-                  usefulProgress="2"
-                  workloadProgress="5"
-                  enjoymentProgress="3"
-                  difficultyProgress="2"
-                />
-              </div>
+              {Object.keys(courses.COMP1511.reviews).map((review, i) => {
+                return (
+                  <div key={i} className="card-displayer">
+                    <ReviewCard
+                      overallRating={courses.COMP1511.reviews[review].rating.overall}
+                      reviewDate={courses.COMP1511.reviews[review].timestamp}
+                      reviewTitle={courses.COMP1511.reviews[review].title}
+                      reviewComment={courses.COMP1511.reviews[review].comment}
+                      usefulProgress={courses.COMP1511.reviews[review].rating.usefulness}
+                      workloadProgress={courses.COMP1511.reviews[review].rating.workload}
+                      enjoymentProgress={courses.COMP1511.reviews[review].rating.enjoyment}
+                      difficultyProgress={courses.COMP1511.reviews[review].rating.difficulty}
+                    />
+                  </div>
+                );
+              })}
             </Grid.Column>
           </Grid>
         </div>
