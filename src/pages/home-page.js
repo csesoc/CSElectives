@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
+
 import { Dropdown, Header, Input } from 'semantic-ui-react';
+import { Segment, Grid } from 'semantic-ui-react';
+
 import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTags from '../components/dropdown-tag-menu';
 import DropdownSort from '../components/dropdown-sort-menu';
-import { Segment, Grid } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-
-
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import DropdownCourseSearchSelection from '../components/searchbar.js';
+import { LoadingContext } from '../App.js';
 
 const majorOptions = [
   {
@@ -68,17 +69,19 @@ const termOptions = [
 ];
 
 const HomePage = (props) => {
+  const loading = useContext(LoadingContext);
   const { courses } = props;
 
   const [activeTags, setActiveTags] = useState( [] );
+  console.log(loading);
 
-  return (
+  return loading ? <span>loading</span> : (
     <>
       <Header as='h1'>Home Page</Header>
 
-      {Object.keys(courses).map((courseCode, i) => {
+      {/* {Object.keys(courses).map((courseCode, i) => {
         return <Header key={i}>{courseCode}</Header>;
-      })}
+      })} */}
 
       <Segment className="search-section-background">
         <DropdownCourseSearchSelection className="searchbar"/>
