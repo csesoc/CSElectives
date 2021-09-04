@@ -1,8 +1,7 @@
 import React from 'react';
-import { Header, Label, Progress, Grid, Dropdown, Button } from 'semantic-ui-react';
+import { Grid, Dropdown, Button, Header } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import CourseReviewCard from '../components/course-review-card.js';
 import { useHistory } from 'react-router-dom';
 import RatingsCard from '../components/review-card-ratings-only.js';
 
