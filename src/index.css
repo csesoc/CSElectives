@@ -168,6 +168,22 @@ footer {
   z-index: -5;
 }
 
+.not-found-page-text {
+  position: absolute;
+  top: 9%;
+  right: 6%;
+  color: var(--csesoc-white);
+  font-size: 34px;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+  max-width: 65rem;
+  /* margin-top: 5rem; */
+  
+}
+.not-found-page-text > div {
+  margin-bottom: 4rem;
+}
+
 .searchbar{
   margin-bottom: 1rem;
 }
