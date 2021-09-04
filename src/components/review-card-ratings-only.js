@@ -9,17 +9,17 @@ const RatingsCard = (props) => {
 
   return (
 
-    <div style={{ display: 'block', margin: '20px' }}>
+    <div className='course-review-card-ratings-only'>
       <Card fluid raised>
         <Card.Content>
 
           <Grid>
             <Grid.Row className='review-row-ratings-only'>
               <Grid.Column width={16}>
-                <div style={{ margin: '0px 260px 0px 0' }}></div>
-                <span style={{ float: 'right' }}>{reviewDate}</span>
-                <Card.Header className='ratings-only-review-header' as='h3' content={reviewTitle}/>
-                <Card.Meta style={{ margin: '5px 0' }}>
+                <div className='course-review-card-header'></div>
+                <span className='course-review-card-date'>{reviewDate}</span>
+                <Card.Header as='h3' content={reviewTitle}/>
+                <Card.Meta className='course-review-card-star-rating'>
                     Overall: <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
                 </Card.Meta>
 

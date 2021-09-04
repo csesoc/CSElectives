@@ -187,9 +187,7 @@ footer {
   margin: '0 2px';
 }
 
-.overall-star-ratings {
-  margin: '5px 0';
-}
+
 
 .review-cards {
   display: 'block';
@@ -199,3 +197,22 @@ footer {
 .ratings-only-review-header {
   margin-top: 0px;
 }
+
+.course-review-card-date {
+  float: right;
+}
+
+.course-review-card-header {
+  margin: 0px 260px 0px 0;
+
+}
+
+.course-review-card-star-rating {
+  margin: 5px 0;
+}
+
+.course-review-card-ratings-only {
+  display: block;
+  margin: 20px;
+}
+
