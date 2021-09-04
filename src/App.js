@@ -39,7 +39,7 @@ const App = () => {
           <Container className='main-wrapper'>
             <Switch>
               <Route exact path='/course'>
-                <CoursePage />
+                <CoursePage courses={courses}/>
               </Route>
               <Route exact path='/review'>
                 <ReviewPage />

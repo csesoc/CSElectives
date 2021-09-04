@@ -3,32 +3,39 @@ import { Grid, Dropdown, Button, Header } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
-const CoursePage = () => {
+const CoursePage = (props) => {
+  const { courses } = props;
+
   const history = useHistory();
   const handleClick = () => {
     history.push('/review');
   };
+
+  console.log(courses);
+  const year = new Date().getFullYear();
+  console.log(year);
+
   return (
     <>
-
       <Header>
-        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>COMP1511</h1>
+        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>
+          {courses.COMP1511.code}
+        </h1>
       </Header>
-
-
       <div>
         <Grid stackable>
           <Grid.Column width={7} floated='left'>
             <div className="my-summary-card">
               <SummaryCard
-                summaryTitle="COMP1511 - Intro to Programming"
-                summaryLink="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/"
+                summaryTitle={courses.COMP1511.code + ' - ' + courses.COMP1511.title}
+                summaryLink=
+                  {'https://www.handbook.unsw.edu.au/undergraduate/courses/' + year + '/' + courses.COMP1511.code + '/'}
                 overallRating="4"
-                numReviews="42"
-                summaryDesc=
-                  "This is a long description of the above course describing"
+                numReviews={courses.COMP1511.reviews.length}
+                summaryDesc={courses.COMP1511.description}
                 usefulAvg="3"
                 workloadAvg="2"
                 difficultyAvg="4"
@@ -134,6 +141,11 @@ const CoursePage = () => {
       </div>
     </>
   );
+};
+
+
+CoursePage.propTypes = {
+  courses: PropTypes.object,
 };
 
 export default CoursePage;
