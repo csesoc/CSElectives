@@ -189,6 +189,23 @@ footer {
   z-index: -5;
 }
 
+.not-found-page-text {
+  position: absolute;
+  top: 9%;
+  right: 6%;
+  color: var(--csesoc-white);
+  font-size: 34px;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+  max-width: 59rem;
+  margin-top: 7rem;
+  line-height: 3.5rem;
+  font-weight: bold;
+}
+.not-found-page-text > div {
+  margin-bottom: 4.5rem;
+}
+
 .searchbar{
   margin-bottom: 1rem;
 }
