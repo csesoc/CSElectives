@@ -67,7 +67,8 @@ code {
 }
 
 .review-button {
-  
+  margin-top: 10px;
+  margin-left: 50px;
 }
 
 .ui.progress.bar-chart {
@@ -105,8 +106,8 @@ footer {
 }
 
 .course-review-card {
-  display: block;
-  height: 230px;
+  display: flex;
+  min-height: 230px;
   width: 400px;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Dropdown, Button } from 'semantic-ui-react';
+import { Grid, Dropdown, Button, Header } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory } from 'react-router-dom';
@@ -12,6 +12,12 @@ const CoursePage = () => {
   };
   return (
     <>
+
+      <Header>
+        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>COMP1511</h1>
+      </Header>
+
+
       <div>
         <Grid stackable>
           <Grid.Column width={7} floated='left'>
@@ -48,10 +54,12 @@ const CoursePage = () => {
                     </Dropdown>
                   </div>
                 </Grid.Column>
-                <Grid.Column width={7}>
-                  <Button class="ui button" onClick={handleClick} className='review-button'>
-                        Submit a review
-                  </Button>
+                <Grid.Column width={8}>
+                  <div className='review-button'>
+                    <Button class="ui button" onClick={handleClick} className='review-button'>
+                          Submit a review
+                    </Button>
+                  </div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
