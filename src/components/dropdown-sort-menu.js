@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Dropdown } from 'semantic-ui-react';
 
-const DropdownSort = (props) => {
+const DropdownSortMenu = (props) => {
   const { options } = props;
   return (
     <Dropdown
@@ -19,8 +19,8 @@ const DropdownSort = (props) => {
   );
 };
 
-DropdownSort.propTypes = {
+DropdownSortMenu.propTypes = {
   options: PropTypes.array,
 };
 
-export default DropdownSort;
+export default DropdownSortMenu;

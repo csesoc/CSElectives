@@ -5,8 +5,8 @@ import { Dropdown, Header, Input } from 'semantic-ui-react';
 import { Segment, Grid } from 'semantic-ui-react';
 
 import CourseReviewCard from '../components/course-review-card.js';
-import DropdownTags from '../components/dropdown-tag-menu';
-import DropdownSort from '../components/dropdown-sort-menu';
+import DropdownTagsMenu from '../components/dropdown-tag-menu';
+import DropdownSortMenu from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import DropdownCourseSearchSelection from '../components/searchbar.js';
@@ -77,18 +77,18 @@ const HomePage = (props) => {
             Sort by:
           </div>
           <div className='sort-dropdown-menu'>
-            <DropdownSort options={sortOptions}/>
+            <DropdownSortMenu options={sortOptions}/>
           </div>
 
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTags title='Major'
+          <DropdownTagsMenu title='Major'
             tagOptions = {majorOptions}
             setActiveTags={setActiveTags}
             className='dropdown-tags'/>
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTags title='Term Offering'
+          <DropdownTagsMenu title='Term Offering'
             tagOptions = {termOptions}
             setActiveTags={setActiveTags}
             className='dropdown-tags'/>
