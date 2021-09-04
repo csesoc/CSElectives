@@ -33,6 +33,19 @@ code {
   margin-bottom: 15px;
 }
 
+.my-summary-card {
+  max-height: 93vh;
+  overflow-y: scroll;
+  scrollbar-width: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
+.my-summary-card::-webkit-scrollbar {
+  width: 5px;
+}
+
 .my-review-row {
   margin: 0 15px;
   margin-top: 3px;
@@ -96,6 +109,13 @@ footer {
   display: flex;
   min-height: 230px;
   width: 400px;
+}
+
+.my-course-page-tags {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .my-front-page-tags {
@@ -169,6 +189,23 @@ footer {
   z-index: -5;
 }
 
+.not-found-page-text {
+  position: absolute;
+  top: 9%;
+  right: 6%;
+  color: var(--csesoc-white);
+  font-size: 34px;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+  max-width: 59rem;
+  margin-top: 7rem;
+  line-height: 3.5rem;
+  font-weight: bold;
+}
+.not-found-page-text > div {
+  margin-bottom: 4.5rem;
+}
+
 .searchbar{
   margin-bottom: 1rem;
 }
@@ -176,3 +213,44 @@ footer {
 .ui.menu.secondary.pointing.item{
   float: left;
 }
+
+.review-row-ratings-only {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 110px;
+  margin-left: 110px;
+}
+
+.bar-chart-rows {
+  margin: '0 2px';
+}
+
+
+
+.review-cards {
+  display: 'block';
+  margin: 20px;
+}
+
+.ratings-only-review-header {
+  margin-top: 0px;
+}
+
+.course-review-card-date {
+  float: right;
+}
+
+.course-review-card-header {
+  margin: 0px 260px 0px 0;
+
+}
+
+.course-review-card-star-rating {
+  margin: 5px 0;
+}
+
+.course-review-card-ratings-only {
+  display: block;
+  margin: 20px;
+}
+

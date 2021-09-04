@@ -1,9 +1,9 @@
 import React from 'react';
-import { Header, Label, Progress, Grid, Dropdown, Button } from 'semantic-ui-react';
+import { Grid, Dropdown, Button, Header } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import CourseReviewCard from '../components/course-review-card.js';
 import { useHistory } from 'react-router-dom';
+import RatingsCard from '../components/review-card-ratings-only.js';
 
 
 const CoursePage = () => {
@@ -59,17 +59,22 @@ const CoursePage = () => {
                         </Dropdown>
                       </div>
                     </Grid.Column>
-                    <Grid.Column width={8}>
-                      <div className='review-button'>
-                        <Button class="ui button" onClick={handleClick} className='review-button'>
-                          Submit a review
-                        </Button>
-                      </div>
+                    <Grid.Column width={7}>
+                      <Button class="ui button" onClick={handleClick} className='review-button'>
+                        Submit a review
+                      </Button>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
                 <div className="card-displayer">
                   <ReviewCard
+                    description="I took COMP3311(databases) and it was one of my
+                    favourite (and highest mark courses). The assignments
+                    and exams are actually fun. Why? Because they are
+                    somewhat relatable, e.g. Where can I buy a type of
+                    Pizza that serves it, but also is the cheapest, blah,
+                    blah. The practical work is also fun and you can take
+                    it at your own pace. I like Jas as a lecturer too."
                     overallRating="4"
                     reviewDate="10/2/20"
                     reviewTitle="wow i love this subject"
@@ -81,17 +86,9 @@ const CoursePage = () => {
                 </div>
                 <div className="card-displayer">
                   <ReviewCard
-                    overallRating="2"
-                    reviewDate="10/2/19"
-                    reviewTitle="its okay..."
-                    usefulProgress="2"
-                    workloadProgress="5"
-                    enjoymentProgress="3"
-                    difficultyProgress="2"
-                  />
-                </div>
-                <div className="card-displayer">
-                  <ReviewCard
+                    description="I took COMP3311(databases) and it was one of my
+                    favourite (and highest mark courses). The assignments
+                    and exams are actually fun. "
                     overallRating="2"
                     reviewDate="10/2/19"
                     reviewTitle="its okay..."
@@ -102,6 +99,34 @@ const CoursePage = () => {
                   />
                 </div>
 
+                <div className="card-displayer">
+                  <ReviewCard
+                    overallRating="2"
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    description="I took COMP3311(databases) and it was one of my
+                    favourite (and highest mark courses). The assignments
+                    and exams are actually fun. Why? Because they are
+                    somewhat relatable, e.g. Where can I buy a type of
+                    Pizza that serves it, but also is the cheapest, blah,
+                    blah. "
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
+                <div className="card-displayer">
+                  <RatingsCard
+                    overallRating="4"
+                    reviewDate="11/2/19"
+                    reviewTitle="Random Title"
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
 
               </Grid.Column>
             </Grid.Column>

@@ -4,6 +4,7 @@ import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTags from '../components/dropdown-tag-menu';
 import DropdownSort from '../components/dropdown-sort-menu';
 import { Segment, Grid } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
@@ -67,12 +68,18 @@ const termOptions = [
   },
 ];
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const { courses } = props;
+
   const [activeTags, setActiveTags] = useState( [] );
 
   return (
     <>
       <Header as='h1'>Home Page</Header>
+
+      {Object.keys(courses).map((courseCode, i) => {
+        return <Header key={i}>{courseCode}</Header>;
+      })}
 
       <Segment className="search-section-background">
         <DropdownCourseSearchSelection className="searchbar"/>
@@ -214,6 +221,10 @@ const HomePage = () => {
 
     </>
   );
+};
+
+HomePage.propTypes = {
+  courses: PropTypes.object,
 };
 
 export default HomePage;

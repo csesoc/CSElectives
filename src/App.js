@@ -38,11 +38,21 @@ const App = () => {
         <main>
           <Container className='main-wrapper'>
             <Switch>
-              <Route exact path='/course' component={CoursePage} />
-              <Route exact path='/review' component={ReviewPage} />
-              <Route exact path='/login' component={LoginPage} />
-              <Route exact path='/' component={HomePage} />
-              <Route component={NotFoundPage} />
+              <Route exact path='/course'>
+                <CoursePage />
+              </Route>
+              <Route exact path='/review'>
+                <ReviewPage />
+              </Route>
+              <Route exact path='/login'>
+                <LoginPage />
+              </Route>
+              <Route exact path='/'>
+                <HomePage courses={courses}/>
+              </Route>
+              <Route>
+                <NotFoundPage />
+              </Route>
             </Switch>
           </Container>
         </main>
