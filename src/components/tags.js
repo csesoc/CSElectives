@@ -42,8 +42,8 @@ const LabelExampleIcon = (props) => {
     <div>
       {/* this currently creates a tag bubble of EACH color for EACH label */}
       {colors.map((color) => (
-        <Label color={color} key={color} as='a'>
-          {code}
+        <Label circular color={color} key={color} as='a'>
+          &nbsp; {code} &nbsp;
           <Icon name='delete' />
         </Label>
       ))}
