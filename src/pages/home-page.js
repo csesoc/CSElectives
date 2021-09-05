@@ -74,12 +74,14 @@ const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
 
+  // This function creates the grid of course review cards
   const buildGrid = () => {
     const typeCopy = Object.values(courses);
     const gridArray = [];
     let gridRow = [];
     let i = 0;
 
+    // Creates 2 rows of cards, each row being 3 cards long
     while (i < 2) {
       for (let i = 0; i < 3; i++) {
         gridRow.push(typeCopy.shift());
@@ -88,7 +90,6 @@ const HomePage = (props) => {
       gridRow = [];
       i++;
     }
-
     return gridArray.map((row, idx) => {
       return (
         <Grid.Row key={idx}>
