@@ -7,7 +7,6 @@ const DropdownTagsMenu = (props) => {
   const { title, tagOptions, activeTags, setActiveTags } = props;
 
   const toggleSelectionDrop = (e, { text }) => {
-    console.log(text);
     if (activeTags.includes(text)) {
       setActiveTags(activeTags.filter((el) => el !== text));
     } else {
