@@ -113,7 +113,6 @@ const HomePage = (props) => {
 
       {/* Input component: https://react.semantic-ui.com/elements/input/ *
       <Input placeholder="You'll need a text box!"/>
-
       {/* Dropdown component --> scroll to search selection to implement options:
       https://react.semantic-ui.com/modules/dropdown/
       <Dropdown
@@ -124,7 +123,7 @@ const HomePage = (props) => {
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
-        <LabelExampleIcon code="Level 1" />
+        <LabelExampleIcon activeTags={activeTags} setActiveTags={setActiveTags} />
       </div>
 
       <ViewOptionsToggle />
