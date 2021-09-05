@@ -74,9 +74,15 @@ const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
 
+  const sortMostReviewed = () => {
+    return Object.values(courses).sort(function(a, b) {
+      return parseInt(b.reviews.length) - parseInt(a.reviews.length);
+    });
+  };
+
   // This function creates the grid of course review cards
   const buildGrid = () => {
-    const typeCopy = Object.values(courses);
+    const typeCopy = sortMostReviewed();
     const gridArray = [];
     let gridRow = [];
     let i = 0;
@@ -94,7 +100,8 @@ const HomePage = (props) => {
       return (
         <Grid.Row key={idx}>
           {row.map((eqt) => <Grid.Column key={eqt.id}> <CourseReviewCard
-            code={eqt.courseCode} name={eqt.title} desc={eqt.description} /> </Grid.Column>)}
+            code={eqt.courseCode} name={eqt.title} desc={eqt.description}
+            numReviews={eqt.reviews.length}/> </Grid.Column>)}
         </Grid.Row>
       );
     });
