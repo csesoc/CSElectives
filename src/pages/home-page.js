@@ -30,10 +30,10 @@ const majors = [
 ];
 
 const terms = [
-  '0',
-  '1',
-  '2',
-  '3',
+  'Summer Term',
+  'Term 1',
+  'Term 2',
+  'Term 3',
 ];
 
 const sorts = [
