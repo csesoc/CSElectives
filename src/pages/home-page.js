@@ -123,7 +123,7 @@ const HomePage = (props) => {
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
-        <LabelExampleIcon code="Level 1" />
+        <LabelExampleIcon activeTags={activeTags} setActiveTags={setActiveTags} />
       </div>
 
       <ViewOptionsToggle />
