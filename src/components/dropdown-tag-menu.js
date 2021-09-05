@@ -6,21 +6,9 @@ import { Dropdown, Checkbox } from 'semantic-ui-react';
 const DropdownTagsMenu = (props) => {
   const { title, tagOptions, activeTags, setActiveTags } = props;
 
-  /* const toggleSelection = (e, { label, checked }) => {
-    if (checked) {
-      setActiveTags([...activeTags, label]);
-    } else {
-      setActiveTags(activeTags.filter((el) => el !== label));
-      // console.log(activeTags);
-    }
-    console.log(activeTags);
-  };*/
-
-  // This part works pretty sure
   const checkChecked = (label, activeTags) => {
     return (activeTags.indexOf(label) > -1);
   };
-
 
   const toggleSelectionDrop = (e, { text }) => {
     console.log(text);
