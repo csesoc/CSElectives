@@ -83,6 +83,7 @@ const HomePage = (props) => {
           <DropdownTagsMenu
             title='Major'
             tagOptions={majorOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
             className='dropdown-tags'
           />
@@ -91,6 +92,7 @@ const HomePage = (props) => {
           <DropdownTagsMenu
             title='Term Offering'
             tagOptions={termOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
             className='dropdown-tags'
           />
