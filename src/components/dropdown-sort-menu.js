@@ -1,31 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Dropdown } from 'semantic-ui-react';
 
-const options = [
-  {
-    key: 'Most Popular',
-    text: 'Most Popular',
-    value: 'Most Popular',
-  },
-  {
-    key: 'Most Useful',
-    text: 'Most Useful',
-    value: 'Most Useful',
-  },
-  {
-    key: 'Most Enjoyable',
-    text: 'Most Enjoyable',
-    value: 'Most Enjoyable',
-  },
-  {
-    key: 'Lowest Difficulty',
-    text: 'Lowest Difficulty',
-    value: 'Lowest Difficulty',
-  },
-];
-
-const DropdownSort = () => {
+const DropdownSortMenu = (props) => {
+  const { options } = props;
   return (
     <Dropdown
       placeholder='Most Popular'
@@ -40,5 +19,8 @@ const DropdownSort = () => {
   );
 };
 
+DropdownSortMenu.propTypes = {
+  options: PropTypes.array,
+};
 
-export default DropdownSort;
+export default DropdownSortMenu;

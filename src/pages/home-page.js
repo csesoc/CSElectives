@@ -4,68 +4,50 @@ import PropTypes from 'prop-types';
 import { Dropdown, Header, Input, Segment, Grid } from 'semantic-ui-react';
 
 import CourseReviewCard from '../components/course-review-card.js';
-import DropdownTags from '../components/dropdown-tag-menu';
-import DropdownSort from '../components/dropdown-sort-menu';
+import DropdownTagsMenu from '../components/dropdown-tag-menu';
+import DropdownSortMenu from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
 import { LoadingContext } from '../App.js';
 
-const majorOptions = [
-  {
-    key: 'Artificial Intelligence',
-    text: 'Artificial Intelligence',
-    value: 'Artificial Intelligence',
-  },
-  {
-    key: 'Computer Networks',
-    text: 'Computer Networks',
-    value: 'Computer Networks',
-  },
-  {
-    key: 'Database Systems',
-    text: 'Database Systems',
-    value: 'Database Systems',
-  },
-  {
-    key: 'eCommerce Systems',
-    text: 'eCommerce Systems',
-    value: 'eCommerce Systems',
-  },
-  {
-    key: 'Embedded Systems',
-    text: 'Embedded Systems',
-    value: 'Embedded Systems',
-  },
-  {
-    key: 'Programming Languages',
-    text: 'Programming Languages',
-    value: 'Programming Languages',
-  },
-  {
-    key: 'Security Engineering',
-    text: 'Security Engineering',
-    value: 'Security Engineering',
-  },
+const createDropdownOption = (item) => {
+  return {
+    key: item,
+    text: item,
+    value: item,
+  };
+};
+
+const majors = [
+  'Artificial Intelligence',
+  'Computer Networks',
+  'Database Systems',
+  'eCommerce Systems',
+  'Embedded Systems',
+  'Programming Languages',
+  'Security Engineering',
 ];
 
-const termOptions = [
-  {
-    key: 'Term 1',
-    text: 'Term 1',
-    value: 'Term 1',
-  },
-  {
-    key: 'Term 2',
-    text: 'Term 2',
-    value: 'Term 2',
-  },
-  {
-    key: 'Term 3',
-    text: 'Term 3',
-    value: 'Term 3',
-  },
+const terms = [
+  '0',
+  '1',
+  '2',
+  '3',
 ];
+
+const sorts = [
+  'Most Popular',
+  'Most Useful',
+  'Most Enjoyable',
+  'Lowest Difficulty',
+];
+
+const majorOptions = majors.map((item) => createDropdownOption(item));
+
+const termOptions = terms.map((item) => createDropdownOption(item));
+
+const sortOptions = sorts.map((item) => createDropdownOption(item));
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
@@ -93,12 +75,12 @@ const HomePage = (props) => {
             Sort by:
           </div>
           <div className='sort-dropdown-menu'>
-            <DropdownSort />
+            <DropdownSortMenu options={sortOptions} />
           </div>
 
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTags
+          <DropdownTagsMenu
             title='Major'
             tagOptions={majorOptions}
             setActiveTags={setActiveTags}
@@ -106,7 +88,7 @@ const HomePage = (props) => {
           />
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTags
+          <DropdownTagsMenu
             title='Term Offering'
             tagOptions={termOptions}
             setActiveTags={setActiveTags}
