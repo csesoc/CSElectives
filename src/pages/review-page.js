@@ -1,6 +1,8 @@
 import React from 'react';
 import { Checkbox, Form, Header, Input, TextArea } from 'semantic-ui-react';
 
+import TermTakenSelection from '../components/term-taken-dropdown.js';
+
 const ReviewPage = () => {
   return (
     <>
@@ -22,6 +24,8 @@ const ReviewPage = () => {
       <Form>
         <TextArea placeholder='Maybe use this for reviews??????????' />
       </Form>
+
+      <TermTakenSelection></TermTakenSelection>
 
       <div>Add your 💩shit here...</div>
     </>
