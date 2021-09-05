@@ -9,9 +9,25 @@ const DropdownTags = (props) => {
   const toggleSelection = (e, { label, checked }) => {
     if (checked) {
       setActiveTags([...activeTags, label]);
-      console.log(activeTags);
+      // console.log(activeTags);
     } else {
       setActiveTags(activeTags.filter((el) => el !== label));
+      // console.log(activeTags);
+    }
+  };
+
+  const checkChecked = (label, activeTags) => {
+    return (activeTags.indexOf(label) > -1);
+  };
+
+  const toggleSelectionDrop = (e, { key }) => {
+    console.log(key);
+    console.log('got selected');
+    if (activeTags.indexOf(key) > -1) {
+      setActiveTags([...activeTags, label]);
+      console.log(activeTags);
+    } else {
+      setActiveTags(activeTags.filter((el) => el !== key));
       console.log(activeTags);
     }
   };
@@ -19,7 +35,12 @@ const DropdownTags = (props) => {
   const tagItems = (object) => {
     return (
       <Dropdown.Item key={object.value}>
-        <Checkbox label={object.value} onChange={toggleSelection} />
+        <Checkbox
+          label={object.value}
+          onChange={toggleSelection}
+          checked={checkChecked(object.value, activeTags)}
+          onClick={toggleSelectionDrop}
+        />
       </Dropdown.Item>
     );
   };
