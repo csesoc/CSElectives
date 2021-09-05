@@ -9,7 +9,7 @@ import DropdownSort from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
-import LoadingContext from '../App.js';
+import { LoadingContext } from '../App.js';
 
 const majorOptions = [
   {
