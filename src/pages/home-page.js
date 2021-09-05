@@ -74,6 +74,7 @@ const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
 
+  // Returns an array of courses sorted in descending order of number of reviews
   const sortMostReviewed = () => {
     return Object.values(courses).sort(function(a, b) {
       return parseInt(b.reviews.length) - parseInt(a.reviews.length);
@@ -82,7 +83,7 @@ const HomePage = (props) => {
 
   // This function creates the grid of course review cards
   const buildGrid = () => {
-    const typeCopy = sortMostReviewed();
+    const sortedCourses = sortMostReviewed();
     const gridArray = [];
     let gridRow = [];
     let i = 0;
@@ -90,7 +91,7 @@ const HomePage = (props) => {
     // Creates 2 rows of cards, each row being 3 cards long
     while (i < 2) {
       for (let i = 0; i < 3; i++) {
-        gridRow.push(typeCopy.shift());
+        gridRow.push(sortedCourses.shift());
       }
       gridArray.push(gridRow);
       gridRow = [];
