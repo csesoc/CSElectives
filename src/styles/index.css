@@ -174,7 +174,7 @@ footer {
 }
 
 .not-found-page-background {
-  background: url("./assets/not-found.jpg");
+  background: url("../assets/not-found.jpg");
   width: 100vw;
   height: 100vh;
   position: absolute;

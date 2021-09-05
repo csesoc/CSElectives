@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Button } from 'semantic-ui-react';
 import { useHistory } from 'react-router-dom';
+import '../styles/not-found-page.css';
 
 const NotFoundPage = () => {
   const history = useHistory();

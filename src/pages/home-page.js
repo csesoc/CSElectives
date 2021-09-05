@@ -10,6 +10,7 @@ import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
 import { LoadingContext } from '../App.js';
+import '../styles/home-page.css';
 
 const createDropdownOption = (item) => {
   return {

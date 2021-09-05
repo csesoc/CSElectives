@@ -4,7 +4,7 @@ import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory } from 'react-router-dom';
 import RatingsCard from '../components/review-card-ratings-only.js';
-
+import '../styles/course-page.css';
 
 const CoursePage = () => {
   const history = useHistory();

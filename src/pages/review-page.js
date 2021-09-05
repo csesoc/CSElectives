@@ -1,5 +1,6 @@
 import React from 'react';
 import { Checkbox, Form, Header, Input, TextArea } from 'semantic-ui-react';
+import '../styles/review-page.css';
 
 const ReviewPage = () => {
   return (
