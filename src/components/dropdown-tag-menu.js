@@ -1,34 +1,54 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Checkbox } from 'semantic-ui-react';
 
-const DropdownTags = (props) => {
+const DropdownTagsMenu = (props) => {
   const { title, tagOptions, activeTags, setActiveTags } = props;
 
-  const tagItems = (x) => {
-    return (<Dropdown.Item>{x}</Dropdown.Item>);
+  const toggleSelectionDrop = (e, { text }) => {
+    if (activeTags.includes(text)) {
+      setActiveTags(activeTags.filter((el) => el !== text));
+    } else {
+      setActiveTags([...activeTags, text]);
+    }
   };
 
-  // Need to change how an item is on the tag menu is displayed after selected
+  const tagItems = (object) => {
+    return (
+      <Dropdown.Item
+        text={object.value}
+        onClick={toggleSelectionDrop}
+      >
+        <Checkbox
+          label={object.value}
+          checked={activeTags.includes(object.value)}
+        />
+      </Dropdown.Item>
+    );
+  };
 
+  // Not sure how to get the arguments from onclick, get hayes help pls
   return (
     <Dropdown
-      placeholder={title}
-      selection
-      clearable
+      text={title}
+      item
+      simple
       className='icon'
-      options={tagOptions}
     >
+      <Dropdown.Menu>
+        <Dropdown.Header icon='tags' content={`Filter by ${title}`} />
+        {tagOptions.map(tagItems)}
+      </Dropdown.Menu>
     </Dropdown>
   );
 };
 
-DropdownTags.propTypes = {
+DropdownTagsMenu.propTypes = {
   title: PropTypes.string,
   tagOptions: PropTypes.array,
   activeTags: PropTypes.array,
   setActiveTags: PropTypes.func,
 };
 
-export default DropdownTags;
+export default DropdownTagsMenu;

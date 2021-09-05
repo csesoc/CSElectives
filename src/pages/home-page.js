@@ -83,14 +83,16 @@ const HomePage = (props) => {
           <DropdownTagsMenu
             title='Major'
             tagOptions={majorOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
             className='dropdown-tags'
           />
         </div>
         <div className='dropdown-tags-box'>
           <DropdownTagsMenu
-            title='Term Offering'
+            title='Term'
             tagOptions={termOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
             className='dropdown-tags'
           />
