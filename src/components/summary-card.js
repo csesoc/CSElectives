@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { Header, Grid, Progress, Rating } from 'semantic-ui-react';
 import LabelExampleIcon from '../components/tags.js';
 
+const placeholderActiveTags = ['Computer Networks', 'Database Systems'];
+
+const placeholderFunction = () => {};
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, overallRating, numReviews, summaryDesc,
@@ -14,7 +17,7 @@ const SummaryCard = (props) => {
       <Grid>
         <Grid.Row className='my-grid-top'>
           <div className='my-course-page-tags'>
-            <LabelExampleIcon code="Level 1" />
+            <LabelExampleIcon activeTags={placeholderActiveTags} setActiveTags={placeholderFunction} />
           </div>
         </Grid.Row>
         <Grid.Row className='my-grid-row'>
