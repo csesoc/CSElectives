@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon, Label } from 'semantic-ui-react';
-import { act } from 'react-dom/test-utils';
 
 const LabelExampleIcon = (props) => {
   const { activeTags, setActiveTags } = props;
