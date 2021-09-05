@@ -19,17 +19,20 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState({});
 
-  useEffect(async () => {
-    const newCourses = {};
+  useEffect(() => {
+    const getCourses = async () => {
+      const newCourses = {};
 
-    const courseSnapshot = await Database.getSnapshot('courses');
-    courseSnapshot.docs.forEach((doc) => {
-      newCourses[doc.id] = doc.data();
-    });
+      const courseSnapshot = await Database.getSnapshot('courses');
+      courseSnapshot.docs.forEach((doc) => {
+        newCourses[doc.id] = doc.data();
+      });
 
-    setCourses(newCourses);
-    console.log('Courses:', newCourses);
-    setLoading(false);
+      setCourses(newCourses);
+      console.log('Courses:', newCourses);
+      setLoading(false);
+    };
+    getCourses();
   }, []);
 
   return (
@@ -53,7 +56,7 @@ const App = () => {
                   <LoginPage />
                 </Route>
                 <Route exact path='/'>
-                  <HomePage courses={courses}/>
+                  <HomePage courses={courses} />
                 </Route>
                 <Route>
                   <NotFoundPage />
