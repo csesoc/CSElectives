@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Dropdown } from 'semantic-ui-react';
 
-const DropdownTags = (props) => {
+const DropdownTagsMenu = (props) => {
   const { title, tagOptions, activeTags, setActiveTags } = props;
 
   const tagItems = (x) => {
@@ -24,11 +24,11 @@ const DropdownTags = (props) => {
   );
 };
 
-DropdownTags.propTypes = {
+DropdownTagsMenu.propTypes = {
   title: PropTypes.string,
   tagOptions: PropTypes.array,
   activeTags: PropTypes.array,
   setActiveTags: PropTypes.func,
 };
 
-export default DropdownTags;
+export default DropdownTagsMenu;
