@@ -69,7 +69,6 @@ const termOptions = [
   },
 ];
 
-
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
@@ -180,12 +179,9 @@ const HomePage = (props) => {
 
       <ViewOptionsToggle/>
 
-      {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
-
       <Grid columns={3}>
         {buildGrid()};
       </Grid>
-
     </>
   );
 };
