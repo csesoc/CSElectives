@@ -90,7 +90,7 @@ const HomePage = (props) => {
         </div>
         <div className='dropdown-tags-box'>
           <DropdownTagsMenu
-            title='Term Offering'
+            title='Term'
             tagOptions={termOptions}
             activeTags={activeTags}
             setActiveTags={setActiveTags}

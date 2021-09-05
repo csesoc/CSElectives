@@ -37,7 +37,7 @@ const DropdownTagsMenu = (props) => {
       className='icon'
     >
       <Dropdown.Menu>
-        <Dropdown.Header icon='tags' content='Filter by tag' />
+        <Dropdown.Header icon='tags' content={`Filter by ${title}`} />
         {tagOptions.map(tagItems)}
       </Dropdown.Menu>
     </Dropdown>
