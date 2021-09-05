@@ -14,41 +14,65 @@ const SummaryCard = (props) => {
       <Grid>
         <Grid.Row className='my-grid-top'>
           <div className='my-course-page-tags'>
-            <LabelExampleIcon code="Level 1"/>
+            <LabelExampleIcon code="Level 1" />
           </div>
         </Grid.Row>
         <Grid.Row className='my-grid-row'>
           <div>
             <Header as='h2'>{summaryTitle}</Header>
             <a href={summaryLink} rel="noreferrer" target="_blank">
-                    COMP1511 Handbook
-            </a> <br/>
-            <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled/>
+              COMP1511 Handbook
+            </a> <br />
+            <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
             {numReviews} Reviews
           </div>
         </Grid.Row>
         <Grid.Row className='my-grid-row'>
           <div style={{ width: '100%' }}>
             <span>
-                  Usefulness
+              Usefulness
             </span>
-            <Progress className='bar-chart' color='blue' value={usefulAvg} total='5' progress='ratio'
-              size='standard'/>
+            <Progress
+              className='bar-chart'
+              color='blue'
+              value={usefulAvg}
+              total='5'
+              progress='ratio'
+              size='standard'
+            />
             <span>
-                  Workload
+              Workload
             </span>
-            <Progress className='bar-chart' color='blue' value={workloadAvg} total='5' progress='ratio'
-              size='standard'/>
+            <Progress
+              className='bar-chart'
+              color='blue'
+              value={workloadAvg}
+              total='5'
+              progress='ratio'
+              size='standard'
+            />
             <span>
-                  Enjoyment
+              Enjoyment
             </span>
-            <Progress className='bar-chart' color='blue' value={enjoymentAvg} total='5' progress='ratio'
-              size='standard'/>
+            <Progress
+              className='bar-chart'
+              color='blue'
+              value={enjoymentAvg}
+              total='5'
+              progress='ratio'
+              size='standard'
+            />
             <span>
-                  Difficulty
+              Difficulty
             </span>
-            <Progress className='bar-chart' color='blue' value={difficultyAvg} total='5' progress='ratio'
-              size='standard'/>
+            <Progress
+              className='bar-chart'
+              color='blue'
+              value={difficultyAvg}
+              total='5'
+              progress='ratio'
+              size='standard'
+            />
           </div>
         </Grid.Row>
         <Grid.Row className='my-grid-row'>

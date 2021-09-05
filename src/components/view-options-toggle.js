@@ -13,15 +13,6 @@ const ViewOptionsToggle = () => (
         <Icon name='list' />
       </Button>
     </Button.Group>
-    <br></br>
-    <Button.Group icon>
-      <Button>
-        <Icon name='th' />
-      </Button>
-      <Button>
-        <Icon name='th list' />
-      </Button>
-    </Button.Group>
   </>
 );
 

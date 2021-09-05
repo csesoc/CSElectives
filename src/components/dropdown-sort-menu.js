@@ -12,7 +12,7 @@ const DropdownSortMenu = (props) => {
       fluid
       compact
       button
-      options = {options}
+      options={options}
       defaultValue={options}
     >
     </Dropdown>

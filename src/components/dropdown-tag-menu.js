@@ -14,12 +14,11 @@ const DropdownTags = (props) => {
 
   return (
     <Dropdown
-      placeholder = {title}
+      placeholder={title}
       selection
       clearable
       className='icon'
-
-      options = {tagOptions}
+      options={tagOptions}
     >
     </Dropdown>
   );
