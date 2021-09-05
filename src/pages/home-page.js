@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { Dropdown, Header, Input, Segment, Grid } from 'semantic-ui-react';
@@ -8,6 +8,8 @@ import DropdownTags from '../components/dropdown-tag-menu';
 import DropdownSort from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
+import ViewOptionsToggle from '../components/view-options-toggle.js';
+import LoadingContext from '../App.js';
 
 const majorOptions = [
   {
@@ -66,6 +68,7 @@ const termOptions = [
 ];
 
 const HomePage = (props) => {
+  const loading = useContext(LoadingContext);
   const { courses } = props;
 
   const [activeTags, setActiveTags] = useState([]);
@@ -74,7 +77,7 @@ const HomePage = (props) => {
     setQuery(value);
     console.log(query);
   };
-  return (
+  return loading ? <span>loading</span> : (
     <>
       <Header as='h1'>{query}</Header>
 
@@ -134,6 +137,8 @@ const HomePage = (props) => {
       <div className='my-front-page-tags'>
         <LabelExampleIcon code="Level 1"/>
       </div>
+
+      <ViewOptionsToggle/>
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 

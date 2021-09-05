@@ -5,7 +5,7 @@ import { Grid, Card, Progress, Rating } from 'semantic-ui-react';
 
 const ReviewCard = (props) => {
   const { reviewTitle, usefulProgress, workloadProgress, difficultyProgress,
-    enjoymentProgress, reviewDate, overallRating } = props;
+    enjoymentProgress, reviewDate, overallRating, description } = props;
 
   return (
     <div style={{ display: 'block', margin: '20px' }}>
@@ -20,13 +20,7 @@ const ReviewCard = (props) => {
                   <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled/>
                 </Card.Meta>
                 <Card.Description >
-                I took COMP3311(databases) and it was one of my
-                favourite (and highest mark courses). The assignments
-                and exams are actually fun. Why? Because they are
-                somewhat relatable, e.g. Where can I buy a type of
-                Pizza that serves it, but also is the cheapest, blah,
-                blah. The practical work is also fun and you can take
-                it at your own pace. I like Jas as a lecturer too.
+                  {description}
                 </Card.Description>
               </Grid.Column>
               <Grid.Column width={5} >
@@ -72,6 +66,7 @@ ReviewCard.propTypes = {
   difficultyProgress: PropTypes.number,
   reviewDate: PropTypes.number,
   overallRating: PropTypes.number,
+  description: PropTypes.string,
 };
 
 export default ReviewCard;
