@@ -69,9 +69,35 @@ const termOptions = [
   },
 ];
 
+
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
+
+  const buildGrid = () => {
+    const typeCopy = Object.values(courses);
+    const gridArray = [];
+    let gridRow = [];
+    let i = 0;
+
+    while (i < 2) {
+      for (let i = 0; i < 3; i++) {
+        gridRow.push(typeCopy.shift());
+      }
+      gridArray.push(gridRow);
+      gridRow = [];
+      i++;
+    }
+
+    return gridArray.map((row, idx) => {
+      return (
+        <Grid.Row key={idx}>
+          {row.map((eqt) => <Grid.Column key={eqt.id}> <CourseReviewCard
+            code={eqt.courseCode} name={eqt.title} desc={eqt.description} /> </Grid.Column>)}
+        </Grid.Row>
+      );
+    });
+  };
 
   const [activeTags, setActiveTags] = useState( [] );
   console.log(loading);
@@ -142,7 +168,12 @@ const HomePage = (props) => {
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
-      {/* Code, name and desc hardcoded for testing purposes */}
+      {/* {Object.values(courses).map((course) => {
+        return <CourseReviewCard key={course.courseCode} code={course.courseCode}
+          name={course.title} desc={course.description}/>;
+      })} */}
+
+      {/* Code, name and desc hardcoded for testing purposes
       <Grid columns={3}>
         <Grid.Row>
           <Grid.Column>
@@ -220,6 +251,10 @@ const HomePage = (props) => {
                verification tool to support learning."/>
           </Grid.Column>
         </Grid.Row>
+      </Grid> */}
+
+      <Grid columns={3}>
+        {buildGrid()};
       </Grid>
 
     </>
