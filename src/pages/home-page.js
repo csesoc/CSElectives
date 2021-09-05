@@ -100,12 +100,14 @@ const HomePage = (props) => {
         <div className='dropdown-tags-box'>
           <DropdownTags title='Major'
             tagOptions = {majorOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
             className='dropdown-tags'/>
         </div>
         <div className='dropdown-tags-box'>
           <DropdownTags title='Term Offering'
             tagOptions = {termOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
             className='dropdown-tags'/>
         </div>

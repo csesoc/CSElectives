@@ -9,15 +9,16 @@ const DropdownTags = (props) => {
   const toggleSelection = (e, { label, checked }) => {
     if (checked) {
       setActiveTags([...activeTags, label]);
+      console.log(activeTags);
     } else {
       setActiveTags(activeTags.filter((el) => el !== label));
+      console.log(activeTags);
     }
-    console.log(activeTags);
   };
 
   const tagItems = (object) => {
     return (
-      <Dropdown.Item key={object.key}>
+      <Dropdown.Item key={object.value}>
         <Checkbox label={object.value} onChange={toggleSelection} />
       </Dropdown.Item>
     );
