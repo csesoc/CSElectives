@@ -13,11 +13,11 @@ import DropdownCourseSearchSelection from '../components/searchbar.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
 import { LoadingContext } from '../App.js';
 
-const createDropdownOption = (Item) => {
+const createDropdownOption = (item) => {
   return {
-    key: Item,
-    text: Item,
-    value: Item,
+    key: item,
+    text: item,
+    value: item,
   };
 };
 
