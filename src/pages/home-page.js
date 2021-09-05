@@ -9,7 +9,7 @@ import DropdownSort from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
-import LoadingContext from '../App.js';
+import { LoadingContext } from '../App.js';
 
 const majorOptions = [
   {
@@ -108,7 +108,6 @@ const HomePage = (props) => {
   const [activeTags, setActiveTags] = useState( [] );
   console.log(loading);
 
-  const [activeTags, setActiveTags] = useState([]);
   const [query, setQuery] = useState('Home Page');
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
