@@ -10,6 +10,7 @@ import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
 import { LoadingContext } from '../App.js';
+import '../styles/home-page.css';
 
 const createDropdownOption = (item) => {
   return {
@@ -112,7 +113,6 @@ const HomePage = (props) => {
 
       {/* Input component: https://react.semantic-ui.com/elements/input/ *
       <Input placeholder="You'll need a text box!"/>
-
       {/* Dropdown component --> scroll to search selection to implement options:
       https://react.semantic-ui.com/modules/dropdown/
       <Dropdown
