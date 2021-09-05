@@ -33,7 +33,7 @@ const DropdownSort = () => {
       fluid
       compact
       button
-      options = {options}
+      options={options}
       defaultValue={options}
     >
     </Dropdown>

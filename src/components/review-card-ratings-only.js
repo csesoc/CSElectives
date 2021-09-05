@@ -18,26 +18,26 @@ const RatingsCard = (props) => {
               <Grid.Column width={16}>
                 <div className='course-review-card-header'></div>
                 <span className='course-review-card-date'>{reviewDate}</span>
-                <Card.Header as='h3' content={reviewTitle}/>
+                <Card.Header as='h3' content={reviewTitle} />
                 <Card.Meta className='course-review-card-star-rating'>
-                    Overall: <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
+                  Overall: <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
                 </Card.Meta>
 
-                <div className='bar-chart-rows' >
+                <div className='bar-chart-rows'>
                   <label>Usefulness</label>
-                  <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue'/>
+                  <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
                 <div className='bar-chart-rows'>
                   <label>Workload</label>
-                  <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue'/>
+                  <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
                 <div className='bar-chart-rows'>
                   <label>Enjoyment</label>
-                  <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
+                  <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
                 <div className='bar-chart-rows'>
                   <label>Difficulty</label>
-                  <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue'/>
+                  <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
               </Grid.Column>
             </Grid.Row>

@@ -7,16 +7,16 @@ const ReviewPage = () => {
       <Header as='h1'>Submit Review Page</Header>
 
       {/* Input component: https://react.semantic-ui.com/elements/input/ */}
-      <Input placeholder="You'll need a text box!"/>
-      <br/>
+      <Input placeholder="You'll need a text box!" />
+      <br />
 
       {/* Checkbox component: https://react.semantic-ui.com/modules/checkbox/ */}
       <Checkbox label='You might want checkboxes...' />
-      <br/>
+      <br />
 
       {/* Radio button component: https://react.semantic-ui.com/modules/checkbox/#types-radio */}
       <Checkbox radio label='Or some radio buttons which in code is actually a checkbox lol...' />
-      <br/>
+      <br />
 
       {/* TextArea compoennt: https://react.semantic-ui.com/addons/text-area/ */}
       <Form>
