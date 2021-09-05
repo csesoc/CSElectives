@@ -75,20 +75,22 @@ const HomePage = (props) => {
             Sort by:
           </div>
           <div className='sort-dropdown-menu'>
-            <DropdownSortMenu options={sortOptions}/>
+            <DropdownSortMenu options={sortOptions} />
           </div>
 
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTagsMenu title='Major'
-            tagOptions = {majorOptions}
+          <DropdownTagsMenu
+            title='Major'
+            tagOptions={majorOptions}
             setActiveTags={setActiveTags}
             className='dropdown-tags'
           />
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTagsMenu title='Term Offering'
-            tagOptions = {termOptions}
+          <DropdownTagsMenu
+            title='Term Offering'
+            tagOptions={termOptions}
             setActiveTags={setActiveTags}
             className='dropdown-tags'
           />
