@@ -1,17 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown, Header, Input } from 'semantic-ui-react';
-import { Segment, Grid } from 'semantic-ui-react';
+import { Dropdown, Header, Input, Segment, Grid } from 'semantic-ui-react';
 
 import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTags from '../components/dropdown-tag-menu';
 import DropdownSort from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
-import DropdownCourseSearchSelection from '../components/searchbar.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
-import { LoadingContext } from '../App.js';
+import LoadingContext from '../App.js';
 
 const majorOptions = [
   {
@@ -110,21 +108,28 @@ const HomePage = (props) => {
   const [activeTags, setActiveTags] = useState( [] );
   console.log(loading);
 
+  const [activeTags, setActiveTags] = useState([]);
+  const [query, setQuery] = useState('Home Page');
+  const handleQueryChange = (e, { value }) => {
+    setQuery(value);
+    console.log(query);
+  };
+
   return loading ? <span>loading</span> : (
     <>
-      <Header as='h1'>Home Page</Header>
-
-      {/* {Object.keys(courses).map((courseCode, i) => {
-        return <Header key={i}>{courseCode}</Header>;
-      })} */}
+      <Header as='h1'>{query}</Header>
 
       {/* {Object.values(courses).map((course) => {
         return <CourseReviewCard key={course.courseCode} code={course.courseCode}
           name={course.title} desc={course.description}/>;
       })} */}
 
+      {/* {Object.keys(courses).map((courseCode, i) => { */}
+      {/* return <Header key={i}>{courseCode}</Header>; */}
+      {/* })} */}
+
       <Segment className="search-section-background">
-        <DropdownCourseSearchSelection className="searchbar"/>
+        <Input size='massive' icon='search' fluid onChange={handleQueryChange}/>
         {/* Toggle other tags button */}
         {/* <ToggleOtherTagsButton></ToggleOtherTagsButton>*/}
         <div className='sort-dropdown-parent'>
