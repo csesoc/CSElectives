@@ -16,18 +16,20 @@ const DropdownTags = (props) => {
     }
   };
 
+  // This part works pretty sure
   const checkChecked = (label, activeTags) => {
     return (activeTags.indexOf(label) > -1);
   };
 
-  const toggleSelectionDrop = (e, { key }) => {
+
+  const toggleSelectionDrop = (e, key) => {
     console.log(key);
     console.log('got selected');
     if (activeTags.indexOf(key) > -1) {
-      setActiveTags([...activeTags, label]);
+      setActiveTags(activeTags.filter((el) => el !== key));
       console.log(activeTags);
     } else {
-      setActiveTags(activeTags.filter((el) => el !== key));
+      // setActiveTags([...activeTags, key]);
       console.log(activeTags);
     }
   };
@@ -39,19 +41,19 @@ const DropdownTags = (props) => {
           label={object.value}
           onChange={toggleSelection}
           checked={checkChecked(object.value, activeTags)}
-          onClick={toggleSelectionDrop}
         />
       </Dropdown.Item>
     );
   };
-  // Need to change how an item is on the tag menu is displayed after selected
 
+  // Not sure how to get the arguments from onclick, get hayes help pls
   return (
     <Dropdown
       text = {title}
       item
       simple
       className='icon'
+      onClick={toggleSelectionDrop}
     >
       <Dropdown.Menu>
         <Dropdown.Header icon='tags' content='Filter by tag' />
