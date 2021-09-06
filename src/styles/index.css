@@ -19,21 +19,21 @@ code {
     monospace;
 }
 
-.my-grid-row {
+.grid-row {
   margin: 0 25px;
 }
 
-.my-grid-top {
+.grid-top {
   margin: 0 25px;
   margin-top: 15px;
 }
 
-.my-grid-bottom {
+.grid-bottom {
   margin: 0 25px;
   margin-bottom: 15px;
 }
 
-.my-summary-card {
+.summary-card {
   max-height: 93vh;
   overflow-y: scroll;
   scrollbar-width: 5px;
@@ -42,11 +42,11 @@ code {
   top: 20px;
 }
 
-.my-summary-card::-webkit-scrollbar {
+.summary-card::-webkit-scrollbar {
   width: 5px;
 }
 
-.my-review-row {
+.review-row {
   margin: 0 15px;
   margin-top: 3px;
 }
@@ -64,7 +64,7 @@ code {
 .sort-reviews {
   margin-top: 10px;
   margin-left: 0px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .review-button {

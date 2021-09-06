@@ -20,6 +20,13 @@ const createDropdownOption = (item) => {
   };
 };
 
+const sorts = [
+  'Most Popular',
+  'Most Useful',
+  'Most Enjoyable',
+  'Lowest Difficulty',
+];
+
 const majors = [
   'Artificial Intelligence',
   'Computer Networks',
@@ -37,18 +44,22 @@ const terms = [
   'Term 3',
 ];
 
-const sorts = [
-  'Most Popular',
-  'Most Useful',
-  'Most Enjoyable',
-  'Lowest Difficulty',
+const prefix = [
+  'BINF',
+  'COMP',
+  'ENGG',
+  'SENG',
 ];
+
+
+const sortOptions = sorts.map((item) => createDropdownOption(item));
 
 const majorOptions = majors.map((item) => createDropdownOption(item));
 
 const termOptions = terms.map((item) => createDropdownOption(item));
 
-const sortOptions = sorts.map((item) => createDropdownOption(item));
+const prefixOptions = prefix.map((item) => createDropdownOption(item));
+
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
@@ -93,6 +104,15 @@ const HomePage = (props) => {
           <DropdownTagsMenu
             title='Term'
             tagOptions={termOptions}
+            activeTags={activeTags}
+            setActiveTags={setActiveTags}
+            className='dropdown-tags'
+          />
+        </div>
+        <div className='dropdown-tags-box'>
+          <DropdownTagsMenu
+            title='Prefix'
+            tagOptions={prefixOptions}
             activeTags={activeTags}
             setActiveTags={setActiveTags}
             className='dropdown-tags'
