@@ -4,125 +4,103 @@ import PropTypes from 'prop-types';
 import { Dropdown, Header, Input, Segment, Grid } from 'semantic-ui-react';
 
 import CourseReviewCard from '../components/course-review-card.js';
-import DropdownTags from '../components/dropdown-tag-menu';
-import DropdownSort from '../components/dropdown-sort-menu';
+import DropdownTagsMenu from '../components/dropdown-tag-menu';
+import DropdownSortMenu from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
 import { LoadingContext } from '../App.js';
+import '../styles/home-page.css';
 
-const majorOptions = [
-  {
-    key: 'Artificial Intelligence',
-    text: 'Artificial Intelligence',
-    value: 'Artificial Intelligence',
-  },
-  {
-    key: 'Computer Networks',
-    text: 'Computer Networks',
-    value: 'Computer Networks',
-  },
-  {
-    key: 'Database Systems',
-    text: 'Database Systems',
-    value: 'Database Systems',
-  },
-  {
-    key: 'eCommerce Systems',
-    text: 'eCommerce Systems',
-    value: 'eCommerce Systems',
-  },
-  {
-    key: 'Embedded Systems',
-    text: 'Embedded Systems',
-    value: 'Embedded Systems',
-  },
-  {
-    key: 'Programming Languages',
-    text: 'Programming Languages',
-    value: 'Programming Languages',
-  },
-  {
-    key: 'Security Engineering',
-    text: 'Security Engineering',
-    value: 'Security Engineering',
-  },
+const createDropdownOption = (item) => {
+  return {
+    key: item,
+    text: item,
+    value: item,
+  };
+};
+
+const majors = [
+  'Artificial Intelligence',
+  'Computer Networks',
+  'Database Systems',
+  'eCommerce Systems',
+  'Embedded Systems',
+  'Programming Languages',
+  'Security Engineering',
 ];
 
-const termOptions = [
-  {
-    key: 'Term 1',
-    text: 'Term 1',
-    value: 'Term 1',
-  },
-  {
-    key: 'Term 2',
-    text: 'Term 2',
-    value: 'Term 2',
-  },
-  {
-    key: 'Term 3',
-    text: 'Term 3',
-    value: 'Term 3',
-  },
+const terms = [
+  'Summer Term',
+  'Term 1',
+  'Term 2',
+  'Term 3',
 ];
+
+const sorts = [
+  'Most Popular',
+  'Most Useful',
+  'Most Enjoyable',
+  'Lowest Difficulty',
+];
+
+// Returns an array of courses sorted in descending order of number of reviews
+const sortMostReviewed = () => {
+  return Object.values(courses).sort(function(a, b) {
+    return b.reviews.length - a.reviews.length;
+  });
+};
+
+// This function creates the grid of course review cards
+const buildGrid = () => {
+  const sortedCourses = sortMostReviewed();
+  const gridArray = [];
+  const colSize = 3;
+  for (let i = 0; i < sortedCourses.length; i += colSize) {
+    const gridRow = sortedCourses.slice(i, i + colSize);
+    gridArray.push(gridRow);
+  }
+
+  return gridArray.map((row, idx) => {
+    return (
+      <Grid.Row key={idx}>
+        {row.map((eqt) => (
+          <Grid.Column key={eqt.id}>
+            <CourseReviewCard
+              code={eqt.courseCode}
+              name={eqt.title}
+              desc={eqt.description}
+              numReviews={eqt.reviews.length}
+            />
+          </Grid.Column>))}
+      </Grid.Row>
+    );
+  });
+};
+const majorOptions = majors.map((item) => createDropdownOption(item));
+
+const termOptions = terms.map((item) => createDropdownOption(item));
+
+const sortOptions = sorts.map((item) => createDropdownOption(item));
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
-
-  // Returns an array of courses sorted in descending order of number of reviews
-  const sortMostReviewed = () => {
-    return Object.values(courses).sort(function(a, b) {
-      return b.reviews.length - a.reviews.length;
-    });
-  };
-
-  // This function creates the grid of course review cards
-  const buildGrid = () => {
-    const sortedCourses = sortMostReviewed();
-    const gridArray = [];
-    const colSize = 3;
-    for (let i = 0; i < sortedCourses.length; i += colSize) {
-      const gridRow = sortedCourses.slice(i, i + colSize);
-      gridArray.push(gridRow);
-    }
-
-    return gridArray.map((row, idx) => {
-      return (
-        <Grid.Row key={idx}>
-          {row.map((eqt) => <Grid.Column key={eqt.id}> <CourseReviewCard
-            code={eqt.courseCode} name={eqt.title} desc={eqt.description}
-            numReviews={eqt.reviews.length}/> </Grid.Column>)}
-        </Grid.Row>
-      );
-    });
-  };
-
-  const [activeTags, setActiveTags] = useState( [] );
-  console.log(loading);
 
   const [query, setQuery] = useState('Home Page');
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
     console.log(query);
   };
-
   return loading ? <span>loading</span> : (
     <>
       <Header as='h1'>{query}</Header>
 
-      {/* {Object.values(courses).map((course) => {
-        return <CourseReviewCard key={course.courseCode} code={course.courseCode}
-          name={course.title} desc={course.description}/>;
-      })} */}
-
       {/* {Object.keys(courses).map((courseCode, i) => { */}
       {/* return <Header key={i}>{courseCode}</Header>; */}
       {/* })} */}
-
       <Segment className="search-section-background">
-        <Input size='massive' icon='search' fluid onChange={handleQueryChange}/>
+        <Input size='massive' icon='search' fluid onChange={handleQueryChange} />
         {/* Toggle other tags button */}
         {/* <ToggleOtherTagsButton></ToggleOtherTagsButton>*/}
         <div className='sort-dropdown-parent'>
@@ -130,21 +108,27 @@ const HomePage = (props) => {
             Sort by:
           </div>
           <div className='sort-dropdown-menu'>
-            <DropdownSort/>
+            <DropdownSortMenu options={sortOptions} />
           </div>
 
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTags title='Major'
-            tagOptions = {majorOptions}
+          <DropdownTagsMenu
+            title='Major'
+            tagOptions={majorOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
-            className='dropdown-tags'/>
+            className='dropdown-tags'
+          />
         </div>
         <div className='dropdown-tags-box'>
-          <DropdownTags title='Term Offering'
-            tagOptions = {termOptions}
+          <DropdownTagsMenu
+            title='Term'
+            tagOptions={termOptions}
+            activeTags={activeTags}
             setActiveTags={setActiveTags}
-            className='dropdown-tags'/>
+            className='dropdown-tags'
+          />
         </div>
         {/* Manually increasing the segment size for now */}
         <br></br>
@@ -161,7 +145,6 @@ const HomePage = (props) => {
 
       {/* Input component: https://react.semantic-ui.com/elements/input/ *
       <Input placeholder="You'll need a text box!"/>
-
       {/* Dropdown component --> scroll to search selection to implement options:
       https://react.semantic-ui.com/modules/dropdown/
       <Dropdown
@@ -172,14 +155,18 @@ const HomePage = (props) => {
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
-        <LabelExampleIcon code="Level 1"/>
+        <LabelExampleIcon activeTags={activeTags} setActiveTags={setActiveTags} />
       </div>
 
-      <ViewOptionsToggle/>
+      <ViewOptionsToggle />
 
+      {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
+
+      {/* Code, name and desc hardcoded for testing purposes */}
       <Grid columns={3}>
         {buildGrid()}
       </Grid>
+
     </>
   );
 };

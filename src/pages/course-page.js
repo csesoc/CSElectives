@@ -4,7 +4,7 @@ import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory } from 'react-router-dom';
 import RatingsCard from '../components/review-card-ratings-only.js';
-
+import '../styles/course-page.css';
 
 const CoursePage = () => {
   const history = useHistory();
@@ -29,8 +29,8 @@ const CoursePage = () => {
                   summaryLink="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/"
                   overallRating="4"
                   numReviews="42"
-                  summaryDesc=
-                    "This is a long description of the above course describing containing what to expect in the course"
+                  // eslint-disable-next-line max-len
+                  summaryDesc="This is a long description of the above course describing containing what to expect in the course"
                   usefulAvg="3"
                   workloadAvg="2"
                   difficultyAvg="4"
@@ -40,7 +40,7 @@ const CoursePage = () => {
 
 
             </Grid.Column>
-            <Grid.Column >
+            <Grid.Column>
               <Grid.Column width={10}>
                 <Grid columns={3}>
                   <Grid.Row>
@@ -51,7 +51,7 @@ const CoursePage = () => {
                     </Grid.Column>
                     <Grid.Column width={4}>
                       <div className='sort-reviews'>
-                        <Dropdown text = 'Sort by'>
+                        <Dropdown text='Sort by'>
                           <Dropdown.Menu>
                             <Dropdown.Item text='Most Popular' />
                             <Dropdown.Item text='Most Recent' />
