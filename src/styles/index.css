@@ -219,12 +219,9 @@ footer {
   margin-left: 110px;
 }
 
-.bar-chart-rows {
-  margin: "0 2px";
-}
 
 .review-cards {
-  display: "block";
+  display: block;
   margin: 20px;
 }
 
@@ -237,14 +234,12 @@ footer {
 }
 
 .course-review-card-header {
-  margin: 0px 260px 0px 0;
+  margin: 0px 335px 0px 0;
 }
 
 .course-review-card-star-rating {
   margin: 5px 0;
 }
 
-.course-review-card-ratings-only {
-  display: block;
-  margin: 20px;
-}
+
+
