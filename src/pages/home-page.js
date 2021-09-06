@@ -153,7 +153,7 @@ const HomePage = (props) => {
 
       {/* Code, name and desc hardcoded for testing purposes */}
       <Grid columns={3}>
-        <CardGrid courses={courses}></CardGrid>
+        <CardGrid courses={courses} />
       </Grid>
     </>
   );
