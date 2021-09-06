@@ -9,7 +9,7 @@ import DropdownSortMenu from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import LabelExampleIcon from '../components/tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
-import BuildGrid from '../components/build-grid.js';
+import CardGrid from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
@@ -186,7 +186,7 @@ const HomePage = (props) => {
 
       {/* Code, name and desc hardcoded for testing purposes */}
       <Grid columns={3}>
-        <BuildGrid courses={courses}></BuildGrid>
+        <CardGrid courses={courses}></CardGrid>
       </Grid>
     </>
   );
