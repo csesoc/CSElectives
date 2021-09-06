@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import { Header, Grid, Progress, Rating } from 'semantic-ui-react';
 import CoursePageTags from '../components/course-page-tags.js';
 
-const placeholderActiveTags = ['Computer Networks', 'Database Systems'];
-
-const placeholderFunction = () => {};
-
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, overallRating, numReviews, summaryDesc,
     usefulAvg, workloadAvg, difficultyAvg, enjoymentAvg } = props;
@@ -17,7 +13,7 @@ const SummaryCard = (props) => {
       <Grid>
         <Grid.Row className='grid-top'>
           <div className='my-course-page-tags'>
-            <CoursePageTags activeTags={placeholderActiveTags} setActiveTags={placeholderFunction} />
+            <CoursePageTags />
           </div>
         </Grid.Row>
         <Grid.Row className='grid-row'>

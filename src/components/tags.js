@@ -9,33 +9,18 @@ import { Icon, Label } from 'semantic-ui-react';
 
 
 const Tag = (props) => {
-  const { label, canDelete, clickable } = props;
-
-  if (canDelete) {
-    return (
-      <Label key={label} as='a' circular>
-        {label}
-        <Icon name='delete' />
-      </Label>
-    );
-  }
-  if (clickable) {
-    return (
-      <Label key={label} as='a' circular>
-        {label}
-      </Label>
-    );
-  }
+  const { label, clearable, clickable } = props;
   return (
-    <Label key={label} circular>
+    <Label key={label} as={clickable && 'a'} circular>
       {label}
+      {clearable && <Icon name='delete' />}
     </Label>
   );
 };
 
 Tag.propTypes = {
   label: PropTypes.string,
-  canDelete: PropTypes.bool,
+  clearable: PropTypes.bool,
   clickable: PropTypes.bool,
 };
 
