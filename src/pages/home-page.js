@@ -72,6 +72,7 @@ const HomePage = (props) => {
     setQuery(value);
     console.log(query);
   };
+
   return loading ? <span>loading</span> : (
     <>
       <Header as='h1'>{query}</Header>
@@ -83,41 +84,43 @@ const HomePage = (props) => {
         <Input size='massive' icon='search' fluid onChange={handleQueryChange} />
         {/* Toggle other tags button */}
         {/* <ToggleOtherTagsButton></ToggleOtherTagsButton>*/}
-        <div className='sort-dropdown-parent'>
-          <div className='sort-dropdown-text'>
-            Sort by:
-          </div>
-          <div className='sort-dropdown-menu'>
-            <DropdownSortMenu options={sortOptions} />
-          </div>
+        <div className='sort-and-filter-container'>
+          <div className='sort-dropdown-parent'>
+            <div className='sort-dropdown-text'>
+              Sort by:
+            </div>
+            <div className='sort-dropdown-menu'>
+              <DropdownSortMenu options={sortOptions} />
+            </div>
 
-        </div>
-        <div className='dropdown-tags-box'>
-          <DropdownTagsMenu
-            title='Major'
-            tagOptions={majorOptions}
-            activeTags={activeTags}
-            setActiveTags={setActiveTags}
-            className='dropdown-tags'
-          />
-        </div>
-        <div className='dropdown-tags-box'>
-          <DropdownTagsMenu
-            title='Term'
-            tagOptions={termOptions}
-            activeTags={activeTags}
-            setActiveTags={setActiveTags}
-            className='dropdown-tags'
-          />
-        </div>
-        <div className='dropdown-tags-box'>
-          <DropdownTagsMenu
-            title='Prefix'
-            tagOptions={prefixOptions}
-            activeTags={activeTags}
-            setActiveTags={setActiveTags}
-            className='dropdown-tags'
-          />
+          </div>
+          <div className='dropdown-tags-box'>
+            <DropdownTagsMenu
+              title='Major'
+              tagOptions={majorOptions}
+              activeTags={activeTags}
+              setActiveTags={setActiveTags}
+              className='dropdown-tags'
+            />
+          </div>
+          <div className='dropdown-tags-box'>
+            <DropdownTagsMenu
+              title='Term'
+              tagOptions={termOptions}
+              activeTags={activeTags}
+              setActiveTags={setActiveTags}
+              className='dropdown-tags'
+            />
+          </div>
+          <div className='dropdown-tags-box'>
+            <DropdownTagsMenu
+              title='Prefix'
+              tagOptions={prefixOptions}
+              activeTags={activeTags}
+              setActiveTags={setActiveTags}
+              className='dropdown-tags'
+            />
+          </div>
         </div>
         {/* Manually increasing the segment size for now */}
         <br></br>
