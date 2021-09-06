@@ -3,47 +3,20 @@ import PropTypes from 'prop-types';
 
 import { Icon, Label } from 'semantic-ui-react';
 
+// Maybe what we can do here is make another component for tags which other
+// components can use to input whatever tag they want
+// For any questions please refer to Timmy
 
-const colors = [
-  'red',
-  'orange',
-  'yellow',
-  'olive',
-  'green',
-  'teal',
-  'blue',
-  'violet',
-  'purple',
-  'pink',
-  'brown',
-  'grey',
-  'black',
-];
-
-{/* Tags without colour*/}
-
-// const LabelExampleIcon = (props) => {
-//   const { code } = props;
-
-//   return (
-//     <div>
-//       <Label as='a'>
-//         {code}
-//         <Icon name='delete' />
-//       </Label>
-//     </div>
-//   );
-// };
 
 const LabelExampleIcon = (props) => {
-  const { code } = props;
+  const { activeTags, setActiveTags } = props;
 
   return (
     <div>
-      {/* this currently creates a tag bubble of EACH color for EACH label */}
-      {colors.map((color) => (
-        <Label color={color} key={color} as='a'>
-          {code}
+      {activeTags.map((tag) => (
+        // This might be the part that we might want to make into a seperate component
+        <Label key={tag} as='a' circular>
+          {tag}
           <Icon name='delete' />
         </Label>
       ))}
@@ -53,6 +26,8 @@ const LabelExampleIcon = (props) => {
 
 LabelExampleIcon.propTypes = {
   code: PropTypes.string,
+  activeTags: PropTypes.array,
+  setActiveTags: PropTypes.func,
 };
 
 export default LabelExampleIcon;

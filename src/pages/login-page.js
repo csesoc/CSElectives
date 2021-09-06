@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from 'semantic-ui-react';
+import '../styles/login-page.css';
 
 const LoginPage = () => {
   return (

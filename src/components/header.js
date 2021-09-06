@@ -20,7 +20,7 @@ const Header = () => {
           name='home'
           onClick={handleItemClick}
         >
-          <Image src={Logo} size='small'/>
+          <Image src={Logo} size='small' />
         </Menu.Item>
         <Menu.Item
           as={Link}
@@ -29,7 +29,7 @@ const Header = () => {
           active={activeItem === 'courses'}
           onClick={handleItemClick}
         >
-      Courses
+          Courses
         </Menu.Item>
         <Menu.Item
           as={Link}
@@ -38,7 +38,7 @@ const Header = () => {
           active={activeItem === 'review'}
           onClick={handleItemClick}
         >
-      Submit a review
+          Submit a review
         </Menu.Item>
         <Menu.Item
           position='right'
