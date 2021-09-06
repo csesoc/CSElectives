@@ -75,7 +75,7 @@ const CoursePage = (props) => {
       <>
         <Header>
           <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>
-            {courses.COMP1511.code}
+            {courses.COMP1511.courseCode}
           </h1>
         </Header>
         <div>
@@ -83,11 +83,11 @@ const CoursePage = (props) => {
             <Grid.Column width={7} floated='left'>
               <div className="my-summary-card">
                 <SummaryCard
-                  summaryTitle={courses.COMP1511.code + ' - ' + courses.COMP1511.title}
+                  summaryTitle={courses.COMP1511.courseCode + ' - ' + courses.COMP1511.title}
                   summaryLink=
                     {'https://www.handbook.unsw.edu.au/undergraduate/courses/'
                     + year + '/'
-                    + courses.COMP1511.code + '/'}
+                    + courses.COMP1511.courseCode + '/'}
                   overallRating={getAvgOverall()}
                   numReviews={courses.COMP1511.reviews.length}
                   summaryDesc={courses.COMP1511.description}
