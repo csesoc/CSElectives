@@ -221,7 +221,7 @@ footer {
 
 
 .review-cards {
-  display: "block";
+  display: block;
   margin: 20px;
 }
 
@@ -240,5 +240,6 @@ footer {
 .course-review-card-star-rating {
   margin: 5px 0;
 }
+
 
 

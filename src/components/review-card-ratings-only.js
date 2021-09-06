@@ -11,7 +11,7 @@ const RatingsCard = (props) => {
 
   return (
 
-    <div style={{ display: 'block', margin: '20px' }}>
+    <div className='review-cards'>
       <Card fluid raised>
         <Card.Content>
 
