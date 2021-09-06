@@ -48,7 +48,7 @@ const CoursePage = (props) => {
     console.log(year);
     return (
       <>
-        <Header as='h1' className='course-code-header'>
+        <Header as='h1' style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>
           {courses.COMP1511.courseCode}
         </Header>
         <div>
@@ -74,7 +74,9 @@ const CoursePage = (props) => {
                 <Grid.Row>
                   <div className='review-heading'>
                     <div>
-                      <Header as='h2'>Reviews</Header>
+                      <Header as='h2'>
+                        Reviews
+                      </Header>
                     </div>
                     <div className='dropdown-reviews'>
                       <Dropdown
