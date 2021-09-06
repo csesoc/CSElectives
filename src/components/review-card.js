@@ -12,39 +12,39 @@ const ReviewCard = (props) => {
       <Card fluid raised>
         <Card.Content>
           <Grid columns={2} divided>
-            <Grid.Row className='my-review-row'>
+            <Grid.Row className='review-row'>
               <Grid.Column width={11}>
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta style={{ margin: '5px 0' }}>
                   Overall:
-                  <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled/>
+                  <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
                 </Card.Meta>
                 <Card.Description>{reviewComment}</Card.Description>
               </Grid.Column>
-              <Grid.Column width={5} >
+              <Grid.Column width={5}>
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
                 <div style={{ margin: '0 2px' }}>
                   Usefulness
                   <div>
-                    <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue'/>
+                    <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue' />
                   </div>
                 </div>
                 <div style={{ margin: '0 2px' }}>
-                Workload
+                  Workload
                   <div>
-                    <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue'/>
+                    <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue' />
                   </div>
                 </div>
                 <div style={{ margin: '0 2px' }}>
-                Enjoyment
+                  Enjoyment
                   <div>
-                    <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue'/>
+                    <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue' />
                   </div>
                 </div>
                 <div style={{ margin: '0 2px' }}>
-                Difficulty
+                  Difficulty
                   <div>
-                    <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue'/>
+                    <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue' />
                   </div>
                 </div>
               </Grid.Column>
@@ -65,6 +65,7 @@ ReviewCard.propTypes = {
   difficultyProgress: PropTypes.number,
   reviewDate: PropTypes.number,
   overallRating: PropTypes.number,
+  description: PropTypes.string,
 };
 
 export default ReviewCard;

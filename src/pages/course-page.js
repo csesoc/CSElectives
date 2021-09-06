@@ -5,7 +5,8 @@ import SummaryCard from '../components/summary-card.js';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CourseReviewCard from '../components/course-review-card.js';
-
+import RatingsCard from '../components/review-card-ratings-only.js';
+import '../styles/course-page.css';
 
 const CoursePage = (props) => {
   const { courses } = props;
@@ -81,11 +82,10 @@ const CoursePage = (props) => {
         <div>
           <Grid stackable>
             <Grid.Column width={7} floated='left'>
-              <div className="my-summary-card">
+              <div className="summary-card">
                 <SummaryCard
                   summaryTitle={courses.COMP1511.courseCode + ' - ' + courses.COMP1511.title}
-                  summaryLink=
-                    {'https://www.handbook.unsw.edu.au/undergraduate/courses/'
+                  summaryLink={'https://www.handbook.unsw.edu.au/undergraduate/courses/'
                     + year + '/'
                     + courses.COMP1511.courseCode + '/'}
                   overallRating={getAvgOverall()}
@@ -108,7 +108,7 @@ const CoursePage = (props) => {
                   </Grid.Column>
                   <Grid.Column width={4}>
                     <div className='sort-reviews'>
-                      <Dropdown text = 'Sort by'>
+                      <Dropdown text='Sort by'>
                         <Dropdown.Menu>
                           <Dropdown.Item text='Most Popular' />
                           <Dropdown.Item text='Most Recent' />
@@ -119,7 +119,7 @@ const CoursePage = (props) => {
                   <Grid.Column width={8}>
                     <div className='review-button'>
                       <Button class="ui button" onClick={handleClick} className='review-button'>
-                          Submit a review
+                        Submit a review
                       </Button>
                     </div>
                   </Grid.Column>
@@ -141,6 +141,17 @@ const CoursePage = (props) => {
                   </div>
                 );
               })}
+              <div className="card-displayer">
+                <RatingsCard
+                  overallRating="4"
+                  reviewDate="11/2/19"
+                  reviewTitle="Random Title"
+                  usefulProgress="2"
+                  workloadProgress="5"
+                  enjoymentProgress="3"
+                  difficultyProgress="2"
+                />
+              </div>
             </Grid.Column>
           </Grid>
         </div>
@@ -148,7 +159,6 @@ const CoursePage = (props) => {
     );
   };
 };
-
 
 CoursePage.propTypes = {
   courses: PropTypes.object,

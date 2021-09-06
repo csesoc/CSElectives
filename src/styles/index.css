@@ -1,7 +1,7 @@
 :root {
-  --csesoc-blue: #3A76F8;
-  --csesoc-navy: #40404C;
-  --csesoc-white: #FFFFFF;
+  --csesoc-blue: #3a76f8;
+  --csesoc-navy: #40404c;
+  --csesoc-white: #ffffff;
 }
 
 body {
@@ -15,25 +15,25 @@ main {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.my-grid-row {
+.grid-row {
   margin: 0 25px;
 }
 
-.my-grid-top {
+.grid-top {
   margin: 0 25px;
-  margin-top: 15px; 
+  margin-top: 15px;
 }
 
-.my-grid-bottom {
+.grid-bottom {
   margin: 0 25px;
   margin-bottom: 15px;
 }
 
-.my-summary-card {
+.summary-card {
   max-height: 93vh;
   overflow-y: scroll;
   scrollbar-width: 5px;
@@ -42,11 +42,11 @@ code {
   top: 20px;
 }
 
-.my-summary-card::-webkit-scrollbar {
+.summary-card::-webkit-scrollbar {
   width: 5px;
 }
 
-.my-review-row {
+.review-row {
   margin: 0 15px;
   margin-top: 3px;
 }
@@ -100,9 +100,9 @@ footer {
 }
 
 .search-section-background {
-  background-color: white!important;
-  display: flex;
-  flex-wrap: wrap;
+  background-color: white !important;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 }
 
 .course-review-card {
@@ -126,7 +126,7 @@ footer {
 }
 
 .sort-dropdown-parent {
-  width:20%;
+  width: 20%;
   height: 3.5rem;
   display: flex;
   justify-content: center;
@@ -144,8 +144,6 @@ footer {
   justify-content: center;
   align-items: center;
   align-content: flex-end;
-  
-
 }
 
 .sort-dropdown-menu {
@@ -170,13 +168,13 @@ footer {
   height: 3.5rem;
   margin-left: 1rem;
 }
- 
+
 .logo-size {
   width: 30%;
 }
 
 .not-found-page-background {
-  background: url('./assets/not-found.jpg');
+  background: url("../assets/not-found.jpg");
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -189,10 +187,64 @@ footer {
   z-index: -5;
 }
 
-.searchbar{
+.not-found-page-text {
+  position: absolute;
+  top: 9%;
+  right: 6%;
+  color: var(--csesoc-white);
+  font-size: 34px;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+  max-width: 59rem;
+  margin-top: 7rem;
+  line-height: 3.5rem;
+  font-weight: bold;
+}
+.not-found-page-text > div {
+  margin-bottom: 4.5rem;
+}
+
+.searchbar {
   margin-bottom: 1rem;
 }
 
-.ui.menu.secondary.pointing.item{
+.ui.menu.secondary.pointing.item {
   float: left;
+}
+
+.review-row-ratings-only {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 110px;
+  margin-left: 110px;
+}
+
+.bar-chart-rows {
+  margin: "0 2px";
+}
+
+.review-cards {
+  display: "block";
+  margin: 20px;
+}
+
+.ratings-only-review-header {
+  margin-top: 0px;
+}
+
+.course-review-card-date {
+  float: right;
+}
+
+.course-review-card-header {
+  margin: 0px 260px 0px 0;
+}
+
+.course-review-card-star-rating {
+  margin: 5px 0;
+}
+
+.course-review-card-ratings-only {
+  display: block;
+  margin: 20px;
 }
