@@ -184,7 +184,7 @@ const HomePage = (props) => {
       <ViewOptionsToggle/>
 
       <Grid columns={3}>
-        {buildGrid()};
+        {buildGrid()}
       </Grid>
     </>
   );
