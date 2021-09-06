@@ -82,18 +82,12 @@ const HomePage = (props) => {
   const buildGrid = () => {
     const sortedCourses = sortMostReviewed();
     const gridArray = [];
-    let gridRow = [];
-    let i = 0;
-
-    // Creates 2 rows of cards, each row being 3 cards long
-    while (i < 2) {
-      for (let i = 0; i < 3; i++) {
-        gridRow.push(sortedCourses.shift());
-      }
+    const colSize = 3;
+    for (let i = 0; i < sortedCourses.length; i += colSize) {
+      const gridRow = sortedCourses.slice(i, i + colSize);
       gridArray.push(gridRow);
-      gridRow = [];
-      i++;
     }
+
     return gridArray.map((row, idx) => {
       return (
         <Grid.Row key={idx}>
