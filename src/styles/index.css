@@ -62,8 +62,9 @@ code {
 }
 
 .sort-reviews {
-  margin-top: 23px;
-  margin-left: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 10px;
 }
 
 .review-button {

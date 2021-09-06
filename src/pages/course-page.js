@@ -8,6 +8,18 @@ import '../styles/course-page.css';
 
 const CoursePage = () => {
   const history = useHistory();
+  const sortOptions = [
+    {
+      key: 'Most Popular',
+      text: 'Most Popular',
+      value: 'Most Popular',
+    },
+    {
+      key: 'Most Recent',
+      text: 'Most Recent',
+      value: 'Most Recent',
+    },
+  ];
   const handleClick = () => {
     history.push('/review');
   };
@@ -49,17 +61,17 @@ const CoursePage = () => {
                         <h2>Reviews</h2>
                       </div>
                     </Grid.Column>
-                    <Grid.Column width={4}>
+                    <Grid.Column width={5}>
                       <div className='sort-reviews'>
-                        <Dropdown text='Sort by'>
-                          <Dropdown.Menu>
-                            <Dropdown.Item text='Most Popular' />
-                            <Dropdown.Item text='Most Recent' />
-                          </Dropdown.Menu>
-                        </Dropdown>
+                        <Dropdown
+                          placeholder='Sort by'
+                          fluid
+                          selection
+                          options={sortOptions}
+                        />
                       </div>
                     </Grid.Column>
-                    <Grid.Column width={7}>
+                    <Grid.Column width={5}>
                       <Button class="ui button" onClick={handleClick} className='review-button'>
                         Submit a review
                       </Button>
