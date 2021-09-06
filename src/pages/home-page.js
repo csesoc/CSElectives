@@ -83,16 +83,16 @@ const HomePage = (props) => {
       const gridRow = sortedCourses.slice(i, i + colSize);
       gridArray.push(gridRow);
     }
-    return gridArray.map((row, idx) => {
+    return gridArray.map((row, index) => {
       return (
-        <Grid.Row key={idx}>
-          {row.map((eqt) => (
-            <Grid.Column key={eqt.id}>
+        <Grid.Row key={index}>
+          {row.map((course) => (
+            <Grid.Column key={course.id}>
               <CourseReviewCard
-                code={eqt.courseCode}
-                name={eqt.title}
-                desc={eqt.description}
-                numReviews={eqt.reviews.length}
+                code={course.courseCode}
+                name={course.title}
+                desc={course.description}
+                numReviews={course.reviews.length}
               />
             </Grid.Column>))}
         </Grid.Row>
@@ -187,7 +187,6 @@ const HomePage = (props) => {
       <Grid columns={3}>
         {buildGrid()}
       </Grid>
-
     </>
   );
 };
