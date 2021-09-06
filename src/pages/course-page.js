@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Grid, Dropdown, Button, Header } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
@@ -7,65 +7,27 @@ import PropTypes from 'prop-types';
 import CourseReviewCard from '../components/course-review-card.js';
 import RatingsCard from '../components/review-card-ratings-only.js';
 import '../styles/course-page.css';
+import { LoadingContext } from '../App.js';
 
 const CoursePage = (props) => {
   const { courses } = props;
-  React.useEffect(() => {}, [courses]);
+  const loading = useContext(LoadingContext);
   const history = useHistory();
   const handleClick = () => {
     history.push('/review');
   };
-  const getAvgOverall = () => {
+
+  const getAverage = (ratingCategory) => {
     let total = 0;
     let count = 0;
     courses.COMP1511.reviews.forEach((review) => {
-      total += review.rating.overall;
+      total += review.rating[ratingCategory];
       count++;
     });
     return total / count;
   };
 
-  const getAvgUsefulness = () => {
-    let total = 0;
-    let count = 0;
-    courses.COMP1511.reviews.forEach((review) => {
-      total += review.rating.usefulness;
-      count++;
-    });
-    return total / count;
-  };
-
-  const getAvgWorkload = () => {
-    let total = 0;
-    let count = 0;
-    courses.COMP1511.reviews.forEach((review) => {
-      total += review.rating.workload;
-      count++;
-    });
-    return total / count;
-  };
-
-  const getAvgEnjoyment = () => {
-    let total = 0;
-    let count = 0;
-    courses.COMP1511.reviews.forEach((review) => {
-      total += review.rating.enjoyment;
-      count++;
-    });
-    return total / count;
-  };
-
-  const getAvgDifficulty = () => {
-    let total = 0;
-    let count = 0;
-    courses.COMP1511.reviews.forEach((review) => {
-      total += review.rating.difficulty;
-      count++;
-    });
-    return total / count;
-  };
-
-  if (Object.keys(courses).length === 0) {
+  if (loading) {
     return <span>loading...</span>;
   } else {
     console.log(courses.COMP1511);
@@ -85,16 +47,15 @@ const CoursePage = (props) => {
               <div className="summary-card">
                 <SummaryCard
                   summaryTitle={courses.COMP1511.courseCode + ' - ' + courses.COMP1511.title}
-                  summaryLink={'https://www.handbook.unsw.edu.au/undergraduate/courses/'
-                    + year + '/'
-                    + courses.COMP1511.courseCode + '/'}
-                  overallRating={getAvgOverall()}
+                  summaryLink={`https://www.handbook.unsw.edu.au/undergraduate/courses/${year}/
+                  ${courses.COMP1511.courseCode}/`}
+                  overallRating={getAverage('overall')}
                   numReviews={courses.COMP1511.reviews.length}
                   summaryDesc={courses.COMP1511.description}
-                  usefulAvg={getAvgUsefulness()}
-                  workloadAvg={getAvgWorkload()}
-                  difficultyAvg={getAvgDifficulty()}
-                  enjoymentAvg={getAvgEnjoyment()}
+                  usefulAvg={getAverage('usefulness')}
+                  workloadAvg={getAverage('workload')}
+                  difficultyAvg={getAverage('difficulty')}
+                  enjoymentAvg={getAverage('enjoyment')}
                 />
               </div>
             </Grid.Column>
