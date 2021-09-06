@@ -43,7 +43,9 @@ const Header = () => {
         <Menu.Item
           position='right'
         >
-          <Input icon='search' placeholder='COMP1511' />
+          {activeItem !== 'home' ? (
+            <Input icon='search' placeholder='COMP1511' />
+          ) : null}
         </Menu.Item>
         <Menu.Item
           as={Link}
