@@ -8,26 +8,35 @@ import { Icon, Label } from 'semantic-ui-react';
 // For any questions please refer to Timmy
 
 
-const LabelExampleIcon = (props) => {
-  const { activeTags, setActiveTags } = props;
+const Tag = (props) => {
+  const { label, canDelete, clickable } = props;
 
+  if (canDelete) {
+    return (
+      <Label key={label} as='a' circular>
+        {label}
+        <Icon name='delete' />
+      </Label>
+    );
+  }
+  if (clickable) {
+    return (
+      <Label key={label} as='a' circular>
+        {label}
+      </Label>
+    );
+  }
   return (
-    <div>
-      {activeTags.map((tag) => (
-        // This might be the part that we might want to make into a seperate component
-        <Label key={tag} as='a' circular>
-          {tag}
-          <Icon name='delete' />
-        </Label>
-      ))}
-    </div>
+    <Label key={label} circular>
+      {label}
+    </Label>
   );
 };
 
-LabelExampleIcon.propTypes = {
-  code: PropTypes.string,
-  activeTags: PropTypes.array,
-  setActiveTags: PropTypes.func,
+Tag.propTypes = {
+  label: PropTypes.string,
+  canDelete: PropTypes.bool,
+  clickable: PropTypes.bool,
 };
 
-export default LabelExampleIcon;
+export default Tag;
