@@ -19,21 +19,21 @@ code {
     monospace;
 }
 
-.grid-row {
+.my-grid-row {
   margin: 0 25px;
 }
 
-.grid-top {
+.my-grid-top {
   margin: 0 25px;
   margin-top: 15px;
 }
 
-.grid-bottom {
+.my-grid-bottom {
   margin: 0 25px;
   margin-bottom: 15px;
 }
 
-.summary-card {
+.my-summary-card {
   max-height: 93vh;
   overflow-y: scroll;
   scrollbar-width: 5px;
@@ -42,11 +42,11 @@ code {
   top: 20px;
 }
 
-.summary-card::-webkit-scrollbar {
+.my-summary-card::-webkit-scrollbar {
   width: 5px;
 }
 
-.review-row {
+.my-review-row {
   margin: 0 15px;
   margin-top: 3px;
 }
@@ -219,9 +219,6 @@ footer {
   margin-left: 110px;
 }
 
-.bar-chart-rows {
-  margin: "0 2px";
-}
 
 .review-cards {
   display: "block";
@@ -237,14 +234,11 @@ footer {
 }
 
 .course-review-card-header {
-  margin: 0px 260px 0px 0;
+  margin: 0px 335px 0px 0;
 }
 
 .course-review-card-star-rating {
   margin: 5px 0;
 }
 
-.course-review-card-ratings-only {
-  display: block;
-  margin: 20px;
-}
+
