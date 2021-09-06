@@ -38,6 +38,13 @@ const CoursePage = (props) => {
     return `${courses.COMP1511.courseCode} - ${courses.COMP1511.title}`;
   };
 
+  const getReviewDate = (review) => {
+    const date = new Date(courses.COMP1511.reviews[review].timestamp).getDate();
+    const month = new Date(courses.COMP1511.reviews[review].timestamp).getMonth();
+    const year = new Date(courses.COMP1511.reviews[review].timestamp).getFullYear();
+    return `${date}/${month}/${year}`;
+  };
+
   if (loading) {
     return <span>loading...</span>;
   } else {
@@ -99,7 +106,7 @@ const CoursePage = (props) => {
                   <div key={i} className="card-displayer">
                     <ReviewCard
                       overallRating={courses.COMP1511.reviews[review].rating.overall}
-                      reviewDate={courses.COMP1511.reviews[review].timestamp}
+                      reviewDate={getReviewDate(review)}
                       reviewTitle={courses.COMP1511.reviews[review].title}
                       reviewComment={courses.COMP1511.reviews[review].comment}
                       usefulProgress={courses.COMP1511.reviews[review].rating.usefulness}
