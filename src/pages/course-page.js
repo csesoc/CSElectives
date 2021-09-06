@@ -79,7 +79,7 @@ const CoursePage = (props) => {
                   </Grid.Column>
                   <Grid.Column width={8}>
                     <div className='review-button'>
-                      <Button class="ui button" onClick={handleClick} className='review-button'>
+                      <Button onClick={handleClick} className='review-button'>
                         Submit a review
                       </Button>
                     </div>
