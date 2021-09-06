@@ -27,13 +27,22 @@ const CoursePage = (props) => {
     return total / count;
   };
 
+  const year = new Date().getFullYear();
+
+  const getLink = () => {
+    return `https://www.handbook.unsw.edu.au/undergraduate/courses/${year}/`
+    +`${courses.COMP1511.courseCode}/`;
+  };
+
+  const getSummaryTitle = () => {
+    return `${courses.COMP1511.courseCode} - ${courses.COMP1511.title}`;
+  };
+
   if (loading) {
     return <span>loading...</span>;
   } else {
     console.log(courses.COMP1511);
     console.log(courses.COMP1511.reviews);
-    const year = new Date().getFullYear();
-    console.log(year);
     return (
       <>
         <Header>
@@ -46,9 +55,8 @@ const CoursePage = (props) => {
             <Grid.Column width={7} floated='left'>
               <div className="summary-card">
                 <SummaryCard
-                  summaryTitle={courses.COMP1511.courseCode + ' - ' + courses.COMP1511.title}
-                  summaryLink={`https://www.handbook.unsw.edu.au/undergraduate/courses/${year}/
-                  ${courses.COMP1511.courseCode}/`}
+                  summaryTitle={getSummaryTitle()}
+                  summaryLink={getLink()}
                   overallRating={getAverage('overall')}
                   numReviews={courses.COMP1511.reviews.length}
                   summaryDesc={courses.COMP1511.description}

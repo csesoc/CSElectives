@@ -64,9 +64,42 @@ const prefixOptions = prefix.map((item) => createDropdownOption(item));
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
-
   const [activeTags, setActiveTags] = useState([]);
   const [query, setQuery] = useState('Home Page');
+
+  // Returns an array of courses sorted in descending order of number of reviews
+  const sortMostReviewed = () => {
+    return Object.values(courses).sort(function(a, b) {
+      return b.reviews.length - a.reviews.length;
+    });
+  };
+
+  // This function creates the grid of course review cards
+  const buildGrid = () => {
+    const sortedCourses = sortMostReviewed();
+    const gridArray = [];
+    const colSize = 3;
+    for (let i = 0; i < sortedCourses.length; i += colSize) {
+      const gridRow = sortedCourses.slice(i, i + colSize);
+      gridArray.push(gridRow);
+    }
+    return gridArray.map((row, index) => {
+      return (
+        <Grid.Row key={index}>
+          {row.map((course) => (
+            <Grid.Column key={course.id}>
+              <CourseReviewCard
+                code={course.courseCode}
+                name={course.title}
+                desc={course.description}
+                numReviews={course.reviews.length}
+              />
+            </Grid.Column>))}
+        </Grid.Row>
+      );
+    });
+  };
+
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
     console.log(query);
@@ -152,102 +185,8 @@ const HomePage = (props) => {
 
       {/* Code, name and desc hardcoded for testing purposes */}
       <Grid columns={3}>
-        <Grid.Row>
-          <Grid.Column>
-            <CourseReviewCard
-              code="COMP1511"
-              name="Programming Fundamentals"
-              desc="An introduction to problem-solving via programming, which
-              aims to have students develop proficiency in using a high level
-              programming language. Topics: algorithms, program structures
-              (statements, sequence, selection, iteration, functions),
-              data types (numeric, character), data structures (arrays, tuples,
-              pointers, lists), storage structures (memory, addresses),
-              introduction to analysis of algorithms, testing, code quality,
-              teamwork, and reflective practice. The course includes extensive
-              practical work in labs and programming projects."
-            />
-          </Grid.Column>
-          <Grid.Column>
-            <CourseReviewCard
-              code="COMP1521"
-              name="Computer Systems Fundamentals"
-              desc="This course provides a programmer's view on how a computer
-              system executes programs, manipulates data and communicates. It
-              enables students to become effective programmers in dealing with
-              issues of performance, portability, and robustness. It is
-              typically taken in the term after completing COMP1511, but could
-              be delayed and taken later. It serves as a foundation for later
-              courses on networks, operating systems, computer architecture and
-              compilers, where a deeper understanding of systems-level issues is
-              required."
-            />
-          </Grid.Column>
-          <Grid.Column>
-            <CourseReviewCard
-              code="COMP1531"
-              name="Software Engineering Fundamentals"
-              desc="This course provides an introduction to software engineering
-               principles: basic software lifecycle concepts, modern development
-                methodologies, conceptual modeling and how these activities
-                relate to programming. It also introduces the basic notions of
-                team-based project management via conducting a project to design
-                , build and deploy a simple web-based application. It is
-                typically taken in the term after completing COMP1511, but could
-                 be delayed and taken later. It provides essential background
-                 for the teamwork and project management required in many later
-                 courses."
-            />
-          </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row>
-          <Grid.Column>
-            <CourseReviewCard
-              code="COMP2511"
-              name="Object Oriented Progamming"
-              desc="This course aims to introduce students to the principles of
-              object-oriented design and to fundamental techniques in
-              object-oriented programming. It is typically taken in the second
-              year of study, after COMP2521, to ensure an appropriate background
-               in data structures. The knowledge gained in COMP2511 is useful in
-                a wide range of later-year CS courses."
-            />
-          </Grid.Column>
-          <Grid.Column>
-            <CourseReviewCard
-              code="COMP2521"
-              name="Data Structures and Algorithms"
-              desc="The goal of this course is to deepen students' understanding
-               of data structures and algorithms and how these can be employed
-               effectively in the design of software systems. We anticipate that
-                it will generally be taken in the second year of a program, but
-                since its only pre-requisite is COMP1511, is it possible to take
-                 it in first year. It is an important course in covering a range
-                  of core data structures and algorithms that will be used in
-                  context in later courses."
-            />
-          </Grid.Column>
-          <Grid.Column>
-            <CourseReviewCard
-              code="SENG2011"
-              name="Workshop on Reasoning about Programs"
-              desc="This is a workshop course aimed at developing the skills of
-              writing precise specifications of programs and translating these
-              specifications into correct implementations. The course applies
-              the rigorous modelling and verification techniques introduced in
-              COMP2111 to a diverse and increasingly complex set of problems.
-              Further methods for reasoning about programs are introduced,
-              including methods for reasoning about termination,  program
-              refinement and data refinement. The primary learning outcome is to
-               develop students' abilities to apply these ideas to structure
-               their thinking about programs, but the course may use a formal
-               verification tool to support learning."
-            />
-          </Grid.Column>
-        </Grid.Row>
+        {buildGrid()}
       </Grid>
-
     </>
   );
 };
