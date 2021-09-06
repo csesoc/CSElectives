@@ -64,6 +64,8 @@ const prefixOptions = prefix.map((item) => createDropdownOption(item));
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
+  const [activeTags, setActiveTags] = useState([]);
+  const [query, setQuery] = useState('Home Page');
 
   // Returns an array of courses sorted in descending order of number of reviews
   const sortMostReviewed = () => {
@@ -98,8 +100,6 @@ const HomePage = (props) => {
     });
   };
 
-  const [activeTags, setActiveTags] = useState([]);
-  const [query, setQuery] = useState('Home Page');
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
     console.log(query);
