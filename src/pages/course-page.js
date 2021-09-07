@@ -1,44 +1,80 @@
 import React from 'react';
-import { Header, Label, Progress, Grid } from 'semantic-ui-react';
+import { Grid, Dropdown, Button, Header } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import CourseReviewCard from '../components/course-review-card.js';
-
+import { useHistory } from 'react-router-dom';
+import RatingsCard from '../components/review-card-ratings-only.js';
+import '../styles/course-page.css';
 
 const CoursePage = () => {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push('/review');
+  };
   return (
     <>
-      <Header as='h1' style={{ padding: 20 }}>Course Page</Header>
 
-      {/* Label component: https://react.semantic-ui.com/elements/label/ */}
-      <Label color='red'>These label components</Label>
-      <Label color='green' basic>would be helpful!</Label>
+      <Header>
+        <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>COMP1511</h1>
+      </Header>
 
-      {/* Progress component: https://react.semantic-ui.com/modules/progress/ */}
-      <div>Maybe you can use this for your bar charts?</div>
 
-      <div>This is an unrestricted width progress component</div>
-      <Progress percent={10} />
-
-      <div style={{ maxWidth: '25%', border: '1px solid black', padding: 10 }}>
-        <span>
-          Spans dont put new lines which you might find handy.
-          You can restrict the width of the parent div to control the length of the progress component
-        </span>
-        <Progress percent={10} />
-      </div>
       <div>
-        <Grid columns={2}>
+        <Grid columns={2} stackable>
           <Grid.Row>
             <Grid.Column width={6}>
               <div className="card-displayer">
-                <SummaryCard summaryTitle="COMP1511"/>
+                <SummaryCard
+                  summaryTitle="COMP1511 - Intro to Programming"
+                  summaryLink="https://www.handbook.unsw.edu.au/undergraduate/courses/2021/COMP1511/"
+                  overallRating="4"
+                  numReviews="42"
+                  // eslint-disable-next-line max-len
+                  summaryDesc="This is a long description of the above course describing containing what to expect in the course"
+                  usefulAvg="3"
+                  workloadAvg="2"
+                  difficultyAvg="4"
+                  enjoymentAvg="3"
+                />
               </div>
+
+
             </Grid.Column>
-            <Grid.Column >
+            <Grid.Column>
               <Grid.Column width={10}>
+                <Grid columns={3}>
+                  <Grid.Row>
+                    <Grid.Column width={4}>
+                      <div className='review-heading'>
+                        <h2>Reviews</h2>
+                      </div>
+                    </Grid.Column>
+                    <Grid.Column width={4}>
+                      <div className='sort-reviews'>
+                        <Dropdown text='Sort by'>
+                          <Dropdown.Menu>
+                            <Dropdown.Item text='Most Popular' />
+                            <Dropdown.Item text='Most Recent' />
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </div>
+                    </Grid.Column>
+                    <Grid.Column width={7}>
+                      <Button class="ui button" onClick={handleClick} className='review-button'>
+                        Submit a review
+                      </Button>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
                 <div className="card-displayer">
                   <ReviewCard
+                    description="I took COMP3311(databases) and it was one of my
+                    favourite (and highest mark courses). The assignments
+                    and exams are actually fun. Why? Because they are
+                    somewhat relatable, e.g. Where can I buy a type of
+                    Pizza that serves it, but also is the cheapest, blah,
+                    blah. The practical work is also fun and you can take
+                    it at your own pace. I like Jas as a lecturer too."
                     overallRating="4"
                     reviewDate="10/2/20"
                     reviewTitle="wow i love this subject"
@@ -50,6 +86,9 @@ const CoursePage = () => {
                 </div>
                 <div className="card-displayer">
                   <ReviewCard
+                    description="I took COMP3311(databases) and it was one of my
+                    favourite (and highest mark courses). The assignments
+                    and exams are actually fun. "
                     overallRating="2"
                     reviewDate="10/2/19"
                     reviewTitle="its okay..."
@@ -59,6 +98,36 @@ const CoursePage = () => {
                     difficultyProgress="2"
                   />
                 </div>
+
+                <div className="card-displayer">
+                  <ReviewCard
+                    overallRating="2"
+                    reviewDate="10/2/19"
+                    reviewTitle="its okay..."
+                    description="I took COMP3311(databases) and it was one of my
+                    favourite (and highest mark courses). The assignments
+                    and exams are actually fun. Why? Because they are
+                    somewhat relatable, e.g. Where can I buy a type of
+                    Pizza that serves it, but also is the cheapest, blah,
+                    blah. "
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
+                <div className="card-displayer">
+                  <RatingsCard
+                    overallRating="4"
+                    reviewDate="11/2/19"
+                    reviewTitle="Random Title"
+                    usefulProgress="2"
+                    workloadProgress="5"
+                    enjoymentProgress="3"
+                    difficultyProgress="2"
+                  />
+                </div>
+
               </Grid.Column>
             </Grid.Column>
           </Grid.Row>

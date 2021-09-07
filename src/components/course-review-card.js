@@ -6,17 +6,18 @@ import { Rating } from 'semantic-ui-react';
 
 const CourseReviewCard = (props) => {
   const { code, name, desc } = props;
+  const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
 
   return (
-    <div className='course-review-card'>
-      <Card>
+    <div>
+      <Card className='course-review-card'>
         <Card.Content>
           <Card.Header>{code}</Card.Header>
           <Card.Meta>{name}</Card.Meta>
           <Rating icon='star' defaultRating={3} maxRating={5} disabled />
           <Card.Meta> 42 reviews </Card.Meta>
           <Card.Description>
-            {desc}
+            {displayDesc}
           </Card.Description>
         </Card.Content>
       </Card>

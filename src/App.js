@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 import { Container } from 'semantic-ui-react';
@@ -13,40 +13,59 @@ import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';
 import NotFoundPage from './pages/not-found-page.js';
 
+export const LoadingContext = createContext();
+
 const App = () => {
+  const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState({});
 
-  useEffect(async () => {
-    const newCourses = {};
+  useEffect(() => {
+    const getCourses = async () => {
+      const newCourses = {};
 
-    const courseSnapshot = await Database.getSnapshot('courses');
-    courseSnapshot.docs.forEach((doc) => {
-      newCourses[doc.id] = doc.data();
-    });
+      const courseSnapshot = await Database.getSnapshot('courses');
+      courseSnapshot.docs.forEach((doc) => {
+        newCourses[doc.id] = doc.data();
+      });
 
-    setCourses(newCourses);
-    console.log('Courses:', newCourses);
+      setCourses(newCourses);
+      console.log('Courses:', newCourses);
+      setLoading(false);
+    };
+    getCourses();
   }, []);
 
   return (
     <BrowserRouter>
-      <div className='display-wrapper'>
-        <header>
-          <Header />
-        </header>
+      <LoadingContext.Provider value={loading}>
+        <div className='display-wrapper'>
+          <header>
+            <Header />
+          </header>
 
-        <main>
-          <Container>
-            <Switch>
-              <Route exact path='/course' component={CoursePage} />
-              <Route exact path='/review' component={ReviewPage} />
-              <Route exact path='/login' component={LoginPage} />
-              <Route exact path='/' component={HomePage} />
-              <Route component={NotFoundPage} />
-            </Switch>
-          </Container>
-        </main>
-      </div>
+          <main>
+            <Container className='main-wrapper'>
+              <Switch>
+                <Route exact path='/course'>
+                  <CoursePage />
+                </Route>
+                <Route exact path='/review'>
+                  <ReviewPage />
+                </Route>
+                <Route exact path='/login'>
+                  <LoginPage />
+                </Route>
+                <Route exact path='/'>
+                  <HomePage courses={courses} />
+                </Route>
+                <Route>
+                  <NotFoundPage />
+                </Route>
+              </Switch>
+            </Container>
+          </main>
+        </div>
+      </LoadingContext.Provider>
 
       <footer>
         <Footer />
