@@ -9,7 +9,7 @@ const CourseReviewCard = (props) => {
   const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
 
   return (
-    <div>
+    <div className='card-container'>
       <Card className='course-review-card'>
         <Card.Content>
           <Card.Header>{code}</Card.Header>
