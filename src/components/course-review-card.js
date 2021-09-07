@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const CourseReviewCard = (props) => {
   const { code, name, desc, numReviews } = props;
   const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
-  const page = 'course/' + code;
+  const page = `course/${code}`;
 
   return (
     <div className='card-container'>
