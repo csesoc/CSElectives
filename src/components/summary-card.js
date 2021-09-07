@@ -5,7 +5,7 @@ import { Header, Grid, Progress, Rating } from 'semantic-ui-react';
 import CoursePageTags from '../components/course-page-tags.js';
 
 const SummaryCard = (props) => {
-  const { summaryTitle, summaryLink, overallRating, numReviews, summaryDesc,
+  const { summaryTitle, summaryLink, handbookCode, overallRating, numReviews, summaryDesc,
     usefulAvg, workloadAvg, difficultyAvg, enjoymentAvg } = props;
 
   return (
@@ -20,7 +20,7 @@ const SummaryCard = (props) => {
           <div>
             <Header as='h2'>{summaryTitle}</Header>
             <a href={summaryLink} rel="noreferrer" target="_blank">
-              COMP1511 Handbook
+              {handbookCode} Handbook
             </a> <br />
             <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
             {numReviews} Reviews
@@ -96,6 +96,7 @@ const SummaryCard = (props) => {
 SummaryCard.propTypes = {
   summaryTitle: PropTypes.string,
   summaryLink: PropTypes.string,
+  handbookCode: PropTypes.string,
   overallRating: PropTypes.string,
   numReviews: PropTypes.string,
   summaryDesc: PropTypes.string,

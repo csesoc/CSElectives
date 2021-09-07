@@ -148,6 +148,7 @@ const CoursePage = (props) => {
               <SummaryCard
                 summaryTitle={getSummaryTitle()}
                 summaryLink={getLink()}
+                handbookCode={courseCode}
                 overallRating={getAverage('overall')}
                 numReviews={course.reviews.length}
                 summaryDesc={course.description}
