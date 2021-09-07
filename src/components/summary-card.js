@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Grid, Progress, Rating } from 'semantic-ui-react';
+import { Header, Grid, Progress, Rating, Icon } from 'semantic-ui-react';
 import CoursePageTags from '../components/course-page-tags.js';
 
 const SummaryCard = (props) => {
@@ -20,7 +20,7 @@ const SummaryCard = (props) => {
           <div>
             <Header as='h2'>{summaryTitle}</Header>
             <a href={summaryLink} rel="noreferrer" target="_blank">
-              {courseCode} Handbook
+              <Icon name='external' /> {courseCode} Handbook Page
             </a> <br />
             <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
             {numReviews} Reviews
