@@ -12,7 +12,7 @@ const CourseReviewCard = (props) => {
 
   return (
     <div className='card-container'>
-      <Link to={page}>
+      <Link to={page} className='card-container'>
         <Card className='course-review-card'>
           <Card.Content>
             <Card.Header>{code}</Card.Header>
