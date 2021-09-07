@@ -20,10 +20,16 @@ const DropdownTagsMenu = (props) => {
         text={object.value}
         onClick={toggleSelectionDrop}
       >
-        <Checkbox
-          label={object.value}
-          checked={activeTags.includes(object.value)}
-        />
+        <div className="ui attached icon form" id="info_input_form">
+          <div className="ui checkbox">
+            <input
+              type="checkbox"
+              tabIndex="0"
+              checked={activeTags.includes(object.value)}
+            />
+            <label className="coloring black">{object.value}</label>
+          </div>
+        </div>
       </Dropdown.Item>
     );
   };
