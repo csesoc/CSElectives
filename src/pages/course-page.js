@@ -13,6 +13,18 @@ const CoursePage = (props) => {
   const { courses } = props;
   const loading = useContext(LoadingContext);
   const history = useHistory();
+  const sortOptions = [
+    {
+      key: 'Most Popular',
+      text: 'Most Popular',
+      value: 'Most Popular',
+    },
+    {
+      key: 'Most Recent',
+      text: 'Most Recent',
+      value: 'Most Recent',
+    },
+  ];
   const handleClick = () => {
     history.push('/review');
   };
@@ -38,6 +50,13 @@ const CoursePage = (props) => {
     return `${courses.COMP1511.courseCode} - ${courses.COMP1511.title}`;
   };
 
+  const getReviewDate = (review) => {
+    const date = new Date(courses.COMP1511.reviews[review].timestamp).getDate();
+    const month = new Date(courses.COMP1511.reviews[review].timestamp).getMonth();
+    const year = new Date(courses.COMP1511.reviews[review].timestamp).getFullYear();
+    return `${date}/${month}/${year}`;
+  };
+
   if (loading) {
     return <span>loading...</span>;
   } else {
@@ -45,10 +64,12 @@ const CoursePage = (props) => {
     console.log(courses.COMP1511.reviews);
     return (
       <>
-        <Header>
-          <h1 style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>
-            {courses.COMP1511.courseCode}
-          </h1>
+        <Header
+          as='h1'
+          style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
+            color: 'black' }}
+        >
+          {courses.COMP1511.courseCode}
         </Header>
         <div>
           <Grid stackable>
@@ -70,28 +91,25 @@ const CoursePage = (props) => {
             <Grid.Column width={9} floated='right'>
               <Grid columns={3}>
                 <Grid.Row>
-                  <Grid.Column width={4}>
-                    <div className='review-heading'>
-                      <h2>Reviews</h2>
+                  <div className='review-heading'>
+                    <div>
+                      <Header as='h2'>
+                        Reviews
+                      </Header>
                     </div>
-                  </Grid.Column>
-                  <Grid.Column width={4}>
-                    <div className='sort-reviews'>
-                      <Dropdown text='Sort by'>
-                        <Dropdown.Menu>
-                          <Dropdown.Item text='Most Popular' />
-                          <Dropdown.Item text='Most Recent' />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                    <div className='dropdown-reviews'>
+                      <Dropdown
+                        placeholder='Sort by'
+                        selection
+                        options={sortOptions}
+                      />
                     </div>
-                  </Grid.Column>
-                  <Grid.Column width={8}>
-                    <div className='review-button'>
+                    <div>
                       <Button onClick={handleClick} className='review-button'>
                         Submit a review
                       </Button>
                     </div>
-                  </Grid.Column>
+                  </div>
                 </Grid.Row>
               </Grid>
               {Object.keys(courses.COMP1511.reviews).map((review, i) => {
@@ -99,7 +117,7 @@ const CoursePage = (props) => {
                   <div key={i} className="card-displayer">
                     <ReviewCard
                       overallRating={courses.COMP1511.reviews[review].rating.overall}
-                      reviewDate={courses.COMP1511.reviews[review].timestamp}
+                      reviewDate={getReviewDate(review)}
                       reviewTitle={courses.COMP1511.reviews[review].title}
                       reviewComment={courses.COMP1511.reviews[review].comment}
                       usefulProgress={courses.COMP1511.reviews[review].rating.usefulness}

@@ -57,7 +57,8 @@ const Header = (props) => {
         <Menu.Item
           position='right'
         >
-          <Dropdown
+          {activeItem !== 'home'
+          && <Dropdown
             icon='search'
             placeholder='COMP1511'
             fluid
@@ -65,6 +66,7 @@ const Header = (props) => {
             selection
             options={dropdownOptionArray}
           />
+          }
         </Menu.Item>
         <Menu.Item
           as={Link}

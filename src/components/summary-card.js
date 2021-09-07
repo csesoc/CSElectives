@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Header, Grid, Progress, Rating } from 'semantic-ui-react';
-import LabelExampleIcon from '../components/tags.js';
-
-const placeholderActiveTags = ['Computer Networks', 'Database Systems'];
-
-const placeholderFunction = () => {};
+import CoursePageTags from '../components/course-page-tags.js';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, overallRating, numReviews, summaryDesc,
@@ -17,7 +13,7 @@ const SummaryCard = (props) => {
       <Grid>
         <Grid.Row className='grid-top'>
           <div className='my-course-page-tags'>
-            <LabelExampleIcon activeTags={placeholderActiveTags} setActiveTags={placeholderFunction} />
+            <CoursePageTags />
           </div>
         </Grid.Row>
         <Grid.Row className='grid-row'>

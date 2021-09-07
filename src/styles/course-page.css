@@ -1,0 +1,15 @@
+.review-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.dropdown-reviews {
+    flex-grow: 2;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
