@@ -24,7 +24,7 @@ const ReviewPage = () => {
     setQuestion(value);
   };
 
-  const [anonymity, setAnonymity] = useState('');
+  const [anonymity, setAnonymity] = useState(true);
   const handleAnonymityChange = (e, { value }) => {
     setAnonymity(value);
   };
@@ -49,19 +49,19 @@ const ReviewPage = () => {
         </Form.Group>
         <Form.Group inline>
           <Form.Field>
-            Would you like to remain anonymous? <b>{anonymity}</b>
+            Would you like to remain anonymous?
             <Form.Radio
               label='Yes'
               name='anonymityGroup'
-              value='Yes'
-              checked={anonymity === 'Yes'}
+              value
+              checked={anonymity === true}
               onChange={handleAnonymityChange}
             />
             <Form.Radio
               label='No'
               name='anonymityGroup'
-              value='No'
-              checked={anonymity === 'No'}
+              value={false}
+              checked={anonymity === false}
               onChange={handleAnonymityChange}
             />
           </Form.Field>
