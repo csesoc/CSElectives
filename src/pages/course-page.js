@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Grid, Dropdown, Button, Header } from 'semantic-ui-react';
+import { Grid, Dropdown, Button, Header, Icon } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory, useParams } from 'react-router-dom';
@@ -31,7 +31,9 @@ const CoursePage = (props) => {
   const handleClick = () => {
     history.push('/review');
   };
-
+  const handleClickHome = () => {
+    history.push('/');
+  };
   const getAverage = (ratingCategory) => {
     let total = 0;
     let count = 0;
@@ -39,6 +41,9 @@ const CoursePage = (props) => {
       total += review.rating[ratingCategory];
       count++;
     });
+    if (count === 0) {
+      return 0;
+    }
     return total / count;
   };
 
@@ -57,6 +62,70 @@ const CoursePage = (props) => {
     const month = new Date(course.reviews[review].timestamp).getMonth();
     const year = new Date(course.reviews[review].timestamp).getFullYear();
     return `${date}/${month}/${year}`;
+  };
+
+  // check if review has text or not
+  // if review doesn't have text, present in a rating card
+  // if it does, present in a review card
+  const checkReview = (review) => {
+    if (!course.reviews[review].comment) {
+      return (
+        <>
+          <RatingsCard
+            overallRating={course.reviews[review].rating.overall}
+            reviewDate={getReviewDate(review)}
+            reviewTitle={course.reviews[review].title}
+            usefulProgress={course.reviews[review].rating.usefulness}
+            workloadProgress={course.reviews[review].rating.workload}
+            enjoymentProgress={course.reviews[review].rating.enjoyment}
+            difficultyProgress={course.reviews[review].rating.difficulty}
+          />
+        </>
+      );
+    };
+    return (
+      <>
+        <ReviewCard
+          overallRating={course.reviews[review].rating.overall}
+          reviewDate={getReviewDate(review)}
+          reviewTitle={course.reviews[review].title}
+          reviewComment={course.reviews[review].comment}
+          usefulProgress={course.reviews[review].rating.usefulness}
+          workloadProgress={course.reviews[review].rating.workload}
+          enjoymentProgress={course.reviews[review].rating.enjoyment}
+          difficultyProgress={course.reviews[review].rating.difficulty}
+        />
+      </>
+    );
+  };
+
+  // check if course has reviews or not
+  const checkEmptyState = () => {
+    if (course.reviews.length === 0) {
+      return (
+        <>
+          <div className='no-reviews'>
+            <Header>No reviews yet!</Header>
+            <Button animated onClick={handleClickHome} size='big' color='blue' basic>
+              <Button.Content visible> Check out more courses</Button.Content>
+              <Button.Content hidden><Icon name='space shuttle' /></Button.Content>
+            </Button>
+          </div>
+
+        </>
+      );
+    }
+    return (
+      <>
+        {Object.keys(course.reviews).map((review, i) => {
+          return (
+            <div key={i} className="card-displayer">
+              {checkReview(review)}
+            </div>
+          );
+        })}
+      </>
+    );
   };
 
   if (loading) return <span>loading...</span>;
@@ -112,22 +181,7 @@ const CoursePage = (props) => {
                 </div>
               </Grid.Row>
             </Grid>
-            {Object.keys(course.reviews).map((review, i) => {
-              return (
-                <div key={i} className="card-displayer">
-                  <ReviewCard
-                    overallRating={course.reviews[review].rating.overall}
-                    reviewDate={getReviewDate(review)}
-                    reviewTitle={course.reviews[review].title}
-                    reviewComment={course.reviews[review].comment}
-                    usefulProgress={course.reviews[review].rating.usefulness}
-                    workloadProgress={course.reviews[review].rating.workload}
-                    enjoymentProgress={course.reviews[review].rating.enjoyment}
-                    difficultyProgress={course.reviews[review].rating.difficulty}
-                  />
-                </div>
-              );
-            })}
+            {checkEmptyState()}
             <div className="card-displayer">
               <RatingsCard
                 overallRating="4"
