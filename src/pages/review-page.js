@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Header, Button, Icon } from 'semantic-ui-react';
+import { Form, Header, Button, Icon, TextArea } from 'semantic-ui-react';
 import '../styles/review-page.css';
 const termOptions = [
   { value: '21T2', text: '21T2' },
@@ -66,7 +66,11 @@ const ReviewPage = () => {
             />
           </Form.Field>
         </Form.Group>
-        <Button color='green' animated='fade' type='submit'>
+        <TextArea placeholder='Please write your review here: make sure you have read the terms and conditions
+        before posting. Feel free to include your overall experience with the course,
+        how you found the assessments/workload and anything else you wanted to share!'
+        />
+        <Button color='green' animated='fade' type='submit' floated='right'>
           <Button.Content visible><Icon name='angle double right' /> </Button.Content>
           <Button.Content hidden>
             Submit
