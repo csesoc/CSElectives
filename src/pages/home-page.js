@@ -7,7 +7,7 @@ import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
 import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
-import LabelExampleIcon from '../components/tags.js';
+import HomePageTags from '../components/home-page-tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
 import CardGrid from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
@@ -147,7 +147,7 @@ const HomePage = (props) => {
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
-        <LabelExampleIcon activeTags={activeTags} setActiveTags={setActiveTags} />
+        <HomePageTags activeTags={activeTags} setActiveTags={setActiveTags} />
       </div>
 
       <ViewOptionsToggle />
