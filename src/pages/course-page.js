@@ -48,7 +48,11 @@ const CoursePage = (props) => {
     console.log(year);
     return (
       <>
-        <Header as='h1' style={{ padding: 20, textAlign: 'center', margin: 40, fontSize: '80px', color: 'black' }}>
+        <Header
+          as='h1'
+          style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
+            color: 'black' }}
+        >
           {courses.COMP1511.courseCode}
         </Header>
         <div>
