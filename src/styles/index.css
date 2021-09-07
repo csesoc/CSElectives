@@ -56,21 +56,6 @@ code {
   color: var(--csesoc-blue);
 }
 
-.review-heading {
-  margin-left: 20px;
-  margin-top: 15px;
-}
-
-.sort-reviews {
-  margin-top: 23px;
-  margin-left: 10px;
-}
-
-.review-button {
-  margin-top: 10px;
-  margin-left: 50px;
-}
-
 .ui.progress.bar-chart {
   margin: 1px;
 }
