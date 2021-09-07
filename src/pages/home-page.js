@@ -10,6 +10,7 @@ import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import HomePageTags from '../components/home-page-tags.js';
 import ViewOptionsToggle from '../components/view-options-toggle.js';
 import CardGrid from '../components/card-grid.js';
+import TestColouredCheckbox from '../components/coloured-checkbox-test.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
@@ -151,6 +152,8 @@ const HomePage = (props) => {
       </div>
 
       <ViewOptionsToggle />
+
+      <TestColouredCheckbox />
 
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
