@@ -18,7 +18,6 @@ const ReviewPage = () => {
       {/* Radio button component: https://react.semantic-ui.com/modules/checkbox/#types-radio */}
       <Checkbox radio label='Or some radio buttons which in code is actually a checkbox lol...' />
       <br />
-      <Input placeholder="Enter Title Here!" fluid className="reviewtitle" size="large" />
       {/* TextArea compoennt: https://react.semantic-ui.com/addons/text-area/ */}
       <Form>
         <TextArea placeholder='Maybe use this for reviews??????????' />
