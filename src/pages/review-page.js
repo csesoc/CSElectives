@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox, Form, Header, Input, TextArea, Radio, Dropdown } from 'semantic-ui-react';
+import { Form, Header, Button, Icon } from 'semantic-ui-react';
 import '../styles/review-page.css';
 const termOptions = [
   { value: '21T2', text: '21T2' },
@@ -37,27 +37,7 @@ const ReviewPage = () => {
       <Form>
         <Form.Group inline>
           <Form.Field>
-            Are you:
-            <Form.Radio
-              label='currently undertaking the course'
-              name='completionGroup'
-              value='undertaking'
-              checked={question === 'undertaking'}
-              onChange={handleQuestionChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            or have you:
-            <Form.Radio
-              label='completed the course'
-              name='completionGroup'
-              value='completed'
-              checked={question === 'completed'}
-              onChange={handleQuestionChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            When did you complete it?
+            When did you complete the course?
             <Form.Dropdown
               placeholder='Select term taken'
               fluid
@@ -67,23 +47,31 @@ const ReviewPage = () => {
             />
           </Form.Field>
         </Form.Group>
-        <Form.Field>
-          Would you like to remain anonymous? <b>{anonymity}</b>
-          <Form.Radio
-            label='Yes'
-            name='anonymityGroup'
-            value='Yes'
-            checked={anonymity === 'Yes'}
-            onChange={handleAnonymityChange}
-          />
-          <Form.Radio
-            label='No'
-            name='anonymityGroup'
-            value='No'
-            checked={anonymity === 'No'}
-            onChange={handleAnonymityChange}
-          />
-        </Form.Field>
+        <Form.Group inline>
+          <Form.Field>
+            Would you like to remain anonymous? <b>{anonymity}</b>
+            <Form.Radio
+              label='Yes'
+              name='anonymityGroup'
+              value='Yes'
+              checked={anonymity === 'Yes'}
+              onChange={handleAnonymityChange}
+            />
+            <Form.Radio
+              label='No'
+              name='anonymityGroup'
+              value='No'
+              checked={anonymity === 'No'}
+              onChange={handleAnonymityChange}
+            />
+          </Form.Field>
+        </Form.Group>
+        <Button color='green' animated='fade' type='submit'>
+          <Button.Content visible><Icon name='angle double right' /> </Button.Content>
+          <Button.Content hidden>
+            Submit
+          </Button.Content>
+        </Button>
       </Form>
     </>
   );
