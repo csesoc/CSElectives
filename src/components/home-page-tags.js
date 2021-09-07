@@ -7,7 +7,7 @@ const HomePageTags = (props) => {
 
   return (
     activeTags.map((tag) => (
-      <Tag key={tag} label={tag} clearable />
+      <Tag key={tag} activeTags={activeTags} setActiveTags={setActiveTags} label={tag} clearable />
     ))
   );
 };
