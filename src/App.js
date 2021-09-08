@@ -40,7 +40,7 @@ const App = () => {
       <LoadingContext.Provider value={loading}>
         <div className='display-wrapper'>
           <header>
-            <Header />
+            <Header courses={courses} />
           </header>
           <main>
             <Container className='main-wrapper'>
@@ -49,7 +49,7 @@ const App = () => {
                   <CoursePage courses={courses} />
                 </Route>
                 <Route exact path='/review'>
-                  <ReviewPage />
+                  <ReviewPage courses={courses} />
                 </Route>
                 <Route exact path='/login'>
                   <LoginPage />

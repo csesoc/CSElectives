@@ -179,14 +179,10 @@ const HomePage = (props) => {
         </div>
       </div>
 
-      <ViewOptionsToggle />
-
-      <TestColouredCheckbox />
-
       {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
 
       {/* Code, name and desc hardcoded for testing purposes */}
-      <Grid columns={3}>
+      <Grid stackable doubling columns={3}>
         <CardGrid courses={courses} />
       </Grid>
     </>

@@ -295,3 +295,6 @@ footer {
 .ui.dropdown.menu>.item {
   background: #FFFFFF !important;
 }
+.searchbar-dropdown {
+  width: 250px;
+}
