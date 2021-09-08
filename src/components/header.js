@@ -13,7 +13,7 @@ const Header = (props) => {
   const dropdownOptionFunc = (course) => {
     return {
       key: course.courseCode,
-      text: course.courseCode + ` - ` + course.title,
+      text: `${course.courseCode} - ${course.title}`,
       value: course.courseCode,
     };
   };
@@ -56,12 +56,12 @@ const Header = (props) => {
         <Menu.Item
           position='right'
         >
-          {activeItem !== 'home'
-          && (
+          {activeItem !== 'home' && (
             <Dropdown
               icon='search'
               placeholder='Search course'
               search
+              inline
               selection
               wrapSelection={false}
               options={dropdownOptionArray}
