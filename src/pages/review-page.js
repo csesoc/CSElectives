@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Header, Button, Icon, TextArea } from 'semantic-ui-react';
+import { Form, Header, Button, Icon, TextArea, Rating } from 'semantic-ui-react';
 import '../styles/review-page.css';
 import CourseSelect from '../components/course-select.js';
 import PropTypes from 'prop-types';
+import ReviewRating from '../components/review-rating/review-rating.js';
 
 const termOptions = [
   { value: '21T2', text: '21T2' },
@@ -34,56 +35,11 @@ const ReviewPage = (props) => {
 
   const { courses } = props;
 
+  const [overallRating, setOverallRating] = useState(0);
 
   return (
     <>
       <Header as='h1'>Submit Review Page</Header>
-
-      <CourseSelect courses={courses} />
-
-      <Form>
-        <Form.Group inline>
-          <Form.Field>
-            When did you complete the course?
-            <Form.Dropdown
-              placeholder='Select term taken'
-              fluid
-              search
-              selection
-              options={termOptions}
-            />
-          </Form.Field>
-        </Form.Group>
-        <Form.Group inline>
-          <Form.Field>
-            Would you like to remain anonymous?
-            <Form.Radio
-              label='Yes'
-              name='anonymityGroup'
-              value
-              checked={anonymity}
-              onChange={handleAnonymityChange}
-            />
-            <Form.Radio
-              label='No'
-              name='anonymityGroup'
-              value={false}
-              checked={!anonymity}
-              onChange={handleAnonymityChange}
-            />
-          </Form.Field>
-        </Form.Group>
-        <TextArea placeholder='Please write your review here: make sure you have read the terms and conditions
-        before posting. Feel free to include your overall experience with the course,
-        how you found the assessments/workload and anything else you want to share!'
-        />
-        <Button color='green' animated='fade' type='submit' floated='right'>
-          <Button.Content visible><Icon name='angle double right' /> </Button.Content>
-          <Button.Content hidden>
-            Submit
-          </Button.Content>
-        </Button>
-      </Form>
     </>
   );
 };

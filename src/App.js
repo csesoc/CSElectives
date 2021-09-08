@@ -40,12 +40,12 @@ const App = () => {
       <LoadingContext.Provider value={loading}>
         <div className='display-wrapper'>
           <header>
-            <Header />
+            <Header courses={courses} />
           </header>
           <main>
             <Container className='main-wrapper'>
               <Switch>
-                <Route exact path='/course'>
+                <Route exact path='/course/:courseCode'>
                   <CoursePage courses={courses} />
                 </Route>
                 <Route exact path='/review'>
