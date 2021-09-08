@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Header, Button, Icon, TextArea } from 'semantic-ui-react';
 import '../styles/review-page.css';
+import CourseSelect from '../components/course-select.js';
+import PropTypes from 'prop-types';
+
 const termOptions = [
   { value: '21T2', text: '21T2' },
   { value: '21T1', text: '21T1' },
@@ -18,7 +21,7 @@ const termOptions = [
   { value: '16S1', text: '16S1' },
 ];
 
-const ReviewPage = () => {
+const ReviewPage = (props) => {
   const [question, setQuestion] = useState('');
   const handleQuestionChange = (e, { value }) => {
     setQuestion(value);
@@ -29,10 +32,14 @@ const ReviewPage = () => {
     setAnonymity(value);
   };
 
+  const { courses } = props;
+
 
   return (
     <>
       <Header as='h1'>Submit Review Page</Header>
+
+      <CourseSelect courses={courses} />
 
       <Form>
         <Form.Group inline>
@@ -54,21 +61,21 @@ const ReviewPage = () => {
               label='Yes'
               name='anonymityGroup'
               value
-              checked={anonymity === true}
+              checked={anonymity}
               onChange={handleAnonymityChange}
             />
             <Form.Radio
               label='No'
               name='anonymityGroup'
               value={false}
-              checked={anonymity === false}
+              checked={!anonymity}
               onChange={handleAnonymityChange}
             />
           </Form.Field>
         </Form.Group>
         <TextArea placeholder='Please write your review here: make sure you have read the terms and conditions
         before posting. Feel free to include your overall experience with the course,
-        how you found the assessments/workload and anything else you wanted to share!'
+        how you found the assessments/workload and anything else you want to share!'
         />
         <Button color='green' animated='fade' type='submit' floated='right'>
           <Button.Content visible><Icon name='angle double right' /> </Button.Content>
@@ -79,6 +86,11 @@ const ReviewPage = () => {
       </Form>
     </>
   );
+};
+
+
+ReviewPage.propTypes = {
+  courses: PropTypes.object,
 };
 
 export default ReviewPage;
