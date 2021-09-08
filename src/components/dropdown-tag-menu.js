@@ -24,7 +24,7 @@ const DropdownTagsMenu = (props) => {
         onClick={toggleSelectionDrop}
       >
         <div className="ui attached icon form" id="info_input_form">
-          <div className="ui checkbox">
+          <div className={'ui checkbox ' + title.toLowerCase()}>
             <input
               type="checkbox"
               tabIndex="0"

@@ -45,18 +45,7 @@
     height: 3.5rem;
     margin-left: 2rem;
   }
-  
-  .ui.checkbox input:focus:checked ~ .box:before,
-  .ui.checkbox input:focus:checked ~ .coloring.black:before,
-  .ui.checkbox input:checked ~ .box:before,
-  .ui.checkbox input:checked ~ .coloring.black:before {
-      background: #555555 !important;
-  }
-  
-  .ui.checkbox input:focus:checked ~ .coloring.white:before,
-  .ui.checkbox input:checked ~ .coloring.white:before {
-      background: #FFFFFF !important;
-  }
+
 .card-container { 
   display: flex; 
   align-items: stretch; 

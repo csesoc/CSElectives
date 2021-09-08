@@ -53,6 +53,12 @@ const prefix = [
   'SENG',
 ];
 
+const tagColors = {
+  major: '#B2F7EF',
+  term: '#F7D6E0',
+  prefix: '#A3C5E1',
+};
+
 
 const sortOptions = sorts.map((item) => createDropdownOption(item));
 
@@ -150,18 +156,27 @@ const HomePage = (props) => {
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
-        <HomePageTags
-          activeTags={activeMajorTags}
-          setActiveTags={setActiveMajorTags}
-        />
-        <HomePageTags
-          activeTags={activeTermTags}
-          setActiveTags={setActiveTermTags}
-        />
-        <HomePageTags
-          activeTags={activePrefixTags}
-          setActiveTags={setActivePrefixTags}
-        />
+        <div>
+          <HomePageTags
+            activeTags={activeMajorTags}
+            setActiveTags={setActiveMajorTags}
+            category='major'
+          />
+        </div>
+        <div>
+          <HomePageTags
+            activeTags={activeTermTags}
+            setActiveTags={setActiveTermTags}
+            category='term'
+          />
+        </div>
+        <div>
+          <HomePageTags
+            activeTags={activePrefixTags}
+            setActiveTags={setActivePrefixTags}
+            category='prefix'
+          />
+        </div>
       </div>
 
       <ViewOptionsToggle />
