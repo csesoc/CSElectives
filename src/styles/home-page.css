@@ -50,3 +50,8 @@
   display: flex; 
   align-items: stretch; 
 }
+
+.tags-category {
+  margin-right: .285714em
+}
+

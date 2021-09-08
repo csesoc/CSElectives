@@ -21,6 +21,7 @@ const DropdownTagsMenu = (props) => {
     return (
       <Dropdown.Item
         text={object.value}
+        className='ui dropdown menu> item'
         onClick={toggleSelectionDrop}
       >
         <div className="ui attached icon form" id="info_input_form">
@@ -45,7 +46,7 @@ const DropdownTagsMenu = (props) => {
       simple
       className='icon'
     >
-      <Dropdown.Menu>
+      <Dropdown.Menu className={'ui dropdown menu ' + title.toLowerCase()}>
         <Dropdown.Header icon='tags' content={`Filter by ${title}`} />
         {tagOptions.map(tagItems)}
       </Dropdown.Menu>

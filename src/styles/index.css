@@ -253,9 +253,19 @@ footer {
     background: var(--prefix-tags) !important;
 }
     
-.ui.checkbox input:focus:checked ~ .coloring.white:before,
-.ui.checkbox input:checked ~ .coloring.white:before {
-    background: #FFFFFF !important;
+.ui.checkbox.major input:focus:checked ~ .coloring.white:before,
+.ui.checkbox.major input:checked ~ .coloring.white:before {
+    background: var(--major-tags) !important;
+}
+
+.ui.checkbox.term input:focus:checked ~ .coloring.white:before,
+.ui.checkbox.term input:checked ~ .coloring.white:before {
+    background: var(--term-tags) !important;
+}
+
+.ui.checkbox.prefix input:focus:checked ~ .coloring.white:before,
+.ui.checkbox.prefix input:checked ~ .coloring.white:before {
+    background: var(--prefix-tags) !important;
 }
 
 .ui.label.major {
@@ -270,6 +280,18 @@ footer {
   background: var(--prefix-tags) !important;
 }
 
-.tags-category {
-  margin-right: .285714em
+.ui.dropdown.menu.major {
+  background: var(--major-tags) !important;
+}
+
+.ui.dropdown.menu.term {
+  background: var(--term-tags) !important;
+}
+
+.ui.dropdown.menu.prefix {
+  background: var(--prefix-tags) !important;
+}
+
+.ui.dropdown.menu>.item {
+  background: #FFFFFF !important;
 }
