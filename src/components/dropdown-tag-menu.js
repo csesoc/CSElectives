@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown, Checkbox } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
 
 const DropdownTagsMenu = (props) => {
   const { title, tagOptions, activeTags, setActiveTags } = props;
 
-  // When triggered, add option or remove option the activeTags state
   const toggleSelectionDrop = (e, { text }) => {
     if (activeTags.includes(text)) {
-      // If option is already active, then remove it
       setActiveTags(activeTags.filter((el) => el !== text));
     } else {
-      // If option is not active, make it active
       setActiveTags([...activeTags, text].sort(function(a, b) {
         return a.toLowerCase().localeCompare(b.toLowerCase());
       }));
