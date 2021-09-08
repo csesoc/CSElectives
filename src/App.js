@@ -40,7 +40,7 @@ const App = () => {
       <LoadingContext.Provider value={loading}>
         <div className='display-wrapper'>
           <header>
-            <Header />
+            <Header courses={courses} />
           </header>
           <main>
             <Container className='main-wrapper'>
