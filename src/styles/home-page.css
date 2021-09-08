@@ -46,3 +46,7 @@
     margin-left: 2rem;
   }
   
+.card-container { 
+  display: flex; 
+  align-items: stretch; 
+}

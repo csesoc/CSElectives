@@ -45,7 +45,7 @@ const App = () => {
           <main>
             <Container className='main-wrapper'>
               <Switch>
-                <Route exact path='/course'>
+                <Route exact path='/course/:courseCode'>
                   <CoursePage courses={courses} />
                 </Route>
                 <Route exact path='/review'>
