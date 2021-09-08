@@ -44,7 +44,8 @@ const CoursePage = (props) => {
     if (count === 0) {
       return 0;
     }
-    return total / count;
+    const roundedAverage = Math.round(total / count * 10) / 10;
+    return roundedAverage;
   };
 
   const year = new Date().getFullYear();
@@ -147,6 +148,7 @@ const CoursePage = (props) => {
               <SummaryCard
                 summaryTitle={getSummaryTitle()}
                 summaryLink={getLink()}
+                courseCode={courseCode}
                 overallRating={getAverage('overall')}
                 numReviews={course.reviews.length}
                 summaryDesc={course.description}
