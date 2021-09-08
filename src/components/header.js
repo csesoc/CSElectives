@@ -9,7 +9,6 @@ import Logo from '../assets/logo.svg';
 const Header = (props) => {
   const [activeItem, setActiveItem] = useState('home');
   const { courses } = props;
-  console.log(Object.values(courses));
 
   const dropdownOptionFunc = (course) => {
     return {
@@ -61,10 +60,10 @@ const Header = (props) => {
           && (
             <Dropdown
               icon='search'
-              placeholder='COMP1511'
+              placeholder='Search course'
               search
-              fluid
               selection
+              wrapSelection={false}
               options={dropdownOptionArray}
               className='searchbar-dropdown'
             />

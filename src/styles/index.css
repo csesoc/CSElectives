@@ -226,10 +226,6 @@ footer {
   margin: 5px 0;
 }
 
-select{
-  width:200px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.searchbar-dropdown {
+  width: 250px;
 }
-
-
