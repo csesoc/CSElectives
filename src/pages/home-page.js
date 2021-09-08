@@ -49,13 +49,6 @@ const prefix = [
   'SENG',
 ];
 
-const tagColors = {
-  major: '#B2F7EF',
-  term: '#F7D6E0',
-  prefix: '#A3C5E1',
-};
-
-
 const sortOptions = sorts.map((item) => createDropdownOption(item));
 
 const majorOptions = majors.map((item) => createDropdownOption(item));
