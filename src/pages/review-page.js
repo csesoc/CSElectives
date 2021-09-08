@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Header, Button, Icon } from 'semantic-ui-react';
+import { Form, Header, Button, Icon, Rating } from 'semantic-ui-react';
+import ReviewRating from '../components/review-rating/review-rating.js';
 import '../styles/review-page.css';
+
 const termOptions = [
   { value: '21T2', text: '21T2' },
   { value: '21T1', text: '21T1' },
@@ -29,10 +31,27 @@ const ReviewPage = () => {
     setAnonymity(value);
   };
 
+  const [overallRating, setOverallRating] = useState(0);
 
   return (
     <>
       <Header as='h1'>Submit Review Page</Header>
+
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <ReviewRating
+          rating={overallRating}
+          icon='heart'
+          size='large'
+          clickable
+          hoverable
+          captions={['🤬', '😥', '😐', '😀', '😍']}
+          onChange={(newRating) => setOverallRating(newRating)}
+        />
+      </div>
+
+      <div style={{ display: 'flex', marginTop: '10rem', justifyContent: 'center', alignItems: 'center' }}>
+        <Rating icon='star' size='massive' maxRating={5} />
+      </div>
 
       <Form>
         <Form.Group inline>
