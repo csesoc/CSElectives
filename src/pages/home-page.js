@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { Header, Input, Segment, Grid } from 'semantic-ui-react';
 
-import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
 import HomePageTags from '../components/home-page-tags.js';
@@ -83,9 +82,6 @@ const HomePage = (props) => {
     <>
       <Header as='h1'>{query}</Header>
 
-      {/* {Object.keys(courses).map((courseCode, i) => { */}
-      {/* return <Header key={i}>{courseCode}</Header>; */}
-      {/* })} */}
       <Segment className="search-section-background">
         <Input size='massive' icon='search' fluid onChange={handleQueryChange} />
 
