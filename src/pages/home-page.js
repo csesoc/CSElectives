@@ -66,7 +66,9 @@ const prefixOptions = prefix.map((item) => createDropdownOption(item));
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
   const { courses } = props;
-  const [activeTags, setActiveTags] = useState([]);
+  const [activeMajorTags, setActiveMajorTags] = useState([]);
+  const [activeTermTags, setActiveTermTags] = useState([]);
+  const [activePrefixTags, setActivePrefixTags] = useState([]);
   const [query, setQuery] = useState('Home Page');
 
   const handleQueryChange = (e, { value }) => {
@@ -99,8 +101,8 @@ const HomePage = (props) => {
             <DropdownTagsMenu
               title='Major'
               tagOptions={majorOptions}
-              activeTags={activeTags}
-              setActiveTags={setActiveTags}
+              activeTags={activeMajorTags}
+              setActiveTags={setActiveMajorTags}
               className='dropdown-tags'
             />
           </div>
@@ -108,8 +110,8 @@ const HomePage = (props) => {
             <DropdownTagsMenu
               title='Term'
               tagOptions={termOptions}
-              activeTags={activeTags}
-              setActiveTags={setActiveTags}
+              activeTags={activeTermTags}
+              setActiveTags={setActiveTermTags}
               className='dropdown-tags'
             />
           </div>
@@ -117,8 +119,8 @@ const HomePage = (props) => {
             <DropdownTagsMenu
               title='Prefix'
               tagOptions={prefixOptions}
-              activeTags={activeTags}
-              setActiveTags={setActiveTags}
+              activeTags={activePrefixTags}
+              setActiveTags={setActivePrefixTags}
               className='dropdown-tags'
             />
           </div>
@@ -148,7 +150,18 @@ const HomePage = (props) => {
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
-        <HomePageTags activeTags={activeTags} setActiveTags={setActiveTags} />
+        <HomePageTags
+          activeTags={activeMajorTags}
+          setActiveTags={setActiveMajorTags}
+        />
+        <HomePageTags
+          activeTags={activeTermTags}
+          setActiveTags={setActiveTermTags}
+        />
+        <HomePageTags
+          activeTags={activePrefixTags}
+          setActiveTags={setActivePrefixTags}
+        />
       </div>
 
       <ViewOptionsToggle />

@@ -23,9 +23,9 @@ const CardGrid = (props) => {
   }
   return gridArray.map((row, index) => {
     return (
-      <Grid.Row key={index}>
+      <Grid.Row key={index} stretched>
         {row.map((course) => (
-          <Grid.Column key={course.id}>
+          <Grid.Column key={course.id} width={5}>
             <CourseReviewCard
               code={course.courseCode}
               name={course.title}
