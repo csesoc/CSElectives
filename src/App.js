@@ -49,7 +49,7 @@ const App = () => {
                   <CoursePage courses={courses} />
                 </Route>
                 <Route exact path='/review'>
-                  <ReviewPage />
+                  <ReviewPage courses={courses} />
                 </Route>
                 <Route exact path='/login'>
                   <LoginPage />
