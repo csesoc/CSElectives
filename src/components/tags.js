@@ -4,55 +4,27 @@ import PropTypes from 'prop-types';
 import { Icon, Label } from 'semantic-ui-react';
 
 
-const colors = [
-  'red',
-  'orange',
-  'yellow',
-  'olive',
-  'green',
-  'teal',
-  'blue',
-  'violet',
-  'purple',
-  'pink',
-  'brown',
-  'grey',
-  'black',
-];
+const Tag = (props) => {
+  const { label, activeTags, setActiveTags, clearable, clickable } = props;
 
-{/* Tags without colour*/}
-
-// const LabelExampleIcon = (props) => {
-//   const { code } = props;
-
-//   return (
-//     <div>
-//       <Label as='a'>
-//         {code}
-//         <Icon name='delete' />
-//       </Label>
-//     </div>
-//   );
-// };
-
-const LabelExampleIcon = (props) => {
-  const { code } = props;
+  const removeTag = (e, { text }) => {
+    setActiveTags(activeTags.filter((el) => el !== text));
+  };
 
   return (
-    <div>
-      {/* this currently creates a tag bubble of EACH color for EACH label */}
-      {colors.map((color) => (
-        <Label color={color} key={color} as='a'>
-          {code}
-          <Icon name='delete' />
-        </Label>
-      ))}
-    </div>
+    <Label key={label} as={clickable && 'a'} circular>
+      {label}
+      {clearable && <Icon text={label} name='delete' onClick={removeTag} />}
+    </Label>
   );
 };
 
-LabelExampleIcon.propTypes = {
-  code: PropTypes.string,
+Tag.propTypes = {
+  label: PropTypes.string,
+  clearable: PropTypes.bool,
+  clickable: PropTypes.bool,
+  activeTags: PropTypes.array,
+  setActiveTags: PropTypes.func,
 };
 
-export default LabelExampleIcon;
+export default Tag;

@@ -1,0 +1,52 @@
+.sort-and-filter-container {
+    display: flex;
+}
+
+.search-section-background {
+  background-color: white !important;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+}
+
+.sort-dropdown-parent {
+  width: 20%;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort-dropdown-text {
+  width: 30%;
+  font-size: 16px;
+  margin-right: 0;
+  float: left;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-end;
+}
+
+.sort-dropdown-menu {
+  width: 70%;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.dropdown-tags-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    margin-left: 2rem;
+  }
+  
+.card-container { 
+  display: flex; 
+  align-items: stretch; 
+}

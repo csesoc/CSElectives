@@ -1,0 +1,230 @@
+:root {
+  --csesoc-blue: #3a76f8;
+  --csesoc-navy: #40404c;
+  --csesoc-white: #ffffff;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.grid-row {
+  margin: 0 25px;
+}
+
+.grid-top {
+  margin: 0 25px;
+  margin-top: 15px;
+}
+
+.grid-bottom {
+  margin: 0 25px;
+  margin-bottom: 15px;
+}
+
+.summary-card {
+  max-height: 93vh;
+  overflow-y: scroll;
+  scrollbar-width: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
+.summary-card::-webkit-scrollbar {
+  width: 5px;
+}
+
+.review-row {
+  margin: 0 15px;
+  margin-top: 3px;
+}
+
+.course-label {
+  margin: 0 0 8px 10px;
+  color: var(--csesoc-blue);
+}
+
+.ui.progress.bar-chart {
+  margin: 1px;
+}
+
+.display-wrapper {
+  min-height: 100vh;
+}
+
+.main-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+footer {
+  background-color: var(--csesoc-blue);
+  padding: 1.5rem;
+  color: var(--csesoc-white);
+}
+
+.csesoc-logo {
+  margin-bottom: 1.5rem;
+}
+
+.card-displayer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-section-background {
+  background-color: white !important;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+}
+
+.course-review-card {
+  display: flex;
+  min-height: 230px;
+  width: 400px;
+}
+
+.my-course-page-tags {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-front-page-tags {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sort-dropdown-parent {
+  width: 20%;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort-dropdown-text {
+  width: 30%;
+  font-size: 16px;
+  margin-right: 0;
+  float: left;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-end;
+}
+
+.sort-dropdown-menu {
+  width: 70%;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.dropdown-tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-tags-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  margin-left: 1rem;
+}
+
+.logo-size {
+  width: 30%;
+}
+
+.not-found-page-background {
+  background: url("../assets/not-found.jpg");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+  background-position: center;
+  z-index: -5;
+}
+
+.not-found-page-text {
+  position: absolute;
+  top: 9%;
+  right: 6%;
+  color: var(--csesoc-white);
+  font-size: 34px;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+  max-width: 59rem;
+  margin-top: 7rem;
+  line-height: 3.5rem;
+  font-weight: bold;
+}
+.not-found-page-text > div {
+  margin-bottom: 4.5rem;
+}
+
+.searchbar {
+  margin-bottom: 1rem;
+}
+
+.ui.menu.secondary.pointing.item {
+  float: left;
+}
+
+.review-row-ratings-only {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 110px;
+  margin-left: 110px;
+}
+
+
+.review-cards {
+  display: block;
+  margin: 20px;
+}
+
+.ratings-only-review-header {
+  margin-top: 0px;
+}
+
+.course-review-card-date {
+  float: right;
+}
+
+.course-review-card-header {
+  margin: 0px 335px 0px 0;
+}
+
+.course-review-card-star-rating {
+  margin: 5px 0;
+}
+
+
+
