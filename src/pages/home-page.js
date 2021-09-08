@@ -156,21 +156,21 @@ const HomePage = (props) => {
 
       {/* Tags component */}
       <div className='my-front-page-tags'>
-        <div>
+        <div className='tags-category'>
           <HomePageTags
             activeTags={activeMajorTags}
             setActiveTags={setActiveMajorTags}
             category='major'
           />
         </div>
-        <div>
+        <div className='tags-category'>
           <HomePageTags
             activeTags={activeTermTags}
             setActiveTags={setActiveTermTags}
             category='term'
           />
         </div>
-        <div>
+        <div className='tags-category'>
           <HomePageTags
             activeTags={activePrefixTags}
             setActiveTags={setActivePrefixTags}

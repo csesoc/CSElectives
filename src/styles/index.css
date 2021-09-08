@@ -269,3 +269,7 @@ footer {
 .ui.label.prefix {
   background: var(--prefix-tags) !important;
 }
+
+.tags-category {
+  margin-right: .285714em
+}
