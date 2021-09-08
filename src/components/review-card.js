@@ -4,24 +4,22 @@ import PropTypes from 'prop-types';
 import { Grid, Card, Progress, Rating } from 'semantic-ui-react';
 
 const ReviewCard = (props) => {
-  const { reviewTitle, usefulProgress, workloadProgress, difficultyProgress,
-    enjoymentProgress, reviewDate, overallRating, description } = props;
+  const { reviewTitle, reviewComment, usefulProgress, workloadProgress, difficultyProgress,
+    enjoymentProgress, reviewDate, overallRating } = props;
 
   return (
     <div style={{ display: 'block', margin: '20px' }}>
       <Card fluid raised>
         <Card.Content>
           <Grid columns={2} divided>
-            <Grid.Row className='my-review-row'>
+            <Grid.Row className='review-row'>
               <Grid.Column width={11}>
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta style={{ margin: '5px 0' }}>
                   Overall:
                   <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
                 </Card.Meta>
-                <Card.Description>
-                  {description}
-                </Card.Description>
+                <Card.Description>{reviewComment}</Card.Description>
               </Grid.Column>
               <Grid.Column width={5}>
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
@@ -60,6 +58,7 @@ const ReviewCard = (props) => {
 
 ReviewCard.propTypes = {
   reviewTitle: PropTypes.string,
+  reviewComment: PropTypes.string,
   usefulProgress: PropTypes.number,
   workloadProgress: PropTypes.number,
   enjoymentProgress: PropTypes.number,

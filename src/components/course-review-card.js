@@ -5,7 +5,7 @@ import { Card } from 'semantic-ui-react';
 import { Rating } from 'semantic-ui-react';
 
 const CourseReviewCard = (props) => {
-  const { code, name, desc } = props;
+  const { code, name, desc, numReviews } = props;
   const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
 
   return (
@@ -15,7 +15,7 @@ const CourseReviewCard = (props) => {
           <Card.Header>{code}</Card.Header>
           <Card.Meta>{name}</Card.Meta>
           <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-          <Card.Meta> 42 reviews </Card.Meta>
+          <Card.Meta> {numReviews} reviews </Card.Meta>
           <Card.Description>
             {displayDesc}
           </Card.Description>
@@ -29,6 +29,7 @@ CourseReviewCard.propTypes = {
   code: PropTypes.string,
   name: PropTypes.string,
   desc: PropTypes.string,
+  numReviews: PropTypes.number,
 };
 
 export default CourseReviewCard;

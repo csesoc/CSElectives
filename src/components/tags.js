@@ -3,31 +3,28 @@ import PropTypes from 'prop-types';
 
 import { Icon, Label } from 'semantic-ui-react';
 
-// Maybe what we can do here is make another component for tags which other
-// components can use to input whatever tag they want
-// For any questions please refer to Timmy
 
+const Tag = (props) => {
+  const { label, activeTags, setActiveTags, clearable, clickable } = props;
 
-const LabelExampleIcon = (props) => {
-  const { activeTags, setActiveTags } = props;
+  const removeTag = (e, { text }) => {
+    setActiveTags(activeTags.filter((el) => el !== text));
+  };
 
   return (
-    <div>
-      {activeTags.map((tag) => (
-        // This might be the part that we might want to make into a seperate component
-        <Label key={tag} as='a' circular>
-          {tag}
-          <Icon name='delete' />
-        </Label>
-      ))}
-    </div>
+    <Label key={label} as={clickable && 'a'} circular>
+      {label}
+      {clearable && <Icon text={label} name='delete' onClick={removeTag} />}
+    </Label>
   );
 };
 
-LabelExampleIcon.propTypes = {
-  code: PropTypes.string,
+Tag.propTypes = {
+  label: PropTypes.string,
+  clearable: PropTypes.bool,
+  clickable: PropTypes.bool,
   activeTags: PropTypes.array,
   setActiveTags: PropTypes.func,
 };
 
-export default LabelExampleIcon;
+export default Tag;

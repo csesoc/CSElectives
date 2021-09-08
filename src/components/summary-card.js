@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Header, Grid, Progress, Rating } from 'semantic-ui-react';
-import LabelExampleIcon from '../components/tags.js';
-
-const placeholderActiveTags = ['Computer Networks', 'Database Systems'];
-
-const placeholderFunction = () => {};
+import CoursePageTags from '../components/course-page-tags.js';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, overallRating, numReviews, summaryDesc,
@@ -15,12 +11,12 @@ const SummaryCard = (props) => {
   return (
     <div style={{ display: 'block', margin: '20px' }}>
       <Grid>
-        <Grid.Row className='my-grid-top'>
+        <Grid.Row className='grid-top'>
           <div className='my-course-page-tags'>
-            <LabelExampleIcon activeTags={placeholderActiveTags} setActiveTags={placeholderFunction} />
+            <CoursePageTags />
           </div>
         </Grid.Row>
-        <Grid.Row className='my-grid-row'>
+        <Grid.Row className='grid-row'>
           <div>
             <Header as='h2'>{summaryTitle}</Header>
             <a href={summaryLink} rel="noreferrer" target="_blank">
@@ -30,7 +26,7 @@ const SummaryCard = (props) => {
             {numReviews} Reviews
           </div>
         </Grid.Row>
-        <Grid.Row className='my-grid-row'>
+        <Grid.Row className='grid-row'>
           <div style={{ width: '100%' }}>
             <span>
               Usefulness
@@ -78,10 +74,10 @@ const SummaryCard = (props) => {
             />
           </div>
         </Grid.Row>
-        <Grid.Row className='my-grid-row'>
+        <Grid.Row className='grid-row'>
           {summaryDesc}
         </Grid.Row>
-        <Grid.Row className='my-grid-bottom'>
+        <Grid.Row className='grid-bottom'>
           <div>
             <h4>Topics</h4>
             <li>topic one</li>

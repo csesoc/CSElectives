@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,7 +11,7 @@ const RatingsCard = (props) => {
 
   return (
 
-    <div className='course-review-card-ratings-only'>
+    <div className='review-cards'>
       <Card fluid raised>
         <Card.Content>
 
@@ -17,25 +19,35 @@ const RatingsCard = (props) => {
             <Grid.Row className='review-row-ratings-only'>
               <Grid.Column width={16}>
                 <div className='course-review-card-header'></div>
-                <span className='course-review-card-date'>{reviewDate}</span>
-                <Card.Header as='h3' content={reviewTitle} />
+
+                <Grid columns={2}>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Card.Header as='h3' content={reviewTitle} />
+                    </Grid.Column>
+                    <Grid.Column>
+                      <span className='course-review-card-date'>{reviewDate}</span>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+
                 <Card.Meta className='course-review-card-star-rating'>
                   Overall: <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
                 </Card.Meta>
 
-                <div className='bar-chart-rows'>
+                <div>
                   <label>Usefulness</label>
                   <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
-                <div className='bar-chart-rows'>
+                <div>
                   <label>Workload</label>
                   <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
-                <div className='bar-chart-rows'>
+                <div>
                   <label>Enjoyment</label>
                   <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
-                <div className='bar-chart-rows'>
+                <div>
                   <label>Difficulty</label>
                   <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue' />
                 </div>
@@ -59,3 +71,4 @@ RatingsCard.propTypes = {
 };
 
 export default RatingsCard;
+
