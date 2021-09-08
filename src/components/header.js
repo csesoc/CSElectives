@@ -14,7 +14,7 @@ const Header = (props) => {
   const dropdownOptionFunc = (course) => {
     return {
       key: course.courseCode,
-      text: `${course.courseCode} - ${course.title}`,
+      text: course.courseCode + ` - ` + course.title,
       value: course.courseCode,
     };
   };
@@ -58,14 +58,17 @@ const Header = (props) => {
           position='right'
         >
           {activeItem !== 'home'
-          && <Dropdown
-            icon='search'
-            placeholder='COMP1511'
-            fluid
-            search
-            selection
-            options={dropdownOptionArray}
-          />
+          && (
+            <Dropdown
+              icon='search'
+              placeholder='COMP1511'
+              search
+              fluid
+              selection
+              options={dropdownOptionArray}
+              className='searchbar-dropdown'
+            />
+          )
           }
         </Menu.Item>
         <Menu.Item
