@@ -8,6 +8,7 @@ import CourseSelect from '../components/course-select.js';
 
 import '../styles/review-page.css';
 
+
 const termOptions = [
   { value: '21T2', text: '21T2' },
   { value: '21T1', text: '21T1' },
@@ -36,6 +37,23 @@ const ReviewPage = (props) => {
     setAnonymity(value);
   };
 
+  const [reviewTitle, setReviewTitle] = useState('');
+  const handleReviewTitleChange = (e, { value }) => {
+    setReviewTitle(value);
+  };
+
+  const [reviewComment, setReviewComment] = useState('');
+  const handleReviewCommentChange = (e, { value }) => {
+    setReviewComment(value);
+  };
+
+  const [termTaken, setTermTaken] = useState('');
+  const handleTermTakenChange = (e, { value }) =>{
+    setTermTaken(value);
+  };
+
+  const TimeStamp = new Date();
+
   const { courses } = props;
 
   const [overallRating, setOverallRating] = useState(0);
@@ -43,6 +61,20 @@ const ReviewPage = (props) => {
   const [enjoyabilityRating, setEnjoyabilityRating] = useState(0);
   const [usefulnessRating, setUsefulnessRating] = useState(0);
   const [workloadRating, setWorkloadRating] = useState(0);
+
+  const reviewObject = {
+    author: 'Anonymous',
+    displayAuthor: { anonymity },
+    reviewtitle: { reviewTitle },
+    reviewcomment: { reviewComment },
+    rating: [{ overallRating },
+      { difficultyRating },
+      { enjoyabilityRating },
+      { usefulnessRating },
+      { workloadRating }],
+    timestamp: { TimeStamp },
+    termtaken: { termTaken },
+  };
 
   const RatingForm = () => (
     <Form>
@@ -137,7 +169,6 @@ const ReviewPage = (props) => {
     <>
       <Header as='h1'>Submit Review Page</Header>
       <RatingForm />
-
       <Form>
         <CourseSelect courses={courses} />
         <Form.Group inline>
@@ -149,6 +180,9 @@ const ReviewPage = (props) => {
               search
               selection
               options={termOptions}
+              onChange={ (e, { value }) => {
+                setTermTaken(value);
+              }}
             />
           </Form.Field>
         </Form.Group>
@@ -173,14 +207,27 @@ const ReviewPage = (props) => {
         </Form.Group>
 
         <Form.Field>
-          <Input className='ratingTitle' placeholder='Enter your title here!' fluid />
-          <TextArea placeholder='Please write your review here: make sure you have read the terms and conditions
+          <Input
+            className='ratingTitle'
+            placeholder='Enter your title here!'
+            fluid
+            value={reviewTitle}
+            onChange={ (e, { value }) => {
+              setReviewTitle(value);
+            }}
+          />
+          <TextArea
+            placeholder='Please write your review here: make sure you have read the terms and conditions
             before posting. Feel free to include your overall experience with the course,
             how you found the assessments/workload and anything else you wanted to share!'
+            value={reviewComment}
+            onChange={ (e, { value }) => {
+              setReviewComment(value);
+            }}
           />
         </Form.Field>
 
-        <Button color='green' animated='fade' type='submit'>
+        <Button color='green' animated='fade' type='submit' onClick={console.log({ reviewObject })}>
           <Button.Content visible><Icon name='angle double right' /> </Button.Content>
           <Button.Content hidden>
             Submit
