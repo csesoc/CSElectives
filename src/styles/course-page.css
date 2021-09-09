@@ -17,3 +17,8 @@
     text-align: center;
     padding: 5rem;
 }
+
+.reviewCardAuthor {
+    width: 100%;
+    text-align: right;
+}
