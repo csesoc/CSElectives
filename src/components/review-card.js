@@ -5,7 +5,7 @@ import { Grid, Card, Progress, Rating } from 'semantic-ui-react';
 
 const ReviewCard = (props) => {
   const { reviewTitle, reviewComment, usefulProgress, workloadProgress, difficultyProgress,
-    enjoymentProgress, reviewDate, overallRating } = props;
+    enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
 
   return (
     <div style={{ display: 'block', margin: '20px' }}>
@@ -17,12 +17,18 @@ const ReviewCard = (props) => {
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta style={{ margin: '5px 0' }}>
                   Overall:
-                  <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
+                  <Rating icon='star' rating={overallRating} maxRating={5} disabled />
+                  <div>
+                    Term taken: {termTaken}
+                  </div>
                 </Card.Meta>
                 <Card.Description>{reviewComment}</Card.Description>
               </Grid.Column>
               <Grid.Column width={5}>
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
+                <Card.Meta className='reviewCardAuthor'>
+                  {author}
+                </Card.Meta>
                 <div style={{ margin: '0 2px' }}>
                   Usefulness
                   <div>
@@ -66,6 +72,8 @@ ReviewCard.propTypes = {
   reviewDate: PropTypes.number,
   overallRating: PropTypes.number,
   description: PropTypes.string,
+  author: PropTypes.string,
+  termTaken: PropTypes.string,
 };
 
 export default ReviewCard;
