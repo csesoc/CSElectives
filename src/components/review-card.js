@@ -17,7 +17,7 @@ const ReviewCard = (props) => {
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta style={{ margin: '5px 0' }}>
                   Overall:
-                  <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
+                  <Rating icon='star' rating={overallRating} maxRating={5} disabled />
                   <div>
                     Term taken: {termTaken}
                   </div>

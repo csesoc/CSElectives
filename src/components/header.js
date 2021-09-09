@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
-import { Button, Container, Image, Menu, Input } from 'semantic-ui-react';
+import { Button, Container, Image, Menu, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Logo from '../assets/logo.svg';
 
 // This header will appear on all pages
-const Header = () => {
+const Header = (props) => {
   const [activeItem, setActiveItem] = useState('home');
+  const { courses } = props;
+
+  const dropdownOptionFunc = (course) => {
+    return {
+      key: course.courseCode,
+      text: `${course.courseCode} - ${course.title}`,
+      value: course.courseCode,
+    };
+  };
+
+  const dropdownOptionArray = Object.values(courses).map((course) => dropdownOptionFunc(course));
+
   const handleItemClick = (e, { name }) => {
     setActiveItem(name);
   };
@@ -43,7 +56,19 @@ const Header = () => {
         <Menu.Item
           position='right'
         >
-          {activeItem !== 'home' && <Input icon='search' placeholder='COMP1511' /> }
+          {activeItem !== 'home' && (
+            <Dropdown
+              icon='search'
+              placeholder='Search course'
+              search
+              inline
+              selection
+              wrapSelection={false}
+              options={dropdownOptionArray}
+              className='searchbar-dropdown'
+            />
+          )
+          }
         </Menu.Item>
         <Menu.Item
           as={Link}
@@ -56,6 +81,10 @@ const Header = () => {
       </Container>
     </Menu>
   );
+};
+
+Header.propTypes = {
+  courses: PropTypes.object,
 };
 
 export default Header;

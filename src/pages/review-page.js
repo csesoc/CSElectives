@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Header, Button, Icon, Rating } from 'semantic-ui-react';
-import ReviewRating from '../components/review-rating/review-rating.js';
+import { Form, Header, Button, Icon, TextArea, Rating } from 'semantic-ui-react';
 import '../styles/review-page.css';
+import CourseSelect from '../components/course-select.js';
+import PropTypes from 'prop-types';
+import ReviewRating from '../components/review-rating/review-rating.js';
 
 const termOptions = [
   { value: '21T2', text: '21T2' },
@@ -20,80 +22,31 @@ const termOptions = [
   { value: '16S1', text: '16S1' },
 ];
 
-const ReviewPage = () => {
+const ReviewPage = (props) => {
   const [question, setQuestion] = useState('');
   const handleQuestionChange = (e, { value }) => {
     setQuestion(value);
   };
 
-  const [anonymity, setAnonymity] = useState('');
+  const [anonymity, setAnonymity] = useState(true);
   const handleAnonymityChange = (e, { value }) => {
     setAnonymity(value);
   };
+
+  const { courses } = props;
 
   const [overallRating, setOverallRating] = useState(0);
 
   return (
     <>
       <Header as='h1'>Submit Review Page</Header>
-
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <ReviewRating
-          rating={overallRating}
-          icon='heart'
-          size='large'
-          clickable
-          hoverable
-          captions={['🤬', '😥', '😐', '😀', '😍']}
-          onChange={(newRating) => setOverallRating(newRating)}
-        />
-      </div>
-
-      <div style={{ display: 'flex', marginTop: '10rem', justifyContent: 'center', alignItems: 'center' }}>
-        <Rating icon='star' size='massive' maxRating={5} />
-      </div>
-
-      <Form>
-        <Form.Group inline>
-          <Form.Field>
-            When did you complete the course?
-            <Form.Dropdown
-              placeholder='Select term taken'
-              fluid
-              search
-              selection
-              options={termOptions}
-            />
-          </Form.Field>
-        </Form.Group>
-        <Form.Group inline>
-          <Form.Field>
-            Would you like to remain anonymous? <b>{anonymity}</b>
-            <Form.Radio
-              label='Yes'
-              name='anonymityGroup'
-              value='Yes'
-              checked={anonymity === 'Yes'}
-              onChange={handleAnonymityChange}
-            />
-            <Form.Radio
-              label='No'
-              name='anonymityGroup'
-              value='No'
-              checked={anonymity === 'No'}
-              onChange={handleAnonymityChange}
-            />
-          </Form.Field>
-        </Form.Group>
-        <Button color='green' animated='fade' type='submit'>
-          <Button.Content visible><Icon name='angle double right' /> </Button.Content>
-          <Button.Content hidden>
-            Submit
-          </Button.Content>
-        </Button>
-      </Form>
     </>
   );
+};
+
+
+ReviewPage.propTypes = {
+  courses: PropTypes.object,
 };
 
 export default ReviewPage;
