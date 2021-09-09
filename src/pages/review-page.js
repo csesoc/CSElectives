@@ -139,6 +139,7 @@ const ReviewPage = (props) => {
       <RatingForm />
 
       <Form>
+        <CourseSelect courses={courses} />
         <Form.Group inline>
           <Form.Field>
             When did you complete the course?
