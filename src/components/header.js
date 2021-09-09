@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container, Image, Menu, Dropdown } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Logo from '../assets/logo.svg';
@@ -9,6 +9,7 @@ import Logo from '../assets/logo.svg';
 const Header = (props) => {
   const [activeItem, setActiveItem] = useState('home');
   const { courses } = props;
+  const history = useHistory();
 
   const dropdownOptionFunc = (course) => {
     return {
@@ -24,6 +25,11 @@ const Header = (props) => {
     setActiveItem(name);
   };
 
+  const handleDropdownSelect = (e, { value }) => {
+    history.push(`/course/${value}`);
+    setActiveItem(value);
+  };
+
   return (
     <Menu pointing secondary>
       <Container>
@@ -34,15 +40,6 @@ const Header = (props) => {
           onClick={handleItemClick}
         >
           <Image src={Logo} size='small' />
-        </Menu.Item>
-        <Menu.Item
-          as={Link}
-          to="/course"
-          name='courses'
-          active={activeItem === 'courses'}
-          onClick={handleItemClick}
-        >
-          Courses
         </Menu.Item>
         <Menu.Item
           as={Link}
@@ -63,9 +60,9 @@ const Header = (props) => {
               search
               inline
               selection
-              wrapSelection={false}
               options={dropdownOptionArray}
               className='searchbar-dropdown'
+              onChange={handleDropdownSelect}
             />
           )
           }
