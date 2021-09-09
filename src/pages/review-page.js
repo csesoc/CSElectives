@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Header, Button, Icon, Rating } from 'semantic-ui-react';
+import { Form, Header, Button, Icon, Rating, TextArea } from 'semantic-ui-react';
 import ReviewRating from '../components/review-rating/review-rating.js';
 import '../styles/review-page.css';
+import CourseSelect from '../components/course-select.js';
+import PropTypes from 'prop-types';
 
 const termOptions = [
   { value: '21T2', text: '21T2' },
@@ -20,7 +22,7 @@ const termOptions = [
   { value: '16S1', text: '16S1' },
 ];
 
-const ReviewPage = () => {
+const ReviewPage = (props) => {
   const [question, setQuestion] = useState('');
   const handleQuestionChange = (e, { value }) => {
     setQuestion(value);
@@ -31,12 +33,14 @@ const ReviewPage = () => {
     setAnonymity(value);
   };
 
+  const { courses } = props;
+
   const [overallRating, setOverallRating] = useState(0);
 
   return (
     <>
       <Header as='h1'>Submit Review Page</Header>
-
+      <CourseSelect courses={courses} />
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <ReviewRating
           rating={overallRating}
@@ -85,6 +89,10 @@ const ReviewPage = () => {
             />
           </Form.Field>
         </Form.Group>
+        <TextArea placeholder='Please write your review here: make sure you have read the terms and conditions
+        before posting. Feel free to include your overall experience with the course,
+        how you found the assessments/workload and anything else you wanted to share!'
+        />
         <Button color='green' animated='fade' type='submit'>
           <Button.Content visible><Icon name='angle double right' /> </Button.Content>
           <Button.Content hidden>
@@ -94,6 +102,10 @@ const ReviewPage = () => {
       </Form>
     </>
   );
+};
+
+ReviewPage.propTypes = {
+  courses: PropTypes.object,
 };
 
 export default ReviewPage;
