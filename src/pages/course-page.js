@@ -74,13 +74,6 @@ const CoursePage = (props) => {
     return `${date}/${month}/${year}`;
   };
 
-  const checkAuthor = (review) => {
-    if (!review.displayAuthor) {
-      return 'Anonymous';
-    }
-    return review.author;
-  };
-
   // check if review has text or not
   // if review doesn't have text, present in a rating card
   // if it does, present in a review card
@@ -111,7 +104,7 @@ const CoursePage = (props) => {
           workloadProgress={review.rating.workload}
           enjoymentProgress={review.rating.enjoyment}
           difficultyProgress={review.rating.difficulty}
-          author={checkAuthor(review)}
+          author={review.displayAuthor ? review.author : 'Anonymous'}
           termTaken={review.termTaken}
         />
       </>
