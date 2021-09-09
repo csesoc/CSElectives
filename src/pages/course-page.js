@@ -128,38 +128,35 @@ const CoursePage = (props) => {
     return (
       <>
         {course.reviews.sort((a, b) => {
-          // Descending
-          const aScore = a.rating.difficulty + a.rating.enjoyment + a.rating.overall
-          + a.rating.usefulness + a.rating.workload;
-          const bScore = b.rating.difficulty + b.rating.enjoyment + b.rating.overall
-          + b.rating.usefulness + b.rating.workload;
-          // overall, agregate of all categories and time
-          if (sort === 'most-recent') {
-            return b.timestamp - a.timestamp;
-          } else if (sort === 'rating-descending') {
+          const aScore = a.rating.difficulty
+            + a.rating.enjoyment
+            + a.rating.overall
+            + a.rating.usefulness
+            + a.rating.workload;
+          const bScore = b.rating.difficulty
+            + b.rating.enjoyment
+            + b.rating.overall
+            + b.rating.usefulness
+            + b.rating.workload;
+
+          if (sort === 'rating-descending') {
             if (a.rating.overall === b.rating.overall) {
-              if (aScore === bScore) {
-                return b.timestamp - a.timestamp;
-              } else {
-                return bScore - aScore;
-              }
-            } else {
-              return b.rating.overall - a.rating.overall;
+              if (aScore === bScore) return b.timestamp - a.timestamp;
+              return bScore - aScore;
             }
-          } else if (sort === 'rating-ascending') {
-            if (a.rating.overall === b.rating.overall) {
-              if (aScore === bScore) {
-                return a.timestamp - b.timestamp;
-              } else {
-                return aScore - bScore;
-              }
-            } else {
-              // If none are selected for some reason
-              return a.rating.overall - b.rating.overall;
-            }
-          } else {
-            return a.timestamp - b.timestamp;
+            return b.rating.overall - a.rating.overall;
           }
+
+          if (sort === 'rating-ascending') {
+            if (a.rating.overall === b.rating.overall) {
+              if (aScore === bScore) return a.timestamp - b.timestamp;
+              return aScore - bScore;
+            }
+            return a.rating.overall - b.rating.overall;
+          }
+
+          // Default is most recent
+          return b.timestamp - a.timestamp;
         }).map((review, i) => {
           return (
             <div key={i} className="card-displayer">
