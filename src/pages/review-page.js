@@ -170,7 +170,7 @@ const ReviewPage = (props) => {
             />
           </Form.Field>
         </Form.Group>
-        
+
         <Form.Field>
           <Input className='ratingTitle' placeholder='Enter your title here!' fluid />
           <TextArea placeholder='Please write your review here: make sure you have read the terms and conditions
