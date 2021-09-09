@@ -65,6 +65,13 @@ const CoursePage = (props) => {
     return `${date}/${month}/${year}`;
   };
 
+  const checkAuthor = (review) => {
+    if (!course.reviews[review].displayAuthor) {
+      return 'Anonymous';
+    }
+    return review.author;
+  };
+
   // check if review has text or not
   // if review doesn't have text, present in a rating card
   // if it does, present in a review card
@@ -95,6 +102,8 @@ const CoursePage = (props) => {
           workloadProgress={course.reviews[review].rating.workload}
           enjoymentProgress={course.reviews[review].rating.enjoyment}
           difficultyProgress={course.reviews[review].rating.difficulty}
+          author={checkAuthor(review)}
+          termTaken={course.reviews[review].termTaken}
         />
       </>
     );
