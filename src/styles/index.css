@@ -226,5 +226,6 @@ footer {
   margin: 5px 0;
 }
 
-
-
+.searchbar-dropdown {
+  width: 250px;
+}
