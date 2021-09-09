@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import { Form, Header, Button, Icon, Rating, Input } from 'semantic-ui-react';
-=======
 import PropTypes from 'prop-types';
 
-import { Form, Header, Button, Icon, Rating, TextArea } from 'semantic-ui-react';
+import { Form, Header, Button, Icon, Rating, TextArea, Input } from 'semantic-ui-react';
 
->>>>>>> main
 import ReviewRating from '../components/review-rating/review-rating.js';
 import CourseSelect from '../components/course-select.js';
 
@@ -96,20 +92,6 @@ const ReviewPage = (props) => {
             />
           </Form.Field>
         </Form.Group>
-<<<<<<< HEAD
-        <Input placeholder='Enter title here!' fluid className="reviewtitle" />
-=======
-        <TextArea placeholder='Please write your review here: make sure you have read the terms and conditions
-        before posting. Feel free to include your overall experience with the course,
-        how you found the assessments/workload and anything else you wanted to share!'
-        />
->>>>>>> main
-        <Button color='green' animated='fade' type='submit'>
-          <Button.Content visible><Icon name='angle double right' /> </Button.Content>
-          <Button.Content hidden>
-            Submit
-          </Button.Content>
-        </Button>
       </Form>
     </>
   );
