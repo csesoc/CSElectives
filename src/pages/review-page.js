@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Header, Button, Icon, Rating, Input, TextArea } from 'semantic-ui-react';
+import { Form, Header, Button, Icon, Rating, Input, TextArea, Dropdown } from 'semantic-ui-react';
+import { LoadingContext } from '../App';
 
 import ReviewRating from '../components/review-rating/review-rating.js';
-import CourseSelect from '../components/course-select.js';
 
 import '../styles/review-page.css';
 
@@ -52,9 +52,29 @@ const ReviewPage = (props) => {
     setTermTaken(value);
   };
 
+  const [course, setCourse] = useState('');
+  const handleCourseChange = (e, { value }) =>{
+    setCourse(value);
+  };
+
   const TimeStamp = new Date();
 
   const { courses } = props;
+
+  const loading = useContext(LoadingContext);
+
+  const dropdownOptions = (course) => {
+    return {
+      key: course.courseCode,
+      text: course.courseCode + ' - ' + course.title,
+      value: course.courseCode,
+    };
+  };
+
+  const dropdownOptionsArray = Object.values(courses).map((course) => dropdownOptions(course));
+
+  const CourseSelect = () => {
+  };
 
   const [overallRating, setOverallRating] = useState(0);
   const [difficultyRating, setDifficultyRating] = useState(0);
@@ -74,6 +94,7 @@ const ReviewPage = (props) => {
       { workloadRating }],
     timestamp: { TimeStamp },
     termtaken: { termTaken },
+    course: { course },
   };
 
   const RatingForm = () => (
@@ -170,7 +191,16 @@ const ReviewPage = (props) => {
       <Header as='h1'>Submit Review Page</Header>
       <RatingForm />
       <Form>
-        <CourseSelect courses={courses} />
+        <Dropdown
+          placeholder='Select the course you are reviewing'
+          fluid
+          search
+          selection
+          options={dropdownOptionsArray}
+          onChange={ (e, { value }) => {
+            setCourse(value);
+          }}
+        />
         <Form.Group inline>
           <Form.Field>
             When did you complete the course?
