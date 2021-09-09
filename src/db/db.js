@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getDocs, getFirestore, collection } from 'firebase/firestore/lite';
+import { getDocs, getFirestore, collection, addDoc } from 'firebase/firestore/lite';
 
 import FirebaseConfig from '../assets/firebase-config.json';
 
@@ -25,22 +25,16 @@ class Database {
     return await getDocs(col);
   }
 
+
   /**
    * Appends a new review to the course's reviews
    * NOTE: This function does not change the global state for you
-   *
-   * @param {string} courseCode
    * @param {object} review
+   * @return {string} the id of the new review
    */
-  async addReview(courseCode, review) {
-    console.log(`Added review to ${courseCode}`);
-
-    // TODO ELEC-94: implement this function
-    // await setDoc(doc(db, "cities", "LA"), {
-    //   name: "Los Angeles",
-    //   state: "CA",
-    //   country: "USA"
-    // });
+  async addReview(review) {
+    const docRef = await addDoc(collection(this.db, 'reviews'), review);
+    return docRef.id;
   }
 }
 
