@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Header, Button, Icon, Rating } from 'semantic-ui-react';
+import { Form, Header, Button, Icon, Rating, Input } from 'semantic-ui-react';
 import ReviewRating from '../components/review-rating/review-rating.js';
 import '../styles/review-page.css';
 
@@ -163,6 +163,7 @@ const ReviewPage = () => {
               onChange={handleAnonymityChange}
             />
           </Form.Field>
+          <Input className='ratingTitle' placeholder='Enter your title here!' fluid />
         </Form.Group>
       </Form>
     </>
