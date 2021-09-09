@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Header, Button, Icon, Rating, TextArea } from 'semantic-ui-react';
-import ReviewRating from '../components/review-rating/review-rating.js';
-import '../styles/review-page.css';
-import CourseSelect from '../components/course-select.js';
 import PropTypes from 'prop-types';
+
+import { Form, Header, Button, Icon, Rating, TextArea } from 'semantic-ui-react';
+
+import ReviewRating from '../components/review-rating/review-rating.js';
+import CourseSelect from '../components/course-select.js';
+
+import '../styles/review-page.css';
 
 const termOptions = [
   { value: '21T2', text: '21T2' },
@@ -28,7 +31,7 @@ const ReviewPage = (props) => {
     setQuestion(value);
   };
 
-  const [anonymity, setAnonymity] = useState('');
+  const [anonymity, setAnonymity] = useState(true);
   const handleAnonymityChange = (e, { value }) => {
     setAnonymity(value);
   };
