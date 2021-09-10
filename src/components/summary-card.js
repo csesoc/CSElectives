@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Header, Grid, Progress, Rating, Icon } from 'semantic-ui-react';
 import Tags from '../components/tags.js';
+import '../styles/course-page.css';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, courseCode, overallRating, numReviews, summaryDesc,
@@ -16,7 +17,7 @@ const SummaryCard = (props) => {
     );
   };
   return (
-    <div style={{ display: 'block', margin: '20px' }}>
+    <div className='summary-card'>
       <Grid>
         <Grid.Row className='grid-top'>
           <div className='my-course-page-tags'>
@@ -34,7 +35,7 @@ const SummaryCard = (props) => {
           </div>
         </Grid.Row>
         <Grid.Row className='grid-row'>
-          <div style={{ width: '100%' }}>
+          <div className='summary-stats'>
             <span>
               Usefulness
             </span>
