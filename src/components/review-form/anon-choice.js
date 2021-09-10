@@ -19,7 +19,7 @@ const AnonChoice = (props) => {
         label='No'
         name='anonymityGroup'
         value={false}
-        checked={anonymity === false}
+        checked={!anonymity}
         onChange={(e, { value }) => setAnonymity(value)}
       />
     </Form.Group>
