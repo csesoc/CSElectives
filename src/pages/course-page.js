@@ -185,20 +185,18 @@ const CoursePage = (props) => {
       <div>
         <Grid stackable>
           <Grid.Column width={7} floated='left'>
-            <div className="summary-card">
-              <SummaryCard
-                summaryTitle={getSummaryTitle()}
-                summaryLink={getLink()}
-                courseCode={courseCode}
-                overallRating={getAverage('overall')}
-                numReviews={course.reviews.length}
-                summaryDesc={course.description}
-                usefulAvg={getAverage('usefulness')}
-                workloadAvg={getAverage('workload')}
-                difficultyAvg={getAverage('difficulty')}
-                enjoymentAvg={getAverage('enjoyment')}
-              />
-            </div>
+            <SummaryCard
+              summaryTitle={getSummaryTitle()}
+              summaryLink={getLink()}
+              courseCode={courseCode}
+              overallRating={getAverage('overall')}
+              numReviews={course.reviews.length}
+              summaryDesc={course.description}
+              usefulAvg={getAverage('usefulness')}
+              workloadAvg={getAverage('workload')}
+              difficultyAvg={getAverage('difficulty')}
+              enjoymentAvg={getAverage('enjoyment')}
+            />
           </Grid.Column>
           <Grid.Column width={9} floated='right'>
             <Grid columns={3}>
