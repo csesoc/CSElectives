@@ -33,7 +33,6 @@ const ReviewPage = (props) => {
     usefulness,
   };
 
-
   const reviewObject = {
     author: 'anonymous',
     title,
@@ -41,10 +40,10 @@ const ReviewPage = (props) => {
     courseCode: course,
     displayAuthor: anonymity,
     rating,
+    recommendedCourses: [],
     termTaken,
     timestamp: Date.now(),
   };
-
 
   return (
     <>
