@@ -45,3 +45,15 @@
 .summary-card::-webkit-scrollbar {
     display: none;
 }
+
+.course-banner {
+    background: url("../assets/bluebanner.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    margin: 0rem 2rem 2rem 2rem;
+    /* margin: 0 2rem; */
+    padding: 20px;
+}
