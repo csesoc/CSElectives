@@ -33,18 +33,6 @@ const ReviewPage = (props) => {
     usefulness,
   };
 
-  const reviewObject = {
-    author: 'anonymous',
-    title,
-    comment,
-    courseCode: course,
-    displayAuthor: anonymity,
-    rating,
-    recommendedCourses: [],
-    termTaken,
-    timestamp: Date.now(),
-  };
-
   return (
     <>
       <Header as='h1'>Submit Review Page</Header>
@@ -73,7 +61,22 @@ const ReviewPage = (props) => {
           setComment={setComment}
         />
 
-        <Button color='green' animated='fade' type='submit' onClick={()=>console.log(reviewObject)}>
+        <Button
+          color='green'
+          animated='fade'
+          type='submit'
+          onClick={() => console.log({
+            author: 'anonymous',
+            title,
+            comment,
+            courseCode: course,
+            displayAuthor: anonymity,
+            rating,
+            recommendedCourses: [],
+            termTaken,
+            timestamp: Date.now(),
+          })}
+        >
           <Button.Content visible><Icon name='angle double right' /></Button.Content>
           <Button.Content hidden>Submit</Button.Content>
         </Button>
