@@ -81,7 +81,6 @@ const CoursePage = (props) => {
     const withPrefixArray = termsArray.concat(courseCode.substring(0, 4));
     const level = 'Level ' + courseCode[4];
     const tagsArray = withPrefixArray.concat(level);
-    console.log(tagsArray);
     return tagsArray;
   };
 
