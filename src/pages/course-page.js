@@ -8,6 +8,7 @@ import RatingsCard from '../components/review-card-ratings-only.js';
 import '../styles/course-page.css';
 import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
+import { stringLiteral } from '@babel/types';
 
 const CoursePage = (props) => {
   const { courses } = props;
@@ -72,6 +73,15 @@ const CoursePage = (props) => {
     const month = new Date(review.timestamp).getMonth();
     const year = new Date(review.timestamp).getFullYear();
     return `${date}/${month}/${year}`;
+  };
+
+  const getTags = () => {
+    // include tags for terms, prefix and level
+    const termsArray = course.terms.map((term) => 'Term ' + term );
+    const withPrefixArray = termsArray.concat(courseCode.substring(0, 4));
+    const level = 'Level ' + courseCode[4];
+    const tagsArray = withPrefixArray.concat(level);
+    return tagsArray;
   };
 
   // check if review has text or not
@@ -196,6 +206,7 @@ const CoursePage = (props) => {
               workloadAvg={getAverage('workload')}
               difficultyAvg={getAverage('difficulty')}
               enjoymentAvg={getAverage('enjoyment')}
+              tags={getTags()}
             />
           </Grid.Column>
           <Grid.Column width={9} floated='right'>
