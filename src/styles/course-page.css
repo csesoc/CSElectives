@@ -21,3 +21,8 @@
 .review-bars {
     margin: 0 2px;
 }
+
+.reviewCardAuthor {
+    width: 100%;
+    text-align: right;
+}
