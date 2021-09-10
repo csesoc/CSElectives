@@ -11,15 +11,15 @@ const AnonChoice = (props) => {
       <Form.Radio
         label='Yes'
         name='anonymityGroup'
-        value='Yes'
-        checked={anonymity === 'Yes'}
+        value
+        checked={anonymity === true}
         onChange={(e, { value }) => setAnonymity(value)}
       />
       <Form.Radio
         label='No'
         name='anonymityGroup'
-        value='No'
-        checked={anonymity === 'No'}
+        value={false}
+        checked={anonymity === false}
         onChange={(e, { value }) => setAnonymity(value)}
       />
     </Form.Group>

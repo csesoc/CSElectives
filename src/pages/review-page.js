@@ -25,22 +25,27 @@ const ReviewPage = (props) => {
   const [termTaken, setTermTaken] = useState('');
   const [course, setCourse] = useState('');
 
-  const TimeStamp = new Date();
+  const rating = {
+    enjoyability,
+    overall,
+    workload,
+    difficulty,
+    usefulness,
+  };
+
+  const TimeStamp = Date.now();
 
   const reviewObject = {
-    author: 'Anonymous',
-    displayAuthor: { anonymity },
-    reviewtitle: { reviewTitle },
-    reviewcomment: { reviewComment },
-    rating: [{ overall },
-      { difficulty },
-      { enjoyability },
-      { usefulness },
-      { workload }],
-    timestamp: { TimeStamp },
-    termtaken: { termTaken },
-    course: { course },
+    author: 'anonymous',
+    reviewtitle: reviewTitle,
+    reviewcomment: reviewComment,
+    courseCode: course,
+    displayAuthor: anonymity,
+    rating,
+    termtaken: termTaken,
+    timestamp: TimeStamp,
   };
+
 
   return (
     <>
