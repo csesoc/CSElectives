@@ -15,35 +15,34 @@ const ReviewPage = (props) => {
 
   const [overall, setOverall] = useState(0);
   const [difficulty, setDifficulty] = useState(0);
-  const [enjoyability, setEnjoyability] = useState(0);
+  const [enjoyment, setEnjoyment] = useState(0);
   const [usefulness, setUsefulness] = useState(0);
   const [workload, setWorkload] = useState(0);
 
   const [anonymity, setAnonymity] = useState(true);
-  const [reviewTitle, setReviewTitle] = useState('');
-  const [reviewComment, setReviewComment] = useState('');
+  const [title, setTitle] = useState('');
+  const [comment, setComment] = useState('');
   const [termTaken, setTermTaken] = useState('');
   const [course, setCourse] = useState('');
 
   const rating = {
-    enjoyability,
+    enjoyment,
     overall,
     workload,
     difficulty,
     usefulness,
   };
 
-  const TimeStamp = Date.now();
 
   const reviewObject = {
     author: 'anonymous',
-    reviewtitle: reviewTitle,
-    reviewcomment: reviewComment,
+    title,
+    comment,
     courseCode: course,
     displayAuthor: anonymity,
     rating,
-    termtaken: termTaken,
-    timestamp: TimeStamp,
+    termTaken,
+    timestamp: Date.now(),
   };
 
 
@@ -57,8 +56,8 @@ const ReviewPage = (props) => {
           setOverall={setOverall}
           difficulty={difficulty}
           setDifficulty={setDifficulty}
-          enjoyability={enjoyability}
-          setEnjoyability={setEnjoyability}
+          enjoyment={enjoyment}
+          setEnjoyment={setEnjoyment}
           usefulness={usefulness}
           setUsefulness={setUsefulness}
           workload={workload}
@@ -69,13 +68,13 @@ const ReviewPage = (props) => {
         <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
         <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
         <ReviewTextArea
-          reviewTitle={reviewTitle}
-          setReviewTitle={setReviewTitle}
-          reviewComment={reviewComment}
-          setReviewComment={setReviewComment}
+          title={title}
+          setTitle={setTitle}
+          comment={comment}
+          setComment={setComment}
         />
 
-        <Button color='green' animated='fade' type='submit' onClick={console.log({ reviewObject })}>
+        <Button color='green' animated='fade' type='submit' onClick={()=>console.log(reviewObject)}>
           <Button.Content visible><Icon name='angle double right' /></Button.Content>
           <Button.Content hidden>Submit</Button.Content>
         </Button>

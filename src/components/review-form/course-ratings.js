@@ -7,7 +7,7 @@ const CourseRatings = (props) => {
   const {
     overall, setOverall,
     difficulty, setDifficulty,
-    enjoyability, setEnjoyability,
+    enjoyment, setEnjoyment,
     usefulness, setUsefulness,
     workload, setWorkload,
   } = props;
@@ -49,13 +49,13 @@ const CourseRatings = (props) => {
               Enjoyability
             </h3>
             <ReviewRating
-              rating={enjoyability}
+              rating={enjoyment}
               icon='circle'
               size='large'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
-              onChange={(newEnjoyability) => setEnjoyability(newEnjoyability)}
+              onChange={(newEnjoyability) => setEnjoyment(newEnjoyability)}
             />
           </div>
         </div>
@@ -101,8 +101,8 @@ CourseRatings.propTypes = {
   setOverall: PropTypes.func,
   difficulty: PropTypes.number,
   setDifficulty: PropTypes.func,
-  enjoyability: PropTypes.number,
-  setEnjoyability: PropTypes.func,
+  enjoyment: PropTypes.number,
+  setEnjoyment: PropTypes.func,
   usefulness: PropTypes.number,
   setUsefulness: PropTypes.func,
   workload: PropTypes.number,
