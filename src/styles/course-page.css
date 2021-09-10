@@ -30,3 +30,18 @@
 .summary-stats {
     width: 100%;
 }
+
+.summary-card {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: -webkit-sticky;
+    position: sticky;
+    /* Pins sticky content to top of window */
+    top: 20px;
+    /* Prevents container of summary card overflowing past the bottom of window */
+    height: 93vh;
+}
+
+.summary-card::-webkit-scrollbar {
+    display: none;
+}

@@ -33,15 +33,6 @@ code {
   margin-bottom: 15px;
 }
 
-.summary-card {
-  max-height: 93vh;
-  overflow-y: scroll;
-  scrollbar-width: 5px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
-}
-
 .summary-card::-webkit-scrollbar {
   width: 5px;
 }

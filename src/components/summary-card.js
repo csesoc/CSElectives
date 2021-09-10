@@ -10,8 +10,7 @@ const SummaryCard = (props) => {
     usefulAvg, workloadAvg, difficultyAvg, enjoymentAvg } = props;
 
   return (
-    // style={{ display: 'block', margin: '20px' }}
-    <div style={{ display: 'block', margin: '20px' }}>
+    <div className='summary-card'>
       <Grid>
         <Grid.Row className='grid-top'>
           <div className='course-page-tags'>
