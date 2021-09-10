@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/course-page.css';
 
 import { Grid, Card, Progress, Rating } from 'semantic-ui-react';
 
@@ -23,25 +24,25 @@ const ReviewCard = (props) => {
               </Grid.Column>
               <Grid.Column width={5}>
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='review-bars'>
                   Usefulness
                   <div>
                     <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue' />
                   </div>
                 </div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='review-bars'>
                   Workload
                   <div>
                     <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue' />
                   </div>
                 </div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='review-bars'>
                   Enjoyment
                   <div>
                     <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue' />
                   </div>
                 </div>
-                <div style={{ margin: '0 2px' }}>
+                <div className='review-bars'>
                   Difficulty
                   <div>
                     <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue' />
