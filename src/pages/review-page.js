@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Form, Header, Button, Icon } from 'semantic-ui-react';
 
+import Database from '../db/db.js';
+
 import '../styles/review-page.css';
 import CourseRatings from '../components/review-form/course-ratings';
 import CourseSelect from '../components/review-form/course-select';
@@ -31,6 +33,23 @@ const ReviewPage = (props) => {
     workload,
     difficulty,
     usefulness,
+  };
+
+  const handleSubmit = async () =>{
+    const review = {
+      author: 'anonymous',
+      title,
+      comment,
+      courseCode: course,
+      displayAuthor: anonymity,
+      rating,
+      recommendedCourses: [],
+      termTaken,
+      timestamp: Date.now() };
+    console.log(review);
+
+    const reviewId = await Database.addReview(review);
+    console.log(reviewId);
   };
 
   return (
@@ -65,17 +84,7 @@ const ReviewPage = (props) => {
           color='green'
           animated='fade'
           type='submit'
-          onClick={() => console.log({
-            author: 'anonymous',
-            title,
-            comment,
-            courseCode: course,
-            displayAuthor: anonymity,
-            rating,
-            recommendedCourses: [],
-            termTaken,
-            timestamp: Date.now(),
-          })}
+          onClick={handleSubmit}
         >
           <Button.Content visible><Icon name='angle double right' /></Button.Content>
           <Button.Content hidden>Submit</Button.Content>
