@@ -190,10 +190,12 @@ const CoursePage = (props) => {
           as='h1'
           style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
             color: 'black' }}
+          className='course-banner'
         >
           {course.courseCode}
         </Header>
       </div>
+
 
       <div>
         <Grid stackable>

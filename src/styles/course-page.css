@@ -47,11 +47,11 @@
 }
 
 .course-banner {
-    background: url("../assets/filler.png");
+    background: url("../assets/bluebanner.png");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     position: relative;
     margin: 0rem 2rem 2rem 2rem;
     /* margin: 0 2rem; */
