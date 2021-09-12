@@ -52,6 +52,8 @@
 }
 
 .tags-category {
-  margin-right: .285714em
+  margin-right: .285714em;
+  margin-top: .285714em;
+  display: flex;
 }
 

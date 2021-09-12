@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Checkbox } from 'semantic-ui-react';
 
 const DropdownTagsMenu = (props) => {
   const { title, tagOptions, activeTags, setActiveTags } = props;
@@ -23,16 +23,12 @@ const DropdownTagsMenu = (props) => {
         className='ui dropdown menu> item'
         onClick={toggleSelectionDrop}
       >
-        <div className="ui attached icon form" id="info_input_form">
-          <div className={'ui checkbox ' + title.toLowerCase()}>
-            <input
-              type="checkbox"
-              tabIndex="0"
-              checked={activeTags.includes(object.value)}
-            />
-            <label className="coloring black">{object.value}</label>
-          </div>
-        </div>
+        <Checkbox
+          className={'checkbox-' + title.toLowerCase()}
+          checked={activeTags.includes(object.value)}
+          label={object.value}
+        />
+
       </Dropdown.Item>
     );
   };
