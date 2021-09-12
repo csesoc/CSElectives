@@ -17,3 +17,42 @@
     text-align: center;
     padding: 5rem;
 }
+
+.review-bars {
+    margin: 0 2px;
+}
+
+.reviewCardAuthor {
+    width: 100%;
+    text-align: right;
+}
+
+.summary-stats {
+    width: 100%;
+}
+
+.summary-card {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: -webkit-sticky;
+    position: sticky;
+    /* Pins sticky content to top of window */
+    top: 20px;
+    /* Prevents container of summary card overflowing past the bottom of window */
+    height: 93vh;
+}
+
+.summary-card::-webkit-scrollbar {
+    display: none;
+}
+
+.course-banner {
+    background: url("../assets/bluebanner.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    margin: 0rem 2rem 2rem 2rem;
+    padding: 20px;
+}

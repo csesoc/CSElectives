@@ -2,18 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Header, Grid, Progress, Rating, Icon } from 'semantic-ui-react';
-import CoursePageTags from '../components/course-page-tags.js';
+import Tags from '../components/tags.js';
+import '../styles/course-page.css';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, courseCode, overallRating, numReviews, summaryDesc,
-    usefulAvg, workloadAvg, difficultyAvg, enjoymentAvg } = props;
+    usefulAvg, workloadAvg, difficultyAvg, enjoymentAvg, tags } = props;
 
+  const displayTags = (label) => {
+    return (
+      <Tags
+        label={label}
+      />
+    );
+  };
   return (
-    <div style={{ display: 'block', margin: '20px' }}>
+    <div className='summary-card'>
       <Grid>
         <Grid.Row className='grid-top'>
           <div className='my-course-page-tags'>
-            <CoursePageTags />
+            {tags.map((label) => displayTags(label))}
           </div>
         </Grid.Row>
         <Grid.Row className='grid-row'>
@@ -27,7 +35,7 @@ const SummaryCard = (props) => {
           </div>
         </Grid.Row>
         <Grid.Row className='grid-row'>
-          <div style={{ width: '100%' }}>
+          <div className='summary-stats'>
             <span>
               Usefulness
             </span>
@@ -104,6 +112,7 @@ SummaryCard.propTypes = {
   workloadAvg: PropTypes.string,
   difficultyAvg: PropTypes.string,
   enjoymentAvg: PropTypes.string,
+  tags: PropTypes.array,
 };
 
 export default SummaryCard;

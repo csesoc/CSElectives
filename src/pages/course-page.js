@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Grid, Dropdown, Button, Header, Icon } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
@@ -8,23 +8,33 @@ import RatingsCard from '../components/review-card-ratings-only.js';
 import '../styles/course-page.css';
 import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
+import { stringLiteral } from '@babel/types';
 
 const CoursePage = (props) => {
   const { courses } = props;
   const loading = useContext(LoadingContext);
   const history = useHistory();
   const { courseCode } = useParams();
+  const [sort, setSort] = useState('most-recent');
+  const handleSortChange = (e, { value }) => {
+    setSort(value);
+  };
   const course = courses[courseCode];
   const sortOptions = [
     {
-      key: 'Most Popular',
-      text: 'Most Popular',
-      value: 'Most Popular',
-    },
-    {
       key: 'Most Recent',
       text: 'Most Recent',
-      value: 'Most Recent',
+      value: 'most-recent',
+    },
+    {
+      key: 'Highest Rating to Lowest',
+      text: 'Highest Rating to Lowest',
+      value: 'rating-descending',
+    },
+    {
+      key: 'Lowest Rating to Highest',
+      text: 'Lowest Rating to Highest',
+      value: 'rating-ascending',
     },
   ];
 
@@ -59,27 +69,36 @@ const CoursePage = (props) => {
   };
 
   const getReviewDate = (review) => {
-    const date = new Date(course.reviews[review].timestamp).getDate();
-    const month = new Date(course.reviews[review].timestamp).getMonth();
-    const year = new Date(course.reviews[review].timestamp).getFullYear();
+    const date = new Date(review.timestamp).getDate();
+    const month = new Date(review.timestamp).getMonth();
+    const year = new Date(review.timestamp).getFullYear();
     return `${date}/${month}/${year}`;
+  };
+
+  const getTags = () => {
+    // include tags for terms, prefix and level
+    const termsArray = course.terms.map((term) => 'Term ' + term );
+    const withPrefixArray = termsArray.concat(courseCode.substring(0, 4));
+    const level = 'Level ' + courseCode[4];
+    const tagsArray = withPrefixArray.concat(level);
+    return tagsArray;
   };
 
   // check if review has text or not
   // if review doesn't have text, present in a rating card
   // if it does, present in a review card
   const checkReview = (review) => {
-    if (!course.reviews[review].comment) {
+    if (!review.comment) {
       return (
         <>
           <RatingsCard
-            overallRating={course.reviews[review].rating.overall}
+            overallRating={review.rating.overall}
             reviewDate={getReviewDate(review)}
-            reviewTitle={course.reviews[review].title}
-            usefulProgress={course.reviews[review].rating.usefulness}
-            workloadProgress={course.reviews[review].rating.workload}
-            enjoymentProgress={course.reviews[review].rating.enjoyment}
-            difficultyProgress={course.reviews[review].rating.difficulty}
+            reviewTitle={review.title}
+            usefulProgress={review.rating.usefulness}
+            workloadProgress={review.rating.workload}
+            enjoymentProgress={review.rating.enjoyment}
+            difficultyProgress={review.rating.difficulty}
           />
         </>
       );
@@ -87,14 +106,16 @@ const CoursePage = (props) => {
     return (
       <>
         <ReviewCard
-          overallRating={course.reviews[review].rating.overall}
+          overallRating={review.rating.overall}
           reviewDate={getReviewDate(review)}
-          reviewTitle={course.reviews[review].title}
-          reviewComment={course.reviews[review].comment}
-          usefulProgress={course.reviews[review].rating.usefulness}
-          workloadProgress={course.reviews[review].rating.workload}
-          enjoymentProgress={course.reviews[review].rating.enjoyment}
-          difficultyProgress={course.reviews[review].rating.difficulty}
+          reviewTitle={review.title}
+          reviewComment={review.comment}
+          usefulProgress={review.rating.usefulness}
+          workloadProgress={review.rating.workload}
+          enjoymentProgress={review.rating.enjoyment}
+          difficultyProgress={review.rating.difficulty}
+          author={review.displayAuthor ? review.author : 'Anonymous'}
+          termTaken={review.termTaken}
         />
       </>
     );
@@ -118,7 +139,37 @@ const CoursePage = (props) => {
     }
     return (
       <>
-        {Object.keys(course.reviews).map((review, i) => {
+        {course.reviews.sort((a, b) => {
+          const aScore = a.rating.difficulty
+            + a.rating.enjoyment
+            + a.rating.overall
+            + a.rating.usefulness
+            + a.rating.workload;
+          const bScore = b.rating.difficulty
+            + b.rating.enjoyment
+            + b.rating.overall
+            + b.rating.usefulness
+            + b.rating.workload;
+
+          if (sort === 'rating-descending') {
+            if (a.rating.overall === b.rating.overall) {
+              if (aScore === bScore) return b.timestamp - a.timestamp;
+              return bScore - aScore;
+            }
+            return b.rating.overall - a.rating.overall;
+          }
+
+          if (sort === 'rating-ascending') {
+            if (a.rating.overall === b.rating.overall) {
+              if (aScore === bScore) return a.timestamp - b.timestamp;
+              return aScore - bScore;
+            }
+            return a.rating.overall - b.rating.overall;
+          }
+
+          // Default is most recent
+          return b.timestamp - a.timestamp;
+        }).map((review, i) => {
           return (
             <div key={i} className="card-displayer">
               {checkReview(review)}
@@ -134,30 +185,34 @@ const CoursePage = (props) => {
 
   return (
     <>
-      <Header
-        as='h1'
-        style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
-          color: 'black' }}
-      >
-        {course.courseCode}
-      </Header>
+      <div className='course-banner'>
+        <Header
+          as='h1'
+          style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
+            color: 'black' }}
+          className='course-banner'
+        >
+          {course.courseCode}
+        </Header>
+      </div>
+
+
       <div>
         <Grid stackable>
           <Grid.Column width={7} floated='left'>
-            <div className="summary-card">
-              <SummaryCard
-                summaryTitle={getSummaryTitle()}
-                summaryLink={getLink()}
-                courseCode={courseCode}
-                overallRating={getAverage('overall')}
-                numReviews={course.reviews.length}
-                summaryDesc={course.description}
-                usefulAvg={getAverage('usefulness')}
-                workloadAvg={getAverage('workload')}
-                difficultyAvg={getAverage('difficulty')}
-                enjoymentAvg={getAverage('enjoyment')}
-              />
-            </div>
+            <SummaryCard
+              summaryTitle={getSummaryTitle()}
+              summaryLink={getLink()}
+              courseCode={courseCode}
+              overallRating={getAverage('overall')}
+              numReviews={course.reviews.length}
+              summaryDesc={course.description}
+              usefulAvg={getAverage('usefulness')}
+              workloadAvg={getAverage('workload')}
+              difficultyAvg={getAverage('difficulty')}
+              enjoymentAvg={getAverage('enjoyment')}
+              tags={getTags()}
+            />
           </Grid.Column>
           <Grid.Column width={9} floated='right'>
             <Grid columns={3}>
@@ -173,6 +228,7 @@ const CoursePage = (props) => {
                       placeholder='Sort by'
                       selection
                       options={sortOptions}
+                      onChange={handleSortChange}
                     />
                   </div>
                   <div>
@@ -184,17 +240,6 @@ const CoursePage = (props) => {
               </Grid.Row>
             </Grid>
             {checkEmptyState()}
-            <div className="card-displayer">
-              <RatingsCard
-                overallRating="4"
-                reviewDate="11/2/19"
-                reviewTitle="Random Title"
-                usefulProgress="2"
-                workloadProgress="5"
-                enjoymentProgress="3"
-                difficultyProgress="2"
-              />
-            </div>
           </Grid.Column>
         </Grid>
       </div>

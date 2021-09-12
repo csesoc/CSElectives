@@ -20,13 +20,7 @@ const App = () => {
 
   useEffect(() => {
     const getCourses = async () => {
-      const newCourses = {};
-
-      const courseSnapshot = await Database.getSnapshot('courses');
-      courseSnapshot.docs.forEach((doc) => {
-        newCourses[doc.id] = doc.data();
-      });
-
+      const newCourses = await Database.getCoursesAndReviews();
       setCourses(newCourses);
       console.log('Courses:', newCourses);
       setLoading(false);
