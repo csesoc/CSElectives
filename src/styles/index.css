@@ -232,18 +232,17 @@ footer {
 }
 
 
-
-.ui.checkbox input:focus:checked ~ .box:before,
-.ui.checkbox input:focus:checked ~ .coloring.black:before,
-.ui.checkbox input:checked ~ .box:before,
-.ui.checkbox input:checked ~ .coloring.black:before {
-    background: var(--major-tags) !important;
+.ui.checkbox.checkbox-term input:checked~.box:before,
+.ui.checkbox.checkbox-term input:checked~label:before,
+.ui.checkbox.checkbox-term input:focus:checked~.box:before,
+.ui.checkbox.checkbox-term input:focus:checked~label:before {
+  background-color: red;
 }
 
-.ui.checkbox.term input:focus:checked ~ .box:before,
-.ui.checkbox.term input:focus:checked ~ .coloring.black:before,
-.ui.checkbox.term input:checked ~ .box:before,
-.ui.checkbox.term input:checked ~ .coloring.black:before {
+.ui.checkbox.checkbox-term input:focus:checked ~ .box:before,
+.ui.checkbox.checkbox-term input:focus:checked ~ .coloring.black:before,
+.ui.checkbox.checkbox-term input:checked ~ .box:before,
+.ui.checkbox.checkbox-term input:checked ~ .coloring.black:before {
     background: var(--term-tags) !important;
 }
 
