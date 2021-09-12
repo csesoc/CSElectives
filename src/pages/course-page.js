@@ -148,10 +148,10 @@ const CoursePage = (props) => {
     return (
       <>
         {course.reviews.sort((a, b) => {
-          // put these into a function
           const aScore = scoreTotal(a);
           const bScore = scoreTotal(b);
 
+          // Sorts reviews by ratings, total score and time created
           if (sort === 'rating-descending') {
             if (a.rating.overall === b.rating.overall) {
               if (aScore === bScore) return b.timestamp - a.timestamp;
