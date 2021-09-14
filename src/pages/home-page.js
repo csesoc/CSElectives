@@ -12,6 +12,7 @@ import ViewOptionsToggle from '../components/view-options-toggle.js';
 import CardGrid from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
+import ReviewRating from '../components/review-rating/review-rating.js';
 
 const createDropdownOption = (item) => {
   return {
@@ -77,6 +78,27 @@ const HomePage = (props) => {
 
   return loading ? <span>loading</span> : (
     <>
+      <ReviewRating
+        rating={4}
+        icon='wheelchair'
+        size='big'
+        clickable
+        hoverable
+        captions={['🤬', '😥', '😐', '😀', '😍']}
+      />
+
+      <ReviewRating
+        rating={1.5}
+        icon='github'
+        size='massive'
+      />
+
+      <ReviewRating
+        rating={3.3}
+        icon='star'
+        size='large'
+      />
+
       <Header as='h1'>{query}</Header>
 
       {/* {Object.keys(courses).map((courseCode, i) => { */}
