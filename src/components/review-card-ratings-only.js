@@ -28,7 +28,7 @@ const RatingsCard = (props) => {
                 </Card.Meta>
               </Grid.Column>
               <Grid.Column width={8}>
-                <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
+                <div className="Date rating-only-right">{reviewDate}</div>
                 <Card.Meta className='reviewCardAuthor'>
                   {author}
                 </Card.Meta>

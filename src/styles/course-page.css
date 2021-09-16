@@ -61,3 +61,7 @@
     display: block;
     margin: 15px 20px;
   }
+
+.rating-only-right {
+    text-align: right;
+}
