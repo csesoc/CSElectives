@@ -84,6 +84,16 @@ const ReviewPage = (props) => {
           color='green'
           animated='fade'
           type='submit'
+          disabled={!termTaken
+                 || !overall
+                 || !difficulty
+                 || !enjoyment
+                 || !usefulness
+                 || !workload
+                 || !course
+                 || (comment && !title)
+                 || (title && !comment)
+          }
           onClick={handleSubmit}
         >
           <Button.Content visible><Icon name='angle double right' /></Button.Content>
