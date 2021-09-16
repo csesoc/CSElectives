@@ -252,3 +252,18 @@ footer {
 .searchbar-dropdown {
   width: 250px;
 }
+
+.tagasdf {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ui.label {
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+  margin-left: 0;
+}
+
+.ui.label:last-child {
+  margin-right: 0.5em;
+}
