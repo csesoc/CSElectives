@@ -1,10 +1,23 @@
-.ratingSystem{
-    padding: 3rem;
+.ratingCategory {
     align-items: center;
+    text-align: center;
+    margin: 3rem;
 }
-.ratingTitle{
+
+.ratingTitle {
     margin-bottom: 1rem;
 }
-.required{
+
+.required {
     color: red;
+}
+
+.ratingStyle {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.easterEgg{
+    color: white;
 }
