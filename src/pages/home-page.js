@@ -141,28 +141,25 @@ const HomePage = (props) => {
       </Segment>
 
       {/* Tags component */}
-      <div className='my-front-page-tags'>
-        <div className='tags-category'>
-          <HomePageTags
-            activeTags={activeMajorTags}
-            setActiveTags={setActiveMajorTags}
-            category='major'
-          />
-        </div>
-        <div className='tags-category'>
-          <HomePageTags
-            activeTags={activeTermTags}
-            setActiveTags={setActiveTermTags}
-            category='term'
-          />
-        </div>
-        <div className='tags-category'>
-          <HomePageTags
-            activeTags={activePrefixTags}
-            setActiveTags={setActivePrefixTags}
-            category='prefix'
-          />
-        </div>
+      <div className='front-page-tags'>
+        <HomePageTags
+          activeTags={activeMajorTags}
+          setActiveTags={setActiveMajorTags}
+          category='major'
+        />
+
+        <HomePageTags
+          activeTags={activeTermTags}
+          setActiveTags={setActiveTermTags}
+          category='term'
+        />
+
+        <HomePageTags
+          activeTags={activePrefixTags}
+          setActiveTags={setActivePrefixTags}
+          category='prefix'
+        />
+
       </div>
 
       {/* Code, name and desc hardcoded for testing purposes */}

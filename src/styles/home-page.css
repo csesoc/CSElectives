@@ -51,10 +51,6 @@
   align-items: stretch; 
 }
 
-.tags-category {
-  display: flex;
-}
-
 .ui.checkbox.checkbox-major input:checked~.box:before,
 .ui.checkbox.checkbox-major input:checked~label:before,
 .ui.checkbox.checkbox-major input:focus:checked~.box:before,
