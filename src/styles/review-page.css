@@ -5,3 +5,6 @@
 .ratingTitle{
     margin-bottom: 1rem;
 }
+.required{
+    color: red;
+}

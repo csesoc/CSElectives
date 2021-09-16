@@ -24,7 +24,7 @@ const TermTakenSelect = (props) => {
 
   return (
     <Form.Group inline>
-      <label>When did you complete the course?</label>
+      <label>When did you complete the course?<span className='required'> *</span></label>
       <Form.Dropdown
         placeholder='Select term taken'
         fluid
