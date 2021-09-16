@@ -9,7 +9,7 @@ const HomePageTags = (props) => {
     activeTags.map((tag) => (
       <Tag
         key={tag}
-        className={'ui label ' + category.toLowerCase()}
+        className={category.toLowerCase()}
         activeTags={activeTags}
         setActiveTags={setActiveTags}
         label={tag}

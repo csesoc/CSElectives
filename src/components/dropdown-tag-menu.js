@@ -20,7 +20,6 @@ const DropdownTagsMenu = (props) => {
     return (
       <Dropdown.Item
         text={object.value}
-        className='ui dropdown menu> item'
         onClick={toggleSelectionDrop}
       >
         <Checkbox
@@ -40,7 +39,7 @@ const DropdownTagsMenu = (props) => {
       simple
       className='icon'
     >
-      <Dropdown.Menu className={'ui dropdown menu ' + title.toLowerCase()}>
+      <Dropdown.Menu className={title.toLowerCase()}>
         <Dropdown.Header icon='tags' content={`Filter by ${title}`} />
         {tagOptions.map(tagItems)}
       </Dropdown.Menu>
