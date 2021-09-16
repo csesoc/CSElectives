@@ -1,14 +1,11 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown, Header, Input, Segment, Grid } from 'semantic-ui-react';
+import { Header, Input, Segment, Grid } from 'semantic-ui-react';
 
-import CourseReviewCard from '../components/course-review-card.js';
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
-import ToggleOtherTagsButton from '../components/toggle-other-tags-button.js';
 import HomePageTags from '../components/home-page-tags.js';
-import ViewOptionsToggle from '../components/view-options-toggle.js';
 import CardGrid from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
@@ -52,7 +49,6 @@ const prefix = [
   'ENGG',
   'SENG',
 ];
-
 
 const sortOptions = sorts.map((item) => createDropdownOption(item));
 
@@ -101,13 +97,9 @@ const HomePage = (props) => {
 
       <Header as='h1'>{query}</Header>
 
-      {/* {Object.keys(courses).map((courseCode, i) => { */}
-      {/* return <Header key={i}>{courseCode}</Header>; */}
-      {/* })} */}
       <Segment className="search-section-background">
         <Input size='massive' icon='search' fluid onChange={handleQueryChange} />
-        {/* Toggle other tags button */}
-        {/* <ToggleOtherTagsButton></ToggleOtherTagsButton>*/}
+
         <div className='sort-and-filter-container'>
           <div className='sort-dropdown-parent'>
             <div className='sort-dropdown-text'>
@@ -116,8 +108,8 @@ const HomePage = (props) => {
             <div className='sort-dropdown-menu'>
               <DropdownSortMenu options={sortOptions} />
             </div>
-
           </div>
+
           <div className='dropdown-tags-box'>
             <DropdownTagsMenu
               title='Major'
@@ -146,46 +138,29 @@ const HomePage = (props) => {
             />
           </div>
         </div>
-        {/* Manually increasing the segment size for now */}
-        <br></br>
-        <br></br>
-
-        {/* TODO
-          Add ELEC 69
-          Add ELEC 68
-          Add ELEC 69
-          Add ELEC 75
-        */}
       </Segment>
 
-
-      {/* Input component: https://react.semantic-ui.com/elements/input/ *
-      <Input placeholder="You'll need a text box!"/>
-      {/* Dropdown component --> scroll to search selection to implement options:
-      https://react.semantic-ui.com/modules/dropdown/
-      <Dropdown
-        search
-        selection
-        placeholder="Or you could use a search dropdown!"
-      /> */}
-
       {/* Tags component */}
-      <div className='my-front-page-tags'>
+      <div className='front-page-tags'>
         <HomePageTags
           activeTags={activeMajorTags}
           setActiveTags={setActiveMajorTags}
+          category='major'
         />
+
         <HomePageTags
           activeTags={activeTermTags}
           setActiveTags={setActiveTermTags}
+          category='term'
         />
+
         <HomePageTags
           activeTags={activePrefixTags}
           setActiveTags={setActivePrefixTags}
+          category='prefix'
         />
-      </div>
 
-      {/* Check out the Dropdown component page for examples of inline dropdowns, and filter dropdowns */}
+      </div>
 
       {/* Code, name and desc hardcoded for testing purposes */}
       <Grid stackable doubling columns={3}>
