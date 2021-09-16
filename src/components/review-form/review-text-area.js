@@ -17,7 +17,9 @@ const ReviewTextArea = (props) => {
 
   return (
     <Form.Field>
-      <label>Please write your review below! YOU BETTER FILL IT OUT <Icon name='smile' /></label>
+      <label>Write your review below!
+        <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
+      </label>
       <Form.Input
         className='ratingTitle'
         placeholder={Boolean(comment && !title) ? 'Your review needs a title' : 'Enter your title here!'}
