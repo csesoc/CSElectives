@@ -232,10 +232,6 @@ footer {
   margin-left: 0;
 }
 
-.ui.label:last-child {
-  margin-right: 0.5rem;
-}
-
 .ui.dropdown .menu .item:hover {
   background: #F2F2F2;
 }
