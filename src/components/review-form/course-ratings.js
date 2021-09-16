@@ -16,7 +16,7 @@ const CourseRatings = (props) => {
     <>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <h2>
-          Overall Rating
+          Overall Rating<span className='required'> *</span>
         </h2>
         <ReviewRating
           rating={overall}
@@ -31,7 +31,7 @@ const CourseRatings = (props) => {
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center' }} className='ratingSystem'>
           <h3>
-            Difficulty
+            Difficulty<span className='required'> *</span>
           </h3>
           <ReviewRating
             rating={difficulty}
@@ -46,7 +46,7 @@ const CourseRatings = (props) => {
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
           <div style={{ textAlign: 'center' }} className='ratingSystem'>
             <h3>
-              Enjoyability
+              Enjoyability<span className='required'> *</span>
             </h3>
             <ReviewRating
               rating={enjoyment}
@@ -63,7 +63,7 @@ const CourseRatings = (props) => {
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center' }} className='ratingSystem'>
           <h3>
-            Usefulness
+            Usefulness<span className='required'> *</span>
           </h3>
           <ReviewRating
             rating={usefulness}
@@ -78,7 +78,7 @@ const CourseRatings = (props) => {
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
           <div style={{ textAlign: 'center' }} className='ratingSystem'>
             <h3>
-              Workload
+              Workload<span className='required'> *</span>
             </h3>
             <ReviewRating
               rating={workload}
