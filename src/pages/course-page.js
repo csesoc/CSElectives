@@ -38,6 +38,14 @@ const CoursePage = (props) => {
     },
   ];
 
+  const scoreTotal = (review) => {
+    return review.rating.difficulty
+    + review.rating.enjoyment
+    + review.rating.overall
+    + review.rating.usefulness
+    + review.rating.workload;
+  };
+
   const handleClick = () => {
     history.push('/review');
   };
@@ -140,17 +148,10 @@ const CoursePage = (props) => {
     return (
       <>
         {course.reviews.sort((a, b) => {
-          const aScore = a.rating.difficulty
-            + a.rating.enjoyment
-            + a.rating.overall
-            + a.rating.usefulness
-            + a.rating.workload;
-          const bScore = b.rating.difficulty
-            + b.rating.enjoyment
-            + b.rating.overall
-            + b.rating.usefulness
-            + b.rating.workload;
+          const aScore = scoreTotal(a);
+          const bScore = scoreTotal(b);
 
+          // Sorts reviews by ratings, total score and time created
           if (sort === 'rating-descending') {
             if (a.rating.overall === b.rating.overall) {
               if (aScore === bScore) return b.timestamp - a.timestamp;
@@ -195,7 +196,6 @@ const CoursePage = (props) => {
           {course.courseCode}
         </Header>
       </div>
-
 
       <div>
         <Grid stackable>

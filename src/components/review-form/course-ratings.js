@@ -16,7 +16,7 @@ const CourseRatings = (props) => {
     <>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <h2>
-          Overall Rating
+          Overall Rating<span className='required'> *</span>
         </h2>
         <ReviewRating
           rating={overall}
@@ -28,10 +28,10 @@ const CourseRatings = (props) => {
           onChange={(newOverall) => setOverall(newOverall)}
         />
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-        <div style={{ textAlign: 'center' }} className='ratingSystem'>
+      <div className='ratingStyle'>
+        <div className='ratingCategory'>
           <h3>
-            Difficulty
+            Difficulty<span className='required'> *</span>
           </h3>
           <ReviewRating
             rating={difficulty}
@@ -43,27 +43,23 @@ const CourseRatings = (props) => {
             onChange={(newDifficulty) => setDifficulty(newDifficulty)}
           />
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-          <div style={{ textAlign: 'center' }} className='ratingSystem'>
-            <h3>
-              Enjoyability
-            </h3>
-            <ReviewRating
-              rating={enjoyment}
-              icon='circle'
-              size='large'
-              clickable
-              hoverable
-              captions={['🤬', '😥', '😐', '😀', '😍']}
-              onChange={(newEnjoyability) => setEnjoyment(newEnjoyability)}
-            />
-          </div>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-        <div style={{ textAlign: 'center' }} className='ratingSystem'>
+        <div className='ratingCategory'>
           <h3>
-            Usefulness
+            Enjoyability<span className='required'> *</span>
+          </h3>
+          <ReviewRating
+            rating={enjoyment}
+            icon='circle'
+            size='large'
+            clickable
+            hoverable
+            captions={['🤬', '😥', '😐', '😀', '😍']}
+            onChange={(newEnjoyability) => setEnjoyment(newEnjoyability)}
+          />
+        </div>
+        <div className='ratingCategory'>
+          <h3>
+            Usefulness<span className='required'> *</span>
           </h3>
           <ReviewRating
             rating={usefulness}
@@ -75,21 +71,19 @@ const CourseRatings = (props) => {
             onChange={(newUsefulness) => setUsefulness(newUsefulness)}
           />
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-          <div style={{ textAlign: 'center' }} className='ratingSystem'>
-            <h3>
-              Workload
-            </h3>
-            <ReviewRating
-              rating={workload}
-              icon='circle'
-              size='large'
-              clickable
-              hoverable
-              captions={['😍', '😀', '😐', '😥', '🤬']}
-              onChange={(newWorkload) => setWorkload(newWorkload)}
-            />
-          </div>
+        <div className='ratingCategory'>
+          <h3>
+            Workload<span className='required'> *</span>
+          </h3>
+          <ReviewRating
+            rating={workload}
+            icon='circle'
+            size='large'
+            clickable
+            hoverable
+            captions={['😍', '😀', '😐', '😥', '🤬']}
+            onChange={(newWorkload) => setWorkload(newWorkload)}
+          />
         </div>
       </div>
     </>
