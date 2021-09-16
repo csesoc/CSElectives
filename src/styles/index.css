@@ -222,49 +222,20 @@ footer {
   margin: 5px 0;
 }
 
-.ui.label.major {
-    background: var(--major-tags);
-}
-
-.ui.label.term {
-  background: var(--term-tags);
-}
-
-.ui.label.prefix {
-  background: var(--prefix-tags);
-}
-
-.ui.dropdown .menu.major {
-  background: var(--major-tags);
-}
-
-.ui.dropdown .menu.term {
-  background: var(--term-tags);
-}
-
-.ui.dropdown .menu.prefix {
-  background: var(--prefix-tags);
-}
-
-.ui.dropdown .menu .item {
-  background: white;
-}
-
-.ui.dropdown .menu .item:hover {
-  background: #F2F2F2;
-}
-
 .searchbar-dropdown {
   width: 250px;
 }
 
 .ui.label {
-  margin-right: 0.5em;
-  margin-top: 0.5em;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
   margin-left: 0;
 }
 
 .ui.label:last-child {
-  margin-right: 0.5em;
+  margin-right: 0.5rem;
 }
 
+.ui.dropdown .menu .item:hover {
+  background: #F2F2F2;
+}

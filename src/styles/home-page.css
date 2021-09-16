@@ -58,20 +58,31 @@
 .ui.checkbox.checkbox-major input:checked~.box:before,
 .ui.checkbox.checkbox-major input:checked~label:before,
 .ui.checkbox.checkbox-major input:focus:checked~.box:before,
-.ui.checkbox.checkbox-major input:focus:checked~label:before {
+.ui.checkbox.checkbox-major input:focus:checked~label:before,
+.ui.label.major,
+.ui.dropdown .menu.major {
   background-color: var(--major-tags);
 }
 
 .ui.checkbox.checkbox-term input:checked~.box:before,
 .ui.checkbox.checkbox-term input:checked~label:before,
 .ui.checkbox.checkbox-term input:focus:checked~.box:before,
-.ui.checkbox.checkbox-term input:focus:checked~label:before {
+.ui.checkbox.checkbox-term input:focus:checked~label:before,
+.ui.label.term,
+.ui.dropdown .menu.term {
   background-color: var(--term-tags);
 }
 
 .ui.checkbox.checkbox-prefix input:checked~.box:before,
 .ui.checkbox.checkbox-prefix input:checked~label:before,
 .ui.checkbox.checkbox-prefix input:focus:checked~.box:before,
-.ui.checkbox.checkbox-prefix input:focus:checked~label:before {
+.ui.checkbox.checkbox-prefix input:focus:checked~label:before,
+.ui.label.prefix,
+.ui.dropdown .menu.prefix {
   background: var(--prefix-tags);
 }
+
+.ui.dropdown .menu .item {
+  background: white;
+}
+
