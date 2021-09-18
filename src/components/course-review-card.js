@@ -16,22 +16,10 @@ const CourseReviewCard = (props) => {
     return withTermsArray;
   };
 
-  // const getTags = () => {
-  //   // include tags for terms, prefix and level
-  //   const termsArray = terms.map((term) => 'Term ' + term );
-  //   const withPrefixArray = termsArray.concat(studyLevel);
-  //   const level = 'Level ' + code[4];
-  //   const tagsArray = withPrefixArray.concat(level);
-  //   return tagsArray;
-  // };
-
   const tags = getTags();
-
   const displayTags = (label) => {
     return (
-      <Tag
-        label={label}
-      />
+      <Tag label={label} />
     );
   };
 

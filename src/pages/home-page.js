@@ -74,7 +74,7 @@ const HomePage = (props) => {
 
   return loading ? <span>loading</span> : (
     <>
-      <ReviewRating
+      {/* <ReviewRating
         rating={4}
         icon='wheelchair'
         size='big'
@@ -93,7 +93,7 @@ const HomePage = (props) => {
         rating={3.3}
         icon='star'
         size='large'
-      />
+      /> */}
 
       <Header as='h1'>{query}</Header>
 
