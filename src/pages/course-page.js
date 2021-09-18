@@ -107,6 +107,8 @@ const CoursePage = (props) => {
             workloadProgress={review.rating.workload}
             enjoymentProgress={review.rating.enjoyment}
             difficultyProgress={review.rating.difficulty}
+            author={review.displayAuthor ? review.author : 'Anonymous'}
+            termTaken={review.termTaken}
           />
         </>
       );

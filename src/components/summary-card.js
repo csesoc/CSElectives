@@ -82,20 +82,10 @@ const SummaryCard = (props) => {
             />
           </div>
         </Grid.Row>
-        <Grid.Row className='grid-row'>
+        <Grid.Row className='grid-bottom'>
           {summaryDesc}
         </Grid.Row>
-        <Grid.Row className='grid-bottom'>
-          <div>
-            <h4>Topics</h4>
-            <li>topic one</li>
-            <li>topic two</li>
-            <li>topic three</li>
-            <li>topic four</li>
-          </div>
-        </Grid.Row>
       </Grid>
-
 
     </div>
   );
