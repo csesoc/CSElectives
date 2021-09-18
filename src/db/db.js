@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getDocs, getFirestore, collection, addDoc } from 'firebase/firestore/lite';
+import { getDocs, getFirestore, collection, addDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore/lite';
 
 import FirebaseConfig from '../assets/firebase-config.json';
 
@@ -82,7 +82,36 @@ class Database {
    * @return {string} the id of the new review
    */
   async addReview(review) {
-    const docRef = await addDoc(collection(this.db, 'reviews'), review);
+    // Default values
+    const reviewObject = {
+      author: 'anonymous',
+      title: '',
+      comment: '',
+      courseCode: 'BINF2010',
+      displayAuthor: false,
+      rating: {
+        enjoyment: 3,
+        overall: 3,
+        workload: 3,
+        difficulty: 3,
+        usefulness: 3,
+      },
+      recommendedCourses: [],
+      termTaken: '21T2',
+      timestamp: Date.now(),
+    };
+
+    Object.assign(reviewObject, review);
+
+    // Uploads review object into database and retrieves auto generated id
+    const docRef = await addDoc(collection(this.db, 'reviews'), reviewObject);
+
+    // Insert auto generated id into course object
+    const courseRef = doc(this.db, 'courses', reviewObject.courseCode);
+    await updateDoc(courseRef, {
+      reviews: arrayUnion(docRef.id),
+    });
+
     return docRef.id;
   }
 }

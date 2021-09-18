@@ -8,6 +8,7 @@ import RatingsCard from '../components/review-card-ratings-only.js';
 import '../styles/course-page.css';
 import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
+import { stringLiteral } from '@babel/types';
 
 const CoursePage = (props) => {
   const { courses } = props;
@@ -36,6 +37,14 @@ const CoursePage = (props) => {
       value: 'rating-ascending',
     },
   ];
+
+  const scoreTotal = (review) => {
+    return review.rating.difficulty
+    + review.rating.enjoyment
+    + review.rating.overall
+    + review.rating.usefulness
+    + review.rating.workload;
+  };
 
   const handleClick = () => {
     history.push('/review');
@@ -72,6 +81,15 @@ const CoursePage = (props) => {
     const month = new Date(review.timestamp).getMonth();
     const year = new Date(review.timestamp).getFullYear();
     return `${date}/${month}/${year}`;
+  };
+
+  const getTags = () => {
+    // include tags for terms, prefix and level
+    const termsArray = course.terms.map((term) => 'Term ' + term );
+    const withPrefixArray = termsArray.concat(courseCode.substring(0, 4));
+    const level = 'Level ' + courseCode[4];
+    const tagsArray = withPrefixArray.concat(level);
+    return tagsArray;
   };
 
   // check if review has text or not
@@ -130,17 +148,10 @@ const CoursePage = (props) => {
     return (
       <>
         {course.reviews.sort((a, b) => {
-          const aScore = a.rating.difficulty
-            + a.rating.enjoyment
-            + a.rating.overall
-            + a.rating.usefulness
-            + a.rating.workload;
-          const bScore = b.rating.difficulty
-            + b.rating.enjoyment
-            + b.rating.overall
-            + b.rating.usefulness
-            + b.rating.workload;
+          const aScore = scoreTotal(a);
+          const bScore = scoreTotal(b);
 
+          // Sorts reviews by ratings, total score and time created
           if (sort === 'rating-descending') {
             if (a.rating.overall === b.rating.overall) {
               if (aScore === bScore) return b.timestamp - a.timestamp;
@@ -175,30 +186,33 @@ const CoursePage = (props) => {
 
   return (
     <>
-      <Header
-        as='h1'
-        style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
-          color: 'black' }}
-      >
-        {course.courseCode}
-      </Header>
+      <div className='course-banner'>
+        <Header
+          as='h1'
+          style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
+            color: 'black' }}
+          className='course-banner'
+        >
+          {course.courseCode}
+        </Header>
+      </div>
+
       <div>
         <Grid stackable>
           <Grid.Column width={7} floated='left'>
-            <div className="summary-card">
-              <SummaryCard
-                summaryTitle={getSummaryTitle()}
-                summaryLink={getLink()}
-                courseCode={courseCode}
-                overallRating={getAverage('overall')}
-                numReviews={course.reviews.length}
-                summaryDesc={course.description}
-                usefulAvg={getAverage('usefulness')}
-                workloadAvg={getAverage('workload')}
-                difficultyAvg={getAverage('difficulty')}
-                enjoymentAvg={getAverage('enjoyment')}
-              />
-            </div>
+            <SummaryCard
+              summaryTitle={getSummaryTitle()}
+              summaryLink={getLink()}
+              courseCode={courseCode}
+              overallRating={getAverage('overall')}
+              numReviews={course.reviews.length}
+              summaryDesc={course.description}
+              usefulAvg={getAverage('usefulness')}
+              workloadAvg={getAverage('workload')}
+              difficultyAvg={getAverage('difficulty')}
+              enjoymentAvg={getAverage('enjoyment')}
+              tags={getTags()}
+            />
           </Grid.Column>
           <Grid.Column width={9} floated='right'>
             <Grid columns={3}>
