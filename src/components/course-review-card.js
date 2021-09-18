@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tag from './tags.js';
 
 import { Card } from 'semantic-ui-react';
 import { Rating } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CourseReviewCard = (props) => {
-  const { code, name, desc, numReviews } = props;
-  const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
+  const { code, name, numReviews, overallRating, studyLevel, terms } = props;
+  // const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
   const page = `course/${code}`;
+
+  const createTags = ({ terms }) => (
+    <>
+      {terms.map(function(terms, index) {
+        return <Tag key={ index } label={terms} activeTags={[]} setActiveTags={()=>{}} />;
+      })}
+    </>
+  );
 
   return (
     <div className='card-container'>
@@ -17,11 +26,17 @@ const CourseReviewCard = (props) => {
           <Card.Content>
             <Card.Header>{code}</Card.Header>
             <Card.Meta>{name}</Card.Meta>
-            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+            <div floated='right'>
+              <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
+            </div>
             <Card.Meta> {numReviews} reviews </Card.Meta>
-            <Card.Description>
+            {/* <Card.Description>
               {displayDesc}
-            </Card.Description>
+            </Card.Description> */}
+          </Card.Content>
+          <Card.Content extra>
+            {createTags}
+            <Tag label={studyLevel} activeTags={[]} setActiveTags={()=>{}} />
           </Card.Content>
         </Card>
       </Link>
@@ -32,8 +47,11 @@ const CourseReviewCard = (props) => {
 CourseReviewCard.propTypes = {
   code: PropTypes.string,
   name: PropTypes.string,
-  desc: PropTypes.string,
+  // desc: PropTypes.string,
   numReviews: PropTypes.number,
+  overallRating: PropTypes.number,
+  studyLevel: PropTypes.string,
+  terms: PropTypes.array,
 };
 
 export default CourseReviewCard;
