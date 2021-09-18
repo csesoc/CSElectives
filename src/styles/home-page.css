@@ -51,6 +51,23 @@
   align-items: stretch; 
 }
 
+.card-contents-container {
+  display: table;
+  width: 100%;
+}
+
+.card-contents-cell-left {
+  display: table-cell;
+  text-align: left;
+  width: 50%;
+}
+
+.card-contents-cell-right {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+}
+
 .ui.checkbox.checkbox-major input:checked~.box:before,
 .ui.checkbox.checkbox-major input:checked~label:before,
 .ui.checkbox.checkbox-major input:focus:checked~.box:before,

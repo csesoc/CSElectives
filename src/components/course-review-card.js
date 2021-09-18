@@ -11,7 +11,7 @@ const CourseReviewCard = (props) => {
   const page = `course/${code}`;
 
   const getTags = () => {
-    const levelArray = [studyLevel, 'Level ' + code[4]];
+    const levelArray = [studyLevel];
     const withTermsArray = levelArray.concat(terms.map((term) => 'Term ' + term ));
     return withTermsArray;
   };
@@ -24,27 +24,29 @@ const CourseReviewCard = (props) => {
   };
 
   return (
-    <div className='card-container'>
-      <Link to={page} className='card-container'>
-        <Card className='course-review-card'>
-          <Card.Content>
-            <Card.Header>{code}</Card.Header>
-            <Card.Meta>{name}</Card.Meta>
-            <div floated='right'>
+    <Link to={page} className='card-container'>
+      <Card className='course-review-card'>
+        <Card.Content>
+          <div className='card-contents-container'>
+            <div className='card-contents-cell-left'>
+              <Card.Header>{code}</Card.Header>
+              <Card.Meta>{name}</Card.Meta>
+            </div>
+            <div className='card-contents-cell-right'>
               <ReviewRating
                 rating={overallRating}
                 icon='star'
                 size='large'
               />
+              <Card.Meta> {numReviews} reviews </Card.Meta>
             </div>
-            <Card.Meta> {numReviews} reviews </Card.Meta>
-          </Card.Content>
-          <Card.Content extra>
-            {tags.map((label) => displayTags(label))}
-          </Card.Content>
-        </Card>
-      </Link>
-    </div>
+          </div>
+        </Card.Content>
+        <Card.Content extra>
+          {tags.map((label) => displayTags(label))}
+        </Card.Content>
+      </Card>
+    </Link>
   );
 };
 
