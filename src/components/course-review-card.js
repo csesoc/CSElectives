@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tag from './tags.js';
+import ReviewRating from './review-rating/review-rating.js';
 
 import { Card } from 'semantic-ui-react';
-import { Rating } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CourseReviewCard = (props) => {
@@ -27,7 +27,11 @@ const CourseReviewCard = (props) => {
             <Card.Header>{code}</Card.Header>
             <Card.Meta>{name}</Card.Meta>
             <div floated='right'>
-              <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
+              <ReviewRating
+                rating={3.3}
+                icon='star'
+                size='large'
+              />
             </div>
             <Card.Meta> {numReviews} reviews </Card.Meta>
             {/* <Card.Description>
