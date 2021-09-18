@@ -51,6 +51,39 @@
   align-items: stretch; 
 }
 
+.card-contents-container {
+  display: table;
+  width: 100%;
+}
+
+.card-contents-cell-left {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  width: 50%;
+}
+
+.card-contents-cell-right {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.card-header {
+  font-size: large;
+  font-weight: bold;
+  color: black;
+}
+
+.card-meta {
+  font-size: large;
+}
+
+.card-description {
+  color: black;
+  width: 80%;
+}
+
 .ui.checkbox.checkbox-major input:checked~.box:before,
 .ui.checkbox.checkbox-major input:checked~label:before,
 .ui.checkbox.checkbox-major input:focus:checked~.box:before,
