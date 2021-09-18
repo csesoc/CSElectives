@@ -42,13 +42,11 @@ const ReviewCard = (props) => {
                   rating={usefulProgress}
                   icon='circle'
                   size='small'
-                  captions=''
                 />
                 <ReviewRating
                   rating={workloadProgress}
                   icon='circle'
                   size='small'
-                  captions=''
                 />
               </Grid.Column>
               <Grid.Column width={3}>
@@ -60,13 +58,11 @@ const ReviewCard = (props) => {
                   rating={enjoymentProgress}
                   icon='circle'
                   size='small'
-                  captions=''
                 />
                 <ReviewRating
                   rating={difficultyProgress}
                   icon='circle'
                   size='small'
-                  captions=''
                 />
               </Grid.Column>
             </Grid.Row>
