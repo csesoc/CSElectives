@@ -24,8 +24,8 @@ const CourseReviewCard = (props) => {
   };
 
   return (
-    <Link to={page} className='card-container'>
-      <Card className='course-review-card'>
+    <div className='card-container'>
+      <Card className='course-review-card' as={Link} to={page}>
         <Card.Content>
           <div className='card-contents-container'>
             <div className='card-contents-cell-left'>
@@ -46,7 +46,7 @@ const CourseReviewCard = (props) => {
           {tags.map((label) => displayTags(label))}
         </Card.Content>
       </Card>
-    </Link>
+    </div>
   );
 };
 
