@@ -15,9 +15,14 @@ const palettes = {
 const unselectedColor = '#DCDDDE';
 
 const ReviewRating = (props) => {
-  const { icon, size, rating, clickable, hoverable, captions, onChange } = props;
-  const palette = props.palette ?? 'csesoc';
+  const { icon, size, rating, clickable, hoverable, onChange, captions = [], palette = 'csesoc' } = props;
   const maxRating = 5;
+
+  const clipPercentage = (idx) => {
+    return 0 < rating - idx && rating - idx < 1
+      ? (rating % 1) * 100
+      : 100;
+  };
 
   return (
     // Wrapping in div forces row direction even if parent has column direction
@@ -29,15 +34,22 @@ const ReviewRating = (props) => {
           position='top center'
           disabled={!hoverable}
           trigger={
-            <Icon
-              name={icon}
+            <Icon.Group
               size={size}
-              style={{
-                cursor: clickable && 'pointer',
-                color: idx < rating ? palettes[palette][rating - 1] : unselectedColor,
-              }}
               onClick={() => clickable && onChange?.(rating === (idx + 1) ? 0 : idx + 1)}
-            />
+              style={{ cursor: clickable && 'pointer', marginRight: '0.25rem' }}
+            >
+              <Icon name={icon} style={{ color: unselectedColor, margin: 0 }} />
+              {idx < rating && (
+                <Icon
+                  name={icon}
+                  style={{
+                    color: palettes[palette][Math.ceil(rating) - 1],
+                    clipPath: `polygon(0 0, 0 100%, ${clipPercentage(idx)}% 100%, ${clipPercentage(idx)}% 0)`,
+                  }}
+                />
+              )}
+            </Icon.Group>
           }
           content={captions[idx]}
         />

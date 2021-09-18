@@ -13,7 +13,7 @@ const CourseSelect = (props) => {
 
   return (
     <Form.Field>
-      <label>What course are you reviewing?</label>
+      <label>What course are you reviewing?<span className='required'> *</span></label>
       <Form.Dropdown
         placeholder='Select the course you are reviewing'
         fluid
