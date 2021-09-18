@@ -10,13 +10,30 @@ const CourseReviewCard = (props) => {
   const { code, name, numReviews, overallRating, studyLevel, terms } = props;
   const page = `course/${code}`;
 
-  const createTags = ({ terms }) => (
-    <>
-      {terms.map(function(terms, index) {
-        return <Tag key={ index } label={terms} activeTags={[]} setActiveTags={()=>{}} />;
-      })}
-    </>
-  );
+  const getTags = () => {
+    const levelArray = [studyLevel, 'Level ' + code[4]];
+    const withTermsArray = levelArray.concat(terms.map((term) => 'Term ' + term ));
+    return withTermsArray;
+  };
+
+  // const getTags = () => {
+  //   // include tags for terms, prefix and level
+  //   const termsArray = terms.map((term) => 'Term ' + term );
+  //   const withPrefixArray = termsArray.concat(studyLevel);
+  //   const level = 'Level ' + code[4];
+  //   const tagsArray = withPrefixArray.concat(level);
+  //   return tagsArray;
+  // };
+
+  const tags = getTags();
+
+  const displayTags = (label) => {
+    return (
+      <Tag
+        label={label}
+      />
+    );
+  };
 
   return (
     <div className='card-container'>
@@ -35,8 +52,7 @@ const CourseReviewCard = (props) => {
             <Card.Meta> {numReviews} reviews </Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            {createTags}
-            <Tag label={studyLevel} activeTags={[]} setActiveTags={()=>{}} />
+            {tags.map((label) => displayTags(label))}
           </Card.Content>
         </Card>
       </Link>
