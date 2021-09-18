@@ -29,8 +29,8 @@ const CourseReviewCard = (props) => {
         <Card.Content>
           <div className='card-contents-container'>
             <div className='card-contents-cell-left'>
-              <Card.Header>{code}</Card.Header>
-              <Card.Meta>{name}</Card.Meta>
+              <Card.Header className='card-header'>{code}</Card.Header>
+              <Card.Description className='card-description'>{name}</Card.Description>
             </div>
             <div className='card-contents-cell-right'>
               <ReviewRating

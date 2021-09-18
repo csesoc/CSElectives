@@ -58,6 +58,7 @@
 
 .card-contents-cell-left {
   display: table-cell;
+  vertical-align: middle;
   text-align: left;
   width: 50%;
 }
@@ -66,6 +67,21 @@
   display: table-cell;
   vertical-align: middle;
   width: 50%;
+}
+
+.card-header {
+  font-size: large;
+  font-weight: bold;
+  color: black;
+}
+
+.card-meta {
+  font-size: large;
+}
+
+.card-description {
+  color: black;
+  width: 80%;
 }
 
 .ui.checkbox.checkbox-major input:checked~.box:before,
