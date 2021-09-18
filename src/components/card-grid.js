@@ -29,7 +29,6 @@ const CardGrid = (props) => {
             <CourseReviewCard
               code={course.courseCode}
               name={course.title}
-              // desc={course.description}
               numReviews={course.reviews.length}
               overallRating={3}
               studyLevel={course.studyLevel}

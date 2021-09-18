@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const CourseReviewCard = (props) => {
   const { code, name, numReviews, overallRating, studyLevel, terms } = props;
-  // const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
   const page = `course/${code}`;
 
   const createTags = ({ terms }) => (
@@ -28,15 +27,12 @@ const CourseReviewCard = (props) => {
             <Card.Meta>{name}</Card.Meta>
             <div floated='right'>
               <ReviewRating
-                rating={3.3}
+                rating={overallRating}
                 icon='star'
                 size='large'
               />
             </div>
             <Card.Meta> {numReviews} reviews </Card.Meta>
-            {/* <Card.Description>
-              {displayDesc}
-            </Card.Description> */}
           </Card.Content>
           <Card.Content extra>
             {createTags}
@@ -51,7 +47,6 @@ const CourseReviewCard = (props) => {
 CourseReviewCard.propTypes = {
   code: PropTypes.string,
   name: PropTypes.string,
-  // desc: PropTypes.string,
   numReviews: PropTypes.number,
   overallRating: PropTypes.number,
   studyLevel: PropTypes.string,
