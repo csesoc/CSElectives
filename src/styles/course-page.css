@@ -1,3 +1,12 @@
+:root {
+    --csesoc-blue: #3a76f8;
+    --csesoc-navy: #40404c;
+    --csesoc-white: #ffffff;
+    --major-tags: #B2F7EF;
+    --term-tags: #F7D6E0;
+    --prefix-tags: #A3C5E1
+}
+
 .review-heading {
     display: flex;
     align-items: center;
@@ -14,6 +23,8 @@
 }
 
 .no-reviews {
+    column-count: 1;
+    width: 100%;
     text-align: center;
     padding: 5rem;
 }
@@ -28,7 +39,7 @@
 }
 
 .summary-stats {
-    width: 100%;
+    width: 60%;
 }
 
 .summary-card {
@@ -64,4 +75,13 @@
 
 .rating-only-right {
     text-align: right;
+}
+
+.reviews {
+    width: 100%;
+    display: inline-block;
+}
+
+.review-cols {
+    columns: 390px auto;
 }
