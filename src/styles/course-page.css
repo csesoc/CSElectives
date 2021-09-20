@@ -65,3 +65,21 @@
 .rating-only-right {
     text-align: right;
 }
+
+.button.ui.button.flag {
+    
+    background: none;
+    float: right;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.flag-submit-button {
+    justify-content: center;
+    display: flex;
+}
+
+.flag-submission-message {
+    text-align: center;
+}

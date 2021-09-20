@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Dropdown, Button, Header, Icon } from 'semantic-ui-react';
+import { Grid, Dropdown, Button, Header, Icon, Message } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory, useParams } from 'react-router-dom';
@@ -46,6 +46,7 @@ const CoursePage = (props) => {
     + review.rating.workload;
   };
 
+
   const handleClick = () => {
     history.push('/review');
   };
@@ -65,6 +66,7 @@ const CoursePage = (props) => {
     const roundedAverage = Math.round(total / count * 10) / 10;
     return roundedAverage;
   };
+
 
   const year = new Date().getFullYear();
 
