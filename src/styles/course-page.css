@@ -85,3 +85,8 @@
 .review-cols {
     columns: 390px auto;
 }
+
+.submit-container {
+    padding: 1rem;
+    padding-top: 2rem;
+}
