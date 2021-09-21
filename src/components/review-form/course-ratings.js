@@ -15,13 +15,13 @@ const CourseRatings = (props) => {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <h2>
+        <h4>
           Overall Rating<span className='required'> *</span>
-        </h2>
+        </h4>
         <ReviewRating
           rating={overall}
           icon='star'
-          size='big'
+          size='standard'
           clickable
           hoverable
           captions={['🤬', '😥', '😐', '😀', '😍']}
@@ -30,13 +30,13 @@ const CourseRatings = (props) => {
       </div>
       <div className='ratingStyle'>
         <div className='ratingCategory'>
-          <h3>
+          <h5>
             Difficulty<span className='required'> *</span>
-          </h3>
+          </h5>
           <ReviewRating
             rating={difficulty}
             icon='circle'
-            size='large'
+            size='small'
             clickable
             hoverable
             captions={['😍', '😀', '😐', '😥', '🤬']}
@@ -44,13 +44,13 @@ const CourseRatings = (props) => {
           />
         </div>
         <div className='ratingCategory'>
-          <h3>
+          <h5>
             Enjoyability<span className='required'> *</span>
-          </h3>
+          </h5>
           <ReviewRating
             rating={enjoyment}
             icon='circle'
-            size='large'
+            size='small'
             clickable
             hoverable
             captions={['🤬', '😥', '😐', '😀', '😍']}
@@ -58,13 +58,13 @@ const CourseRatings = (props) => {
           />
         </div>
         <div className='ratingCategory'>
-          <h3>
+          <h5>
             Usefulness<span className='required'> *</span>
-          </h3>
+          </h5>
           <ReviewRating
             rating={usefulness}
             icon='circle'
-            size='large'
+            size='small'
             clickable
             hoverable
             captions={['🤬', '😥', '😐', '😀', '😍']}
@@ -72,13 +72,13 @@ const CourseRatings = (props) => {
           />
         </div>
         <div className='ratingCategory'>
-          <h3>
+          <h5>
             Workload<span className='required'> *</span>
-          </h3>
+          </h5>
           <ReviewRating
             rating={workload}
             icon='circle'
-            size='large'
+            size='small'
             clickable
             hoverable
             captions={['😍', '😀', '😐', '😥', '🤬']}

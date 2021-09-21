@@ -205,7 +205,9 @@ const CoursePage = (props) => {
           />
         </Grid.Column>
         <Grid.Column width={9}>
-          <ReviewPage courses={courses} />
+          <div className='submit-container'>
+            <ReviewPage courseCode={course.courseCode} />
+          </div>
         </Grid.Column>
       </Grid>
 
