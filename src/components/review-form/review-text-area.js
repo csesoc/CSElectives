@@ -17,9 +17,6 @@ const ReviewTextArea = (props) => {
 
   return (
     <Form.Field>
-      <label>Write your review below!
-        <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
-      </label>
       <Form.Input
         className='ratingTitle'
         placeholder={Boolean(comment && !title) ? 'Your review needs a title' : 'Enter your title here!'}
@@ -29,6 +26,7 @@ const ReviewTextArea = (props) => {
         onChange={handleTitleChange}
       />
       <Form.TextArea
+        className='test'
         placeholder={Boolean(!comment && title) ? 'Your review needs a body' : 'Enter your review here!'}
         fluid
         error={Boolean(!comment && title)}

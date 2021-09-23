@@ -72,29 +72,50 @@ const ReviewPage = (props) => {
           workload={workload}
           setWorkload={setWorkload}
         />
-
-        <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
-        <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
-
-        <ReviewTextArea
-          title={title}
-          setTitle={setTitle}
-          comment={comment}
-          setComment={setComment}
-        />
-
+        <Form.Group widths='equal'>
+          <div className='review-form'>
+            <div className='review-anon-text'>
+              <label>Would you like to remain anonymous?<span className='required'> *</span></label>
+            </div>
+            <div className='review-anon-radio'>
+              <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
+            </div>
+            <div className='review-term-text'>
+              <label>When did you complete the course?<span className='required'> *</span></label>
+            </div>
+            <div className='review-term-dropdown'>
+              <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
+            </div>
+            <div className='review-text-text'>
+              <label>Write your review here!
+                <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
+              </label>
+            </div>
+            <div>
+              <div className='review-text-input'>
+                <ReviewTextArea
+                  title={title}
+                  setTitle={setTitle}
+                  comment={comment}
+                  setComment={setComment}
+                />
+              </div>
+            </div>
+          </div>
+        </Form.Group>
         <Button
+          className='review-button'
           color='green'
           animated='fade'
           type='submit'
           disabled={!termTaken
-                 || !overall
-                 || !difficulty
-                 || !enjoyment
-                 || !usefulness
-                 || !workload
-                 || (comment && !title)
-                 || (title && !comment)
+            || !overall
+            || !difficulty
+            || !enjoyment
+            || !usefulness
+            || !workload
+            || (comment && !title)
+            || (title && !comment)
           }
           onClick={handleSubmit}
         >
