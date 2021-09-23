@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Container, Image, Menu, Dropdown } from 'semantic-ui-react';
+import { Button, Container, Image, Menu, Dropdown, Modal, Form } from 'semantic-ui-react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -10,6 +10,7 @@ const Header = (props) => {
   const [activeItem, setActiveItem] = useState('home');
   const { courses } = props;
   const history = useHistory();
+  const [open, setOpen] = useState(false);
 
   const dropdownOptionFunc = (course) => {
     return {
@@ -67,13 +68,40 @@ const Header = (props) => {
           )
           }
         </Menu.Item>
-        <Menu.Item
-          as={Link}
-          to="/login"
-          name='login'
-          onClick={handleItemClick}
-        >
-          <Button primary>Log In</Button>
+        <Menu.Item>
+          <Modal
+            closeIcon
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            open={open}
+            size='tiny'
+            trigger={<Button primary>Log In</Button>}
+          >
+            <Modal.Header>Log In</Modal.Header>
+            <Modal.Content>
+              <p> Please login with the same credentials as your UNSW account: </p>
+              <Modal.Description>
+                <Form id="theform">
+                  <Form.Field>
+                    <label>zID</label>
+                    <input placeholder='zID' />
+                  </Form.Field>
+                  <Form.Field>
+                    <Form.Input label='Password' type='password' placeholder='Password' />
+                  </Form.Field>
+                </Form>
+              </Modal.Description>
+            </Modal.Content>
+            <Modal.Actions>
+              <input
+                type="submit"
+                value="Log In"
+                form="theform"
+                className="ui blue button"
+                onClick={() => setOpen(false)}
+              />
+            </Modal.Actions>
+          </Modal>
         </Menu.Item>
       </Container>
     </Menu>
