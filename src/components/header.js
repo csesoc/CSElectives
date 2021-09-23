@@ -43,12 +43,12 @@ const Header = (props) => {
         </Menu.Item>
         <Menu.Item
           as={Link}
-          to="/review"
-          name='review'
-          active={activeItem === 'review'}
+          to="/feedback"
+          name='feedback'
+          active={activeItem === 'feedback'}
           onClick={handleItemClick}
         >
-          Submit a review
+          Review the Dev Team
         </Menu.Item>
         <Menu.Item
           position='right'

@@ -11,6 +11,7 @@ import ReviewPage from './pages/review-page.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';
+import FeedbackPage from './pages/feedback-page.js';
 import NotFoundPage from './pages/not-found-page.js';
 
 export const LoadingContext = createContext(true);
@@ -54,6 +55,9 @@ const App = () => {
                   </Route>
                   <Route exact path='/login'>
                     <LoginPage />
+                  </Route>
+                  <Route exact path='/feedback'>
+                    <FeedbackPage />
                   </Route>
                   <Route exact path='/'>
                     <HomePage courses={courses} />
