@@ -50,9 +50,6 @@ const App = () => {
                   <Route exact path='/course/:courseCode'>
                     <CoursePage courses={courses} />
                   </Route>
-                  <Route exact path='/review'>
-                    <ReviewPage courses={courses} />
-                  </Route>
                   <Route exact path='/login'>
                     <LoginPage />
                   </Route>
