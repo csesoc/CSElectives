@@ -79,28 +79,21 @@ const Header = (props) => {
           >
             <Modal.Header>Log In</Modal.Header>
             <Modal.Content>
-              <p> Please login with the same credentials as your UNSW account: </p>
               <Modal.Description>
+                <p> Please login with the same credentials as your UNSW account</p>
                 <Form id="theform">
-                  <Form.Field>
-                    <label>zID</label>
-                    <input placeholder='zID' />
-                  </Form.Field>
-                  <Form.Field>
-                    <Form.Input label='Password' type='password' placeholder='Password' />
-                  </Form.Field>
+                  <Form.Input label='zID' placeholder='zID' />
+                  <Form.Input label='Password' type='password' placeholder='Password' />
+                  <Button
+                    type="submit"
+                    form="theform"
+                    onClick={() => setOpen(false)}
+                  >
+                    Login
+                  </Button>
                 </Form>
               </Modal.Description>
             </Modal.Content>
-            <Modal.Actions>
-              <input
-                type="submit"
-                value="Log In"
-                form="theform"
-                className="ui blue button"
-                onClick={() => setOpen(false)}
-              />
-            </Modal.Actions>
           </Modal>
         </Menu.Item>
       </Container>
