@@ -164,7 +164,12 @@ const HomePage = (props) => {
 
       {/* Code, name and desc hardcoded for testing purposes */}
       <Grid stackable doubling columns={3}>
-        <CardGrid courses={courses} />
+        <CardGrid
+          courses={courses}
+          activeMajorTags={activeMajorTags}
+          activeTermTags={activeTermTags}
+          activePrefixTags={activePrefixTags}
+        />
       </Grid>
     </>
   );

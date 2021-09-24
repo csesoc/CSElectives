@@ -20,26 +20,43 @@ const CardGrid = (props) => {
     ));
   };
 
+  const filterTermsFilter = (course) => {
+    for (let i = 0; i < course.terms.length; i++) {
+      console.log(course);
+      if (activeTermTags.includes(course.terms[i])) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   const filterTerms = (courses) => {
-    courses.filter((course) => (
-      activeTermTags.includes(course.term)
-    ));
+    if (activeTermTags.length > 0) {
+      const filteredCourses = courses.filter((course) => (
+        filterTermsFilter(course)
+      ));
+      return filteredCourses;
+    }
     return courses;
   };
 
   const filterPrefix = (courses) => {
-    courses.filter((course) => (
-      activePrefixTags.includes(course.slice(0, 4))
-    ));
+    if (activePrefixTags.length > 0) {
+      const filteredCourses = courses.filter((course) => (
+        activePrefixTags.includes(course.courseCode.slice(0, 4))
+      ));
+      return filteredCourses;
+    }
     return courses;
   };
 
 
   const sortedCourses = sortMostReviewed();
+  const prefixFilteredCourses = filterPrefix(filterTerms(sortedCourses));
   const gridArray = [];
   const colSize = 3;
-  for (let i = 0; i < sortedCourses.length; i += colSize) {
-    const gridRow = sortedCourses.slice(i, i + colSize);
+  for (let i = 0; i < prefixFilteredCourses.length; i += colSize) {
+    const gridRow = prefixFilteredCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
   }
   return gridArray.map((row, index) => {
