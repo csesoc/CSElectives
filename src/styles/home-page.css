@@ -111,7 +111,14 @@
   background: var(--prefix-tags);
 }
 
+.ui.label.undergraduate {
+  background: var(--undergraduate);
+}
+
+.ui.label.postgraduate {
+  background: var(--postgraduate);
+}
+
 .ui.dropdown .menu .item {
   background: white;
 }
-

@@ -4,8 +4,9 @@
   --csesoc-white: #ffffff;
   --major-tags: #B2F7EF;
   --term-tags: #F7D6E0;
-  --prefix-tags: #A3C5E1
-
+  --prefix-tags: #A3C5E1;
+  --undergraduate: #D5AAFF;
+  --postgraduate: #ACDEAA;
 }
 
 body {
