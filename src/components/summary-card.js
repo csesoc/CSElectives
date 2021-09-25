@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Grid, Progress, Rating, Icon } from 'semantic-ui-react';
+import { Header, Grid, Progress, Rating, Icon, Card } from 'semantic-ui-react';
 import Tags from '../components/tags.js';
 import '../styles/course-page.css';
+import { getQueriesForElement } from '@testing-library/dom';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, courseCode, overallRating, numReviews, summaryDesc,
@@ -17,7 +18,7 @@ const SummaryCard = (props) => {
     );
   };
   return (
-    <div className='summary-card'>
+    <div>
       <Grid>
         <Grid.Row className='grid-top'>
           <div className='my-course-page-tags'>
@@ -34,68 +35,50 @@ const SummaryCard = (props) => {
             {numReviews} Reviews
           </div>
         </Grid.Row>
-        <Grid.Row className='grid-row'>
-          <div className='summary-stats'>
-            <span>
-              Usefulness
-            </span>
+        <Grid.Row className='barchart-row' columns={3}>
+          <Grid.Column width={4}>
+            Usefulness <br />
+            Workload <br />
+            Enjoyment <br />
+            Difficulty
+          </Grid.Column>
+          <Grid.Column width={9}>
             <Progress
               className='bar-chart'
               color='blue'
-              value={usefulAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
+              percent={(usefulAvg/5)*100}
+              size='small'
             />
-            <span>
-              Workload
-            </span>
             <Progress
               className='bar-chart'
               color='blue'
-              value={workloadAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
+              percent={(workloadAvg/5)*100}
+              size='small'
             />
-            <span>
-              Enjoyment
-            </span>
             <Progress
               className='bar-chart'
               color='blue'
-              value={enjoymentAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
+              percent={(enjoymentAvg/5)*100}
+              size='small'
             />
-            <span>
-              Difficulty
-            </span>
             <Progress
               className='bar-chart'
               color='blue'
-              value={difficultyAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
+              percent={(difficultyAvg/5)*100}
+              size='small'
             />
-          </div>
-        </Grid.Row>
-        <Grid.Row className='grid-row'>
-          {summaryDesc}
+          </Grid.Column>
+          <Grid.Column width={3}>
+            {usefulAvg}/5 <br />
+            {workloadAvg}/5 <br />
+            {enjoymentAvg}/5 <br />
+            {difficultyAvg}/5 <br />
+          </Grid.Column>
         </Grid.Row>
         <Grid.Row className='grid-bottom'>
-          <div>
-            <h4>Topics</h4>
-            <li>topic one</li>
-            <li>topic two</li>
-            <li>topic three</li>
-            <li>topic four</li>
-          </div>
+          {summaryDesc}
         </Grid.Row>
       </Grid>
-
 
     </div>
   );

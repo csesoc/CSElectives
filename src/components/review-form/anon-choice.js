@@ -7,7 +7,6 @@ const AnonChoice = (props) => {
 
   return (
     <Form.Group inline>
-      <label>Would you like to remain anonymous?</label>
       <Form.Radio
         label='Yes'
         name='anonymityGroup'

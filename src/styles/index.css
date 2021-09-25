@@ -2,6 +2,10 @@
   --csesoc-blue: #3a76f8;
   --csesoc-navy: #40404c;
   --csesoc-white: #ffffff;
+  --major-tags: #B2F7EF;
+  --term-tags: #F7D6E0;
+  --prefix-tags: #A3C5E1
+
 }
 
 body {
@@ -21,6 +25,10 @@ code {
 
 .grid-row {
   margin: 0 25px;
+}
+
+.barchart-row {
+  margin: 0 13px;
 }
 
 .grid-top {
@@ -48,7 +56,7 @@ code {
 }
 
 .ui.progress.bar-chart {
-  margin: 1px;
+  margin: 5px 0;
 }
 
 .display-wrapper {
@@ -73,6 +81,7 @@ footer {
 .card-displayer {
   display: flex;
   justify-content: space-between;
+  width: 40%;
 }
 
 .search-section-background {
@@ -84,7 +93,7 @@ footer {
 .course-review-card {
   display: flex;
   min-height: 230px;
-  width: 400px;
+  min-width: 325px;
 }
 
 .course-page-tags {
@@ -94,11 +103,12 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-.my-front-page-tags {
+.front-page-tags {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .sort-dropdown-parent {
@@ -195,12 +205,6 @@ footer {
   margin-left: 110px;
 }
 
-
-.review-cards {
-  display: block;
-  margin: 20px;
-}
-
 .ratings-only-review-header {
   margin-top: 0px;
 }
@@ -219,4 +223,14 @@ footer {
 
 .searchbar-dropdown {
   width: 250px;
+}
+
+.ui.label {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  margin-left: 0;
+}
+
+.ui.dropdown .menu .item:hover {
+  background: #F2F2F2;
 }

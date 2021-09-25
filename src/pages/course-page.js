@@ -8,7 +8,11 @@ import RatingsCard from '../components/review-card-ratings-only.js';
 import '../styles/course-page.css';
 import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
-import { stringLiteral } from '@babel/types';
+import ReviewPage from '../pages/review-page.js';
+import ReviewsBar from '../components/course-review/reviews-bar.js';
+import Banner from '../components/course-review/banner.js';
+import EmptyState from '../components/course-review/empty-state.js';
+
 
 const CoursePage = (props) => {
   const { courses } = props;
@@ -107,6 +111,8 @@ const CoursePage = (props) => {
             workloadProgress={review.rating.workload}
             enjoymentProgress={review.rating.enjoyment}
             difficultyProgress={review.rating.difficulty}
+            author={review.displayAuthor ? review.author : 'Anonymous'}
+            termTaken={review.termTaken}
           />
         </>
       );
@@ -134,49 +140,44 @@ const CoursePage = (props) => {
     if (course.reviews.length === 0) {
       return (
         <>
-          <div className='no-reviews'>
-            <Header>No reviews yet!</Header>
-            <Button animated onClick={handleClickHome} size='big' color='blue' basic>
-              <Button.Content visible> Check out more courses</Button.Content>
-              <Button.Content hidden><Icon name='space shuttle' /></Button.Content>
-            </Button>
-          </div>
-
+          <EmptyState handleClickHome={handleClickHome} />
         </>
       );
     }
     return (
       <>
-        {course.reviews.sort((a, b) => {
-          const aScore = scoreTotal(a);
-          const bScore = scoreTotal(b);
+        <div className='review-cols'>
+          {course.reviews.sort((a, b) => {
+            const aScore = scoreTotal(a);
+            const bScore = scoreTotal(b);
 
-          // Sorts reviews by ratings, total score and time created
-          if (sort === 'rating-descending') {
-            if (a.rating.overall === b.rating.overall) {
-              if (aScore === bScore) return b.timestamp - a.timestamp;
-              return bScore - aScore;
+            // Sorts reviews by ratings, total score and time created
+            if (sort === 'rating-descending') {
+              if (a.rating.overall === b.rating.overall) {
+                if (aScore === bScore) return b.timestamp - a.timestamp;
+                return bScore - aScore;
+              }
+              return b.rating.overall - a.rating.overall;
             }
-            return b.rating.overall - a.rating.overall;
-          }
 
-          if (sort === 'rating-ascending') {
-            if (a.rating.overall === b.rating.overall) {
-              if (aScore === bScore) return a.timestamp - b.timestamp;
-              return aScore - bScore;
+            if (sort === 'rating-ascending') {
+              if (a.rating.overall === b.rating.overall) {
+                if (aScore === bScore) return a.timestamp - b.timestamp;
+                return aScore - bScore;
+              }
+              return a.rating.overall - b.rating.overall;
             }
-            return a.rating.overall - b.rating.overall;
-          }
 
-          // Default is most recent
-          return b.timestamp - a.timestamp;
-        }).map((review, i) => {
-          return (
-            <div key={i} className="card-displayer">
-              {checkReview(review)}
-            </div>
-          );
-        })}
+            // Default is most recent
+            return b.timestamp - a.timestamp;
+          }).map((review, i) => {
+            return (
+              <div key={i} className='reviews'>
+                {checkReview(review)}
+              </div>
+            );
+          })}
+        </div>
       </>
     );
   };
@@ -186,62 +187,32 @@ const CoursePage = (props) => {
 
   return (
     <>
-      <Header
-        as='h1'
-        style={{ padding: '20px', textAlign: 'center', margin: '40', fontSize: '80px',
-          color: 'black', marginRight: '20px' }}
-        className='course-banner'
-      >
-        {course.courseCode}
-      </Header>
+      <Banner courseCode={course.courseCode} />
+      <Grid stackable>
+        <Grid.Column width={7}>
+          <SummaryCard
+            summaryTitle={getSummaryTitle()}
+            summaryLink={getLink()}
+            courseCode={courseCode}
+            overallRating={getAverage('overall')}
+            numReviews={course.reviews.length}
+            summaryDesc={course.description}
+            usefulAvg={getAverage('usefulness')}
+            workloadAvg={getAverage('workload')}
+            difficultyAvg={getAverage('difficulty')}
+            enjoymentAvg={getAverage('enjoyment')}
+            tags={getTags()}
+          />
+        </Grid.Column>
+        <Grid.Column width={9}>
+          <div className='submit-container'>
+            <ReviewPage courseCode={course.courseCode} />
+          </div>
+        </Grid.Column>
+      </Grid>
 
-
-      <div>
-        <Grid stackable>
-          <Grid.Column width={7} floated='left'>
-            <SummaryCard
-              summaryTitle={getSummaryTitle()}
-              summaryLink={getLink()}
-              courseCode={courseCode}
-              overallRating={getAverage('overall')}
-              numReviews={course.reviews.length}
-              summaryDesc={course.description}
-              usefulAvg={getAverage('usefulness')}
-              workloadAvg={getAverage('workload')}
-              difficultyAvg={getAverage('difficulty')}
-              enjoymentAvg={getAverage('enjoyment')}
-              tags={getTags()}
-            />
-          </Grid.Column>
-          <Grid.Column width={9} floated='right'>
-            <Grid columns={3}>
-              <Grid.Row>
-                <div className='review-heading'>
-                  <div>
-                    <Header as='h2'>
-                      Reviews
-                    </Header>
-                  </div>
-                  <div className='dropdown-reviews'>
-                    <Dropdown
-                      placeholder='Sort by'
-                      selection
-                      options={sortOptions}
-                      onChange={handleSortChange}
-                    />
-                  </div>
-                  <div>
-                    <Button onClick={handleClick} className='review-button'>
-                      Submit a review
-                    </Button>
-                  </div>
-                </div>
-              </Grid.Row>
-            </Grid>
-            {checkEmptyState()}
-          </Grid.Column>
-        </Grid>
-      </div>
+      <ReviewsBar sortOptions={sortOptions} handleSortChange={handleSortChange} handleClick={handleClick} />
+      {checkEmptyState()}
     </>
   );
 };

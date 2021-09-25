@@ -13,14 +13,23 @@ class Verifier {
   /**
    * Verifies the username and password match
    * and returns the display name if they match
+   * @async
    * @param {string} zid
    * @param {string} zpass
-   * @return {Response} response
+   * @param {number} retries
+   * @return {Promise<object>} displayName
    */
-  async verify(zid, zpass) {
+  async getUser(zid, zpass, retries = 5) {
     const payload = { zid, zpass };
     const response = await this._post(payload);
-    return response;
+    if (response.status == 503 && retries > 0) {
+      this.getUser(zid, zpass, retries - 1);
+    }
+
+    return {
+      status: response.status,
+      data: await response.json(),
+    };
   }
 
   /**
@@ -28,8 +37,8 @@ class Verifier {
    * @param {object} payload
    * @return {Promise<Response>} response
    */
-  _post(payload) {
-    return fetch(this.url, {
+  async _post(payload) {
+    return await fetch(this.url, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

@@ -1,27 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
+
+const TITLE_MAX_LENGTH = 80;
 
 const ReviewTextArea = (props) => {
   const { title, setTitle, comment, setComment } = props;
 
+  const handleTitleChange = (e, { value }) => {
+    if (value.length > TITLE_MAX_LENGTH) {
+      setTitle(title);
+    } else {
+      setTitle(value);
+    }
+  };
+
   return (
-    <>
+    <Form.Field>
       <Form.Input
         className='ratingTitle'
-        placeholder='Enter your title here!'
+        placeholder={Boolean(comment && !title) ? 'Your review needs a title' : 'Enter your title here!'}
         fluid
+        error={Boolean(comment && !title)}
         value={title}
-        onChange={(e, { value }) => setTitle(value)}
+        onChange={handleTitleChange}
       />
       <Form.TextArea
-        placeholder='Please write your review here: make sure you have read the terms and conditions
-            before posting. Feel free to include your overall experience with the course,
-            how you found the assessments/workload and anything else you wanted to share!'
+        className='test'
+        placeholder={Boolean(!comment && title) ? 'Your review needs a body' : 'Enter your review here!'}
+        fluid
+        error={Boolean(!comment && title)}
         value={comment}
         onChange={(e, { value }) => setComment(value)}
       />
-    </>
+    </Form.Field>
   );
 };
 

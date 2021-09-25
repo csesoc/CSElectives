@@ -10,7 +10,6 @@ const DropdownTagsMenu = (props) => {
     if (activeTags.includes(text)) {
       setActiveTags(activeTags.filter((el) => el !== text));
     } else {
-      // TODO need to add it in the correct alphabetical order
       setActiveTags([...activeTags, text].sort(function(a, b) {
         return a.toLowerCase().localeCompare(b.toLowerCase());
       }));
@@ -24,14 +23,15 @@ const DropdownTagsMenu = (props) => {
         onClick={toggleSelectionDrop}
       >
         <Checkbox
-          label={object.value}
+          className={'checkbox-' + title.toLowerCase()}
           checked={activeTags.includes(object.value)}
+          label={object.value}
         />
+
       </Dropdown.Item>
     );
   };
 
-  // Not sure how to get the arguments from onclick, get hayes help pls
   return (
     <Dropdown
       text={title}
@@ -39,7 +39,7 @@ const DropdownTagsMenu = (props) => {
       simple
       className='icon'
     >
-      <Dropdown.Menu>
+      <Dropdown.Menu className={title.toLowerCase()}>
         <Dropdown.Header icon='tags' content={`Filter by ${title}`} />
         {tagOptions.map(tagItems)}
       </Dropdown.Menu>
