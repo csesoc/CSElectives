@@ -11,13 +11,11 @@ import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 import ReviewRating from '../components/review-rating/review-rating.js';
 
-const createDropdownOption = (item) => {
-  return {
-    key: item,
-    text: item,
-    value: item,
-  };
-};
+const createDropdownOption = (item) => ({
+  key: item,
+  text: item,
+  value: item,
+});
 
 const sorts = [
   'Most Popular',
@@ -163,7 +161,7 @@ const HomePage = (props) => {
       </div>
 
       {/* Code, name and desc hardcoded for testing purposes */}
-      <Grid stackable doubling columns={3}>
+      <Grid centered stackable doubling columns={3}>
         <CardGrid courses={courses} />
       </Grid>
     </>

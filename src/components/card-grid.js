@@ -39,7 +39,7 @@ const CardGrid = (props) => {
     return (
       <Grid.Row key={index} stretched>
         {row.map((course) => (
-          <Grid.Column key={course.id} width={5}>
+          <Grid.Column key={course.id} columns='equal'>
             <CourseReviewCard
               code={course.courseCode}
               name={course.title}

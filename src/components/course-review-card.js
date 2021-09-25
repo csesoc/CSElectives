@@ -9,18 +9,9 @@ import { Link } from 'react-router-dom';
 const CourseReviewCard = (props) => {
   const { code, name, numReviews, overallRating, studyLevel, terms } = props;
   const page = `course/${code}`;
-
-  const getTags = () => {
-    const levelArray = [studyLevel];
-    const withTermsArray = levelArray.concat(terms.map((term) => 'Term ' + term ));
-    return withTermsArray;
-  };
-
-  const tags = getTags();
-  const displayTags = (label) => {
-    return (
-      <Tag label={label} />
-    );
+  const tags = {
+    level: studyLevel,
+    terms: terms.map((term) => 'Term ' + term ),
   };
 
   return (
@@ -43,7 +34,8 @@ const CourseReviewCard = (props) => {
           </div>
         </Card.Content>
         <Card.Content extra>
-          {tags.map((label) => displayTags(label))}
+          <Tag className={tags.level.toLowerCase()} label={tags.level} />
+          {tags.terms.map((term) => <Tag key={term} className="term" label={term} />)}
         </Card.Content>
       </Card>
     </div>
