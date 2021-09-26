@@ -78,8 +78,32 @@
 .flag-submit-button {
     justify-content: center;
     display: flex;
+    padding-top: 10px;
+    
 }
 
 .flag-submission-message {
     text-align: center;
+}
+
+.flag-done-button {
+    justify-content: center;
+    display: flex;
+    padding-top: 10px;
+}
+
+.ui.form.input.flag {
+    display: block;
+}
+
+.other-input {
+    padding-bottom: 10px;
+    
+}
+
+.modal.ui.modal-wrapper {
+    transition: all 2.5s ease;
+    transform: 'translateY(0vh)';
+    opacity: '1';
+    color: blue;
 }

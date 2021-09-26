@@ -4,6 +4,7 @@ import '../styles/course-page.css';
 
 import { Grid, Card, Progress, Rating, Message, Popup, Button, Modal, Icon, Header, Form } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
+import FlagModal from '../components/flag-modal.js';
 
 const ReviewCard = (props) => {
   const { reviewTitle, reviewComment, usefulProgress, workloadProgress, difficultyProgress,
@@ -12,8 +13,7 @@ const ReviewCard = (props) => {
   const handleClickFlag = () => {
 
   };
-  const [firstOpen, setFirstOpen] = React.useState(false);
-  const [secondOpen, setSecondOpen] = React.useState(false);
+
 
   return (
     <div className='review-cards'>
@@ -85,72 +85,7 @@ const ReviewCard = (props) => {
                 ok
               </Grid.Column>
               <Grid.Column>
-                <Modal
-                  trigger={
-                    <Button className='ui button flag'>
-                      <i className="flag outline icon"></i>
-                      onClick={() => setFirstOpen(true)}
-                    </Button>
-                  }
-                  size='tiny'
-                  closeIcon
-                  onClose={() => setFirstOpen(false)}
-                  onOpen={() => setFirstOpen(true)}
-                  open={firstOpen}
-                >
-                  <Header icon>
-                    <Icon name='flag' />
-                    What would you like to flag this for?
-                  </Header>
-                  <Modal.Content>
-                    <Form>
-                      <div>
-                        <Form.Field
-                          label='Contains hate speech'
-                          control='input'
-                          type='radio'
-                          name='htmlRadios'
-                        />
-                        <Form.Field
-                          label='Contains spam'
-                          control='input'
-                          type='radio'
-                          name='htmlRadios'
-                        />
-                        <Form.Field>
-                          <label>Other:</label>
-                          <input placeholder='Enter reason here.' />
-                        </Form.Field>
-                      </div>
-                      <br />
-                    </Form>
-                    <Modal.Actions>
-                      <div className='flag-submit-button'>
-                        <Button
-                          onClick={() => setSecondOpen(true)}
-                        >Submit
-                        </Button>
-                      </div>
-                    </Modal.Actions>
-                  </Modal.Content>
-                  <Modal
-                    onClose={() => setSecondOpen(false)}
-                    open={secondOpen}
-                    size='tiny'
-                    closeIcon
-                  >
-                    <Header icon>
-                      <Icon
-                        name='paper plane'
-                        color='green'
-                      />
-                      Thank you for submitting a report!
-                    </Header>
-                    <Modal.Content className="flag-submission-message">
-                      We will review your report and notify you of our decision.
-                    </Modal.Content>
-                  </Modal>
-                </Modal>
+                <FlagModal />
               </Grid.Column>
             </Grid.Row>
           </Grid>
