@@ -146,38 +146,37 @@ const CoursePage = (props) => {
     }
     return (
       <>
-        <div className='review-cols'>
-          {course.reviews.sort((a, b) => {
-            const aScore = scoreTotal(a);
-            const bScore = scoreTotal(b);
+        {course.reviews.sort((a, b) => {
+          const aScore = scoreTotal(a);
+          const bScore = scoreTotal(b);
 
-            // Sorts reviews by ratings, total score and time created
-            if (sort === 'rating-descending') {
-              if (a.rating.overall === b.rating.overall) {
-                if (aScore === bScore) return b.timestamp - a.timestamp;
-                return bScore - aScore;
-              }
-              return b.rating.overall - a.rating.overall;
+          // Sorts reviews by ratings, total score and time created
+          if (sort === 'rating-descending') {
+            if (a.rating.overall === b.rating.overall) {
+              if (aScore === bScore) return b.timestamp - a.timestamp;
+              return bScore - aScore;
             }
+            return b.rating.overall - a.rating.overall;
+          }
 
-            if (sort === 'rating-ascending') {
-              if (a.rating.overall === b.rating.overall) {
-                if (aScore === bScore) return a.timestamp - b.timestamp;
-                return aScore - bScore;
-              }
-              return a.rating.overall - b.rating.overall;
+          if (sort === 'rating-ascending') {
+            if (a.rating.overall === b.rating.overall) {
+              if (aScore === bScore) return a.timestamp - b.timestamp;
+              return aScore - bScore;
             }
+            return a.rating.overall - b.rating.overall;
+          }
 
-            // Default is most recent
-            return b.timestamp - a.timestamp;
-          }).map((review, i) => {
-            return (
-              <div key={i} className='reviews'>
-                {checkReview(review)}
-              </div>
-            );
-          })}
-        </div>
+          // Default is most recent
+          return b.timestamp - a.timestamp;
+        }).map((review, i) => {
+          return (
+            <div key={i} className='reviews'>
+              {checkReview(review)}
+            </div>
+          );
+        })}
+
       </>
     );
   };
@@ -190,29 +189,35 @@ const CoursePage = (props) => {
       <Banner courseCode={course.courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
-          <SummaryCard
-            summaryTitle={getSummaryTitle()}
-            summaryLink={getLink()}
-            courseCode={courseCode}
-            overallRating={getAverage('overall')}
-            numReviews={course.reviews.length}
-            summaryDesc={course.description}
-            usefulAvg={getAverage('usefulness')}
-            workloadAvg={getAverage('workload')}
-            difficultyAvg={getAverage('difficulty')}
-            enjoymentAvg={getAverage('enjoyment')}
-            tags={getTags()}
-          />
-        </Grid.Column>
-        <Grid.Column width={9}>
-          <div className='submit-container'>
+          <div className='summary-card'>
+            <SummaryCard
+              summaryTitle={getSummaryTitle()}
+              summaryLink={getLink()}
+              courseCode={courseCode}
+              overallRating={getAverage('overall')}
+              numReviews={course.reviews.length}
+              summaryDesc={course.description}
+              usefulAvg={getAverage('usefulness')}
+              workloadAvg={getAverage('workload')}
+              difficultyAvg={getAverage('difficulty')}
+              enjoymentAvg={getAverage('enjoyment')}
+              tags={getTags()}
+            />
             <ReviewPage courseCode={course.courseCode} />
           </div>
         </Grid.Column>
+        <Grid.Column width={9}>
+          <ReviewsBar
+            sortOptions={sortOptions}
+            handleSortChange={handleSortChange}
+            handleClick={handleClick}
+            course={course}
+          />
+          {checkEmptyState()}
+        </Grid.Column>
       </Grid>
 
-      <ReviewsBar sortOptions={sortOptions} handleSortChange={handleSortChange} handleClick={handleClick} />
-      {checkEmptyState()}
+
     </>
   );
 };
