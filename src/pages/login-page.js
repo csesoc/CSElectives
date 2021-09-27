@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Button, Form, Header, Message } from 'semantic-ui-react';
+import { Button, Container, Form, Header, Message } from 'semantic-ui-react';
 
 import Verifier from '../verifier/verifier';
 import Database from '../db/db';
@@ -36,7 +36,7 @@ const LoginPage = () => {
   // TODO ELEC-197: Can only access this page if not logged in
 
   return (
-    <>
+    <Container className='main-wrapper'>
       <Header as='h1'>Login Page</Header>
 
       {user ? (
@@ -65,7 +65,7 @@ const LoginPage = () => {
           <Button content='Login' type='submit' onClick={handleSubmit} />
         </Form>
       )}
-    </>
+    </Container>
   );
 };
 

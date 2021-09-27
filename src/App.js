@@ -1,7 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
-import { Container } from 'semantic-ui-react';
 import { onAuthStateChanged } from '@firebase/auth';
 
 import Database from './db/db.js';
@@ -48,27 +47,16 @@ const App = () => {
                 <Route exact path='/'>
                   <HomePage courses={courses} />
                 </Route>
-
-                {/* Home page has its own internal wrapper */}
-                <Container className='main-wrapper'>
-                  <Route exact path='/course/:courseCode'>
-                    <CoursePage courses={courses} />
-                  </Route>
-                  <Route exact path='/login'>
-                    <LoginPage />
-                  </Route>
-                  <Route exact path='/feedback'>
-                    <FeedbackPage />
-                  </Route>
-                  <Route>
-                    <NotFoundPage />
-                  </Route>
-                </Container>
+                <Route exact path='/course/:courseCode'>
+                  <CoursePage courses={courses} />
+                </Route>
+                <Route exact path='/login' component={LoginPage} />
+                <Route exact path='/feedback' component={FeedbackPage} />
+                <Route component={NotFoundPage} />
               </Switch>
             </main>
           </div>
         </UserContext.Provider>
-
       </LoadingContext.Provider>
 
       <footer>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button } from 'semantic-ui-react';
+import { Icon, Button, Container } from 'semantic-ui-react';
 import { useHistory } from 'react-router-dom';
 import '../styles/not-found-page.css';
 
@@ -10,7 +10,7 @@ const NotFoundPage = () => {
     history.push('/');
   };
   return (
-    <>
+    <Container className='main-wrapper'>
       <div className='not-found-page-background' />
       <div className='not-found-page-text'>
         <div>Oops the page you are looking for cannot be found {'>.<'}</div>
@@ -22,7 +22,7 @@ const NotFoundPage = () => {
           </Button.Content>
         </Button>
       </div>
-    </>
+    </Container>
   );
 };
 
