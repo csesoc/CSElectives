@@ -122,3 +122,11 @@
 .ui.dropdown .menu .item {
   background: white;
 }
+
+.particles-wrapper {
+  background-color: var(--csesoc-blue);
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+}

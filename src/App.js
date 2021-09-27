@@ -7,7 +7,6 @@ import { onAuthStateChanged } from '@firebase/auth';
 import Database from './db/db.js';
 import HomePage from './pages/home-page.js';
 import CoursePage from './pages/course-page.js';
-import ReviewPage from './pages/review-page.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';

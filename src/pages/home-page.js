@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
+import Particles from 'react-particles-js';
 import { Header, Input, Segment, Grid } from 'semantic-ui-react';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
@@ -9,7 +10,6 @@ import HomePageTags from '../components/home-page-tags.js';
 import CardGrid from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
-import ReviewRating from '../components/review-rating/review-rating.js';
 
 const createDropdownOption = (item) => ({
   key: item,
@@ -63,7 +63,7 @@ const HomePage = (props) => {
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
-  const [query, setQuery] = useState('Home Page');
+  const [query, setQuery] = useState('');
 
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
@@ -72,28 +72,11 @@ const HomePage = (props) => {
 
   return loading ? <span>loading</span> : (
     <>
-      {/* <ReviewRating
-        rating={4}
-        icon='wheelchair'
-        size='big'
-        clickable
-        hoverable
-        captions={['🤬', '😥', '😐', '😀', '😍']}
-      />
+      <div className='particles-wrapper'>
+        <Particles style={{ }} />
+      </div>
 
-      <ReviewRating
-        rating={1.5}
-        icon='github'
-        size='massive'
-      />
-
-      <ReviewRating
-        rating={3.3}
-        icon='star'
-        size='large'
-      /> */}
-
-      <Header as='h1'>{query}</Header>
+      <Header as='h1' content='Welcome to CSElectives' />
 
       <Segment className="search-section-background">
         <Input size='massive' icon='search' fluid onChange={handleQueryChange} />
