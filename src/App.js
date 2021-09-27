@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
+import { Container } from 'semantic-ui-react';
 import { onAuthStateChanged } from '@firebase/auth';
 
 import Database from './db/db.js';
@@ -11,7 +12,6 @@ import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';
 import FeedbackPage from './pages/feedback-page.js';
 import NotFoundPage from './pages/not-found-page.js';
-import { Container } from 'semantic-ui-react';
 
 export const LoadingContext = createContext(true);
 export const UserContext = createContext(null);
