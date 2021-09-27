@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button, Container } from 'semantic-ui-react';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
@@ -88,11 +88,9 @@ const HomePage = (props) => {
           <Button secondary content='Start reviewing!' />
         </div>
         <Image className='right' size='large' src={FeedbackSvg} />
-        {/* <div className='right'>
-        </div> */}
       </section>
 
-      <section style={{ paddingTop: '5rem' }}>
+      <Container className='course-cards-wrapper'>
         <div className='search-background' />
         <Segment className="search-section-background">
           <Input
@@ -171,7 +169,7 @@ const HomePage = (props) => {
             <CardGrid courses={courses} />
           </Grid>
         )}
-      </section>
+      </Container>
     </>
   );
 };

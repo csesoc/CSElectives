@@ -123,6 +123,10 @@
   background: white;
 }
 
+.course-cards-wrapper {
+  margin-bottom: 2rem;
+}
+
 .title-wrapper {
   min-height: 100vh;
 

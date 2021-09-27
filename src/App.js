@@ -44,8 +44,13 @@ const App = () => {
               <Header courses={courses} />
             </header>
             <main>
-              <Container className='main-wrapper'>
-                <Switch>
+              <Switch>
+                <Route exact path='/'>
+                  <HomePage courses={courses} />
+                </Route>
+
+                {/* Home page has its own internal wrapper */}
+                <Container className='main-wrapper'>
                   <Route exact path='/course/:courseCode'>
                     <CoursePage courses={courses} />
                   </Route>
@@ -55,14 +60,11 @@ const App = () => {
                   <Route exact path='/feedback'>
                     <FeedbackPage />
                   </Route>
-                  <Route exact path='/'>
-                    <HomePage courses={courses} />
-                  </Route>
                   <Route>
                     <NotFoundPage />
                   </Route>
-                </Switch>
-              </Container>
+                </Container>
+              </Switch>
             </main>
           </div>
         </UserContext.Provider>
