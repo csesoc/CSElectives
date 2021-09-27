@@ -123,10 +123,69 @@
   background: white;
 }
 
-.particles-wrapper {
-  background-color: var(--csesoc-blue);
+.title-wrapper {
+  min-height: 100vh;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.title-wrapper h1 {
+  font-family: 'raleway-bold', sans-serif;
+  font-size: 7rem;
+}
+
+.title-wrapper h2 {
+  font-family: 'raleway', sans-serif;
+  margin-bottom: 5rem;
+}
+
+.title-wrapper .left {
+  margin-top: 15vh;
+  width: 50%;
+}
+
+.title-wrapper .right {
+  margin-top: 20vh;
+}
+
+.cs {
+  /* color: var(--csesoc-blue); */
+  font-family: 'nevis', sans-serif;
+}
+
+.electives {
+  font-family: 'nevis', sans-serif;
+  letter-spacing: -0.25rem;
+
+  background: linear-gradient(45deg, #ff0f7b, var(--csesoc-blue));
+
+  background-clip: text;
+  color: transparent;
+}
+
+.title-wrapper .blob {
   position: absolute;
-  height: 100%;
+  top: -30rem;
+  left: -35rem;
+  width: 100rem;
+  height: 100rem;
+  transform: rotate(-20deg);
+  z-index: -1;
+
+  background-image: url(../assets/blobs/vivian-blob.svg);
+  background-repeat: no-repeat;
+}
+
+
+
+.search-background {
+  position: absolute;
   left: 0;
-  top: 0;
+  background-color: white;
+  width: 100%;
+  height: max-content;
+  z-index: -1;
 }
