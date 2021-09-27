@@ -9,6 +9,21 @@
   --postgraduate: #ACDEAA;
 }
 
+@font-face {
+  font-family: 'nevis';
+  src: url('../assets/fonts/nevis.ttf');
+}
+
+@font-face {
+  font-family: 'raleway';
+  src: url('../assets/fonts/raleway-variable.ttf');
+}
+
+@font-face {
+  font-family: 'raleway-bold';
+  src: url('../assets/fonts/raleway-bold.ttf');
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;

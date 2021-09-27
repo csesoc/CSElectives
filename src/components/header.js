@@ -32,7 +32,7 @@ const Header = (props) => {
   };
 
   return (
-    <Menu pointing secondary>
+    <Menu secondary>
       <Container>
         <Menu.Item
           as={Link}

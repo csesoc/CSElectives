@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Dropdown, Button, Header, Icon } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory, useParams } from 'react-router-dom';
@@ -216,8 +216,6 @@ const CoursePage = (props) => {
           {checkEmptyState()}
         </Grid.Column>
       </Grid>
-
-
     </>
   );
 };

@@ -7,7 +7,6 @@ import { onAuthStateChanged } from '@firebase/auth';
 import Database from './db/db.js';
 import HomePage from './pages/home-page.js';
 import CoursePage from './pages/course-page.js';
-import ReviewPage from './pages/review-page.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';
@@ -47,27 +46,20 @@ const App = () => {
             <main>
               <Container className='main-wrapper'>
                 <Switch>
-                  <Route exact path='/course/:courseCode'>
-                    <CoursePage courses={courses} />
-                  </Route>
-                  <Route exact path='/login'>
-                    <LoginPage />
-                  </Route>
-                  <Route exact path='/feedback'>
-                    <FeedbackPage />
-                  </Route>
                   <Route exact path='/'>
                     <HomePage courses={courses} />
                   </Route>
-                  <Route>
-                    <NotFoundPage />
+                  <Route exact path='/course/:courseCode'>
+                    <CoursePage courses={courses} />
                   </Route>
+                  <Route exact path='/login' component={LoginPage} />
+                  <Route exact path='/feedback' component={FeedbackPage} />
+                  <Route component={NotFoundPage} />
                 </Switch>
               </Container>
             </main>
           </div>
         </UserContext.Provider>
-
       </LoadingContext.Provider>
 
       <footer>
