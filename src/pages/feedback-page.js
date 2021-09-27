@@ -1,9 +1,8 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
 
 const FeedbackPage = () => {
   return (
-    <Container className='main-wrapper'>
+    <>
       <div className='feedback-form'>
         <iframe
         // eslint-disable-next-line max-len
@@ -17,7 +16,7 @@ const FeedbackPage = () => {
           Loading…
         </iframe>
       </div>
-    </Container>
+    </>
   );
 };
 

@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button, Container } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
+import scrollToElement from 'scroll-to-element';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
@@ -50,13 +51,9 @@ const prefix = [
 ];
 
 const sortOptions = sorts.map((item) => createDropdownOption(item));
-
 const majorOptions = majors.map((item) => createDropdownOption(item));
-
 const termOptions = terms.map((item) => createDropdownOption(item));
-
 const prefixOptions = prefix.map((item) => createDropdownOption(item));
-
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
@@ -74,31 +71,43 @@ const HomePage = (props) => {
   return (
     <>
       <section className='title-wrapper'>
-        <div className='blob' />
-
         <div className='left'>
           <h1>
-            <span className='cs'>CS</span>
-            <span className='electives'>Electives</span>
+            <span className='cs'>cs</span>
+            <span className='electives'>electives</span>
           </h1>
           <h2>
-            The UNSW Course Review Website by CSESoc
+            {/* {'"'}student reviews, by students, for students{'"'} by Timmy Huang?? */}
+            student reviews, by students, for students
           </h2>
 
-          <Button secondary content='Start reviewing!' />
+          <Button
+            secondary
+            content='Start reviewing!'
+            onClick={
+              () => scrollToElement('#search-section', {
+                ease: 'in-out-cube',
+                duration: 1000,
+              })
+            }
+          />
         </div>
-        <Image className='right' size='large' src={FeedbackSvg} />
+
+        <div className='right'>
+          <div className='blob' />
+          <Image className='feedback-svg' fluid src={FeedbackSvg} />
+        </div>
       </section>
 
-      <Container className='course-cards-wrapper'>
-        <div className='search-background' />
-        <Segment className="search-section-background">
+      <section id="search-section">
+        <Segment>
           <Input
             size='massive'
             icon='search'
             placeholder='COMP1511'
             fluid
             onChange={handleQueryChange}
+            style={{ fontFamily: 'nevis, sans-serif' }}
           />
 
           <div className='sort-and-filter-container'>
@@ -169,7 +178,7 @@ const HomePage = (props) => {
             <CardGrid courses={courses} />
           </Grid>
         )}
-      </Container>
+      </section>
     </>
   );
 };

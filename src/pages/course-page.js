@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Dropdown, Button, Header, Icon, Container } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory, useParams } from 'react-router-dom';
@@ -185,7 +185,7 @@ const CoursePage = (props) => {
   if (!course) return <NotFoundPage />;
 
   return (
-    <Container className='main-wrapper'>
+    <>
       <Banner courseCode={course.courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
@@ -216,7 +216,7 @@ const CoursePage = (props) => {
           {checkEmptyState()}
         </Grid.Column>
       </Grid>
-    </Container>
+    </>
   );
 };
 

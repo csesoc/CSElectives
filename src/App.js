@@ -11,6 +11,7 @@ import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';
 import FeedbackPage from './pages/feedback-page.js';
 import NotFoundPage from './pages/not-found-page.js';
+import { Container } from 'semantic-ui-react';
 
 export const LoadingContext = createContext(true);
 export const UserContext = createContext(null);
@@ -43,17 +44,19 @@ const App = () => {
               <Header courses={courses} />
             </header>
             <main>
-              <Switch>
-                <Route exact path='/'>
-                  <HomePage courses={courses} />
-                </Route>
-                <Route exact path='/course/:courseCode'>
-                  <CoursePage courses={courses} />
-                </Route>
-                <Route exact path='/login' component={LoginPage} />
-                <Route exact path='/feedback' component={FeedbackPage} />
-                <Route component={NotFoundPage} />
-              </Switch>
+              <Container className='main-wrapper'>
+                <Switch>
+                  <Route exact path='/'>
+                    <HomePage courses={courses} />
+                  </Route>
+                  <Route exact path='/course/:courseCode'>
+                    <CoursePage courses={courses} />
+                  </Route>
+                  <Route exact path='/login' component={LoginPage} />
+                  <Route exact path='/feedback' component={FeedbackPage} />
+                  <Route component={NotFoundPage} />
+                </Switch>
+              </Container>
             </main>
           </div>
         </UserContext.Provider>

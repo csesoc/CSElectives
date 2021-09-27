@@ -123,12 +123,8 @@
   background: white;
 }
 
-.course-cards-wrapper {
-  margin-bottom: 2rem;
-}
-
 .title-wrapper {
-  min-height: 100vh;
+  min-height: 90vh;
 
   display: flex;
   flex-wrap: wrap;
@@ -137,13 +133,14 @@
 }
 
 .title-wrapper h1 {
-  font-family: 'raleway-bold', sans-serif;
+  font-family: 'nevis', sans-serif;
   font-size: 7rem;
 }
 
 .title-wrapper h2 {
-  font-family: 'raleway', sans-serif;
+  font-family: 'nevis', sans-serif;
   margin-bottom: 5rem;
+  letter-spacing: 0rem;
 }
 
 .title-wrapper .left {
@@ -152,7 +149,9 @@
 }
 
 .title-wrapper .right {
+  position: relative;
   margin-top: 20vh;
+  width: 40%;
 }
 
 .cs {
@@ -170,26 +169,28 @@
   color: transparent;
 }
 
-.title-wrapper .blob {
+.right .blob {
   position: absolute;
-  top: -30rem;
-  left: -35rem;
-  width: 100rem;
-  height: 100rem;
-  transform: rotate(-20deg);
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  transform: translate(-30%, -25%) rotate(-20deg) ;
   z-index: -1;
 
   background-image: url(../assets/blobs/vivian-blob.svg);
   background-repeat: no-repeat;
+  background-position: center;
 }
 
-
-
-.search-background {
+.right .feedback-svg {
   position: absolute;
+  top: 0;
   left: 0;
-  background-color: white;
   width: 100%;
-  height: max-content;
-  z-index: -1;
+  height: 100%;
+}
+
+#search-section {
+  padding-top: 2rem;
 }

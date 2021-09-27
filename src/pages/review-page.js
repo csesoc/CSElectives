@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Header, Button, Icon } from 'semantic-ui-react';
+import { Form, Button, Icon } from 'semantic-ui-react';
 
 import Database from '../db/db.js';
 
 import '../styles/review-page.css';
 import CourseRatings from '../components/review-form/course-ratings';
-import CourseSelect from '../components/review-form/course-select';
 import AnonChoice from '../components/review-form/anon-choice';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
@@ -16,7 +15,6 @@ const ReviewPage = (props) => {
   const { courseCode } = props;
 
   const [overall, setOverall] = useState(0);
-  const [difficulty, setDifficulty] = useState(0);
   const [enjoyment, setEnjoyment] = useState(0);
   const [usefulness, setUsefulness] = useState(0);
   const [workload, setWorkload] = useState(0);
@@ -30,7 +28,6 @@ const ReviewPage = (props) => {
     enjoyment,
     overall,
     workload,
-    difficulty,
     usefulness,
   };
 
@@ -63,8 +60,6 @@ const ReviewPage = (props) => {
         <CourseRatings
           overall={overall}
           setOverall={setOverall}
-          difficulty={difficulty}
-          setDifficulty={setDifficulty}
           enjoyment={enjoyment}
           setEnjoyment={setEnjoyment}
           usefulness={usefulness}
@@ -110,7 +105,6 @@ const ReviewPage = (props) => {
           type='submit'
           disabled={!termTaken
             || !overall
-            || !difficulty
             || !enjoyment
             || !usefulness
             || !workload

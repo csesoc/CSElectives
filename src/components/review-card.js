@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
-import { Grid, Card, Progress, Rating } from 'semantic-ui-react';
+import { Grid, Card, Rating } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
 
 const ReviewCard = (props) => {
