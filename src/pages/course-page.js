@@ -66,8 +66,8 @@ const CoursePage = (props) => {
     if (count === 0) {
       return 0;
     }
-    const roundedAverage = Math.round(total / count * 10) / 10;
-    return roundedAverage;
+    const average = total / count;
+    return average.toFixed(1);
   };
 
   const year = new Date().getFullYear();
@@ -96,27 +96,8 @@ const CoursePage = (props) => {
     return tagsArray;
   };
 
-  // check if review has text or not
-  // if review doesn't have text, present in a rating card
-  // if it does, present in a review card
-  const checkReview = (review) => {
-    if (!review.comment) {
-      return (
-        <>
-          <RatingsCard
-            overallRating={review.rating.overall}
-            reviewDate={getReviewDate(review)}
-            reviewTitle={review.title}
-            usefulProgress={review.rating.usefulness}
-            workloadProgress={review.rating.workload}
-            enjoymentProgress={review.rating.enjoyment}
-            difficultyProgress={review.rating.difficulty}
-            author={review.displayAuthor ? review.author : 'Anonymous'}
-            termTaken={review.termTaken}
-          />
-        </>
-      );
-    };
+  // display review card
+  const displayReview = (review) => {
     return (
       <>
         <ReviewCard
@@ -172,7 +153,7 @@ const CoursePage = (props) => {
         }).map((review, i) => {
           return (
             <div key={i} className='reviews'>
-              {checkReview(review)}
+              {displayReview(review)}
             </div>
           );
         })}

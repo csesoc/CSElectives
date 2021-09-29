@@ -32,42 +32,34 @@ const ReviewCard = (props) => {
                 </Card.Meta>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns={4} className='review-row'>
-              <Grid.Column width={3}>
-                <Card.Header>Usefulness</Card.Header>
-                <Card.Header>Workload</Card.Header>
-              </Grid.Column>
-              <Grid.Column width={5}>
-                <ReviewRating
-                  rating={usefulProgress}
-                  icon='circle'
-                  size='small'
-                />
-                <ReviewRating
-                  rating={workloadProgress}
-                  icon='circle'
-                  size='small'
-                />
-              </Grid.Column>
-              <Grid.Column width={3}>
-                <Card.Header>Enjoyment</Card.Header>
-                <Card.Header>Difficulty</Card.Header>
-              </Grid.Column>
-              <Grid.Column width={5}>
-                <ReviewRating
-                  rating={enjoymentProgress}
-                  icon='circle'
-                  size='small'
-                />
-                <ReviewRating
-                  rating={difficultyProgress}
-                  icon='circle'
-                  size='small'
-                />
-              </Grid.Column>
-            </Grid.Row>
             <Grid.Row className='review-row'>
               <Grid.Column>
+                <div className='review-ratings-container'>
+                  <div className='review-ratings'>
+                    <Card.Header>Usefulness</Card.Header>
+                    <ReviewRating
+                      rating={usefulProgress}
+                      icon='circle'
+                      size='small'
+                    />
+                  </div>
+                  <div className='review-ratings'>
+                    <Card.Header>Workload</Card.Header>
+                    <ReviewRating
+                      rating={workloadProgress}
+                      icon='circle'
+                      size='small'
+                    />
+                  </div>
+                  <div className='review-ratings'>
+                    <Card.Header>Enjoyment</Card.Header>
+                    <ReviewRating
+                      rating={enjoymentProgress}
+                      icon='circle'
+                      size='small'
+                    />
+                  </div>
+                </div>
                 <Card.Description>{reviewComment}</Card.Description>
               </Grid.Column>
             </Grid.Row>

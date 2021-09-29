@@ -36,45 +36,29 @@ const SummaryCard = (props) => {
           </div>
         </Grid.Row>
         <Grid.Row className='barchart-row' columns={3}>
-          <Grid.Column width={4}>
-            Usefulness <br />
-            Workload <br />
-            Enjoyment <br />
-            Difficulty
+          <Grid.Column width={5}>
+            <div className='category-container'>
+              Usefulness <br />
+              <div className='category-rating'>{usefulAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
           </Grid.Column>
-          <Grid.Column width={9}>
-            <Progress
-              className='bar-chart'
-              color='blue'
-              percent={(usefulAvg/5)*100}
-              size='small'
-            />
-            <Progress
-              className='bar-chart'
-              color='blue'
-              percent={(workloadAvg/5)*100}
-              size='small'
-            />
-            <Progress
-              className='bar-chart'
-              color='blue'
-              percent={(enjoymentAvg/5)*100}
-              size='small'
-            />
-            <Progress
-              className='bar-chart'
-              color='blue'
-              percent={(difficultyAvg/5)*100}
-              size='small'
-            />
+          <Grid.Column width={6}>
+            <div className='category-container'>
+              Workload <br />
+              <div className='category-rating'>{workloadAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
           </Grid.Column>
-          <Grid.Column width={3}>
-            {usefulAvg}/5 <br />
-            {workloadAvg}/5 <br />
-            {enjoymentAvg}/5 <br />
-            {difficultyAvg}/5 <br />
+          <Grid.Column width={5}>
+            <div className='category-container'>
+              Enjoyment <br />
+              <div className='category-rating'>{enjoymentAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
           </Grid.Column>
         </Grid.Row>
+
         <Grid.Row className='grid-bottom'>
           {summaryDesc}
         </Grid.Row>
