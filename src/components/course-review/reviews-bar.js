@@ -20,11 +20,6 @@ const ReviewsBar = (props) => {
           onChange={handleSortChange}
         />
       </div>
-      <div>
-        <Button onClick={handleClick} className='review-button'>
-          Submit a review
-        </Button>
-      </div>
     </div>
   );
 };
