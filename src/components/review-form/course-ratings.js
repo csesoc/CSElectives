@@ -69,7 +69,7 @@ const CourseRatings = (props) => {
               size='standard'
               clickable
               hoverable
-              captions={['😍', '😀', '😐', '😥', '🤬']}
+              captions={['🤬', '😥', '😐', '😀', '😍']}
               onChange={(newWorkload) => setWorkload(newWorkload)}
             />
           </div>
