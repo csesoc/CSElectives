@@ -2,22 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
-const termOptions = [
-  { value: '21T2', text: '21T2' },
-  { value: '21T1', text: '21T1' },
-  { value: '20T3', text: '20T3' },
-  { value: '20T2', text: '20T2' },
-  { value: '20T1', text: '20T1' },
-  { value: '19T3', text: '19T3' },
-  { value: '19T2', text: '19T2' },
-  { value: '19T1', text: '19T1' },
-  { value: '18S2', text: '18S2' },
-  { value: '18S1', text: '18S1' },
-  { value: '17S2', text: '17S2' },
-  { value: '17S1', text: '17S1' },
-  { value: '16S2', text: '16S2' },
-  { value: '16S1', text: '16S1' },
-];
+const terms = [];
+const date = new Date();
+const year = date.getFullYear() % 100; // Last two digits of year
+const month = date.getMonth();
+
+if (month >= 9) terms.push(`${year}T3`);
+if (month >= 6) terms.push(`${year}T2`);
+if (month >= 2) terms.push(`${year}T1`);
+
+for (let i = year - 1; i >= year - 3; i--) {
+  if (i <= 18) {
+    // Semesters up until 2018
+    terms.push(`${i}S2`, `${i}S1`);
+  } else {
+    // Trimesters from 2019
+    terms.push(`${i}T3`, `${i}T2`, `${i}T1`);
+  }
+}
+
+const termOptions = terms.map((term) => ({ value: term, text: term }));
 
 const TermTakenSelect = (props) => {
   const { termTaken, setTermTaken } = props;
