@@ -51,10 +51,11 @@ const ReviewPage = (props) => {
 
   return (
     <Modal
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
+      closeIcon
       open={open}
       trigger={<Button>Submit a review</Button>}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
     >
       <Modal.Header>Submit a review</Modal.Header>
       <Modal.Content className='review-modal'>
