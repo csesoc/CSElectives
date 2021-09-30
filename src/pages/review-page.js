@@ -10,6 +10,7 @@ import CourseRatings from '../components/review-form/course-ratings';
 import AnonChoice from '../components/review-form/anon-choice';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
+import { reload } from '@firebase/auth';
 
 const ReviewPage = (props) => {
   const { courseCode } = props;
@@ -46,6 +47,7 @@ const ReviewPage = (props) => {
 
     const reviewId = await Database.addReview(review);
     console.log(reviewId);
+    location.reload();
   };
 
   return (
