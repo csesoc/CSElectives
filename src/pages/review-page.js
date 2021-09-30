@@ -10,7 +10,6 @@ import CourseRatings from '../components/review-form/course-ratings';
 import AnonChoice from '../components/review-form/anon-choice';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
-import { reload } from '@firebase/auth';
 
 const ReviewPage = (props) => {
   const { courseCode } = props;
@@ -45,8 +44,8 @@ const ReviewPage = (props) => {
       timestamp: Date.now() };
     console.log(review);
 
-    const reviewId = await Database.addReview(review);
-    console.log(reviewId);
+    await Database.addReview(review);
+
     location.reload();
   };
 
