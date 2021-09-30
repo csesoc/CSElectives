@@ -26,7 +26,6 @@ const TermTakenSelect = (props) => {
     <Form.Group inline>
       <Form.Dropdown
         placeholder='Select term taken'
-        fluid
         search
         selection
         options={termOptions}

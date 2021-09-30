@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Button, Icon } from 'semantic-ui-react';
+import { Form, Button, Icon, Modal, Image, Header } from 'semantic-ui-react';
 
 import Database from '../db/db.js';
 
@@ -31,6 +31,7 @@ const ReviewPage = (props) => {
     usefulness,
   };
 
+
   const handleSubmit = async () =>{
     const review = {
       author: 'anonymous',
@@ -49,76 +50,86 @@ const ReviewPage = (props) => {
     location.reload();
   };
 
-  return (
-    <>
-      <p>Please write your review here: make sure you have read the terms and conditions
-        before posting. Feel free to include your overall experience with the course,
-        how you found the assessments/workload and anything else you wanted to share!
-      </p>
-      <p><span className='required'>* Required</span></p>
+  const [open, setOpen] = React.useState(false);
 
-      <Form>
-        <CourseRatings
-          overall={overall}
-          setOverall={setOverall}
-          enjoyment={enjoyment}
-          setEnjoyment={setEnjoyment}
-          usefulness={usefulness}
-          setUsefulness={setUsefulness}
-          workload={workload}
-          setWorkload={setWorkload}
-        />
-        <Form.Group widths='equal'>
-          <div className='review-form'>
-            <div className='review-anon-text'>
-              <label>Would you like to remain anonymous?<span className='required'> *</span></label>
-            </div>
-            <div className='review-anon-radio'>
-              <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
-            </div>
-            <div className='review-term-text'>
-              <label>When did you complete the course?<span className='required'> *</span></label>
-            </div>
-            <div className='review-term-dropdown'>
-              <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
-            </div>
-            <div className='review-text-text'>
-              <label>Write your review here!
-                <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
-              </label>
-            </div>
-            <div>
-              <div className='review-text-input'>
-                <ReviewTextArea
-                  title={title}
-                  setTitle={setTitle}
-                  comment={comment}
-                  setComment={setComment}
-                />
+  return (
+    <Modal
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<Button>Submit a review</Button>}
+    >
+      <Modal.Header>Submit a review</Modal.Header>
+      <Modal.Content className='review-modal'>
+        <p>Please write your review here: make sure you have read the terms and conditions
+          before posting. Feel free to include your overall experience with the course,
+          how you found the assessments/workload and anything else you wanted to share!
+        </p>
+        <p><span className='required'>* Required</span></p>
+        <Form>
+          <CourseRatings
+            overall={overall}
+            setOverall={setOverall}
+            enjoyment={enjoyment}
+            setEnjoyment={setEnjoyment}
+            usefulness={usefulness}
+            setUsefulness={setUsefulness}
+            workload={workload}
+            setWorkload={setWorkload}
+          />
+          <Form.Group>
+            <div className='review-form'>
+              <div className='review-anon-text'>
+                <label>Would you like to remain anonymous?<span className='required'> *</span></label>
+              </div>
+              <div className='review-anon-radio'>
+                <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
+              </div>
+              <div className='review-term-text'>
+                <label>When did you complete the course?<span className='required'> *</span></label>
+              </div>
+              <div className='review-term-dropdown'>
+                <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
+              </div>
+              <div className='review-text-text'>
+                <label>Write your review here!
+                  <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
+                </label>
+              </div>
+              <div>
+                <div className='review-text-input'>
+                  <ReviewTextArea
+                    title={title}
+                    setTitle={setTitle}
+                    comment={comment}
+                    setComment={setComment}
+                  />
+                </div>
               </div>
             </div>
+          </Form.Group>
+          <div className='review-button'>
+            <Button
+              color='green'
+              animated='fade'
+              type='submit'
+              disabled={!termTaken
+                    || !overall
+                    || !enjoyment
+                    || !usefulness
+                    || !workload
+                    || (comment && !title)
+                    || (title && !comment)
+              }
+              onClick={handleSubmit}
+            >
+              <Button.Content visible><Icon name='angle double right' /></Button.Content>
+              <Button.Content hidden>Submit</Button.Content>
+            </Button>
           </div>
-        </Form.Group>
-        <Button
-          className='review-button'
-          color='green'
-          animated='fade'
-          type='submit'
-          disabled={!termTaken
-            || !overall
-            || !enjoyment
-            || !usefulness
-            || !workload
-            || (comment && !title)
-            || (title && !comment)
-          }
-          onClick={handleSubmit}
-        >
-          <Button.Content visible><Icon name='angle double right' /></Button.Content>
-          <Button.Content hidden>Submit</Button.Content>
-        </Button>
-      </Form>
-    </>
+        </Form>
+      </Modal.Content>
+    </Modal>
   );
 };
 

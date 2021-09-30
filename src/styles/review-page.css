@@ -10,15 +10,22 @@
 .easterEgg{
     color: white;
 }
-
+    
 .question-spacing {
     line-height: 295%;
 }
 
+.review-text-box {
+    height: 400px;
+    resize: none;
+}
+
 .review-form {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows:2.7rem 2.7rem 2.7rem 2.7rem;
+    grid-template-columns: 30% 70%;
+    grid-template-rows:3.5rem 3.5rem 3.5rem 3.5rem;
+    width: 100%;
+    margin: 2rem;
 }
 
 .review-anon-text {
@@ -31,6 +38,7 @@
 
 .review-term-text {
     grid-row-start: 2;
+    padding-top: 0.5rem;
 }
 
 .review-term-dropdown {
@@ -45,10 +53,5 @@
 
 .review-text-input {
     grid-row-start: 3;
-    grid-column-start: 2;
-}
-
-.review-button {
-    grid-row-start: 4;
     grid-column-start: 2;
 }

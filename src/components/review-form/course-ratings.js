@@ -13,7 +13,7 @@ const CourseRatings = (props) => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'left', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
         <div className='overall-rating' style={{ display: 'flex' }}>
           <div>
             <h3 style={{ flexGrow: 1, marginRight: '1rem' }}>
