@@ -24,13 +24,7 @@ const ReviewPage = (props) => {
   const [comment, setComment] = useState('');
   const [termTaken, setTermTaken] = useState('');
 
-  const rating = {
-    enjoyment,
-    overall,
-    workload,
-    usefulness,
-  };
-
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = async () =>{
     const review = {
@@ -39,18 +33,21 @@ const ReviewPage = (props) => {
       comment,
       courseCode: courseCode,
       displayAuthor: anonymity,
-      rating,
+      rating: {
+        enjoyment,
+        overall,
+        workload,
+        usefulness,
+      },
       recommendedCourses: [],
       termTaken,
-      timestamp: Date.now() };
-    console.log(review);
+      timestamp: Date.now(),
+    };
 
     await Database.addReview(review);
 
     location.reload();
   };
-
-  const [open, setOpen] = React.useState(false);
 
   return (
     <Modal
