@@ -78,7 +78,7 @@ const HomePage = (props) => {
           </h1>
           <h2>
             {/* {'"'}student reviews, by students, for students{'"'} by Timmy Huang?? */}
-            student reviews, by students, for students
+            enhancing your student experience.
           </h2>
 
           <Button

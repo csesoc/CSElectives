@@ -44,8 +44,9 @@ const ReviewPage = (props) => {
       timestamp: Date.now() };
     console.log(review);
 
-    const reviewId = await Database.addReview(review);
-    console.log(reviewId);
+    await Database.addReview(review);
+
+    location.reload();
   };
 
   return (
