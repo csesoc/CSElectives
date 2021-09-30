@@ -15,11 +15,6 @@
     line-height: 295%;
 }
 
-.review-text-box {
-    height: 400px;
-    resize: none;
-}
-
 .review-form {
     display: grid;
     grid-template-columns: 30% 70%;
