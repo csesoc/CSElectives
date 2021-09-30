@@ -55,3 +55,9 @@
     grid-row-start: 3;
     grid-column-start: 2;
 }
+
+.review-button {
+    text-align: right;
+    margin-top: 5rem;
+    margin-right: 1.3rem;
+}
