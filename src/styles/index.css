@@ -2,11 +2,41 @@
   --csesoc-blue: #3a76f8;
   --csesoc-navy: #40404c;
   --csesoc-white: #ffffff;
+
   --major-tags: #B2F7EF;
   --term-tags: #F7D6E0;
   --prefix-tags: #A3C5E1;
   --undergraduate: #D5AAFF;
   --postgraduate: #ACDEAA;
+
+  --primary: #3A76F8;
+  --primary-light: #CCE9FE;
+  --primary-dark: #0D3B9F;
+
+  --secondary: #9A4BFF;
+  --secondary-light: #D9BBFF;
+  --secondary-dark: #902ECC;
+
+  /* Traffic lights */
+  --pink: #F3478F;
+  --pink-light: #FDC8DE;
+  --pink-dark: #B61A5C;
+
+  --orange: #FCA119;
+  --orange-light: #FFDDBD;
+  --orange-dark: #F18200;
+
+  --yellow: #FDE619;
+  --yellow-light: #FFF9C3;
+  --yellow-dark: #F6B700;
+
+  --green: #B4EA1A;
+  --green-light: #EFFDC7;
+  --green-dark: #8FC100;
+
+  --cyan: #1EEB95;
+  --cyan-light: #C9FBDD;
+  --cyan-dark: #00AA44;
 }
 
 @font-face {

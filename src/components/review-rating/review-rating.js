@@ -7,15 +7,30 @@ const palettes = {
   // Uses CSESoc color palette
   csesoc: ['#40404C', '#3F4E77', '#3D5BA2', '#3C69CD', '#3A76F8'],
 
-  // Uses Semantic UI's red and yellow
-  warm: ['#db2828', '#e9541c', '#f4790c', '#f99b00', '#fbbd08'],
+  // Uses CSESoc blue
+  blue: [
+    'var(--csesoc-blue)',
+    'var(--csesoc-blue)',
+    'var(--csesoc-blue)',
+    'var(--csesoc-blue)',
+    'var(--csesoc-blue)',
+  ],
+
+  // Uses red yellow green gradient
+  trafficlight: [
+    'var(--pink-dark)',
+    'var(--orange-dark)',
+    'var(--yellow-dark)',
+    'var(--green-dark)',
+    'var(--cyan-dark)',
+  ],
 };
 
 // Semantic UI's light grey
 const unselectedColor = '#DCDDDE';
 
 const ReviewRating = (props) => {
-  const { icon, size, rating, clickable, hoverable, onChange, captions = [], palette = 'csesoc' } = props;
+  const { icon, size, rating, clickable, hoverable, onChange, captions = [], palette = 'trafficlight' } = props;
   const maxRating = 5;
 
   const clipPercentage = (idx) => {
