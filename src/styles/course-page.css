@@ -126,3 +126,7 @@
     flex-direction: row;
     padding: 1rem 0;
 }
+
+.star-space {
+    margin-right: 0.5rem;
+}

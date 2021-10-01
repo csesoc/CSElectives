@@ -33,13 +33,14 @@ const SummaryCard = (props) => {
               <Icon name='external' /> {courseCode} Handbook Page
             </a> <br />
             <div className='star-ratings'>
-              <ReviewRating
-                rating={overallRating}
-                icon='star'
-                size='large'
-                palette='csesoc'
-              />
-              &ensp;
+              <span className='star-space'>
+                <ReviewRating
+                  rating={overallRating}
+                  icon='star'
+                  size='large'
+                  palette='csesoc'
+                />
+              </span>
               {numReviews} Reviews
             </div>
           </div>

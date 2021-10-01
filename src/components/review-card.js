@@ -19,8 +19,9 @@ const ReviewCard = (props) => {
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta>
                   <div className='star-ratings'>
-                    Overall:
-                    &ensp;
+                    <span>
+                      Overall:
+                    </span>
                     <ReviewRating
                       rating={overallRating}
                       icon='star'
