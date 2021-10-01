@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
 import { Grid, Card, Progress, Rating, Message,
-  Popup, Button, Modal, Icon, Header, Form, Transition } from 'semantic-ui-react';
+  Popup, Button, Modal, Icon, Header, Form, Transition, Radio } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
 
 
@@ -53,7 +53,7 @@ const FlagModal = (props) => {
                 onChange={(e, { value }) => setFlagReason(value)}
               />
               <Form.Radio
-                label='Contains spam'
+                label='Spam'
                 name='htmlRadios'
                 value='spam'
                 onChange={(e, { value }) => setFlagReason(value)}

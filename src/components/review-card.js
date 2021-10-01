@@ -10,10 +10,6 @@ const ReviewCard = (props) => {
   const { reviewTitle, reviewComment, usefulProgress, workloadProgress, difficultyProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
 
-  const handleClickFlag = () => {
-
-  };
-
 
   return (
     <div className='review-cards'>
@@ -82,7 +78,6 @@ const ReviewCard = (props) => {
             </Grid.Row>
             <Grid.Row columns={2} className='review-row'>
               <Grid.Column>
-                ok
               </Grid.Column>
               <Grid.Column>
                 <FlagModal />
