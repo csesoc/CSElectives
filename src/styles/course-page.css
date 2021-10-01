@@ -1,12 +1,3 @@
-:root {
-    --csesoc-blue: #3a76f8;
-    --csesoc-navy: #40404c;
-    --csesoc-white: #ffffff;
-    --major-tags: #B2F7EF;
-    --term-tags: #F7D6E0;
-    --prefix-tags: #A3C5E1
-}
-
 .review-heading {
     display: flex;
     align-items: center;
@@ -119,4 +110,22 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.scroll-up-button {
+    position: sticky; 
+    top: 90vh;
+    padding-bottom: 3rem;
+    /* bottom: 3rem; */
+    z-index: 1;
+    cursor: pointer;
+    color: var(--csesoc-black);
+}
+
+.scroll-button-container {
+    text-align: right;
+    position: absolute;
+    right: 3rem;
+    height: 100%;
+    padding-bottom: 5rem;
 }
