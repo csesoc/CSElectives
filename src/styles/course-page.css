@@ -124,7 +124,7 @@
 .star-ratings {
     display: flex;
     flex-direction: row;
-    padding: 1rem 0;
+    padding-top: 0.5rem;
 }
 
 .star-space {
