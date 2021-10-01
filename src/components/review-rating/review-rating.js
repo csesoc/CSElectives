@@ -30,7 +30,7 @@ const palettes = {
 const unselectedColor = '#DCDDDE';
 
 const ReviewRating = (props) => {
-  const { icon, size, rating, clickable, hoverable, onChange, captions = [], palette = 'trafficlight' } = props;
+  const { icon, size, rating, clickable, hoverable, onChange, captions = [], palette } = props;
   const maxRating = 5;
 
   const clipPercentage = (idx) => {
