@@ -120,3 +120,13 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.star-ratings {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.5rem;
+}
+
+.star-space {
+    margin-right: 0.5rem;
+}

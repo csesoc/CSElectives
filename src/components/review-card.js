@@ -18,8 +18,17 @@ const ReviewCard = (props) => {
               <Grid.Column>
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta>
-                  Overall:
-                  <Rating icon='star' rating={overallRating} maxRating={5} disabled />
+                  <div className='star-ratings'>
+                    <span>
+                      Overall:
+                    </span>
+                    <ReviewRating
+                      rating={overallRating}
+                      icon='star'
+                      size='standard'
+                      palette='blue'
+                    />
+                  </div>
                   <div>
                     Term taken: {termTaken}
                   </div>
@@ -41,6 +50,7 @@ const ReviewCard = (props) => {
                       rating={usefulProgress}
                       icon='circle'
                       size='small'
+                      palette='trafficlight'
                     />
                   </div>
                   <div className='review-ratings'>
@@ -49,6 +59,7 @@ const ReviewCard = (props) => {
                       rating={workloadProgress}
                       icon='circle'
                       size='small'
+                      palette='trafficlight'
                     />
                   </div>
                   <div className='review-ratings'>
@@ -57,6 +68,7 @@ const ReviewCard = (props) => {
                       rating={enjoymentProgress}
                       icon='circle'
                       size='small'
+                      palette='trafficlight'
                     />
                   </div>
                 </div>
