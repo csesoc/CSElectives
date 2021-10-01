@@ -1,17 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Grid } from 'semantic-ui-react';
-import ReviewCard from '../components/review-card.js';
-import SummaryCard from '../components/summary-card.js';
+import { Grid, Button, Icon } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import scrollToElement from 'scroll-to-element';
+
+import ReviewCard from '../components/review-card.js';
+import SummaryCard from '../components/summary-card.js';
 import RatingsCard from '../components/review-card-ratings-only.js';
-import '../styles/course-page.css';
 import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
 import ReviewPage from '../pages/review-page.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
+import '../styles/course-page.css';
 
 
 const CoursePage = (props) => {
@@ -167,6 +169,19 @@ const CoursePage = (props) => {
 
   return (
     <>
+      <div className='scroll-button-container'>
+        <Icon
+          name='chevron circle up'
+          size='huge'
+          className='scroll-up-button'
+          onClick={
+            () => scrollToElement('#root', {
+              ease: 'in-out-cube',
+              duration: 1000,
+            })
+          }
+        />
+      </div>
       <Banner courseCode={course.courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
