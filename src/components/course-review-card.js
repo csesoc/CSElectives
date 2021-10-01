@@ -28,6 +28,7 @@ const CourseReviewCard = (props) => {
                 rating={overallRating}
                 icon='star'
                 size='large'
+                palette='trafficlight'
               />
               <Card.Meta> {numReviews} reviews </Card.Meta>
             </div>
