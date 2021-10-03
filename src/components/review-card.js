@@ -26,7 +26,7 @@ const ReviewCard = (props) => {
                       rating={overallRating}
                       icon='star'
                       size='standard'
-                      palette='blue'
+                      palette='csesoc'
                     />
                   </div>
                   <div>
