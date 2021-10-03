@@ -58,12 +58,13 @@
 }
 
 .course-banner {
-    background: url("../assets/bluebanner.png");
+    /* background: url("../assets/bluebanner.png"); */
     height: 100%;
-    background-position: center;
+    /* background: linear-gradient(45deg, var(--primary), var(--primary-light)); */
+    /* background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    position: relative;
+    position: relative; */
 }
 
 .review-cards {

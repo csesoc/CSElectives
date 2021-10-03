@@ -54,19 +54,107 @@
   src: url('../assets/fonts/raleway-bold.ttf');
 }
 
+@font-face {
+  font-family: 'epilogue';
+  src: url('../assets/fonts/Epilogue-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('../assets/fonts/Inter-VariableFont_slnt,wght.ttf');
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'rubik';
+  src: url('../assets/fonts/Rubik-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'nun';
+  src: url('../assets/fonts/NunitoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'mons';
+  src: url('../assets/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'jose';
+  src: url('../assets/fonts/JosefinSans-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'sora';
+  src: url('../assets/fonts/Sora-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'clancy';
+  src: url('../assets/fonts/Clancy-Bold.otf');
+}
+
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 main {
   position: relative;
 }
 
+body, main,
+.ui.button,
+.ui.text.container,
+.ui.input > input,
+.ui.list .list > .item .header,
+.ui.list > .item .header,
+.ui.steps .step .title,
+.ui.form input:not([type]),
+.ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="file"],
+.ui.form input[type="url"],
+.ui.menu,
+.ui.message .header,
+.ui.cards > .card > .content > .header,
+.ui.card > .content > .header,
+.ui.items > .item > .content > .header,
+.ui.statistics .statistic > .value,
+.ui.statistic > .value,
+.ui.statistics .statistic > .label,
+.ui.statistic > .label,
+.ui.accordion .title:not(.ui),
+.ui.modal > .header,
+.ui.popup > .header,
+.ui.search > .results .result .title,
+.ui.search > .results > .message .header {
+  font-family: rubik;
+}
+
+.ui.header {
+  font-family: clancy;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+    
 }
 
 .grid-row {
