@@ -1,8 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
+import { useLocation } from 'react-router-dom';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
