@@ -141,7 +141,6 @@ footer {
 
 .course-review-card {
   display: flex;
-  align-items: center;
   min-height: 230px;
   min-width: 343px;
   height: 100%;
