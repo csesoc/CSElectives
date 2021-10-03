@@ -45,53 +45,8 @@
 }
 
 @font-face {
-  font-family: 'raleway';
-  src: url('../assets/fonts/raleway-variable.ttf');
-}
-
-@font-face {
-  font-family: 'raleway-bold';
-  src: url('../assets/fonts/raleway-bold.ttf');
-}
-
-@font-face {
-  font-family: 'epilogue';
-  src: url('../assets/fonts/Epilogue-VariableFont_wght.ttf');
-}
-
-@font-face {
-  font-family: 'inter';
-  src: url('../assets/fonts/Inter-VariableFont_slnt,wght.ttf');
-}
-
-@font-face {
-  font-family: 'roboto';
-  src: url('../assets/fonts/Roboto-Regular.ttf');
-}
-
-@font-face {
   font-family: 'rubik';
   src: url('../assets/fonts/Rubik-VariableFont_wght.ttf');
-}
-
-@font-face {
-  font-family: 'nun';
-  src: url('../assets/fonts/NunitoSans-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'mons';
-  src: url('../assets/fonts/Montserrat-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'jose';
-  src: url('../assets/fonts/JosefinSans-VariableFont_wght.ttf');
-}
-
-@font-face {
-  font-family: 'sora';
-  src: url('../assets/fonts/Sora-VariableFont_wght.ttf');
 }
 
 @font-face {
@@ -154,7 +109,6 @@ body, main,
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-    
 }
 
 .grid-row {
