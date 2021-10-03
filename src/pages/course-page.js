@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Placeholder, Segment } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory, useParams } from 'react-router-dom';
@@ -12,6 +12,7 @@ import ReviewPage from '../pages/review-page.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
+import PlaceHolder from '../components/course-review/placeholder-summary.js';
 
 
 const CoursePage = (props) => {
@@ -162,29 +163,34 @@ const CoursePage = (props) => {
     );
   };
 
-  if (loading) return <span>loading...</span>;
-  if (!course) return <NotFoundPage />;
+  // if (loading) return <PlaceHolder />;
+  // if (!course) return <NotFoundPage />;
 
   return (
     <>
-      <Banner courseCode={course.courseCode} />
+      <Banner courseCode={courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
           <div className='summary-card'>
-            <SummaryCard
-              summaryTitle={getSummaryTitle()}
-              summaryLink={getLink()}
-              courseCode={courseCode}
-              overallRating={getAverage('overall')}
-              numReviews={course.reviews.length}
-              summaryDesc={course.description}
-              usefulAvg={getAverage('usefulness')}
-              workloadAvg={getAverage('workload')}
-              difficultyAvg={getAverage('difficulty')}
-              enjoymentAvg={getAverage('enjoyment')}
-              tags={getTags()}
-            />
-            <ReviewPage courseCode={course.courseCode} />
+            {loading
+              ? <PlaceHolder />
+              : (
+                <SummaryCard
+                  summaryTitle={getSummaryTitle()}
+                  summaryLink={getLink()}
+                  courseCode={courseCode}
+                  overallRating={getAverage('overall')}
+                  numReviews={course.reviews.length}
+                  summaryDesc={course.description}
+                  usefulAvg={getAverage('usefulness')}
+                  workloadAvg={getAverage('workload')}
+                  difficultyAvg={getAverage('difficulty')}
+                  enjoymentAvg={getAverage('enjoyment')}
+                  tags={getTags()}
+                />
+              )
+            }
+            <ReviewPage courseCode={courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>
@@ -192,9 +198,8 @@ const CoursePage = (props) => {
             sortOptions={sortOptions}
             handleSortChange={handleSortChange}
             handleClick={handleClick}
-            course={course}
           />
-          {checkEmptyState()}
+          {loading ? <PlaceHolder /> : checkEmptyState()}
         </Grid.Column>
       </Grid>
     </>
