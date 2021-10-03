@@ -174,7 +174,7 @@ const HomePage = (props) => {
 
         {/* Code, name and desc hardcoded for testing purposes */}
         {loading ? <span>loading...</span> : (
-          <Grid centered stackable doubling columns={3}>
+          <Grid centered stackable doubling container columns='equal'>
             <CardGrid courses={courses} />
           </Grid>
         )}

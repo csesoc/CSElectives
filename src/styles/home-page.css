@@ -48,7 +48,8 @@
 
 .card-container { 
   display: flex; 
-  align-items: stretch; 
+  align-items: 'center';
+  justify-content: 'center';
 }
 
 .card-contents-container {
@@ -193,4 +194,5 @@
 
 #search-section {
   padding-top: 2rem;
+  text-align: center;
 }
