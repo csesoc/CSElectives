@@ -142,7 +142,9 @@ footer {
 .course-review-card {
   display: flex;
   min-height: 230px;
-  min-width: 325px;
+  min-width: 343px;
+  height: 100%;
+  width: 100%;
 }
 
 .course-page-tags {
