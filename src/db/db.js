@@ -138,7 +138,7 @@ class Database {
     } catch (error) {
       if (error.code == AuthErrorCodes.USER_DELETED) {
         // User not found, so create account and sign in
-        const userCredential = await createUserWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zpass);
+        const userCredential = await createUserWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zid);
         updateProfile(userCredential.user, {
           displayName,
         });
