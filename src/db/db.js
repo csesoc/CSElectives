@@ -134,7 +134,7 @@ class Database {
   async login(zid, zpass, displayName) {
     // TODO ELEC-199: handle password changes from myunsw
     try {
-      await signInWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zpass);
+      await signInWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zid);
     } catch (error) {
       if (error.code == AuthErrorCodes.USER_DELETED) {
         // User not found, so create account and sign in
