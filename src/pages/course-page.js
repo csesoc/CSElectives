@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Placeholder, Segment } from 'semantic-ui-react';
+import { Grid, Placeholder, Segment, Button, Icon } from 'semantic-ui-react';
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import scrollToElement from 'scroll-to-element';
 import RatingsCard from '../components/review-card-ratings-only.js';
-import '../styles/course-page.css';
 import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
 import ReviewPage from '../pages/review-page.js';
@@ -13,6 +13,7 @@ import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
 import PlaceHolder from '../components/course-review/placeholder-summary.js';
+import '../styles/course-page.css';
 
 
 const CoursePage = (props) => {
@@ -78,7 +79,7 @@ const CoursePage = (props) => {
   };
 
   const getSummaryTitle = () => {
-    return `${course.courseCode} - ${course.title}`;
+    return `${courseCode} - ${course.title}`;
   };
 
   const getReviewDate = (review) => {
@@ -168,6 +169,19 @@ const CoursePage = (props) => {
 
   return (
     <>
+      <div className='scroll-button-container'>
+        <Icon
+          name='chevron circle up'
+          size='huge'
+          className='scroll-up-button'
+          onClick={
+            () => scrollToElement('#root', {
+              ease: 'in-out-cube',
+              duration: 1000,
+            })
+          }
+        />
+      </div>
       <Banner courseCode={courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
