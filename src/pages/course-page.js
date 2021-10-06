@@ -1,18 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Placeholder, Segment, Button, Icon } from 'semantic-ui-react';
-import ReviewCard from '../components/review-card.js';
-import SummaryCard from '../components/summary-card.js';
+import { Grid, Icon } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
+import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
 import scrollToElement from 'scroll-to-element';
+
+import ReviewCard from '../components/review-card.js';
+import SummaryCard from '../components/summary-card.js';
 import RatingsCard from '../components/review-card-ratings-only.js';
-import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
 import ReviewPage from '../pages/review-page.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
-import PlaceHolder from '../components/course-review/placeholder-summary.js';
+import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
+import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
+
 import '../styles/course-page.css';
 
 
@@ -187,7 +190,7 @@ const CoursePage = (props) => {
         <Grid.Column width={7}>
           <div className='summary-card'>
             {loading
-              ? <PlaceHolder />
+              ? <PlaceHolderSummary />
               : (
                 <SummaryCard
                   summaryTitle={getSummaryTitle()}
@@ -213,7 +216,7 @@ const CoursePage = (props) => {
             handleSortChange={handleSortChange}
             handleClick={handleClick}
           />
-          {loading ? <PlaceHolder /> : checkEmptyState()}
+          {loading ? <PlaceHolderReview /> : checkEmptyState() }
         </Grid.Column>
       </Grid>
     </>

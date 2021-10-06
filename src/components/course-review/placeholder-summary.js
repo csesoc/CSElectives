@@ -11,8 +11,8 @@ const PlaceHolderSummary = () => {
             <Placeholder.Image />
           </Placeholder.Header>
           <Placeholder.Paragraph>
-            <Placeholder.Line length='short' />
             <Placeholder.Line length='long' />
+            <Placeholder.Line length='very long' />
             <Placeholder.Line length='medium' />
           </Placeholder.Paragraph>
         </Placeholder>
@@ -35,7 +35,15 @@ const PlaceHolderSummary = () => {
             </Grid.Column>
           </Grid>
         </div>
-
+        <Placeholder>
+          <Placeholder.Paragraph>
+            <Placeholder.Line length='long' />
+            <Placeholder.Line length='medium' />
+            <Placeholder.Line length='very long' />
+            <Placeholder.Line length='medium' />
+            <Placeholder.Line length='long' />
+          </Placeholder.Paragraph>
+        </Placeholder>
       </div>
 
     </>
