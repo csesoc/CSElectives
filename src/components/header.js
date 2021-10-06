@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Container, Image, Menu, Dropdown } from 'semantic-ui-react';
+import { Container, Image, Menu, Dropdown } from 'semantic-ui-react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import LoginModal from './login-modal/login-modal.js';
 import Logo from '../assets/logo.svg';
 
 // This header will appear on all pages
@@ -31,7 +32,7 @@ const Header = (props) => {
   };
 
   return (
-    <Menu pointing secondary>
+    <Menu secondary>
       <Container>
         <Menu.Item
           as={Link}
@@ -43,12 +44,12 @@ const Header = (props) => {
         </Menu.Item>
         <Menu.Item
           as={Link}
-          to="/review"
-          name='review'
-          active={activeItem === 'review'}
+          to="/feedback"
+          name='feedback'
+          active={activeItem === 'feedback'}
           onClick={handleItemClick}
         >
-          Submit a review
+          Review the Dev Team
         </Menu.Item>
         <Menu.Item
           position='right'
@@ -67,13 +68,8 @@ const Header = (props) => {
           )
           }
         </Menu.Item>
-        <Menu.Item
-          as={Link}
-          to="/login"
-          name='login'
-          onClick={handleItemClick}
-        >
-          <Button primary>Log In</Button>
+        <Menu.Item>
+          <LoginModal />
         </Menu.Item>
       </Container>
     </Menu>

@@ -1,13 +1,22 @@
 import { initializeApp } from 'firebase/app';
+import {
+  getAuth,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  AuthErrorCodes,
+  updateProfile,
+} from 'firebase/auth';
+
 import { getDocs, getFirestore, collection, addDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore/lite';
 
 import FirebaseConfig from '../assets/firebase-config.json';
 
-// NOTE: Courses and reviews have been separated to support an easier transition
-// for lazy loading in the future
-
 /**
  * Class responsible for reading and writing to Firestore database.
+ *
+ * NOTE: Courses and reviews have been separated to support an easier transition
+ * for lazy loading in the future
  */
 class Database {
   /**
@@ -16,6 +25,7 @@ class Database {
    */
   constructor(firebaseConfig) {
     this.db = getFirestore(initializeApp(firebaseConfig));
+    this.auth = getAuth();
   }
 
   /**
@@ -113,6 +123,36 @@ class Database {
     });
 
     return docRef.id;
+  }
+
+  /**
+   * Logs user in. If user has never logged into CSElectives before, will create new account
+   * @param {string} zid the user's zID
+   * @param {string} zpass the user's password
+   * @param {string} displayName the user's display name
+   */
+  async login(zid, zpass, displayName) {
+    // TODO ELEC-199: handle password changes from myunsw
+    try {
+      await signInWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zpass);
+    } catch (error) {
+      if (error.code == AuthErrorCodes.USER_DELETED) {
+        // User not found, so create account and sign in
+        const userCredential = await createUserWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zpass);
+        updateProfile(userCredential.user, {
+          displayName,
+        });
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  /**
+   * Signs the current user out
+   */
+  async signOut() {
+    signOut(this.auth);
   }
 }
 

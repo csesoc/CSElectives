@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Header, Button, Icon } from 'semantic-ui-react';
+import { Form, Button, Icon, Modal, Image, Header } from 'semantic-ui-react';
 
 import Database from '../db/db.js';
 
 import '../styles/review-page.css';
 import CourseRatings from '../components/review-form/course-ratings';
-import CourseSelect from '../components/review-form/course-select';
 import AnonChoice from '../components/review-form/anon-choice';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
 
 const ReviewPage = (props) => {
-  const { courses } = props;
+  const { courseCode } = props;
 
   const [overall, setOverall] = useState(0);
-  const [difficulty, setDifficulty] = useState(0);
   const [enjoyment, setEnjoyment] = useState(0);
   const [usefulness, setUsefulness] = useState(0);
   const [workload, setWorkload] = useState(0);
@@ -25,93 +23,116 @@ const ReviewPage = (props) => {
   const [title, setTitle] = useState('');
   const [comment, setComment] = useState('');
   const [termTaken, setTermTaken] = useState('');
-  const [course, setCourse] = useState('');
 
-  const rating = {
-    enjoyment,
-    overall,
-    workload,
-    difficulty,
-    usefulness,
-  };
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = async () =>{
     const review = {
       author: 'anonymous',
       title,
       comment,
-      courseCode: course,
+      courseCode: courseCode,
       displayAuthor: anonymity,
-      rating,
+      rating: {
+        enjoyment,
+        overall,
+        workload,
+        usefulness,
+      },
       recommendedCourses: [],
       termTaken,
-      timestamp: Date.now() };
-    console.log(review);
+      timestamp: Date.now(),
+    };
 
-    const reviewId = await Database.addReview(review);
-    console.log(reviewId);
+    await Database.addReview(review);
+
+    location.reload();
   };
 
   return (
-    <>
-      <Header as='h1'>Submit Review Page</Header>
-      <p>Please write your review here: make sure you have read the terms and conditions
-        before posting. Feel free to include your overall experience with the course,
-        how you found the assessments/workload and anything else you wanted to share!
-      </p>
-      <p><span className='required'>* Required</span></p>
-
-      <Form>
-        <CourseRatings
-          overall={overall}
-          setOverall={setOverall}
-          difficulty={difficulty}
-          setDifficulty={setDifficulty}
-          enjoyment={enjoyment}
-          setEnjoyment={setEnjoyment}
-          usefulness={usefulness}
-          setUsefulness={setUsefulness}
-          workload={workload}
-          setWorkload={setWorkload}
-        />
-
-        <CourseSelect courses={courses} course={course} setCourse={setCourse} />
-        <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
-        <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
-
-        <ReviewTextArea
-          title={title}
-          setTitle={setTitle}
-          comment={comment}
-          setComment={setComment}
-        />
-
-        <Button
-          color='green'
-          animated='fade'
-          type='submit'
-          disabled={!termTaken
-                 || !overall
-                 || !difficulty
-                 || !enjoyment
-                 || !usefulness
-                 || !workload
-                 || !course
-                 || (comment && !title)
-                 || (title && !comment)
-          }
-          onClick={handleSubmit}
-        >
-          <Button.Content visible><Icon name='angle double right' /></Button.Content>
-          <Button.Content hidden>Submit</Button.Content>
-        </Button>
-      </Form>
-    </>
+    <Modal
+      closeIcon
+      open={open}
+      trigger={<Button>Submit a review</Button>}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+    >
+      <Modal.Header>Submit a review</Modal.Header>
+      <Modal.Content className='review-modal'>
+        <p>Please write your review here: make sure you have read the terms and conditions
+          before posting. Feel free to include your overall experience with the course,
+          how you found the assessments/workload and anything else you wanted to share!
+        </p>
+        <p><span className='required'>* Required</span></p>
+        <Form>
+          <CourseRatings
+            overall={overall}
+            setOverall={setOverall}
+            enjoyment={enjoyment}
+            setEnjoyment={setEnjoyment}
+            usefulness={usefulness}
+            setUsefulness={setUsefulness}
+            workload={workload}
+            setWorkload={setWorkload}
+          />
+          <Form.Group>
+            <div className='review-form'>
+              <div className='review-anon-text'>
+                <label>Would you like to remain anonymous?<span className='required'> *</span></label>
+              </div>
+              <div className='review-anon-radio'>
+                <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
+              </div>
+              <div className='review-term-text'>
+                <label>When did you complete the course?<span className='required'> *</span></label>
+              </div>
+              <div className='review-term-dropdown'>
+                <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
+              </div>
+              <div className='review-text-text'>
+                <label>Write your review here!
+                  <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
+                </label>
+              </div>
+              <div>
+                <div className='review-text-input'>
+                  <ReviewTextArea
+                    title={title}
+                    setTitle={setTitle}
+                    comment={comment}
+                    setComment={setComment}
+                  />
+                </div>
+              </div>
+            </div>
+          </Form.Group>
+          <div className='review-button'>
+            <Button
+              color='green'
+              animated='fade'
+              type='submit'
+              disabled={!termTaken
+                    || !overall
+                    || !enjoyment
+                    || !usefulness
+                    || !workload
+                    || (comment && !title)
+                    || (title && !comment)
+              }
+              onClick={handleSubmit}
+            >
+              <Button.Content visible><Icon name='angle double right' /></Button.Content>
+              <Button.Content hidden>Submit</Button.Content>
+            </Button>
+          </div>
+        </Form>
+      </Modal.Content>
+    </Modal>
   );
 };
 
 ReviewPage.propTypes = {
-  courses: PropTypes.object,
+  courseCode: PropTypes.string,
 };
 
 export default ReviewPage;

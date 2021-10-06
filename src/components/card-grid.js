@@ -14,6 +14,20 @@ const CardGrid = (props) => {
     });
   };
 
+  const getOverallRating = (course) => {
+    let total = 0;
+    let count = 0;
+    course.reviews.forEach((review) => {
+      total += review.rating['overall'];
+      count++;
+    });
+    if (count === 0) {
+      return 0;
+    }
+    const roundedAverage = Math.round(total / count * 10) / 10;
+    return roundedAverage;
+  };
+
   const sortedCourses = sortMostReviewed();
   const gridArray = [];
   const colSize = 3;
@@ -25,12 +39,14 @@ const CardGrid = (props) => {
     return (
       <Grid.Row key={index} stretched>
         {row.map((course) => (
-          <Grid.Column key={course.id} width={5}>
+          <Grid.Column key={course.id} columns='equal'>
             <CourseReviewCard
               code={course.courseCode}
               name={course.title}
-              desc={course.description}
               numReviews={course.reviews.length}
+              overallRating={getOverallRating(course)}
+              studyLevel={course.studyLevel}
+              terms={course.terms}
             />
           </Grid.Column>))}
       </Grid.Row>

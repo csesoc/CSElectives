@@ -1,23 +1,58 @@
-.ratingCategory {
-    align-items: center;
-    text-align: center;
-    margin: 3rem;
-}
-
-.ratingTitle {
-    margin-bottom: 1rem;
-}
-
 .required {
     color: red;
 }
 
-.ratingStyle {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.overall-rating {
+    text-align: center;
+    margin-right: 10rem;
 }
 
 .easterEgg{
     color: white;
+}
+
+.question-spacing {
+    line-height: 295%;
+}
+
+.review-form {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows:3.5rem 3.5rem 3.5rem 3.5rem;
+    width: 100%;
+    margin: 2rem;
+}
+
+.review-anon-text {
+    grid-column-start: 1
+}
+
+.review-anon-radio {
+    grid-column-start: 2;
+}
+
+.review-term-text {
+    grid-row-start: 2;
+    padding-top: 0.5rem;
+}
+
+.review-term-dropdown {
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+.review-text-text {
+    grid-row-start: 3;
+    grid-column-start: 1;
+}
+
+.review-text-input {
+    grid-row-start: 3;
+    grid-column-start: 2;
+}
+
+.review-button {
+    text-align: right;
+    margin-top: 5rem;
+    margin-right: 1.3rem;
 }

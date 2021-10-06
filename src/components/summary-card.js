@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Grid, Progress, Rating, Icon } from 'semantic-ui-react';
+import { Header, Grid, Progress, Rating, Icon, Card } from 'semantic-ui-react';
 import Tags from '../components/tags.js';
 import '../styles/course-page.css';
+import { getQueriesForElement } from '@testing-library/dom';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, courseCode, overallRating, numReviews, summaryDesc,
@@ -17,7 +18,7 @@ const SummaryCard = (props) => {
     );
   };
   return (
-    <div className='summary-card'>
+    <div>
       <Grid>
         <Grid.Row className='grid-top'>
           <div className='my-course-page-tags'>
@@ -34,54 +35,30 @@ const SummaryCard = (props) => {
             {numReviews} Reviews
           </div>
         </Grid.Row>
-        <Grid.Row className='grid-row'>
-          <div className='summary-stats'>
-            <span>
-              Usefulness
-            </span>
-            <Progress
-              className='bar-chart'
-              color='blue'
-              value={usefulAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
-            />
-            <span>
-              Workload
-            </span>
-            <Progress
-              className='bar-chart'
-              color='blue'
-              value={workloadAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
-            />
-            <span>
-              Enjoyment
-            </span>
-            <Progress
-              className='bar-chart'
-              color='blue'
-              value={enjoymentAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
-            />
-            <span>
-              Difficulty
-            </span>
-            <Progress
-              className='bar-chart'
-              color='blue'
-              value={difficultyAvg}
-              total='5'
-              progress='ratio'
-              size='standard'
-            />
-          </div>
+        <Grid.Row className='barchart-row' columns={3}>
+          <Grid.Column width={5}>
+            <div className='category-container'>
+              Usefulness <br />
+              <div className='category-rating'>{usefulAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
+          </Grid.Column>
+          <Grid.Column width={6}>
+            <div className='category-container'>
+              Workload <br />
+              <div className='category-rating'>{workloadAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
+          </Grid.Column>
+          <Grid.Column width={5}>
+            <div className='category-container'>
+              Enjoyment <br />
+              <div className='category-rating'>{enjoymentAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
+          </Grid.Column>
         </Grid.Row>
+
         <Grid.Row className='grid-bottom'>
           {summaryDesc}
         </Grid.Row>
