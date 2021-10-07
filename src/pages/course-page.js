@@ -9,7 +9,7 @@ import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import RatingsCard from '../components/review-card-ratings-only.js';
 import NotFoundPage from '../pages/not-found-page.js';
-import ReviewPage from '../pages/review-page.js';
+import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
@@ -189,25 +189,20 @@ const CoursePage = (props) => {
       <Grid stackable>
         <Grid.Column width={7}>
           <div className='summary-card'>
-            {loading
-              ? <PlaceHolderSummary />
-              : (
-                <SummaryCard
-                  summaryTitle={getSummaryTitle()}
-                  summaryLink={getLink()}
-                  courseCode={courseCode}
-                  overallRating={getAverage('overall')}
-                  numReviews={course.reviews.length}
-                  summaryDesc={course.description}
-                  usefulAvg={getAverage('usefulness')}
-                  workloadAvg={getAverage('workload')}
-                  difficultyAvg={getAverage('difficulty')}
-                  enjoymentAvg={getAverage('enjoyment')}
-                  tags={getTags()}
-                />
-              )
-            }
-            <ReviewPage courseCode={courseCode} />
+            <SummaryCard
+              summaryTitle={getSummaryTitle()}
+              summaryLink={getLink()}
+              courseCode={courseCode}
+              overallRating={getAverage('overall')}
+              numReviews={course.reviews.length}
+              summaryDesc={course.description}
+              usefulAvg={getAverage('usefulness')}
+              workloadAvg={getAverage('workload')}
+              difficultyAvg={getAverage('difficulty')}
+              enjoymentAvg={getAverage('enjoyment')}
+              tags={getTags()}
+            />
+            <ReviewModal courseCode={course.courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>
