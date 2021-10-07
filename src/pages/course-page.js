@@ -8,7 +8,7 @@ import RatingsCard from '../components/review-card-ratings-only.js';
 import '../styles/course-page.css';
 import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
-import ReviewPage from '../pages/review-page.js';
+import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
@@ -184,7 +184,7 @@ const CoursePage = (props) => {
               enjoymentAvg={getAverage('enjoyment')}
               tags={getTags()}
             />
-            <ReviewPage courseCode={course.courseCode} />
+            <ReviewModal courseCode={course.courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>

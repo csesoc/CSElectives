@@ -24,35 +24,51 @@
 }
 
 .review-anon-text {
-    grid-column-start: 1
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .review-anon-radio {
-    grid-column-start: 2;
+
 }
 
 .review-term-text {
-    grid-row-start: 2;
-    padding-top: 0.5rem;
+
+    padding-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .review-term-dropdown {
-    grid-row-start: 2;
-    grid-column-start: 2;
+
+
 }
 
 .review-text-text {
-    grid-row-start: 3;
-    grid-column-start: 1;
+    margin-bottom: 1rem;
 }
 
 .review-text-input {
-    grid-row-start: 3;
-    grid-column-start: 2;
+
 }
 
 .review-button {
     text-align: right;
-    margin-top: 5rem;
-    margin-right: 1.3rem;
+    margin-top: 2rem;
+    /* margin-right: 1rem; */
+}
+
+.course-ratings {
+    flex-grow: 1;
+}
+
+.review-form-left {
+    flex-grow: 1;
+    margin-left: 3rem;
+}
+
+.review-modal {
+    padding-top: 1.125rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 1.125rem;
 }
