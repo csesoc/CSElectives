@@ -12,6 +12,7 @@ import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';
 import FeedbackPage from './pages/feedback-page.js';
 import NotFoundPage from './pages/not-found-page.js';
+import GoToTop from './components/go-to-top.js';
 
 export const LoadingContext = createContext(true);
 export const UserContext = createContext(null);
@@ -37,6 +38,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <GoToTop />
       <LoadingContext.Provider value={loading}>
         <UserContext.Provider value={user}>
           <div className='display-wrapper'>

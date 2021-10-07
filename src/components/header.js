@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Container, Image, Menu, Dropdown, Modal, Form } from 'semantic-ui-react';
+import { Container, Image, Menu, Dropdown } from 'semantic-ui-react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import LoginModal from './login-modal/login-modal.js';
 import Logo from '../assets/logo.svg';
 
 // This header will appear on all pages
@@ -10,7 +11,6 @@ const Header = (props) => {
   const [activeItem, setActiveItem] = useState('home');
   const { courses } = props;
   const history = useHistory();
-  const [open, setOpen] = useState(false);
 
   const dropdownOptionFunc = (course) => {
     return {
@@ -69,32 +69,7 @@ const Header = (props) => {
           }
         </Menu.Item>
         <Menu.Item>
-          <Modal
-            closeIcon
-            onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-            open={open}
-            size='tiny'
-            trigger={<Button primary>Log In</Button>}
-          >
-            <Modal.Header>Log In</Modal.Header>
-            <Modal.Content>
-              <Modal.Description>
-                <p> Please login with the same credentials as your UNSW account</p>
-                <Form id="theform">
-                  <Form.Input label='zID' placeholder='zID' />
-                  <Form.Input label='Password' type='password' placeholder='Password' />
-                  <Button
-                    type="submit"
-                    form="theform"
-                    onClick={() => setOpen(false)}
-                  >
-                    Login
-                  </Button>
-                </Form>
-              </Modal.Description>
-            </Modal.Content>
-          </Modal>
+          <LoginModal />
         </Menu.Item>
       </Container>
     </Menu>

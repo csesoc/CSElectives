@@ -2,6 +2,7 @@
   --csesoc-blue: #3a76f8;
   --csesoc-navy: #40404c;
   --csesoc-white: #ffffff;
+  --csesoc-black: #303030;
 
   --major-tags: #B2F7EF;
   --term-tags: #F7D6E0;
@@ -16,6 +17,8 @@
   --secondary: #9A4BFF;
   --secondary-light: #D9BBFF;
   --secondary-dark: #902ECC;
+
+  --tertiary: #adddff;
 
   /* Traffic lights */
   --pink: #F3478F;
@@ -139,7 +142,9 @@ footer {
 .course-review-card {
   display: flex;
   min-height: 230px;
-  min-width: 325px;
+  min-width: 343px;
+  height: 100%;
+  width: 100%;
 }
 
 .course-page-tags {

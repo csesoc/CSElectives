@@ -23,6 +23,7 @@ const CourseRatings = (props) => {
               rating={overall}
               icon='star'
               size='big'
+              palette='csesoc'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
@@ -40,6 +41,7 @@ const CourseRatings = (props) => {
               rating={enjoyment}
               icon='circle'
               size='standard'
+              palette='trafficlight'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
@@ -55,6 +57,7 @@ const CourseRatings = (props) => {
               rating={usefulness}
               icon='circle'
               size='standard'
+              palette='trafficlight'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
@@ -70,6 +73,7 @@ const CourseRatings = (props) => {
               rating={workload}
               icon='circle'
               size='standard'
+              palette='trafficlight'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}

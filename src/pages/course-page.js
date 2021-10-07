@@ -1,17 +1,22 @@
 import React, { useContext, useState } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
+import { useHistory, useParams } from 'react-router-dom';
+import { LoadingContext } from '../App.js';
+import PropTypes from 'prop-types';
+import scrollToElement from 'scroll-to-element';
+
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import { useHistory, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import RatingsCard from '../components/review-card-ratings-only.js';
-import '../styles/course-page.css';
-import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
 import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
+import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
+import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
+
+import '../styles/course-page.css';
 
 
 const CoursePage = (props) => {
@@ -77,7 +82,7 @@ const CoursePage = (props) => {
   };
 
   const getSummaryTitle = () => {
-    return `${course.courseCode} - ${course.title}`;
+    return `${courseCode} - ${course.title}`;
   };
 
   const getReviewDate = (review) => {
@@ -162,12 +167,25 @@ const CoursePage = (props) => {
     );
   };
 
-  if (loading) return <span>loading...</span>;
-  if (!course) return <NotFoundPage />;
+  // if (loading) return <PlaceHolder />;
+  // if (!course) return <NotFoundPage />;
 
   return (
     <>
-      <Banner courseCode={course.courseCode} />
+      <div className='scroll-button-container'>
+        <Icon
+          name='chevron circle up'
+          size='huge'
+          className='scroll-up-button'
+          onClick={
+            () => scrollToElement('#root', {
+              ease: 'in-out-cube',
+              duration: 1000,
+            })
+          }
+        />
+      </div>
+      <Banner courseCode={courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
           <div className='summary-card'>
@@ -192,9 +210,8 @@ const CoursePage = (props) => {
             sortOptions={sortOptions}
             handleSortChange={handleSortChange}
             handleClick={handleClick}
-            course={course}
           />
-          {checkEmptyState()}
+          {loading ? <PlaceHolderReview /> : checkEmptyState() }
         </Grid.Column>
       </Grid>
     </>

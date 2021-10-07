@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Header, Grid, Progress, Rating, Icon, Card } from 'semantic-ui-react';
 import Tags from '../components/tags.js';
 import '../styles/course-page.css';
+import ReviewRating from './review-rating/review-rating.js';
 import { getQueriesForElement } from '@testing-library/dom';
 
 const SummaryCard = (props) => {
@@ -31,8 +32,17 @@ const SummaryCard = (props) => {
             <a href={summaryLink} rel="noreferrer" target="_blank">
               <Icon name='external' /> {courseCode} Handbook Page
             </a> <br />
-            <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
-            {numReviews} Reviews
+            <div className='star-ratings'>
+              <span className='star-space'>
+                <ReviewRating
+                  rating={overallRating}
+                  icon='star'
+                  size='large'
+                  palette='csesoc'
+                />
+              </span>
+              {numReviews} Reviews
+            </div>
           </div>
         </Grid.Row>
         <Grid.Row className='barchart-row' columns={3}>

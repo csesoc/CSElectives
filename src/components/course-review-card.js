@@ -11,7 +11,13 @@ const CourseReviewCard = (props) => {
   const page = `course/${code}`;
   const tags = {
     level: studyLevel,
-    terms: terms.map((term) => 'Term ' + term ),
+    terms: terms.map((term) => {
+      if (term == 0) {
+        return 'Summer';
+      } else {
+        return 'Term ' + term;
+      }
+    }),
   };
 
   return (
@@ -28,6 +34,7 @@ const CourseReviewCard = (props) => {
                 rating={overallRating}
                 icon='star'
                 size='large'
+                palette='trafficlight'
               />
               <Card.Meta> {numReviews} reviews </Card.Meta>
             </div>
