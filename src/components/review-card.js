@@ -2,58 +2,77 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
-import { Grid, Card, Progress, Rating } from 'semantic-ui-react';
+import { Grid, Card, Rating } from 'semantic-ui-react';
+import ReviewRating from './review-rating/review-rating';
 
 const ReviewCard = (props) => {
   const { reviewTitle, reviewComment, usefulProgress, workloadProgress, difficultyProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
 
   return (
-    <div style={{ display: 'block', margin: '20px' }}>
+    <div className='review-cards'>
       <Card fluid raised>
         <Card.Content>
-          <Grid columns={2} divided>
-            <Grid.Row className='review-row'>
-              <Grid.Column width={11}>
+          <Grid>
+            <Grid.Row columns={2} className='review-row'>
+              <Grid.Column>
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
-                <Card.Meta style={{ margin: '5px 0' }}>
-                  Overall:
-                  <Rating icon='star' rating={overallRating} maxRating={5} disabled />
+                <Card.Meta>
+                  <div className='star-ratings'>
+                    <span>
+                      Overall:
+                    </span>
+                    <ReviewRating
+                      rating={overallRating}
+                      icon='star'
+                      size='standard'
+                      palette='csesoc'
+                    />
+                  </div>
                   <div>
                     Term taken: {termTaken}
                   </div>
                 </Card.Meta>
-                <Card.Description>{reviewComment}</Card.Description>
               </Grid.Column>
-              <Grid.Column width={5}>
+              <Grid.Column>
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
                 <Card.Meta className='reviewCardAuthor'>
                   {author}
                 </Card.Meta>
-                <div className='review-bars'>
-                  Usefulness
-                  <div>
-                    <Progress value={usefulProgress} total='5' progress='ratio' size='small' color='blue' />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row className='review-row'>
+              <Grid.Column>
+                <div className='review-ratings-container'>
+                  <div className='review-ratings'>
+                    <Card.Header>Usefulness</Card.Header>
+                    <ReviewRating
+                      rating={usefulProgress}
+                      icon='circle'
+                      size='small'
+                      palette='trafficlight'
+                    />
+                  </div>
+                  <div className='review-ratings'>
+                    <Card.Header>Workload</Card.Header>
+                    <ReviewRating
+                      rating={workloadProgress}
+                      icon='circle'
+                      size='small'
+                      palette='trafficlight'
+                    />
+                  </div>
+                  <div className='review-ratings'>
+                    <Card.Header>Enjoyment</Card.Header>
+                    <ReviewRating
+                      rating={enjoymentProgress}
+                      icon='circle'
+                      size='small'
+                      palette='trafficlight'
+                    />
                   </div>
                 </div>
-                <div className='review-bars'>
-                  Workload
-                  <div>
-                    <Progress value={workloadProgress} total='5' progress='ratio' size='small' color='blue' />
-                  </div>
-                </div>
-                <div className='review-bars'>
-                  Enjoyment
-                  <div>
-                    <Progress value={enjoymentProgress} total='5' progress='ratio' size='small' color='blue' />
-                  </div>
-                </div>
-                <div className='review-bars'>
-                  Difficulty
-                  <div>
-                    <Progress value={difficultyProgress} total='5' progress='ratio' size='small' color='blue' />
-                  </div>
-                </div>
+                <Card.Description>{reviewComment}</Card.Description>
               </Grid.Column>
             </Grid.Row>
           </Grid>

@@ -1,14 +1,23 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Dropdown, Button, Header, Icon } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
+import { useHistory, useParams } from 'react-router-dom';
+import { LoadingContext } from '../App.js';
+import PropTypes from 'prop-types';
+import scrollToElement from 'scroll-to-element';
+
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import { useHistory, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import RatingsCard from '../components/review-card-ratings-only.js';
-import '../styles/course-page.css';
-import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
-import { stringLiteral } from '@babel/types';
+import ReviewModal from '../components/review-modal.js';
+import ReviewsBar from '../components/course-review/reviews-bar.js';
+import Banner from '../components/course-review/banner.js';
+import EmptyState from '../components/course-review/empty-state.js';
+import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
+import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
+
+import '../styles/course-page.css';
+
 
 const CoursePage = (props) => {
   const { courses } = props;
@@ -62,8 +71,8 @@ const CoursePage = (props) => {
     if (count === 0) {
       return 0;
     }
-    const roundedAverage = Math.round(total / count * 10) / 10;
-    return roundedAverage;
+    const average = total / count;
+    return average.toFixed(1);
   };
 
   const year = new Date().getFullYear();
@@ -73,7 +82,7 @@ const CoursePage = (props) => {
   };
 
   const getSummaryTitle = () => {
-    return `${course.courseCode} - ${course.title}`;
+    return `${courseCode} - ${course.title}`;
   };
 
   const getReviewDate = (review) => {
@@ -92,25 +101,8 @@ const CoursePage = (props) => {
     return tagsArray;
   };
 
-  // check if review has text or not
-  // if review doesn't have text, present in a rating card
-  // if it does, present in a review card
-  const checkReview = (review) => {
-    if (!review.comment) {
-      return (
-        <>
-          <RatingsCard
-            overallRating={review.rating.overall}
-            reviewDate={getReviewDate(review)}
-            reviewTitle={review.title}
-            usefulProgress={review.rating.usefulness}
-            workloadProgress={review.rating.workload}
-            enjoymentProgress={review.rating.enjoyment}
-            difficultyProgress={review.rating.difficulty}
-          />
-        </>
-      );
-    };
+  // display review card
+  const displayReview = (review) => {
     return (
       <>
         <ReviewCard
@@ -134,14 +126,7 @@ const CoursePage = (props) => {
     if (course.reviews.length === 0) {
       return (
         <>
-          <div className='no-reviews'>
-            <Header>No reviews yet!</Header>
-            <Button animated onClick={handleClickHome} size='big' color='blue' basic>
-              <Button.Content visible> Check out more courses</Button.Content>
-              <Button.Content hidden><Icon name='space shuttle' /></Button.Content>
-            </Button>
-          </div>
-
+          <EmptyState handleClickHome={handleClickHome} />
         </>
       );
     }
@@ -172,34 +157,38 @@ const CoursePage = (props) => {
           return b.timestamp - a.timestamp;
         }).map((review, i) => {
           return (
-            <div key={i} className="card-displayer">
-              {checkReview(review)}
+            <div key={i} className='reviews'>
+              {displayReview(review)}
             </div>
           );
         })}
+
       </>
     );
   };
 
-  if (loading) return <span>loading...</span>;
-  if (!course) return <NotFoundPage />;
+  // if (loading) return <PlaceHolder />;
+  // if (!course) return <NotFoundPage />;
 
   return (
     <>
-      <div className='course-banner'>
-        <Header
-          as='h1'
-          style={{ padding: '20', textAlign: 'center', margin: '40', fontSize: '80px',
-            color: 'black' }}
-          className='course-banner'
-        >
-          {course.courseCode}
-        </Header>
+      <div className='scroll-button-container'>
+        <Icon
+          name='chevron circle up'
+          size='huge'
+          className='scroll-up-button'
+          onClick={
+            () => scrollToElement('#root', {
+              ease: 'in-out-cube',
+              duration: 1000,
+            })
+          }
+        />
       </div>
-
-      <div>
-        <Grid stackable>
-          <Grid.Column width={7} floated='left'>
+      <Banner courseCode={courseCode} />
+      <Grid stackable>
+        <Grid.Column width={7}>
+          <div className='summary-card'>
             <SummaryCard
               summaryTitle={getSummaryTitle()}
               summaryLink={getLink()}
@@ -213,36 +202,18 @@ const CoursePage = (props) => {
               enjoymentAvg={getAverage('enjoyment')}
               tags={getTags()}
             />
-          </Grid.Column>
-          <Grid.Column width={9} floated='right'>
-            <Grid columns={3}>
-              <Grid.Row>
-                <div className='review-heading'>
-                  <div>
-                    <Header as='h2'>
-                      Reviews
-                    </Header>
-                  </div>
-                  <div className='dropdown-reviews'>
-                    <Dropdown
-                      placeholder='Sort by'
-                      selection
-                      options={sortOptions}
-                      onChange={handleSortChange}
-                    />
-                  </div>
-                  <div>
-                    <Button onClick={handleClick} className='review-button'>
-                      Submit a review
-                    </Button>
-                  </div>
-                </div>
-              </Grid.Row>
-            </Grid>
-            {checkEmptyState()}
-          </Grid.Column>
-        </Grid>
-      </div>
+            <ReviewModal courseCode={course.courseCode} />
+          </div>
+        </Grid.Column>
+        <Grid.Column width={9}>
+          <ReviewsBar
+            sortOptions={sortOptions}
+            handleSortChange={handleSortChange}
+            handleClick={handleClick}
+          />
+          {loading ? <PlaceHolderReview /> : checkEmptyState() }
+        </Grid.Column>
+      </Grid>
     </>
   );
 };

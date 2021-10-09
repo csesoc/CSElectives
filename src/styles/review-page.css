@@ -1,23 +1,74 @@
-.ratingCategory {
-    align-items: center;
-    text-align: center;
-    margin: 3rem;
-}
-
-.ratingTitle {
-    margin-bottom: 1rem;
-}
-
 .required {
     color: red;
 }
 
-.ratingStyle {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.overall-rating {
+    text-align: center;
+    margin-right: 10rem;
 }
 
 .easterEgg{
     color: white;
+}
+
+.question-spacing {
+    line-height: 295%;
+}
+
+.review-form {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows:3.5rem 3.5rem 3.5rem 3.5rem;
+    width: 100%;
+    margin: 2rem;
+}
+
+.review-anon-text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-anon-radio {
+
+}
+
+.review-term-text {
+
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-term-dropdown {
+
+
+}
+
+.review-text-text {
+    margin-bottom: 1rem;
+}
+
+.review-text-input {
+
+}
+
+.review-button {
+    text-align: right;
+    margin-top: 2rem;
+    /* margin-right: 1rem; */
+}
+
+.course-ratings {
+    flex-grow: 1;
+}
+
+.review-form-left {
+    flex-grow: 1;
+    margin-left: 3rem;
+}
+
+.review-modal {
+    padding-top: 1.125rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 1.125rem;
 }

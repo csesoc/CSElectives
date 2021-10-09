@@ -1,30 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tag from './tags.js';
+import ReviewRating from './review-rating/review-rating.js';
 
 import { Card } from 'semantic-ui-react';
-import { Rating } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CourseReviewCard = (props) => {
-  const { code, name, desc, numReviews } = props;
-  const displayDesc = desc.length > 220 ? desc.substring(220, length) + '...' : desc;
+  const { code, name, numReviews, overallRating, studyLevel, terms } = props;
   const page = `course/${code}`;
+  const tags = {
+    level: studyLevel,
+    terms: terms.map((term) => {
+      if (term == 0) {
+        return 'Summer';
+      } else {
+        return 'Term ' + term;
+      }
+    }),
+  };
 
   return (
     <div className='card-container'>
-      <Link to={page} className='card-container'>
-        <Card className='course-review-card'>
-          <Card.Content>
-            <Card.Header>{code}</Card.Header>
-            <Card.Meta>{name}</Card.Meta>
-            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-            <Card.Meta> {numReviews} reviews </Card.Meta>
-            <Card.Description>
-              {displayDesc}
-            </Card.Description>
-          </Card.Content>
-        </Card>
-      </Link>
+      <Card className='course-review-card' as={Link} to={page}>
+        <Card.Content>
+          <div className='card-contents-container'>
+            <div className='card-contents-cell-left'>
+              <Card.Header className='card-header'>{code}</Card.Header>
+              <Card.Description className='card-description'>{name}</Card.Description>
+            </div>
+            <div className='card-contents-cell-right'>
+              <ReviewRating
+                rating={overallRating}
+                icon='star'
+                size='large'
+                palette='trafficlight'
+              />
+              <Card.Meta> {numReviews} reviews </Card.Meta>
+            </div>
+          </div>
+        </Card.Content>
+        <Card.Content extra>
+          <Tag className={tags.level.toLowerCase()} label={tags.level} />
+          {tags.terms.map((term) => <Tag key={term} className="term" label={term} />)}
+        </Card.Content>
+      </Card>
     </div>
   );
 };
@@ -32,8 +52,10 @@ const CourseReviewCard = (props) => {
 CourseReviewCard.propTypes = {
   code: PropTypes.string,
   name: PropTypes.string,
-  desc: PropTypes.string,
   numReviews: PropTypes.number,
+  overallRating: PropTypes.number,
+  studyLevel: PropTypes.string,
+  terms: PropTypes.array,
 };
 
 export default CourseReviewCard;

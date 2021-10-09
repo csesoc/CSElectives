@@ -1,7 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Input, Segment, Grid } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
+import scrollToElement from 'scroll-to-element';
+import { useLocation } from 'react-router-dom';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
@@ -9,15 +11,14 @@ import HomePageTags from '../components/home-page-tags.js';
 import CardGrid from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
-import ReviewRating from '../components/review-rating/review-rating.js';
 
-const createDropdownOption = (item) => {
-  return {
-    key: item,
-    text: item,
-    value: item,
-  };
-};
+import FeedbackSvg from '../assets/illustrations/feedback.svg';
+
+const createDropdownOption = (item) => ({
+  key: item,
+  text: item,
+  value: item,
+});
 
 const sorts = [
   'Most Popular',
@@ -51,13 +52,9 @@ const prefix = [
 ];
 
 const sortOptions = sorts.map((item) => createDropdownOption(item));
-
 const majorOptions = majors.map((item) => createDropdownOption(item));
-
 const termOptions = terms.map((item) => createDropdownOption(item));
-
 const prefixOptions = prefix.map((item) => createDropdownOption(item));
-
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
@@ -65,112 +62,124 @@ const HomePage = (props) => {
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
-  const [query, setQuery] = useState('Home Page');
+  const [query, setQuery] = useState('');
 
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
     console.log(query);
   };
 
-  return loading ? <span>loading</span> : (
+  return (
     <>
-      <ReviewRating
-        rating={4}
-        icon='wheelchair'
-        size='big'
-        clickable
-        hoverable
-        captions={['🤬', '😥', '😐', '😀', '😍']}
-      />
+      <section className='title-wrapper'>
+        <div className='left'>
+          <h1>
+            <span className='cs'>cs</span>
+            <span className='electives'>electives</span>
+          </h1>
+          <h2>
+            {/* {'"'}student reviews, by students, for students{'"'} by Timmy Huang?? */}
+            enhancing your student experience.
+          </h2>
 
-      <ReviewRating
-        rating={1.5}
-        icon='github'
-        size='massive'
-      />
-
-      <ReviewRating
-        rating={3.3}
-        icon='star'
-        size='large'
-      />
-
-      <Header as='h1'>{query}</Header>
-
-      <Segment className="search-section-background">
-        <Input size='massive' icon='search' fluid onChange={handleQueryChange} />
-
-        <div className='sort-and-filter-container'>
-          <div className='sort-dropdown-parent'>
-            <div className='sort-dropdown-text'>
-              Sort by:
-            </div>
-            <div className='sort-dropdown-menu'>
-              <DropdownSortMenu options={sortOptions} />
-            </div>
-          </div>
-
-          <div className='dropdown-tags-box'>
-            <DropdownTagsMenu
-              title='Major'
-              tagOptions={majorOptions}
-              activeTags={activeMajorTags}
-              setActiveTags={setActiveMajorTags}
-              className='dropdown-tags'
-            />
-          </div>
-          <div className='dropdown-tags-box'>
-            <DropdownTagsMenu
-              title='Term'
-              tagOptions={termOptions}
-              activeTags={activeTermTags}
-              setActiveTags={setActiveTermTags}
-              className='dropdown-tags'
-            />
-          </div>
-          <div className='dropdown-tags-box'>
-            <DropdownTagsMenu
-              title='Prefix'
-              tagOptions={prefixOptions}
-              activeTags={activePrefixTags}
-              setActiveTags={setActivePrefixTags}
-              className='dropdown-tags'
-            />
-          </div>
+          <Button
+            secondary
+            content='Start reviewing!'
+            onClick={
+              () => scrollToElement('#search-section', {
+                ease: 'in-out-cube',
+                duration: 1000,
+              })
+            }
+          />
         </div>
-      </Segment>
 
-      {/* Tags component */}
-      <div className='front-page-tags'>
-        <HomePageTags
-          activeTags={activeMajorTags}
-          setActiveTags={setActiveMajorTags}
-          category='major'
-        />
+        <div className='right'>
+          <div className='blob' />
+          <Image className='feedback-svg' fluid src={FeedbackSvg} />
+        </div>
+      </section>
 
-        <HomePageTags
-          activeTags={activeTermTags}
-          setActiveTags={setActiveTermTags}
-          category='term'
-        />
+      <section id="search-section">
+        <Segment>
+          <Input
+            size='massive'
+            icon='search'
+            placeholder='COMP1511'
+            fluid
+            onChange={handleQueryChange}
+            style={{ fontFamily: 'nevis, sans-serif' }}
+          />
 
-        <HomePageTags
-          activeTags={activePrefixTags}
-          setActiveTags={setActivePrefixTags}
-          category='prefix'
-        />
+          <div className='sort-and-filter-container'>
+            <div className='sort-dropdown-parent'>
+              <div className='sort-dropdown-text'>
+                Sort by:
+              </div>
+              <div className='sort-dropdown-menu'>
+                <DropdownSortMenu options={sortOptions} />
+              </div>
+            </div>
 
-      </div>
+            <div className='dropdown-tags-box'>
+              <DropdownTagsMenu
+                title='Major'
+                tagOptions={majorOptions}
+                activeTags={activeMajorTags}
+                setActiveTags={setActiveMajorTags}
+                className='dropdown-tags'
+              />
+            </div>
+            <div className='dropdown-tags-box'>
+              <DropdownTagsMenu
+                title='Term'
+                tagOptions={termOptions}
+                activeTags={activeTermTags}
+                setActiveTags={setActiveTermTags}
+                className='dropdown-tags'
+              />
+            </div>
+            <div className='dropdown-tags-box'>
+              <DropdownTagsMenu
+                title='Prefix'
+                tagOptions={prefixOptions}
+                activeTags={activePrefixTags}
+                setActiveTags={setActivePrefixTags}
+                className='dropdown-tags'
+              />
+            </div>
+          </div>
+        </Segment>
 
-      {/* Code, name and desc hardcoded for testing purposes */}
-      <Grid stackable doubling columns={3}>
-        <CardGrid
-          courses={courses}
-          activeMajorTags={activeMajorTags}
-          activeTermTags={activeTermTags}
-          activePrefixTags={activePrefixTags}
-        />
-      </Grid>
+        {/* Tags component */}
+        <div className='front-page-tags'>
+          <HomePageTags
+            activeTags={activeMajorTags}
+            setActiveTags={setActiveMajorTags}
+            category='major'
+          />
+
+          <HomePageTags
+            activeTags={activeTermTags}
+            setActiveTags={setActiveTermTags}
+            category='term'
+          />
+
+          <HomePageTags
+            activeTags={activePrefixTags}
+            setActiveTags={setActivePrefixTags}
+            category='prefix'
+          />
+
+        </div>
+
+        {/* Code, name and desc hardcoded for testing purposes */}
+        {loading ? <span>loading...</span> : (
+          <Grid centered stackable doubling container columns='equal'>
+            <CardGrid courses={courses} />
+          </Grid>
+        )}
+      </section>
     </>
   );
 };

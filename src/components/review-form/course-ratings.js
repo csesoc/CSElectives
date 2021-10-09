@@ -6,7 +6,6 @@ import ReviewRating from '../review-rating/review-rating';
 const CourseRatings = (props) => {
   const {
     overall, setOverall,
-    difficulty, setDifficulty,
     enjoyment, setEnjoyment,
     usefulness, setUsefulness,
     workload, setWorkload,
@@ -14,76 +13,74 @@ const CourseRatings = (props) => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <h2>
-          Overall Rating<span className='required'> *</span>
-        </h2>
-        <ReviewRating
-          rating={overall}
-          icon='star'
-          size='big'
-          clickable
-          hoverable
-          captions={['🤬', '😥', '😐', '😀', '😍']}
-          onChange={(newOverall) => setOverall(newOverall)}
-        />
-      </div>
-      <div className='ratingStyle'>
-        <div className='ratingCategory'>
-          <h3>
-            Difficulty<span className='required'> *</span>
-          </h3>
-          <ReviewRating
-            rating={difficulty}
-            icon='circle'
-            size='large'
-            clickable
-            hoverable
-            captions={['😍', '😀', '😐', '😥', '🤬']}
-            onChange={(newDifficulty) => setDifficulty(newDifficulty)}
-          />
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex' }}>
+          <div>
+            <h4 style={{ flexGrow: 1, marginRight: '1rem' }}>
+              Overall Rating<span className='required'> *</span>
+            </h4>
+            <ReviewRating
+              rating={overall}
+              icon='star'
+              size='big'
+              palette='csesoc'
+              clickable
+              hoverable
+              captions={['🤬', '😥', '😐', '😀', '😍']}
+              onChange={(newOverall) => setOverall(newOverall)}
+
+            />
+          </div>
         </div>
-        <div className='ratingCategory'>
-          <h3>
-            Enjoyability<span className='required'> *</span>
-          </h3>
-          <ReviewRating
-            rating={enjoyment}
-            icon='circle'
-            size='large'
-            clickable
-            hoverable
-            captions={['🤬', '😥', '😐', '😀', '😍']}
-            onChange={(newEnjoyability) => setEnjoyment(newEnjoyability)}
-          />
-        </div>
-        <div className='ratingCategory'>
-          <h3>
+        <div>
+          <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
+            Enjoyment<span className='required'> *</span>
+          </h5>
+          <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
+            <ReviewRating
+              rating={enjoyment}
+              icon='circle'
+              size='standard'
+              palette='trafficlight'
+              clickable
+              hoverable
+              captions={['🤬', '😥', '😐', '😀', '😍']}
+              onChange={(newEnjoyability) => setEnjoyment(newEnjoyability)}
+              spacing='1.5rem'
+            />
+          </div>
+          <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
             Usefulness<span className='required'> *</span>
-          </h3>
-          <ReviewRating
-            rating={usefulness}
-            icon='circle'
-            size='large'
-            clickable
-            hoverable
-            captions={['🤬', '😥', '😐', '😀', '😍']}
-            onChange={(newUsefulness) => setUsefulness(newUsefulness)}
-          />
-        </div>
-        <div className='ratingCategory'>
-          <h3>
-            Workload<span className='required'> *</span>
-          </h3>
-          <ReviewRating
-            rating={workload}
-            icon='circle'
-            size='large'
-            clickable
-            hoverable
-            captions={['😍', '😀', '😐', '😥', '🤬']}
-            onChange={(newWorkload) => setWorkload(newWorkload)}
-          />
+          </h5>
+          <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
+            <ReviewRating
+              rating={usefulness}
+              icon='circle'
+              size='standard'
+              palette='trafficlight'
+              clickable
+              hoverable
+              captions={['🤬', '😥', '😐', '😀', '😍']}
+              onChange={(newUsefulness) => setUsefulness(newUsefulness)}
+              spacing='1.5rem'
+            />
+          </div>
+          <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
+            Manageability<span className='required'> *</span>
+          </h5>
+          <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
+            <ReviewRating
+              rating={workload}
+              icon='circle'
+              size='standard'
+              palette='trafficlight'
+              clickable
+              hoverable
+              captions={['🤬', '😥', '😐', '😀', '😍']}
+              onChange={(newWorkload) => setWorkload(newWorkload)}
+              spacing='1.5rem'
+            />
+          </div>
         </div>
       </div>
     </>
