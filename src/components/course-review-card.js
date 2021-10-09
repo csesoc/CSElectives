@@ -30,13 +30,19 @@ const CourseReviewCard = (props) => {
               <Card.Description className='card-description'>{name}</Card.Description>
             </div>
             <div className='card-contents-cell-right'>
-              <ReviewRating
-                rating={overallRating}
-                icon='star'
-                size='large'
-                palette='trafficlight'
-              />
-              <Card.Meta> {numReviews} reviews </Card.Meta>
+              <div className='card-contents-container'>
+                <div className='card-ratings-stars'>
+                  <ReviewRating
+                    rating={overallRating}
+                    icon='star'
+                    size='large'
+                    palette='trafficlight'
+                  />
+                </div>
+                <div className='card-ratings-overall-ratings'>
+                </div>
+              </div>
+              <Card.Meta> ({overallRating}) {numReviews} reviews </Card.Meta>
             </div>
           </div>
         </Card.Content>

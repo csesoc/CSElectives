@@ -70,8 +70,27 @@
   width: 50%;
 }
 
+.card-ratings-container {
+  display: table;
+  width: 100%;
+}
+
+.card-ratings-stars {
+  display: table-cell;
+  vertical-align: middle;
+  width: 90%;
+  float: right;
+}
+
+.card-ratings-overall-rating {
+  display: table-cell;
+  vertical-align: middle;
+  width: 5%;
+  float: left;
+}
+
 .card-header {
-  font-size: large;
+  font-size: x-large;
   font-weight: bold;
   color: black;
 }
