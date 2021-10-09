@@ -85,7 +85,7 @@
 .card-ratings-overall-rating {
   display: table-cell;
   vertical-align: middle;
-  width: 5%;
+  width: 10%;
   float: left;
 }
 
@@ -93,6 +93,7 @@
   font-size: x-large;
   font-weight: bold;
   color: black;
+  padding-bottom: 2%;
 }
 
 .card-meta {
