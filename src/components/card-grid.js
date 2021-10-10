@@ -11,6 +11,7 @@ const CardGrid = (props) => {
   const sortMostReviewed = () => {
     return Object.values(courses).sort(function(a, b) {
       console.log(a);
+      // Do if they are equal TODO BEFORE MERGE
       return b.reviews.length - a.reviews.length;
     });
   };
