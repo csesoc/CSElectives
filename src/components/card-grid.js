@@ -9,7 +9,7 @@ const CardGrid = (props) => {
   const { courses, activeMajorTags, activeTermTags, activePrefixTags } = props;
   // Returns an array of courses sorted in descending order of number of reviews
   const sortMostReviewed = () => {
-    return Object.values(courses).sort(function (a, b) {
+    return Object.values(courses).sort(function(a, b) {
       return b.reviews.length - a.reviews.length;
     });
   };
@@ -22,19 +22,25 @@ const CardGrid = (props) => {
 
   const filterTermsFilter = (course) => {
     for (let i = 0; i < course.terms.length; i++) {
-      console.log(course);
-      if (activeTermTags.includes(course.terms[i])) {
+      const activeTermTagsNum = activeTermTags.map(termsToNum);
+      if (activeTermTagsNum.includes(course.terms[i])) {
         return true;
       }
     }
     return false;
   };
 
+  const termsToNum = (term) => {
+    if (term === 'Summer Term') {
+      return 0;
+    }
+    // Term should look something like "Term 2", we want to extract the number at index 5
+    return parseInt(term[5]);
+  };
+
   const filterTerms = (courses) => {
     if (activeTermTags.length > 0) {
-      const filteredCourses = courses.filter((course) => (
-        filterTermsFilter(course)
-      ));
+      const filteredCourses = courses.filter(filterTermsFilter);
       return filteredCourses;
     }
     return courses;
@@ -92,11 +98,5 @@ const CardGrid = (props) => {
   });
 };
 
-CardGrid.propTypes = {
-  courses: PropTypes.object,
-  activeMajorTags: PropTypes.array,
-  activeTermTags: PropTypes.array,
-  activePrefixTags: PropTypes.array,
-};
 
 export default CardGrid;
