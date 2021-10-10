@@ -4,22 +4,31 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
 
 const DropdownSortMenu = (props) => {
-  const { options } = props;
+  const { activeSort, setActiveSort, options } = props;
+
+  const changeActiveSort = (e, { value }) => {
+    setActiveSort(value);
+  };
+
   return (
     <Dropdown
-      placeholder='Most Popular'
+      placeholder='Highest Rated'
       selection
       fluid
       compact
       button
       options={options}
-      defaultValue={options}
+      defaultValue={options[0]}
+      onChange={changeActiveSort}
+      value={activeSort}
     >
     </Dropdown>
   );
 };
 
 DropdownSortMenu.propTypes = {
+  activeSort: PropTypes.string,
+  setActiveSort: PropTypes.func,
   options: PropTypes.array,
 };
 

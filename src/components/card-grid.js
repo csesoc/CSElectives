@@ -10,6 +10,7 @@ const CardGrid = (props) => {
   // Returns an array of courses sorted in descending order of number of reviews
   const sortMostReviewed = () => {
     return Object.values(courses).sort(function(a, b) {
+      console.log(a);
       return b.reviews.length - a.reviews.length;
     });
   };
