@@ -1,13 +1,13 @@
 import React from 'react';
-
+import image from '../assets/no-results-found.jpg';
 // Copied the text from the internet word for word maybe should change?
 
 const NoResultsFound = (props) => {
   return (
     <div>
       <img
-        src="../assets/no-results-found.jpg"
-        className="no-results-counf-centre"
+        src={image}
+        className="no-results-found-centre"
       />
       <div className="no-results-found-heading">
         <b>That is a miss</b>

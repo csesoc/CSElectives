@@ -41,19 +41,22 @@ const CardGrid = (props) => {
   if (courses !== []) {
     return gridArray.map((row, index) => {
       return (
-        <Grid.Row key={index} stretched>
-          {row.map((course) => (
-            <Grid.Column key={course.id} columns='equal'>
-              <CourseReviewCard
-                code={course.courseCode}
-                name={course.title}
-                numReviews={course.reviews.length}
-                overallRating={getOverallRating(course)}
-                studyLevel={course.studyLevel}
-                terms={course.terms}
-              />
-            </Grid.Column>))}
-        </Grid.Row>
+        <>
+          <NoResultsFound />
+          <Grid.Row key={index} stretched>
+            {row.map((course) => (
+              <Grid.Column key={course.id} columns='equal'>
+                <CourseReviewCard
+                  code={course.courseCode}
+                  name={course.title}
+                  numReviews={course.reviews.length}
+                  overallRating={getOverallRating(course)}
+                  studyLevel={course.studyLevel}
+                  terms={course.terms}
+                />
+              </Grid.Column>))}
+          </Grid.Row>
+        </>
       );
     });
   } else {

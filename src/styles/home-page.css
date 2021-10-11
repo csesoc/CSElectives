@@ -209,6 +209,8 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .no-results-found-heading {
@@ -219,4 +221,5 @@
 
 .no-results-found-subheading {
   color: #828F9B;
+  padding-bottom: 5rem;
 }
