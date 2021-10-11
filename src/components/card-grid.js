@@ -15,6 +15,10 @@ const CardGrid = (props) => {
       return b.reviews.length - a.reviews.length;
     });
   };
+  // True then keep false then swap
+  const sortHighestRated = () => {
+
+  };
 
   const filterMajors = () => {
     courses.filter((courses) => (
