@@ -196,3 +196,27 @@
   padding-top: 2rem;
   align-items: center;
 }
+
+.no-results-found-div {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.no-results-found-centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.no-results-found-heading {
+  font-size: x-large;
+  padding: 1rem;
+
+}
+
+.no-results-found-subheading {
+  color: #828F9B;
+}

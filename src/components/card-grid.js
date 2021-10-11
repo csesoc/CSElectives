@@ -37,9 +37,10 @@ const CardGrid = (props) => {
     const gridRow = sortedCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
   }
-  return gridArray.map((row, index) => {
-    return (
-      <>
+
+  if (courses !== []) {
+    return gridArray.map((row, index) => {
+      return (
         <Grid.Row key={index} stretched>
           {row.map((course) => (
             <Grid.Column key={course.id} columns='equal'>
@@ -53,10 +54,11 @@ const CardGrid = (props) => {
               />
             </Grid.Column>))}
         </Grid.Row>
-        <NoResultsFound />
-      </>
-    );
-  });
+      );
+    });
+  } else {
+    <NoResultsFound />;
+  }
 };
 
 CardGrid.propTypes = {
