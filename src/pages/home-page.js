@@ -58,7 +58,7 @@ const prefixOptions = prefix.map((item) => createDropdownOption(item));
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
-  const { courses } = props;
+  const { courses, majors } = props;
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
@@ -68,6 +68,8 @@ const HomePage = (props) => {
     setQuery(value);
     console.log(query);
   };
+
+  console.log(majors);
 
   return (
     <>
@@ -186,6 +188,7 @@ const HomePage = (props) => {
 
 HomePage.propTypes = {
   courses: PropTypes.object,
+  majors: PropTypes.object,
 };
 
 export default HomePage;
