@@ -82,7 +82,7 @@ const CoursePage = (props) => {
   };
 
   const getSummaryTitle = () => {
-    return `${course.title}`;
+    return `${courseCode}`;
   };
 
   const getReviewDate = (review) => {
