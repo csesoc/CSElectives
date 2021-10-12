@@ -1,18 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Button, Icon } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
+import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
 import scrollToElement from 'scroll-to-element';
 
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import RatingsCard from '../components/review-card-ratings-only.js';
-import { LoadingContext } from '../App.js';
 import NotFoundPage from '../pages/not-found-page.js';
-import ReviewPage from '../pages/review-page.js';
+import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
+import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
+import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
+
 import '../styles/course-page.css';
 
 
@@ -164,8 +167,8 @@ const CoursePage = (props) => {
     );
   };
 
-  if (loading) return <span>loading...</span>;
-  if (!course) return <NotFoundPage />;
+  // if (loading) return <PlaceHolder />;
+  // if (!course) return <NotFoundPage />;
 
   return (
     <>
@@ -198,7 +201,7 @@ const CoursePage = (props) => {
               enjoymentAvg={getAverage('enjoyment')}
               tags={getTags()}
             />
-            <ReviewPage courseCode={course.courseCode} />
+            <ReviewModal courseCode={course.courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>
@@ -206,9 +209,8 @@ const CoursePage = (props) => {
             sortOptions={sortOptions}
             handleSortChange={handleSortChange}
             handleClick={handleClick}
-            course={course}
           />
-          {checkEmptyState()}
+          {loading ? <PlaceHolderReview /> : checkEmptyState() }
         </Grid.Column>
       </Grid>
     </>
