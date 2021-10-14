@@ -5,7 +5,7 @@ import { Form, Icon } from 'semantic-ui-react';
 const TITLE_MAX_LENGTH = 80;
 
 const ReviewTextArea = (props) => {
-  const { title, setTitle, comment, setComment } = props;
+  const { title, setTitle, comment, setComment, disabled } = props;
 
   const handleTitleChange = (e, { value }) => {
     if (value.length > TITLE_MAX_LENGTH) {
@@ -18,20 +18,20 @@ const ReviewTextArea = (props) => {
   return (
     <Form.Field>
       <Form.Input
-        placeholder={Boolean(comment && !title) ? 'Your review needs a title' : 'Title'}
+        placeholder={'Title'}
         fluid
-        error={Boolean(comment && !title)}
         value={title}
         onChange={handleTitleChange}
+        disabled={disabled}
       />
       <Form.TextArea
         style={{ resize: 'none' }}
         rows={16}
-        placeholder={Boolean(!comment && title) ? 'Your review needs a body' : 'Review'}
+        placeholder={'Review'}
         fluid
-        error={Boolean(!comment && title)}
         value={comment}
         onChange={(e, { value }) => setComment(value)}
+        disabled={disabled}
       />
     </Form.Field>
   );
@@ -42,6 +42,7 @@ ReviewTextArea.propTypes = {
   setTitle: PropTypes.func,
   comment: PropTypes.string,
   setComment: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 export default ReviewTextArea;
