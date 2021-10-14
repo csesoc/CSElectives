@@ -30,7 +30,7 @@ const ReviewModal = (props) => {
   const handleSubmit = async () =>{
     const review = {
       author: 'anonymous',
-      title: reviewMessage ? title : '', // if (!disabled) { return title } else {return ''}
+      title: reviewMessage ? title : '',
       comment: reviewMessage ? comment : '',
       courseCode: courseCode,
       displayAuthor: anonymity,
@@ -71,17 +71,10 @@ const ReviewModal = (props) => {
           <Form>
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1.5 }}>
-                {/* <div className='review-form'> */}
-                {/* <div className='review-text-text'> */}
-                {/* <label><b>Would you like to write a review?</b></label> */}
                 <ReviewChoice
                   reviewMessage={reviewMessage}
                   setReviewMessage={setReviewMessage}
                 />
-                {/* <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span> */}
-                {/* </div> */}
-                {/* <div> */}
-                {/* <div className='review-text-input'> */}
                 <ReviewTextArea
                   title={title}
                   setTitle={setTitle}
@@ -89,8 +82,6 @@ const ReviewModal = (props) => {
                   setComment={setComment}
                   disabled={!reviewMessage}
                 />
-                {/* </div> */}
-                {/* </div> */}
               </div>
               <div className='review-form-left'>
                 <div style={{ display: 'flex', flexGrow: 1 }}>
@@ -122,9 +113,6 @@ const ReviewModal = (props) => {
                   <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
                 </div>
               </div>
-              {/* <Form.Group> */}
-              {/* </div> */}
-              {/* </Form.Group> */}
             </div>
             <div className='review-button'>
               <Button
