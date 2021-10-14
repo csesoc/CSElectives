@@ -43,9 +43,9 @@
 
 }
 
-.review-text-text {
-    margin-bottom: 1rem;
-}
+/* .review-text-text {
+    margin-right: 1rem;
+} */
 
 .review-text-input {
 
@@ -71,4 +71,9 @@
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     padding-bottom: 1.125rem;
+}
+
+.review-toggle {
+    padding-top: 0.8rem;
+    padding-bottom: 0.725rem;
 }
