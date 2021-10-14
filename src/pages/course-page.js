@@ -82,7 +82,7 @@ const CoursePage = (props) => {
   };
 
   const getSummaryTitle = () => {
-    return `${courseCode}`;
+    return `${course.title}`;
   };
 
   const getReviewDate = (review) => {
@@ -185,7 +185,6 @@ const CoursePage = (props) => {
           }
         />
       </div>
-      <Banner courseCode={courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
           <div className='summary-card'>

@@ -141,6 +141,13 @@
     margin-right: 0.5rem;
 }
 
+.course-code-header {
+    font-size: 3rem;
+}
+
+.tags {
+    margin: 1rem 0;
+}
 .placeholder-ratings {
     padding: 3rem 0.5rem;
 }
