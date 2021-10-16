@@ -54,19 +54,20 @@
 
 .card-contents-container {
   display: table;
+  vertical-align: middle;
   width: 100%;
 }
 
 .card-contents-cell-left {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: left;
   width: 50%;
 }
 
 .card-contents-cell-right {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   width: 50%;
 }
 
@@ -76,17 +77,9 @@
 }
 
 .card-ratings-stars {
-  display: table-cell;
+  display: table;
   vertical-align: middle;
-  width: 90%;
-  float: right;
-}
-
-.card-ratings-overall-rating {
-  display: table-cell;
-  vertical-align: middle;
-  width: 10%;
-  float: left;
+  padding-bottom: 0.5rem;
 }
 
 .card-header {
