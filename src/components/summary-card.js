@@ -22,13 +22,19 @@ const SummaryCard = (props) => {
     <div>
       <Grid>
         <Grid.Row className='grid-top'>
-          <div className='my-course-page-tags'>
-            {tags.map((label) => displayTags(label))}
-          </div>
+
         </Grid.Row>
         <Grid.Row className='grid-row'>
           <div>
-            <Header as='h2'>{summaryTitle}</Header>
+            <div className='course-code-header'>
+              <Header>
+                {courseCode}
+              </Header>
+            </div>
+            <Header as='h1'>{summaryTitle}</Header>
+            <div className='tags'>
+              {tags.map((label) => displayTags(label))}
+            </div>
             <a href={summaryLink} rel="noreferrer" target="_blank">
               <Icon name='external' /> {courseCode} Handbook Page
             </a> <br />

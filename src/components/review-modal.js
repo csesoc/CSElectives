@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Button, Icon, Modal, Image, Header } from 'semantic-ui-react';
+import { Form, Button, Icon, Modal, Image, Header, Checkbox } from 'semantic-ui-react';
 
 import Database from '../db/db.js';
 
@@ -10,16 +10,17 @@ import CourseRatings from '../components/review-form/course-ratings';
 import AnonChoice from '../components/review-form/anon-choice';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
+import ReviewChoice from './review-form/review-choice.js';
 
 const ReviewModal = (props) => {
   const { courseCode } = props;
-
   const [overall, setOverall] = useState(0);
   const [enjoyment, setEnjoyment] = useState(0);
   const [usefulness, setUsefulness] = useState(0);
   const [workload, setWorkload] = useState(0);
 
   const [anonymity, setAnonymity] = useState(true);
+  const [reviewMessage, setReviewMessage] = useState(true);
   const [title, setTitle] = useState('');
   const [comment, setComment] = useState('');
   const [termTaken, setTermTaken] = useState('');
@@ -29,8 +30,8 @@ const ReviewModal = (props) => {
   const handleSubmit = async () =>{
     const review = {
       author: 'anonymous',
-      title,
-      comment,
+      title: reviewMessage ? title : '',
+      comment: reviewMessage ? comment : '',
       courseCode: courseCode,
       displayAuthor: anonymity,
       rating: {
@@ -64,26 +65,23 @@ const ReviewModal = (props) => {
             before posting. Feel free to include your overall experience with the course,
             how you found the assessments/workload and anything else you wanted to share!
           </p>
-          <p><span className='required'>* Required</span></p>
+          <p><span className='required'>* Required</span>
+            <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
+          </p>
           <Form>
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1.5 }}>
-                {/* <div className='review-form'> */}
-                <div className='review-text-text'>
-                  <label><b>Write your review here!</b>
-                    <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
-                  </label>
-                </div>
-                {/* <div> */}
-                {/* <div className='review-text-input'> */}
+                <ReviewChoice
+                  reviewMessage={reviewMessage}
+                  setReviewMessage={setReviewMessage}
+                />
                 <ReviewTextArea
                   title={title}
                   setTitle={setTitle}
                   comment={comment}
                   setComment={setComment}
+                  disabled={!reviewMessage}
                 />
-                {/* </div> */}
-                {/* </div> */}
               </div>
               <div className='review-form-left'>
                 <div style={{ display: 'flex', flexGrow: 1 }}>
@@ -115,9 +113,6 @@ const ReviewModal = (props) => {
                   <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
                 </div>
               </div>
-              {/* <Form.Group> */}
-              {/* </div> */}
-              {/* </Form.Group> */}
             </div>
             <div className='review-button'>
               <Button
@@ -129,8 +124,7 @@ const ReviewModal = (props) => {
                   || !enjoyment
                   || !usefulness
                   || !workload
-                  || (comment && !title)
-                  || (title && !comment)
+                  || (reviewMessage && (!comment || !title))
                 }
                 onClick={handleSubmit}
               >

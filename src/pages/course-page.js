@@ -82,7 +82,7 @@ const CoursePage = (props) => {
   };
 
   const getSummaryTitle = () => {
-    return `${courseCode} - ${course.title}`;
+    return `${course.title}`;
   };
 
   const getReviewDate = (review) => {
@@ -185,24 +185,28 @@ const CoursePage = (props) => {
           }
         />
       </div>
-      <Banner courseCode={courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
           <div className='summary-card'>
-            <SummaryCard
-              summaryTitle={getSummaryTitle()}
-              summaryLink={getLink()}
-              courseCode={courseCode}
-              overallRating={getAverage('overall')}
-              numReviews={course.reviews.length}
-              summaryDesc={course.description}
-              usefulAvg={getAverage('usefulness')}
-              workloadAvg={getAverage('workload')}
-              difficultyAvg={getAverage('difficulty')}
-              enjoymentAvg={getAverage('enjoyment')}
-              tags={getTags()}
-            />
-            <ReviewModal courseCode={course.courseCode} />
+            {loading
+              ? <PlaceHolderSummary />
+              : (
+                <SummaryCard
+                  summaryTitle={getSummaryTitle()}
+                  summaryLink={getLink()}
+                  courseCode={courseCode}
+                  overallRating={getAverage('overall')}
+                  numReviews={course.reviews.length}
+                  summaryDesc={course.description}
+                  usefulAvg={getAverage('usefulness')}
+                  workloadAvg={getAverage('workload')}
+                  difficultyAvg={getAverage('difficulty')}
+                  enjoymentAvg={getAverage('enjoyment')}
+                  tags={getTags()}
+                />
+              )
+            }
+            <ReviewModal courseCode={courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>
