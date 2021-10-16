@@ -13,6 +13,7 @@ import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
 import FeedbackSvg from '../assets/illustrations/feedback.svg';
+import ScrollToTopButton from '../components/scroll-to-top-button';
 
 const createDropdownOption = (item) => ({
   key: item,
@@ -73,19 +74,7 @@ const HomePage = (props) => {
 
   return (
     <>
-      <div className='scroll-button-container'>
-        <Icon
-          name='chevron circle up'
-          size='huge'
-          className='scroll-up-button'
-          onClick={
-            () => scrollToElement('#root', {
-              ease: 'in-out-cube',
-              duration: 1000,
-            })
-          }
-        />
-      </div>
+      <ScrollToTopButton />
       <section className='title-wrapper'>
         <div className='left'>
           <h1>
