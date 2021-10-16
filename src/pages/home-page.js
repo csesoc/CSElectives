@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button, Icon } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
 import { useLocation } from 'react-router-dom';
 
@@ -73,6 +73,19 @@ const HomePage = (props) => {
 
   return (
     <>
+      <div className='scroll-button-container'>
+        <Icon
+          name='chevron circle up'
+          size='huge'
+          className='scroll-up-button'
+          onClick={
+            () => scrollToElement('#root', {
+              ease: 'in-out-cube',
+              duration: 1000,
+            })
+          }
+        />
+      </div>
       <section className='title-wrapper'>
         <div className='left'>
           <h1>
