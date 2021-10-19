@@ -151,3 +151,9 @@
 .placeholder-ratings {
     padding: 3rem 0.5rem;
 }
+
+.blank {
+    width: 60%;
+    margin: auto;
+    margin-top: 5rem;
+}

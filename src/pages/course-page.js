@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Icon } from 'semantic-ui-react';
+import { Grid, Icon, Image } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
 import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
@@ -15,6 +15,7 @@ import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
 import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
 import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
+import BlankSvg from '../assets/illustrations/blank_canvas.svg';
 
 import '../styles/course-page.css';
 
@@ -126,6 +127,9 @@ const CoursePage = (props) => {
     if (course.reviews.length === 0) {
       return (
         <>
+          <div className='blank'>
+            <Image className='blank-svg' fluid src={BlankSvg} />
+          </div>
           <EmptyState handleClickHome={handleClickHome} />
         </>
       );
