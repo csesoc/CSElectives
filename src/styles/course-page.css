@@ -94,14 +94,6 @@
     
 }
 
-.modal.ui.modal-wrapper {
-    transition: all 2.5s ease;
-    transform: 'translateY(0vh)';
-    opacity: '1';
-    color: blue;
-
-}
-
 .reviews {
     width: 100%;
     display: inline-block;
