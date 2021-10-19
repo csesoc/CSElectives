@@ -1,9 +1,5 @@
 import React, { useContext, useState } from 'react';
-<<<<<<< HEAD
 import { Grid, Dropdown, Button, Header, Icon, Message } from 'semantic-ui-react';
-=======
-import { Grid } from 'semantic-ui-react';
->>>>>>> main
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
 import { useHistory, useParams } from 'react-router-dom';

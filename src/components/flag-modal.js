@@ -61,18 +61,20 @@ const FlagModal = (props) => {
               <Form.Radio
                 label='Other'
                 name='htmlRadios'
-                value='spam'
+                value='other'
                 onChange={(e, { value }) => setFlagReason(value)}
               >
-              </Form.Radio>
-              <div className="other-input">
-                <label>Other:</label>
-              </div>
-              <div>
                 <Form.Input
                   onChange={(e, { value }) => setFlagReason(value)}
                 >
                   <input placeholder='Please enter reason here.' />
+                </Form.Input>
+              </Form.Radio>
+              <div>
+                <Form.Input
+                  onChange={(e, { value }) => setFlagReason(value)}
+                >
+                  <input placeholder='Please enter other reason here.' />
                 </Form.Input>
               </div>
             </div>
@@ -107,7 +109,7 @@ const FlagModal = (props) => {
           </Header>
           <Modal.Content className="flag-submission-message">
             Thanks again for your report. Your reporting helps make CSElectives
-            a better and safer place for everyone; it means a lot to us.
+            a better and safer place for everyone!
             <Modal.Actions>
               <div className='flag-done-button'>
                 <Button
