@@ -55,6 +55,7 @@ const CoursePage = (props) => {
     + review.rating.workload;
   };
 
+
   const handleClick = () => {
     history.push('/review');
   };
@@ -74,6 +75,7 @@ const CoursePage = (props) => {
     const average = total / count;
     return average.toFixed(1);
   };
+
 
   const year = new Date().getFullYear();
 
