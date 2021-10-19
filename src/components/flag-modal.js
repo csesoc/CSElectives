@@ -3,127 +3,86 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
-import { Grid, Card, Progress, Rating, Message,
-  Popup, Button, Modal, Icon, Header, Form, Transition, Radio } from 'semantic-ui-react';
-import ReviewRating from './review-rating/review-rating';
-
+import { Button, Modal, Icon, Header, Form } from 'semantic-ui-react';
 
 const FlagModal = (props) => {
-  const [firstOpen, setFirstOpen] = useState(false);
-  const [secondOpen, setSecondOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [flagReason, setFlagReason] = useState('');
-
+  const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div
-      style={{
-        transform: 'translateY(0vh)',
-        opacity: '1',
-      }}
-    >
+    <div>
       <Modal
-        className="ui modal wrapper"
-        trigger={
-          <Button className='ui button flag'>
-            <i className="flag outline icon"></i>
-          </Button>
-        }
-        onClick={() => setFirstOpen(true)}
+        trigger={<Icon name='flag outline icon' className='icon-flag-outline' />}
         size='tiny'
         closeIcon
-        onClose={() => setFirstOpen(false)}
-        onOpen={() => setFirstOpen(true)}
+        onClose={() => {
+          setSubmitted(false);
+          setOpen(false);
+        }}
+        onOpen={() => setOpen(true)}
+        open={open}
       >
-        <Header icon>
-          Reason for report
-        </Header>
+        <Header content={!submitted ? 'Reason for report' : 'Thanks for your report!'} />
         <Modal.Content>
-          <Form>
-            <div>
-              <div>
-                <b>
-                  Why are you reporting this?
-                </b>
-              </div>
-              <br />
-              <Form.Radio
-                label='Hate speech'
-                value='hate-speech'
-                name='htmlRadios'
-                onChange={(e, { value }) => setFlagReason(value)}
-              />
-              <Form.Radio
-                label='Spam'
-                name='htmlRadios'
-                value='spam'
-                onChange={(e, { value }) => setFlagReason(value)}
-              />
-              <Form.Radio
-                label='Other'
-                name='htmlRadios'
-                value='other'
-                onChange={(e, { value }) => setFlagReason(value)}
-              >
+          {!submitted
+            ? (
+              <Form>
+                <div>
+                  <b>Why are you reporting this?</b>
+                </div>
+                <br />
+                <Form.Radio
+                  label='Hate speech'
+                  value='hate-speech'
+                  name='htmlRadios'
+                  checked={flagReason === 'hate-speech'}
+                  onChange={(e, { value }) => setFlagReason(value)}
+                />
+                <Form.Radio
+                  label='Spam'
+                  name='htmlRadios'
+                  value='spam'
+                  checked={flagReason === 'spam'}
+                  onChange={(e, { value }) => setFlagReason(value)}
+                />
+                <Form.Radio
+                  label='Other'
+                  name='htmlRadios'
+                  value='other'
+                  checked={flagReason === 'other'}
+                  onChange={(e, { value }) => setFlagReason(value)}
+                />
                 <Form.Input
                   onChange={(e, { value }) => setFlagReason(value)}
-                >
-                  <input placeholder='Please enter reason here.' />
-                </Form.Input>
-              </Form.Radio>
-              <div>
-                <Form.Input
-                  onChange={(e, { value }) => setFlagReason(value)}
-                >
-                  <input placeholder='Please enter other reason here.' />
-                </Form.Input>
-              </div>
-            </div>
-          </Form>
+                  placeholder='Please enter other reason here.'
+                />
+              </Form>
+            ) : (
+              <>
+                Thanks again for your report. Your report helps make CSElectives
+                a better and safer place for everyone!
+              </>
+            )
+          }
           <Modal.Actions>
             <div className='flag-submit-button'>
-              <Button
-                onClick={() => {
-                  setSecondOpen(true);
-                  setFirstOpen(false);
-                } }
-                disabled={
-                  !flagReason
-                }
-                content='Submit'
-              />
+              {!submitted ? (
+                <Button
+                  onClick={() => setSubmitted(true)}
+                  disabled={!flagReason}
+                  content='Submit'
+                />
+              ) : (
+                <Button
+                  onClick={() => setOpen(false)}
+                  content='Done'
+                  icon='check'
+                />
+              )}
             </div>
           </Modal.Actions>
         </Modal.Content>
-        <Modal
-          onClose={() => setSecondOpen(false)}
-          open={secondOpen}
-          size='tiny'
-          closeIcon
-        >
-          <Header icon>
-            <Icon
-              name='paper plane'
-              color='blue'
-            />
-            Thanks for your report!
-          </Header>
-          <Modal.Content className="flag-submission-message">
-            Thanks again for your report. Your reporting helps make CSElectives
-            a better and safer place for everyone!
-            <Modal.Actions>
-              <div className='flag-done-button'>
-                <Button
-                  onClick={() => {
-                    setSecondOpen(false);
-                    setFirstOpen(false);
-                  } }
-                  icon='check'
-                  content='Done'
-                />
-              </div>
-            </Modal.Actions>
-          </Modal.Content>
-        </Modal>
       </Modal>
     </div>
 
