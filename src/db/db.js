@@ -86,6 +86,21 @@ class Database {
   }
 
   /**
+   * Gets all majors from database
+   * @return {object}
+   */
+  async getMajors() {
+    const majors = {};
+
+    const majorsSnapshot = await this.getSnapshot('majors');
+    majorsSnapshot.docs.forEach((doc) => {
+      majors[doc.id] = doc.data();
+    });
+
+    return majors;
+  }
+
+  /**
    * Appends a new review to the course's reviews
    * NOTE: This function does not change the global state for you
    * @param {object} review
@@ -134,11 +149,11 @@ class Database {
   async login(zid, zpass, displayName) {
     // TODO ELEC-199: handle password changes from myunsw
     try {
-      await signInWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zpass);
+      await signInWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zid);
     } catch (error) {
       if (error.code == AuthErrorCodes.USER_DELETED) {
         // User not found, so create account and sign in
-        const userCredential = await createUserWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zpass);
+        const userCredential = await createUserWithEmailAndPassword(this.auth, `${zid}@unsw.edu.au`, zid);
         updateProfile(userCredential.user, {
           displayName,
         });

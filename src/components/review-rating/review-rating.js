@@ -30,7 +30,17 @@ const palettes = {
 const unselectedColor = '#DCDDDE';
 
 const ReviewRating = (props) => {
-  const { icon, size, rating, clickable, hoverable, onChange, captions = [], palette = 'trafficlight' } = props;
+  const {
+    icon,
+    size,
+    rating,
+    clickable,
+    hoverable,
+    onChange,
+    captions = [],
+    palette = 'trafficlight',
+    spacing = '0.25rem',
+  } = props;
   const maxRating = 5;
 
   const clipPercentage = (idx) => {
@@ -52,7 +62,7 @@ const ReviewRating = (props) => {
             <Icon.Group
               size={size}
               onClick={() => clickable && onChange?.(rating === (idx + 1) ? 0 : idx + 1)}
-              style={{ cursor: clickable && 'pointer', marginRight: '0.25rem' }}
+              style={{ cursor: clickable && 'pointer', marginRight: spacing }}
             >
               <Icon name={icon} style={{ color: unselectedColor, margin: 0 }} />
               {idx < rating && (
@@ -82,6 +92,7 @@ ReviewRating.propTypes = {
   captions: PropTypes.array,
   onChange: PropTypes.func,
   palette: PropTypes.string,
+  spacing: PropTypes.string,
 };
 
 export default ReviewRating;

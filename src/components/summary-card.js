@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Header, Grid, Progress, Rating, Icon, Card } from 'semantic-ui-react';
 import Tags from '../components/tags.js';
 import '../styles/course-page.css';
+import ReviewRating from './review-rating/review-rating.js';
 import { getQueriesForElement } from '@testing-library/dom';
 
 const SummaryCard = (props) => {
@@ -21,18 +22,33 @@ const SummaryCard = (props) => {
     <div>
       <Grid>
         <Grid.Row className='grid-top'>
-          <div className='my-course-page-tags'>
-            {tags.map((label) => displayTags(label))}
-          </div>
+
         </Grid.Row>
         <Grid.Row className='grid-row'>
           <div>
-            <Header as='h2'>{summaryTitle}</Header>
+            <div className='course-code-header'>
+              <Header>
+                {courseCode}
+              </Header>
+            </div>
+            <Header as='h1'>{summaryTitle}</Header>
+            <div className='tags'>
+              {tags.map((label) => displayTags(label))}
+            </div>
             <a href={summaryLink} rel="noreferrer" target="_blank">
               <Icon name='external' /> {courseCode} Handbook Page
             </a> <br />
-            <Rating icon='star' defaultRating={overallRating} maxRating={5} disabled />
-            {numReviews} Reviews
+            <div className='star-ratings'>
+              <span className='star-space'>
+                <ReviewRating
+                  rating={overallRating}
+                  icon='star'
+                  size='large'
+                  palette='csesoc'
+                />
+              </span>
+              {numReviews} Reviews
+            </div>
           </div>
         </Grid.Row>
         <Grid.Row className='barchart-row' columns={3}>

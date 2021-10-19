@@ -13,64 +13,72 @@ const CourseRatings = (props) => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-        <div className='overall-rating' style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex' }}>
           <div>
-            <h3 style={{ flexGrow: 1, marginRight: '1rem' }}>
+            <h4 style={{ flexGrow: 1, marginRight: '1rem' }}>
               Overall Rating<span className='required'> *</span>
-            </h3>
+            </h4>
             <ReviewRating
               rating={overall}
               icon='star'
               size='big'
+              palette='csesoc'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
               onChange={(newOverall) => setOverall(newOverall)}
+
             />
           </div>
         </div>
         <div>
-          <div style={{ display: 'flex' }}>
-            <h4 style={{ flexGrow: 1, marginRight: '1rem' }}>
-              Enjoyment<span className='required'> *</span>
-            </h4>
+          <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
+            Enjoyment<span className='required'> *</span>
+          </h5>
+          <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
             <ReviewRating
               rating={enjoyment}
               icon='circle'
               size='standard'
+              palette='trafficlight'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
               onChange={(newEnjoyability) => setEnjoyment(newEnjoyability)}
+              spacing='1.5rem'
             />
           </div>
-          <div style={{ display: 'flex' }}>
-            <h4 style={{ flexGrow: 1, marginRight: '1rem' }}>
-              Usefulness<span className='required'> *</span>
-            </h4>
+          <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
+            Usefulness<span className='required'> *</span>
+          </h5>
+          <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
             <ReviewRating
               rating={usefulness}
               icon='circle'
               size='standard'
+              palette='trafficlight'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
               onChange={(newUsefulness) => setUsefulness(newUsefulness)}
+              spacing='1.5rem'
             />
           </div>
-          <div style={{ display: 'flex' }}>
-            <h4 style={{ flexGrow: 1, marginRight: '1rem' }}>
-              Manageability<span className='required'> *</span>
-            </h4>
+          <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
+            Manageability<span className='required'> *</span>
+          </h5>
+          <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
             <ReviewRating
               rating={workload}
               icon='circle'
               size='standard'
+              palette='trafficlight'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
               onChange={(newWorkload) => setWorkload(newWorkload)}
+              spacing='1.5rem'
             />
           </div>
         </div>

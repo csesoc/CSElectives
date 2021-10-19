@@ -48,31 +48,45 @@
 
 .card-container { 
   display: flex; 
-  align-items: stretch; 
+  align-items: 'center';
+  justify-content: 'center';
 }
 
 .card-contents-container {
   display: table;
+  vertical-align: middle;
   width: 100%;
 }
 
 .card-contents-cell-left {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: left;
   width: 50%;
 }
 
 .card-contents-cell-right {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   width: 50%;
 }
 
+.card-ratings-container {
+  display: table;
+  width: 100%;
+}
+
+.card-ratings-stars {
+  display: table;
+  vertical-align: middle;
+  padding-bottom: 0.3rem;
+}
+
 .card-header {
-  font-size: large;
+  font-size: x-large;
   font-weight: bold;
   color: black;
+  padding-bottom: 2%;
 }
 
 .card-meta {
@@ -193,4 +207,5 @@
 
 #search-section {
   padding-top: 2rem;
+  align-items: center;
 }

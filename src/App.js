@@ -12,6 +12,7 @@ import Footer from './components/footer.js';
 import LoginPage from './pages/login-page.js';
 import FeedbackPage from './pages/feedback-page.js';
 import NotFoundPage from './pages/not-found-page.js';
+import GoToTop from './components/go-to-top.js';
 
 export const LoadingContext = createContext(true);
 export const UserContext = createContext(null);
@@ -20,6 +21,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [courses, setCourses] = useState({});
+  const [majors, setMajors] = useState({});
 
   onAuthStateChanged(Database.auth, (user) => {
     setUser(user);
@@ -28,7 +30,9 @@ const App = () => {
   useEffect(() => {
     const getCourses = async () => {
       const newCourses = await Database.getCoursesAndReviews();
+      const newMajors = await Database.getMajors();
       setCourses(newCourses);
+      setMajors(newMajors);
       console.log('Courses:', newCourses);
       setLoading(false);
     };
@@ -37,6 +41,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <GoToTop />
       <LoadingContext.Provider value={loading}>
         <UserContext.Provider value={user}>
           <div className='display-wrapper'>
@@ -47,7 +52,7 @@ const App = () => {
               <Container className='main-wrapper'>
                 <Switch>
                   <Route exact path='/'>
-                    <HomePage courses={courses} />
+                    <HomePage courses={courses} majors={majors} />
                   </Route>
                   <Route exact path='/course/:courseCode'>
                     <CoursePage courses={courses} />

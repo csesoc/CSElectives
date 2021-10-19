@@ -1,8 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
+import { useLocation } from 'react-router-dom';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
@@ -57,7 +58,7 @@ const prefixOptions = prefix.map((item) => createDropdownOption(item));
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
-  const { courses } = props;
+  const { courses, majors } = props;
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
@@ -67,6 +68,8 @@ const HomePage = (props) => {
     setQuery(value);
     console.log(query);
   };
+
+  console.log(majors);
 
   return (
     <>
@@ -174,7 +177,7 @@ const HomePage = (props) => {
 
         {/* Code, name and desc hardcoded for testing purposes */}
         {loading ? <span>loading...</span> : (
-          <Grid centered stackable doubling columns={3}>
+          <Grid centered stackable doubling container columns='equal'>
             <CardGrid courses={courses} />
           </Grid>
         )}
@@ -185,6 +188,7 @@ const HomePage = (props) => {
 
 HomePage.propTypes = {
   courses: PropTypes.object,
+  majors: PropTypes.object,
 };
 
 export default HomePage;

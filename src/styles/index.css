@@ -2,6 +2,7 @@
   --csesoc-blue: #3a76f8;
   --csesoc-navy: #40404c;
   --csesoc-white: #ffffff;
+  --csesoc-black: #303030;
 
   --major-tags: #B2F7EF;
   --term-tags: #F7D6E0;
@@ -16,6 +17,8 @@
   --secondary: #9A4BFF;
   --secondary-light: #D9BBFF;
   --secondary-dark: #902ECC;
+
+  --tertiary: #adddff;
 
   /* Traffic lights */
   --pink: #F3478F;
@@ -45,23 +48,65 @@
 }
 
 @font-face {
-  font-family: 'raleway';
-  src: url('../assets/fonts/raleway-variable.ttf');
+  font-family: 'rubik';
+  src: url('../assets/fonts/Rubik-VariableFont_wght.ttf');
 }
 
 @font-face {
-  font-family: 'raleway-bold';
-  src: url('../assets/fonts/raleway-bold.ttf');
+  font-family: 'clancy';
+  src: url('../assets/fonts/Clancy-Bold.otf');
 }
+
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 main {
   position: relative;
+}
+
+body, main,
+.ui.button,
+.ui.text.container,
+.ui.input > input,
+.ui.list .list > .item .header,
+.ui.list > .item .header,
+.ui.steps .step .title,
+.ui.form input:not([type]),
+.ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="file"],
+.ui.form input[type="url"],
+.ui.menu,
+.ui.message .header,
+.ui.cards > .card > .content > .header,
+.ui.card > .content > .header,
+.ui.items > .item > .content > .header,
+.ui.statistics .statistic > .value,
+.ui.statistic > .value,
+.ui.statistics .statistic > .label,
+.ui.statistic > .label,
+.ui.accordion .title:not(.ui),
+.ui.modal > .header,
+.ui.popup > .header,
+.ui.search > .results .result .title,
+.ui.search > .results > .message .header {
+  font-family: rubik;
+}
+
+.ui.header {
+  font-family: clancy;
 }
 
 code {
@@ -139,7 +184,9 @@ footer {
 .course-review-card {
   display: flex;
   min-height: 230px;
-  min-width: 325px;
+  min-width: 343px;
+  height: 100%;
+  width: 100%;
 }
 
 .course-page-tags {
