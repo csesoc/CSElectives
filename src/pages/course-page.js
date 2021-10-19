@@ -3,7 +3,6 @@ import { Grid, Icon } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
 import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
-import scrollToElement from 'scroll-to-element';
 
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
@@ -15,9 +14,9 @@ import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
 import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
 import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
+import ScrollButton from '../components/scroll-button.js';
 
 import '../styles/course-page.css';
-
 
 const CoursePage = (props) => {
   const { courses } = props;
@@ -173,17 +172,7 @@ const CoursePage = (props) => {
   return (
     <>
       <div className='scroll-button-container'>
-        <Icon
-          name='chevron circle up'
-          size='huge'
-          className='scroll-up-button'
-          onClick={
-            () => scrollToElement('#root', {
-              ease: 'in-out-cube',
-              duration: 1000,
-            })
-          }
-        />
+        <ScrollButton />
       </div>
       <Grid stackable>
         <Grid.Column width={7}>
