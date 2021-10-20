@@ -13,7 +13,7 @@ import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
 import FeedbackSvg from '../assets/illustrations/feedback.svg';
-import ScrollToTopButton from '../components/scroll-to-top-button';
+import ScrollButton from '../components/scroll-button.js';
 
 const createDropdownOption = (item) => ({
   key: item,
@@ -74,7 +74,9 @@ const HomePage = (props) => {
 
   return (
     <>
-      <ScrollToTopButton />
+      <div className='scroll-button-container'>
+        <ScrollButton />
+      </div>
       <section className='title-wrapper'>
         <div className='left'>
           <h1>
