@@ -67,6 +67,33 @@
     text-align: right;
 }
 
+.icon-flag-outline {
+    background: none;
+    float: right;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.flag-submit-button {
+    justify-content: center;
+    display: flex;
+    padding-top: 10px;
+}
+
+.flag-submission-message {
+    text-align: center;
+}
+
+.ui.form.input.flag {
+    display: block;
+}
+
+.other-input {
+    padding-bottom: 10px;
+    
+}
+
 .reviews {
     width: 100%;
     display: inline-block;
