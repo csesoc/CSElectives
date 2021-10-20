@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Icon } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
 import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
