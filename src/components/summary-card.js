@@ -22,9 +22,6 @@ const SummaryCard = (props) => {
     <div>
       <Grid>
         <Grid.Row className='grid-top'>
-
-        </Grid.Row>
-        <Grid.Row className='grid-row'>
           <div>
             <div className='course-code-header'>
               <Header>
