@@ -4,10 +4,12 @@ import '../styles/course-page.css';
 
 import { Grid, Card, Rating } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
+import FlagModal from '../components/flag-modal.js';
 
 const ReviewCard = (props) => {
-  const { reviewTitle, reviewComment, usefulProgress, workloadProgress, difficultyProgress,
+  const { reviewTitle, reviewComment, usefulProgress, workloadProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
+
 
   return (
     <div className='review-cards'>
@@ -39,6 +41,8 @@ const ReviewCard = (props) => {
                 <Card.Meta className='reviewCardAuthor'>
                   {author}
                 </Card.Meta>
+
+
               </Grid.Column>
             </Grid.Row>
             <Grid.Row className='review-row'>
@@ -73,6 +77,14 @@ const ReviewCard = (props) => {
                   </div>
                 </div>
                 <Card.Description>{reviewComment}</Card.Description>
+
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={2} className='review-row'>
+              <Grid.Column>
+              </Grid.Column>
+              <Grid.Column>
+                <FlagModal />
               </Grid.Column>
             </Grid.Row>
           </Grid>
