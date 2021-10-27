@@ -1,16 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Icon, Image } from 'semantic-ui-react';
+import { Grid, Image } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
 import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
 
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import RatingsCard from '../components/review-card-ratings-only.js';
-import NotFoundPage from '../pages/not-found-page.js';
 import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
-import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
 import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
 import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
@@ -95,12 +92,17 @@ const CoursePage = (props) => {
   };
 
   const getTags = () => {
-    // include tags for terms, prefix and level
-    const termsArray = course.terms.map((term) => 'Term ' + term );
-    const withPrefixArray = termsArray.concat(courseCode.substring(0, 4));
-    const level = 'Level ' + courseCode[4];
-    const tagsArray = withPrefixArray.concat(level);
-    return tagsArray;
+    const tags = {
+      level: course.studyLevel,
+      terms: course.terms.map((term) => {
+        if (term == 0) {
+          return 'Summer';
+        } else {
+          return 'Term ' + term;
+        }
+      }),
+    };
+    return tags;
   };
 
   // display review card
