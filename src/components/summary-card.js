@@ -1,23 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Grid, Progress, Rating, Icon, Card } from 'semantic-ui-react';
-import Tags from '../components/tags.js';
+import { Header, Grid, Icon } from 'semantic-ui-react';
+import Tag from '../components/tags.js';
 import '../styles/course-page.css';
 import ReviewRating from './review-rating/review-rating.js';
-import { getQueriesForElement } from '@testing-library/dom';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, courseCode, overallRating, numReviews, summaryDesc,
     usefulAvg, workloadAvg, difficultyAvg, enjoymentAvg, tags } = props;
 
-  const displayTags = (label) => {
-    return (
-      <Tags
-        label={label}
-      />
-    );
-  };
   return (
     <div>
       <Grid>
@@ -30,7 +22,8 @@ const SummaryCard = (props) => {
             </div>
             <Header as='h1'>{summaryTitle}</Header>
             <div className='tags'>
-              {tags.map((label) => displayTags(label))}
+              <Tag className={tags.level.toLowerCase()} label={tags.level} />
+              {tags.terms.map((term) => <Tag key={term} className="term" label={term} />)}
             </div>
             <a href={summaryLink} rel="noreferrer" target="_blank">
               <Icon name='external' /> {courseCode} Handbook Page
