@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../assets/no-results-found.jpg';
+import image from '../assets/no-results-found-void.svg';
 // Copied the text from the internet word for word maybe should change?
 
 const NoResultsFound = (props) => {
@@ -10,11 +10,10 @@ const NoResultsFound = (props) => {
         className="no-results-found-centre"
       />
       <div className="no-results-found-heading">
-        <b>That is a miss</b>
+        <b>There is nothing here</b>
       </div>
       <div className="no-results-found-subheading">
-        Sorry, that filter combination has no results.
-        Please try a different criteria
+        That filter combination has no results.
       </div>
     </div>
   );
