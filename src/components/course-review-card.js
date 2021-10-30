@@ -23,21 +23,21 @@ const CourseReviewCard = (props) => {
   return (
     <div className='card-container'>
       <Card className='course-review-card' as={Link} to={page}>
-        <Card.Content>
-          <div className='card-contents-container'>
-            <div className='card-contents-cell-left'>
-              <Card.Header className='card-header'>{code}</Card.Header>
-              <Card.Description className='card-description'>{name}</Card.Description>
-            </div>
-            <div className='card-contents-cell-right'>
+        <Card.Content className='card-contents-container'>
+          <div className='card-contents-cell-left'>
+            <Card.Header className='card-header'>{code}</Card.Header>
+            <Card.Description className='card-description'>{name}</Card.Description>
+          </div>
+          <div className='card-contents-cell-right'>
+            <div className='card-ratings-stars'>
               <ReviewRating
                 rating={overallRating}
                 icon='star'
                 size='large'
                 palette='trafficlight'
               />
-              <Card.Meta> {numReviews} reviews </Card.Meta>
             </div>
+            <Card.Meta> {numReviews} reviews </Card.Meta>
           </div>
         </Card.Content>
         <Card.Content extra>

@@ -1,23 +1,20 @@
 import React, { useContext, useState } from 'react';
-import { Grid, Icon } from 'semantic-ui-react';
+import { Grid, Image } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
 import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
-import scrollToElement from 'scroll-to-element';
 
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import RatingsCard from '../components/review-card-ratings-only.js';
-import NotFoundPage from '../pages/not-found-page.js';
 import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
-import Banner from '../components/course-review/banner.js';
 import EmptyState from '../components/course-review/empty-state.js';
 import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
 import PlaceHolderReview from '../components/course-review/placeholder-reviews.js';
+import BlankSvg from '../assets/illustrations/blank_canvas.svg';
+import ScrollButton from '../components/scroll-button.js';
 
 import '../styles/course-page.css';
-
 
 const CoursePage = (props) => {
   const { courses } = props;
@@ -55,6 +52,7 @@ const CoursePage = (props) => {
     + review.rating.workload;
   };
 
+
   const handleClick = () => {
     history.push('/review');
   };
@@ -75,6 +73,7 @@ const CoursePage = (props) => {
     return average.toFixed(1);
   };
 
+
   const year = new Date().getFullYear();
 
   const getLink = () => {
@@ -82,7 +81,7 @@ const CoursePage = (props) => {
   };
 
   const getSummaryTitle = () => {
-    return `${courseCode} - ${course.title}`;
+    return `${course.title}`;
   };
 
   const getReviewDate = (review) => {
@@ -93,12 +92,17 @@ const CoursePage = (props) => {
   };
 
   const getTags = () => {
-    // include tags for terms, prefix and level
-    const termsArray = course.terms.map((term) => 'Term ' + term );
-    const withPrefixArray = termsArray.concat(courseCode.substring(0, 4));
-    const level = 'Level ' + courseCode[4];
-    const tagsArray = withPrefixArray.concat(level);
-    return tagsArray;
+    const tags = {
+      level: course.studyLevel,
+      terms: course.terms.map((term) => {
+        if (term == 0) {
+          return 'Summer';
+        } else {
+          return 'Term ' + term;
+        }
+      }),
+    };
+    return tags;
   };
 
   // display review card
@@ -126,6 +130,9 @@ const CoursePage = (props) => {
     if (course.reviews.length === 0) {
       return (
         <>
+          <div className='blank'>
+            <Image className='blank-svg' fluid src={BlankSvg} />
+          </div>
           <EmptyState handleClickHome={handleClickHome} />
         </>
       );
@@ -173,36 +180,30 @@ const CoursePage = (props) => {
   return (
     <>
       <div className='scroll-button-container'>
-        <Icon
-          name='chevron circle up'
-          size='huge'
-          className='scroll-up-button'
-          onClick={
-            () => scrollToElement('#root', {
-              ease: 'in-out-cube',
-              duration: 1000,
-            })
-          }
-        />
+        <ScrollButton />
       </div>
-      <Banner courseCode={courseCode} />
       <Grid stackable>
         <Grid.Column width={7}>
           <div className='summary-card'>
-            <SummaryCard
-              summaryTitle={getSummaryTitle()}
-              summaryLink={getLink()}
-              courseCode={courseCode}
-              overallRating={getAverage('overall')}
-              numReviews={course.reviews.length}
-              summaryDesc={course.description}
-              usefulAvg={getAverage('usefulness')}
-              workloadAvg={getAverage('workload')}
-              difficultyAvg={getAverage('difficulty')}
-              enjoymentAvg={getAverage('enjoyment')}
-              tags={getTags()}
-            />
-            <ReviewModal courseCode={course.courseCode} />
+            {loading
+              ? <PlaceHolderSummary />
+              : (
+                <SummaryCard
+                  summaryTitle={getSummaryTitle()}
+                  summaryLink={getLink()}
+                  courseCode={courseCode}
+                  overallRating={getAverage('overall')}
+                  numReviews={course.reviews.length}
+                  summaryDesc={course.description}
+                  usefulAvg={getAverage('usefulness')}
+                  workloadAvg={getAverage('workload')}
+                  difficultyAvg={getAverage('difficulty')}
+                  enjoymentAvg={getAverage('enjoyment')}
+                  tags={getTags()}
+                />
+              )
+            }
+            <ReviewModal courseCode={courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>

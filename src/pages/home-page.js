@@ -13,6 +13,7 @@ import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
 import FeedbackSvg from '../assets/illustrations/feedback.svg';
+import ScrollButton from '../components/scroll-button.js';
 
 const createDropdownOption = (item) => ({
   key: item,
@@ -58,7 +59,7 @@ const prefixOptions = prefix.map((item) => createDropdownOption(item));
 
 const HomePage = (props) => {
   const loading = useContext(LoadingContext);
-  const { courses } = props;
+  const { courses, majors } = props;
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
@@ -69,8 +70,13 @@ const HomePage = (props) => {
     console.log(query);
   };
 
+  console.log(majors);
+
   return (
     <>
+      <div className='scroll-button-container'>
+        <ScrollButton />
+      </div>
       <section className='title-wrapper'>
         <div className='left'>
           <h1>
@@ -191,6 +197,7 @@ const HomePage = (props) => {
 
 HomePage.propTypes = {
   courses: PropTypes.object,
+  majors: PropTypes.object,
 };
 
 export default HomePage;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Popup, Icon } from 'semantic-ui-react';
 import ReviewRating from '../review-rating/review-rating';
 
 const CourseRatings = (props) => {
@@ -51,6 +51,13 @@ const CourseRatings = (props) => {
           </div>
           <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
             Usefulness<span className='required'> *</span>
+            <span>
+              <Popup
+                content='How well the content can be applied in real life scenarios'
+                size='mini'
+                trigger={<Icon name='info circle' className='info-hover' size='small' color='grey' />}
+              />
+            </span>
           </h5>
           <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
             <ReviewRating
@@ -67,6 +74,13 @@ const CourseRatings = (props) => {
           </div>
           <h5 style={{ flexGrow: 1, marginTop: '1rem' }}>
             Manageability<span className='required'> *</span>
+            <span>
+              <Popup
+                content='How well you were able to balance the workload'
+                size='mini'
+                trigger={<Icon name='info circle' className='info-hover' size='small' color='grey' />}
+              />
+            </span>
           </h5>
           <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
             <ReviewRating
