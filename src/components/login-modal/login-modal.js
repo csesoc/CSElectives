@@ -42,7 +42,7 @@ const LoginModal = () => {
         onOpen={() => setOpen(true)}
         open={open}
         size='tiny'
-        trigger={<Button primary>Log In</Button>}
+        trigger={<Button secondary style={{ backgroundColor: 'var(--csesoc-blue)' }}>Log In</Button>}
       >
         <Modal.Content>
           {user ? (

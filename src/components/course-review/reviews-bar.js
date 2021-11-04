@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header, Dropdown, Button } from 'semantic-ui-react';
+import { Header, Dropdown } from 'semantic-ui-react';
+
+import ReviewModal from '../review-modal.js';
 
 const ReviewsBar = (props) => {
-  const { sortOptions, handleSortChange, handleClick } = props;
+  const { sortOptions, handleSortChange, courseCode } = props;
 
   return (
     <div className='review-heading'>
@@ -20,6 +22,7 @@ const ReviewsBar = (props) => {
           onChange={handleSortChange}
         />
       </div>
+      <ReviewModal courseCode={courseCode} />
     </div>
   );
 };
@@ -27,7 +30,7 @@ const ReviewsBar = (props) => {
 ReviewsBar.propTypes = {
   sortOptions: PropTypes.func,
   handleSortChange: PropTypes.func,
-  handleClick: PropTypes.func,
+  courseCode: PropTypes.string,
 };
 
 export default ReviewsBar;

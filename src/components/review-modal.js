@@ -57,7 +57,15 @@ const ReviewModal = (props) => {
     <Modal
       closeIcon
       open={open}
-      trigger={<Button>Submit a review</Button>}
+      trigger={
+        <Button
+          secondary
+          style={{ backgroundColor: 'var(--csesoc-navy)' }}
+          content='Add a Review'
+          labelPosition='left'
+          icon='pencil'
+        />
+      }
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
     >
