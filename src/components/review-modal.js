@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Button, Icon, Modal, Image, Header, Checkbox } from 'semantic-ui-react';
+import { Form, Button, Modal } from 'semantic-ui-react';
 
 import Database from '../db/db.js';
 
@@ -11,8 +11,11 @@ import AnonChoice from '../components/review-form/anon-choice';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
 import ReviewChoice from './review-form/review-choice.js';
+import { UserContext } from '../App.js';
 
 const ReviewModal = (props) => {
+  const user = useContext(UserContext);
+
   const { courseCode } = props;
   const [overall, setOverall] = useState(0);
   const [enjoyment, setEnjoyment] = useState(0);
@@ -29,11 +32,11 @@ const ReviewModal = (props) => {
 
   const handleSubmit = async () =>{
     const review = {
-      author: 'anonymous',
+      author: user?.displayName,
       title: reviewMessage ? title : '',
       comment: reviewMessage ? comment : '',
       courseCode: courseCode,
-      displayAuthor: anonymity,
+      displayAuthor: !anonymity,
       rating: {
         enjoyment,
         overall,
