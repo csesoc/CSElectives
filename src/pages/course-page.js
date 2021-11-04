@@ -174,9 +174,6 @@ const CoursePage = (props) => {
     );
   };
 
-  // if (loading) return <PlaceHolder />;
-  // if (!course) return <NotFoundPage />;
-
   return (
     <>
       <div className='scroll-button-container'>
@@ -203,7 +200,6 @@ const CoursePage = (props) => {
                 />
               )
             }
-            <ReviewModal courseCode={courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>
@@ -211,6 +207,7 @@ const CoursePage = (props) => {
             sortOptions={sortOptions}
             handleSortChange={handleSortChange}
             handleClick={handleClick}
+            courseCode={courseCode}
           />
           {loading ? <PlaceHolderReview /> : checkEmptyState() }
         </Grid.Column>
