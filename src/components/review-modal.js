@@ -16,7 +16,7 @@ import { UserContext } from '../App.js';
 const ReviewModal = (props) => {
   const user = useContext(UserContext);
 
-  const { courseCode } = props;
+  const { courseCode, setLoginMessage, setLoginOpen } = props;
   const [overall, setOverall] = useState(0);
   const [enjoyment, setEnjoyment] = useState(0);
   const [usefulness, setUsefulness] = useState(0);
@@ -54,102 +54,114 @@ const ReviewModal = (props) => {
   };
 
   return (
-    <Modal
-      closeIcon
-      open={open}
-      trigger={
-        <Button
-          secondary
-          style={{ backgroundColor: 'var(--csesoc-navy)' }}
-          content='Add a Review'
-          labelPosition='left'
-          icon='pencil'
-        />
-      }
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
-    >
-      <Modal.Header>Submit a review</Modal.Header>
-      <div className='review-modal'>
-        <Modal.Content>
-          <p>Please write your review here: make sure you have read the terms and conditions
-            before posting. Feel free to include your overall experience with the course,
-            how you found the assessments/workload and anything else you wanted to share!
-          </p>
-          <p><span className='required'>* Required</span>
-            <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
-          </p>
-          <Form>
-            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1.5 }}>
-                <ReviewChoice
-                  reviewMessage={reviewMessage}
-                  setReviewMessage={setReviewMessage}
-                />
-                <ReviewTextArea
-                  title={title}
-                  setTitle={setTitle}
-                  comment={comment}
-                  setComment={setComment}
-                  disabled={!reviewMessage}
-                />
-              </div>
-              <div className='review-form-left'>
-                <div style={{ display: 'flex', flexGrow: 1 }}>
-                  <CourseRatings
-                    overall={overall}
-                    setOverall={setOverall}
-                    enjoyment={enjoyment}
-                    setEnjoyment={setEnjoyment}
-                    usefulness={usefulness}
-                    setUsefulness={setUsefulness}
-                    workload={workload}
-                    setWorkload={setWorkload}
+    <>
+      <Button
+        secondary
+        style={{ backgroundColor: 'var(--csesoc-navy)' }}
+        content='Add a Review'
+        labelPosition='left'
+        icon='pencil'
+        onClick={() => {
+          if (user === null) {
+            // not logged in
+            setLoginMessage('You must be logged in to add a review');
+            setLoginOpen(true);
+          } else {
+            // open submit review
+            setOpen(true);
+          }
+        }}
+      />
+      <Modal
+        closeIcon
+        open={open}
+        onClose={() => setOpen(false)}
+        onOpen={() => setOpen(true)}
+      >
+        <Modal.Header>Submit a review</Modal.Header>
+        <div className='review-modal'>
+          <Modal.Content>
+            <p>Please write your review here: make sure you have read the terms and conditions
+              before posting. Feel free to include your overall experience with the course,
+              how you found the assessments/workload and anything else you wanted to share!
+            </p>
+            <p><span className='required'>* Required</span>
+              <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
+            </p>
+            <Form>
+              <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1.5 }}>
+                  <ReviewChoice
+                    reviewMessage={reviewMessage}
+                    setReviewMessage={setReviewMessage}
+                  />
+                  <ReviewTextArea
+                    title={title}
+                    setTitle={setTitle}
+                    comment={comment}
+                    setComment={setComment}
+                    disabled={!reviewMessage}
                   />
                 </div>
-                <div className='review-term-text'>
-                  <b>
-                    <label>When did you complete the course?<span className='required'> *</span></label>
-                  </b>
-                </div>
-                <div className='review-term-dropdown'>
-                  <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
-                </div>
-                <div className='review-anon-text'>
-                  <b>
-                    <label>Would you like to remain anonymous?<span className='required'> *</span></label>
-                  </b>
-                </div>
-                <div>
-                  <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
+                <div className='review-form-left'>
+                  <div style={{ display: 'flex', flexGrow: 1 }}>
+                    <CourseRatings
+                      overall={overall}
+                      setOverall={setOverall}
+                      enjoyment={enjoyment}
+                      setEnjoyment={setEnjoyment}
+                      usefulness={usefulness}
+                      setUsefulness={setUsefulness}
+                      workload={workload}
+                      setWorkload={setWorkload}
+                    />
+                  </div>
+                  <div className='review-term-text'>
+                    <b>
+                      <label>When did you complete the course?<span className='required'> *</span></label>
+                    </b>
+                  </div>
+                  <div className='review-term-dropdown'>
+                    <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
+                  </div>
+                  <div className='review-anon-text'>
+                    <b>
+                      <label>Would you like to remain anonymous?<span className='required'> *</span></label>
+                    </b>
+                  </div>
+                  <div>
+                    <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='review-button'>
-              <Button
-                content='Submit'
-                color='green'
-                type='submit'
-                disabled={!termTaken
+              <div className='review-button'>
+                <Button
+                  content='Submit'
+                  color='green'
+                  type='submit'
+                  disabled={!termTaken
                   || !overall
                   || !enjoyment
                   || !usefulness
                   || !workload
                   || (reviewMessage && (!comment || !title))
-                }
-                onClick={handleSubmit}
-              >
-              </Button>
-            </div>
-          </Form>
-        </Modal.Content>
-      </div>
-    </Modal>
+                  }
+                  onClick={handleSubmit}
+                >
+                </Button>
+              </div>
+            </Form>
+          </Modal.Content>
+        </div>
+      </Modal>
+    </>
   );
 };
 
 ReviewModal.propTypes = {
   courseCode: PropTypes.string,
+  setLoginMessage: PropTypes.func,
+  setLoginOpen: PropTypes.func,
 };
 
 export default ReviewModal;

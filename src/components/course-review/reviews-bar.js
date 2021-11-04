@@ -5,7 +5,7 @@ import { Header, Dropdown } from 'semantic-ui-react';
 import ReviewModal from '../review-modal.js';
 
 const ReviewsBar = (props) => {
-  const { sortOptions, handleSortChange, courseCode } = props;
+  const { sortOptions, handleSortChange, courseCode, setLoginMessage, setLoginOpen } = props;
 
   return (
     <div className='review-heading'>
@@ -22,7 +22,7 @@ const ReviewsBar = (props) => {
           onChange={handleSortChange}
         />
       </div>
-      <ReviewModal courseCode={courseCode} />
+      <ReviewModal courseCode={courseCode} setLoginMessage={setLoginMessage} setLoginOpen={setLoginOpen} />
     </div>
   );
 };
@@ -31,6 +31,8 @@ ReviewsBar.propTypes = {
   sortOptions: PropTypes.func,
   handleSortChange: PropTypes.func,
   courseCode: PropTypes.string,
+  setLoginMessage: PropTypes.func,
+  setLoginOpen: PropTypes.func,
 };
 
 export default ReviewsBar;
