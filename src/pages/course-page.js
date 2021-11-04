@@ -17,7 +17,7 @@ import ScrollButton from '../components/scroll-button.js';
 import '../styles/course-page.css';
 
 const CoursePage = (props) => {
-  const { courses } = props;
+  const { courses, setLoginMessage, setLoginOpen } = props;
   const loading = useContext(LoadingContext);
   const history = useHistory();
   const { courseCode } = useParams();
@@ -208,6 +208,8 @@ const CoursePage = (props) => {
             handleSortChange={handleSortChange}
             handleClick={handleClick}
             courseCode={courseCode}
+            setLoginMessage={setLoginMessage}
+            setLoginOpen={setLoginOpen}
           />
           {loading ? <PlaceHolderReview /> : checkEmptyState() }
         </Grid.Column>
@@ -218,6 +220,8 @@ const CoursePage = (props) => {
 
 CoursePage.propTypes = {
   courses: PropTypes.object,
+  setLoginMessage: PropTypes.func,
+  setLoginOpen: PropTypes.func,
 };
 
 export default CoursePage;
