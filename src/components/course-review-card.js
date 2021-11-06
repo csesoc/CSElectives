@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Tag from './tags.js';
 import ReviewRating from './review-rating/review-rating.js';
 
-import { Card, Popup, Button } from 'semantic-ui-react';
+import { Card, Popup } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CourseReviewCard = (props) => {
