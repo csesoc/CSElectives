@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Tag from './tags.js';
 import ReviewRating from './review-rating/review-rating.js';
 
-import { Card } from 'semantic-ui-react';
+import { Card, Popup, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CourseReviewCard = (props) => {
@@ -29,14 +29,19 @@ const CourseReviewCard = (props) => {
             <Card.Description className='card-description'>{name}</Card.Description>
           </div>
           <div className='card-contents-cell-right'>
-            <div className='card-ratings-stars'>
-              <ReviewRating
-                rating={overallRating}
-                icon='star'
-                size='large'
-                palette='trafficlight'
-              />
-            </div>
+            <Popup
+              content={overallRating}
+              trigger={
+                <div className='card-ratings-stars'>
+                  <ReviewRating
+                    rating={overallRating}
+                    icon='star'
+                    size='large'
+                    palette='trafficlight'
+                  />
+                </div>}
+              position='right center'
+            />
             <Card.Meta> {numReviews} reviews </Card.Meta>
           </div>
         </Card.Content>
