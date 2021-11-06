@@ -20,10 +20,6 @@ const CardGrid = (props) => {
     for (const major in majors) {
       if (majors.hasOwnProperty(major)) {
         if (majors[major].courses.includes(course.courseCode)) {
-          console.log('FOUND');
-          console.log(majors[major].title);
-          console.log(activeMajorTags);
-          console.log(activeMajorTags.includes(majors[major].title));
           return majors[major].title;
         }
       }
@@ -37,7 +33,6 @@ const CardGrid = (props) => {
       const filteredCourses = courses.filter((course) => (
         activeMajorTags.includes(getMajor(course))
       ));
-      console.log(filteredCourses);
       return filteredCourses;
     }
     return courses;
