@@ -17,7 +17,7 @@ import ScrollButton from '../components/scroll-button.js';
 import '../styles/course-page.css';
 
 const CoursePage = (props) => {
-  const { courses } = props;
+  const { courses, setLoginMessage, setLoginOpen } = props;
   const loading = useContext(LoadingContext);
   const history = useHistory();
   const { courseCode } = useParams();
@@ -174,9 +174,6 @@ const CoursePage = (props) => {
     );
   };
 
-  // if (loading) return <PlaceHolder />;
-  // if (!course) return <NotFoundPage />;
-
   return (
     <>
       <div className='scroll-button-container'>
@@ -203,7 +200,6 @@ const CoursePage = (props) => {
                 />
               )
             }
-            <ReviewModal courseCode={courseCode} />
           </div>
         </Grid.Column>
         <Grid.Column width={9}>
@@ -211,6 +207,9 @@ const CoursePage = (props) => {
             sortOptions={sortOptions}
             handleSortChange={handleSortChange}
             handleClick={handleClick}
+            courseCode={courseCode}
+            setLoginMessage={setLoginMessage}
+            setLoginOpen={setLoginOpen}
           />
           {loading ? <PlaceHolderReview /> : checkEmptyState() }
         </Grid.Column>
@@ -221,6 +220,8 @@ const CoursePage = (props) => {
 
 CoursePage.propTypes = {
   courses: PropTypes.object,
+  setLoginMessage: PropTypes.func,
+  setLoginOpen: PropTypes.func,
 };
 
 export default CoursePage;

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Form, Header, Message, Modal, Input, Divider } from 'semantic-ui-react';
 
 import Verifier from '../../verifier/verifier.js';
@@ -6,12 +7,11 @@ import Database from '../../db/db.js';
 import { UserContext } from '../../App.js';
 import '../../styles/login-page.css';
 
-const LoginModal = () => {
+const LoginModal = (props) => {
+  const { open, setOpen, loginMessage, setLoginMessage } = props;
   const user = useContext(UserContext);
   const [zid, setZid] = useState('');
   const [zpass, setZpass] = useState('');
-
-  const [open, setOpen] = useState(false);
 
   const [errorMsg, setErrorMsg] = useState('');
   const [errorVisibility, setErrorVisibility] = useState(false);
@@ -38,11 +38,14 @@ const LoginModal = () => {
     <>
       <Modal
         closeIcon
-        onClose={() => setOpen(false)}
+        onClose={() => {
+          setOpen(false);
+          setLoginMessage('Login');
+        }}
         onOpen={() => setOpen(true)}
         open={open}
         size='tiny'
-        trigger={<Button primary>Log In</Button>}
+        trigger={<Button secondary style={{ backgroundColor: 'var(--csesoc-blue)' }}>Log In</Button>}
       >
         <Modal.Content>
           {user ? (
@@ -59,9 +62,7 @@ const LoginModal = () => {
             </>
           ) : (
             <>
-              <Header as='h2'>
-                Login
-              </Header>
+              <Header as='h2' content={loginMessage} />
               <Divider />
               <p> Please log in with the same credentials as your UNSW account</p>
               <Form>
@@ -103,10 +104,11 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
+LoginModal.propTypes = {
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+  loginMessage: PropTypes.string,
+  setLoginMessage: PropTypes.func,
+};
 
-/* <Form.Input
-                  label='zID'
-                  value={zid}
-                  onChange={(e, { value }) => setZid(value)}
-                /> */
+export default LoginModal;

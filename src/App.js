@@ -23,6 +23,9 @@ const App = () => {
   const [courses, setCourses] = useState({});
   const [majors, setMajors] = useState({});
 
+  const [loginOpen, setLoginOpen] = useState(false); // hacky way, probs not prop drill this later
+  const [loginMessage, setLoginMessage] = useState('Login');
+
   onAuthStateChanged(Database.auth, (user) => {
     setUser(user);
   });
@@ -46,7 +49,13 @@ const App = () => {
         <UserContext.Provider value={user}>
           <div className='display-wrapper'>
             <header>
-              <Header courses={courses} />
+              <Header
+                courses={courses}
+                open={loginOpen}
+                setOpen={setLoginOpen}
+                loginMessage={loginMessage}
+                setLoginMessage={setLoginMessage}
+              />
             </header>
             <main>
               <Container className='main-wrapper'>
@@ -55,7 +64,7 @@ const App = () => {
                     <HomePage courses={courses} majors={majors} />
                   </Route>
                   <Route exact path='/course/:courseCode'>
-                    <CoursePage courses={courses} />
+                    <CoursePage courses={courses} setLoginMessage={setLoginMessage} setLoginOpen={setLoginOpen} />
                   </Route>
                   <Route exact path='/login' component={LoginPage} />
                   <Route exact path='/feedback' component={FeedbackPage} />

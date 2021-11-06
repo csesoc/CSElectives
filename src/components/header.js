@@ -9,7 +9,7 @@ import Logo from '../assets/logo.svg';
 // This header will appear on all pages
 const Header = (props) => {
   const [activeItem, setActiveItem] = useState('home');
-  const { courses } = props;
+  const { courses, open, setOpen, loginMessage, setLoginMessage } = props;
   const history = useHistory();
 
   const dropdownOptionFunc = (course) => {
@@ -69,7 +69,7 @@ const Header = (props) => {
           }
         </Menu.Item>
         <Menu.Item>
-          <LoginModal />
+          <LoginModal open={open} setOpen={setOpen} loginMessage={loginMessage} setLoginMessage={setLoginMessage} />
         </Menu.Item>
       </Container>
     </Menu>
@@ -78,6 +78,10 @@ const Header = (props) => {
 
 Header.propTypes = {
   courses: PropTypes.object,
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+  loginMessage: PropTypes.string,
+  setLoginMessage: PropTypes.func,
 };
 
 export default Header;
