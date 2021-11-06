@@ -16,7 +16,6 @@ const CardGrid = (props) => {
 
   // Returns a major associated with a course
   const getMajor = (course) => {
-    const majorsLength = Object.keys(majors).length;
     for (const major in majors) {
       if (majors.hasOwnProperty(major)) {
         if (majors[major].courses.includes(course.courseCode)) {
