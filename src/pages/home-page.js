@@ -184,6 +184,7 @@ const HomePage = (props) => {
           <Grid centered stackable doubling container columns='equal'>
             <CardGrid
               courses={courses}
+              majors={majors}
               activeMajorTags={activeMajorTags}
               activeTermTags={activeTermTags}
               activePrefixTags={activePrefixTags}

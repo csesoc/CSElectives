@@ -6,7 +6,7 @@ import { Grid } from 'semantic-ui-react';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
-  const { courses, activeMajorTags, activeTermTags, activePrefixTags } = props;
+  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags } = props;
   // Returns an array of courses sorted in descending order of number of reviews
   const sortMostReviewed = () => {
     return Object.values(courses).sort(function(a, b) {
@@ -14,10 +14,33 @@ const CardGrid = (props) => {
     });
   };
 
-  const filterMajors = () => {
-    courses.filter((courses) => (
-      activeMajorTags.includes()
-    ));
+  // Returns a major associated with a course
+  const getMajor = (course) => {
+    const majorsLength = Object.keys(majors).length;
+    for (const major in majors) {
+      if (majors.hasOwnProperty(major)) {
+        if (majors[major].courses.includes(course.courseCode)) {
+          console.log('FOUND');
+          console.log(majors[major].title);
+          console.log(activeMajorTags);
+          console.log(activeMajorTags.includes(majors[major].title));
+          return majors[major].title;
+        }
+      }
+    }
+    return false;
+  };
+
+
+  const filterMajors = (courses) => {
+    if (activeMajorTags.length > 0) {
+      const filteredCourses = courses.filter((course) => (
+        activeMajorTags.includes(getMajor(course))
+      ));
+      console.log(filteredCourses);
+      return filteredCourses;
+    }
+    return courses;
   };
 
   const filterTermsFilter = (course) => {
@@ -72,7 +95,7 @@ const CardGrid = (props) => {
   };
 
   const sortedCourses = sortMostReviewed();
-  const prefixFilteredCourses = filterPrefix(filterTerms(sortedCourses));
+  const prefixFilteredCourses = filterPrefix(filterTerms(filterMajors(sortedCourses)));
   const gridArray = [];
   const colSize = 3;
   for (let i = 0; i < prefixFilteredCourses.length; i += colSize) {
