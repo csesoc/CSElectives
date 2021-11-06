@@ -22,7 +22,7 @@ const CardGrid = (props) => {
       count++;
     });
     if (count === 0) {
-      return <Icon name='frown outline' />;
+      return <p>😢</p>;
     }
     const roundedAverage = Math.round(total / count * 10) / 10;
     return roundedAverage.toFixed(1);
