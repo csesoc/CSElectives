@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CourseReviewCard from './course-review-card.js';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
@@ -22,10 +22,10 @@ const CardGrid = (props) => {
       count++;
     });
     if (count === 0) {
-      return 0;
+      return <p>😢</p>;
     }
     const roundedAverage = Math.round(total / count * 10) / 10;
-    return roundedAverage;
+    return roundedAverage.toFixed(1);
   };
 
   const sortedCourses = sortMostReviewed();
