@@ -108,6 +108,7 @@ const CardGrid = (props) => {
               overallRating={getOverallRating(course)}
               studyLevel={course.studyLevel}
               terms={course.terms}
+              major={getMajor(course)}
             />
           </Grid.Column>))}
       </Grid.Row>
