@@ -15,21 +15,9 @@
     line-height: 295%;
 }
 
-.review-form {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows:3.5rem 3.5rem 3.5rem 3.5rem;
-    width: 100%;
-    margin: 2rem;
-}
-
 .review-anon-text {
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-
-.review-anon-radio {
-
 }
 
 .review-term-text {
@@ -38,23 +26,9 @@
     margin-bottom: 1rem;
 }
 
-.review-term-dropdown {
-
-
-}
-
-.review-text-text {
-    margin-bottom: 1rem;
-}
-
-.review-text-input {
-
-}
-
 .review-button {
     text-align: right;
     margin-top: 2rem;
-    /* margin-right: 1rem; */
 }
 
 .course-ratings {
@@ -71,4 +45,13 @@
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     padding-bottom: 1.125rem;
+}
+
+.review-toggle {
+    padding-top: 0.8rem;
+    padding-bottom: 0.725rem;
+}
+
+.info-hover {
+    padding-left: 0.6rem;
 }

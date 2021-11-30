@@ -86,6 +86,21 @@ class Database {
   }
 
   /**
+   * Gets all majors from database
+   * @return {object}
+   */
+  async getMajors() {
+    const majors = {};
+
+    const majorsSnapshot = await this.getSnapshot('majors');
+    majorsSnapshot.docs.forEach((doc) => {
+      majors[doc.id] = doc.data();
+    });
+
+    return majors;
+  }
+
+  /**
    * Appends a new review to the course's reviews
    * NOTE: This function does not change the global state for you
    * @param {object} review

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CourseReviewCard from './course-review-card.js';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
-  const { courses, activeMajorTags, activeTermTags, activePrefixTags } = props;
+  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags } = props;
   // Returns an array of courses sorted in descending order of number of reviews
   const sortMostReviewed = () => {
     return Object.values(courses).sort(function(a, b) {
@@ -20,10 +20,27 @@ const CardGrid = (props) => {
 
   };
 
-  const filterMajors = () => {
-    courses.filter((courses) => (
-      activeMajorTags.includes()
-    ));
+  // Returns a major associated with a course
+  const getMajor = (course) => {
+    for (const major in majors) {
+      if (majors.hasOwnProperty(major)) {
+        if (majors[major].courses.includes(course.courseCode)) {
+          return majors[major].title;
+        }
+      }
+    }
+    return false;
+  };
+
+
+  const filterMajors = (courses) => {
+    if (activeMajorTags.length > 0) {
+      const filteredCourses = courses.filter((course) => (
+        activeMajorTags.includes(getMajor(course))
+      ));
+      return filteredCourses;
+    }
+    return courses;
   };
 
   const filterTermsFilter = (course) => {
@@ -71,14 +88,14 @@ const CardGrid = (props) => {
       count++;
     });
     if (count === 0) {
-      return 0;
+      return <p>😢</p>;
     }
     const roundedAverage = Math.round(total / count * 10) / 10;
-    return roundedAverage;
+    return roundedAverage.toFixed(1);
   };
 
   const sortedCourses = sortMostReviewed();
-  const prefixFilteredCourses = filterPrefix(filterTerms(sortedCourses));
+  const prefixFilteredCourses = filterPrefix(filterTerms(filterMajors(sortedCourses)));
   const gridArray = [];
   const colSize = 3;
   for (let i = 0; i < prefixFilteredCourses.length; i += colSize) {
