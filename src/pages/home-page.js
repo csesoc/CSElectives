@@ -22,10 +22,11 @@ const createDropdownOption = (item) => ({
 });
 
 const sorts = [
-  'Most Popular',
+  'Highest Rated',
+  'Most Reviews',
   'Most Useful',
   'Most Enjoyable',
-  'Lowest Difficulty',
+  'Best Workload',
 ];
 
 const majors = [
@@ -63,6 +64,7 @@ const HomePage = (props) => {
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
+  const [activeSort, setActiveSort] = useState('Highest Rated');
   const [query, setQuery] = useState('');
 
   const handleQueryChange = (e, { value }) => {
@@ -123,7 +125,11 @@ const HomePage = (props) => {
                 Sort by:
               </div>
               <div className='sort-dropdown-menu'>
-                <DropdownSortMenu options={sortOptions} />
+                <DropdownSortMenu
+                  activeSort={activeSort}
+                  setActiveSort={setActiveSort}
+                  options={sortOptions}
+                />
               </div>
             </div>
 
@@ -188,6 +194,7 @@ const HomePage = (props) => {
               activeMajorTags={activeMajorTags}
               activeTermTags={activeTermTags}
               activePrefixTags={activePrefixTags}
+              activeSort={activeSort}
             />
           </Grid>
         )}
