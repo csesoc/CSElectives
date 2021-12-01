@@ -98,32 +98,36 @@ const CardGrid = (props) => {
     const gridRow = prefixFilteredCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
   }
-
-  if (courses !== []) {
+  console.log(prefixFilteredCourses);
+  if (prefixFilteredCourses.length != 0) {
     return gridArray.map((row, index) => {
       return (
-        <>
-          <NoResultsFound />
-          <Grid.Row key={index} stretched>
-            {row.map((course) => (
-              <Grid.Column key={course.id} columns='equal'>
-                <CourseReviewCard
-                  code={course.courseCode}
-                  name={course.title}
-                  numReviews={course.reviews.length}
-                  overallRating={getOverallRating(course)}
-                  studyLevel={course.studyLevel}
-                  terms={course.terms}
-                />
-              </Grid.Column>))}
-          </Grid.Row>
-        </>
+        <Grid.Row key={index} stretched>
+          {row.map((course) => (
+            <Grid.Column key={course.id} columns='equal'>
+              <CourseReviewCard
+                code={course.courseCode}
+                name={course.title}
+                numReviews={course.reviews.length}
+                overallRating={getOverallRating(course)}
+                studyLevel={course.studyLevel}
+                terms={course.terms}
+              />
+            </Grid.Column>))}
+        </Grid.Row>
       );
     });
   } else {
-    <NoResultsFound />;
+    return (<NoResultsFound />);
   }
 };
 
+CardGrid.propTypes = {
+  courses: PropTypes.object.isRequired,
+  majors: PropTypes.object.isRequired,
+  activeMajorTags: PropTypes.array.isRequired,
+  activeTermTags: PropTypes.array.isRequired,
+  activePrefixTags: PropTypes.array.isRequired,
+};
 
 export default CardGrid;
