@@ -7,7 +7,8 @@ const EmptyState = (props) => {
 
   return (
     <div className='no-reviews'>
-      <Header>No reviews yet!</Header>
+      <Header>We drew a blank...</Header>
+      <p>No reviews yet!</p>
       <Button animated onClick={handleClickHome} size='big' color='blue' basic>
         <Button.Content visible> Check out more courses</Button.Content>
         <Button.Content hidden><Icon name='space shuttle' /></Button.Content>

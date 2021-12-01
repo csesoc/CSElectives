@@ -4,7 +4,7 @@
     justify-content: space-between;
     width: 100%;
     padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    padding-right: 1.1rem;
 }
 
 .dropdown-reviews {
@@ -65,6 +65,33 @@
 
 .rating-only-right {
     text-align: right;
+}
+
+.icon-flag-outline {
+    background: none;
+    float: right;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.flag-submit-button {
+    justify-content: center;
+    display: flex;
+    padding-top: 10px;
+}
+
+.flag-submission-message {
+    text-align: center;
+}
+
+.ui.form.input.flag {
+    display: block;
+}
+
+.other-input {
+    padding-bottom: 10px;
+    
 }
 
 .reviews {
@@ -141,6 +168,19 @@
     margin-right: 0.5rem;
 }
 
+.course-code-header {
+    font-size: 3rem;
+}
+
+.tags {
+    margin: 1rem 0;
+}
 .placeholder-ratings {
     padding: 3rem 0.5rem;
+}
+
+.blank {
+    width: 60%;
+    margin: auto;
+    margin-top: 5rem;
 }
