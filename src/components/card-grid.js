@@ -171,6 +171,7 @@ CardGrid.propTypes = {
   activeMajorTags: PropTypes.array.isRequired,
   activeTermTags: PropTypes.array.isRequired,
   activePrefixTags: PropTypes.array.isRequired,
+  activeSort: PropTypes.string.isRequired,
 };
 
 export default CardGrid;
