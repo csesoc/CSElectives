@@ -6,19 +6,70 @@ import { Grid, Icon } from 'semantic-ui-react';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
-  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags } = props;
-  // Returns an array of courses sorted in descending order of number of reviews
-  const sortMostReviewed = () => {
-    return Object.values(courses).sort(function(a, b) {
-      console.log(a);
-      // Do if they are equal TODO BEFORE MERGE
-      return b.reviews.length - a.reviews.length;
-    });
-  };
-  // True then keep false then swap
-  const sortHighestRated = () => {
+  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort } = props;
 
+  // SORT FUNCTIONS
+  const sortMostReviews = (a, b) => {
+    return b.reviews.length - a.reviews.length;
   };
+
+  const sortHighestRated = (a, b) => {
+    return getAverageRating(b, 'overall') - getAverageRating(a, 'overall');
+  };
+
+  const sortMostUseful = (a, b) => {
+    return getAverageRating(b, 'usefulness') - getAverageRating(a, 'usefulness');
+  };
+
+  const sortMostEnjoyable = (a, b) => {
+    return getAverageRating(b, 'enjoyment') - getAverageRating(a, 'enjoyment');
+  };
+
+  const sortBestWorkload = (a, b) => {
+    return getAverageRating(b, 'workload') - getAverageRating(a, 'workload');
+  };
+
+  const sortsFunction = {
+    'Most Reviews': sortMostReviews,
+    'Highest Rated': sortHighestRated,
+    'Most Useful': sortMostUseful,
+    'Most Enjoyable': sortMostEnjoyable,
+    'Best Workload': sortBestWorkload,
+  };
+
+  const sortCourses = () => {
+    return Object.values(courses).sort(sortsFunction[activeSort]);
+  };
+
+  const getOverallRating = (course) => {
+    let total = 0;
+    let count = 0;
+    course.reviews.forEach((review) => {
+      total += review.rating['overall'];
+      count++;
+    });
+    if (count === 0) {
+      return <p>😢</p>;
+    }
+    const roundedAverage = Math.round(total / count * 10) / 10;
+    return roundedAverage.toFixed(1);
+  };
+
+  const getAverageRating = (course, ratingCategory) => {
+    let total = 0;
+    let count = 0;
+    course.reviews.forEach((review) => {
+      total += review.rating[ratingCategory];
+      count++;
+    });
+    if (count === 0) {
+      return 0;
+    }
+    const average = total / count;
+    return average.toFixed(1);
+  };
+
+  // FILTER HELPER FUNCTIONS
 
   // Returns a major associated with a course
   const getMajor = (course) => {
@@ -30,17 +81,6 @@ const CardGrid = (props) => {
       }
     }
     return false;
-  };
-
-
-  const filterMajors = (courses) => {
-    if (activeMajorTags.length > 0) {
-      const filteredCourses = courses.filter((course) => (
-        activeMajorTags.includes(getMajor(course))
-      ));
-      return filteredCourses;
-    }
-    return courses;
   };
 
   const filterTermsFilter = (course) => {
@@ -59,6 +99,17 @@ const CardGrid = (props) => {
     }
     // Term should look something like "Term 2", we want to extract the number at index 5
     return parseInt(term[5]);
+  };
+
+  // FILTER FUNCTIONS
+  const filterMajors = (courses) => {
+    if (activeMajorTags.length > 0) {
+      const filteredCourses = courses.filter((course) => (
+        activeMajorTags.includes(getMajor(course))
+      ));
+      return filteredCourses;
+    }
+    return courses;
   };
 
   const filterTerms = (courses) => {
@@ -80,21 +131,7 @@ const CardGrid = (props) => {
   };
 
 
-  const getOverallRating = (course) => {
-    let total = 0;
-    let count = 0;
-    course.reviews.forEach((review) => {
-      total += review.rating['overall'];
-      count++;
-    });
-    if (count === 0) {
-      return <p>😢</p>;
-    }
-    const roundedAverage = Math.round(total / count * 10) / 10;
-    return roundedAverage.toFixed(1);
-  };
-
-  const sortedCourses = sortMostReviewed();
+  const sortedCourses = sortCourses();
   const prefixFilteredCourses = filterPrefix(filterTerms(filterMajors(sortedCourses)));
   const gridArray = [];
   const colSize = 3;

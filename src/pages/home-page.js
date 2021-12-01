@@ -194,6 +194,7 @@ const HomePage = (props) => {
               activeMajorTags={activeMajorTags}
               activeTermTags={activeTermTags}
               activePrefixTags={activePrefixTags}
+              activeSort={activeSort}
             />
           </Grid>
         )}
