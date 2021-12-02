@@ -8,7 +8,7 @@ import NoResultsFound from './no-results-found.js';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
-  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort } = props;
+  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort, query } = props;
 
   // SORT FUNCTIONS
   const sortMostReviews = (a, b) => {
@@ -132,17 +132,37 @@ const CardGrid = (props) => {
     return courses;
   };
 
+  // QUERY FUNCTIONS
+  // Query searches the course code, course name, and course description
+  const queryFilter = (course) => {
+    const query = props.query.toLowerCase();
+    if (query.length > 0) {
+      const courseCode = course.courseCode.toLowerCase();
+      const courseTitle = course.title.toLowerCase();
+      const courseDescription = course.description.toLowerCase();
+      if (courseCode.includes(query)
+        || courseTitle.includes(query)
+        || courseDescription.includes(query)) {
+        return true;
+      }
+      return false;
+    } else {
+      return true;
+    }
+  };
 
-  const sortedCourses = sortCourses();
-  const prefixFilteredCourses = filterPrefix(filterTerms(filterMajors(sortedCourses)));
+  const sortAndFilterCourses = () => {
+    return filterPrefix(filterTerms(filterMajors(sortCourses()))).filter(queryFilter);
+  };
+
+  const outputCourses = sortAndFilterCourses(courses);
   const gridArray = [];
   const colSize = 3;
-  for (let i = 0; i < prefixFilteredCourses.length; i += colSize) {
-    const gridRow = prefixFilteredCourses.slice(i, i + colSize);
+  for (let i = 0; i < outputCourses.length; i += colSize) {
+    const gridRow = outputCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
   }
-  console.log(prefixFilteredCourses);
-  if (prefixFilteredCourses.length != 0) {
+  if (outputCourses.length != 0) {
     return gridArray.map((row, index) => {
       return (
         <Grid.Row key={index} stretched>
@@ -172,6 +192,8 @@ CardGrid.propTypes = {
   activeTermTags: PropTypes.array.isRequired,
   activePrefixTags: PropTypes.array.isRequired,
   activeSort: PropTypes.string.isRequired,
+  query: PropTypes.string.isRequired,
+
 };
 
 export default CardGrid;
