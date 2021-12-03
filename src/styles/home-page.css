@@ -8,29 +8,29 @@
   /* flex-wrap: wrap; */
 }
 
+
 .sort-dropdown-parent {
-  width: 20%;
   height: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 1rem;
 }
 
 .sort-dropdown-text {
-  width: 30%;
   font-size: 16px;
-  margin-right: 0;
-  float: left;
-  text-align: center;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  float: right;
+  text-align: right;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   align-content: flex-end;
 }
 
 .sort-dropdown-menu {
-  width: 70%;
   float: right;
   display: flex;
   justify-content: center;
