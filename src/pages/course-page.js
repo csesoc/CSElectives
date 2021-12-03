@@ -109,6 +109,7 @@ const CoursePage = (props) => {
       <>
         <ReviewCard
           overallRating={review.rating.overall}
+          reviewId={review.id}
           reviewDate={getReviewDate(review)}
           reviewTitle={review.title}
           reviewComment={review.comment}
