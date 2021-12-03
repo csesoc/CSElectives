@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CourseReviewCard from './course-review-card.js';
 
-import { Grid, Icon } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import NoResultsFound from './no-results-found.js';
 
 // This function creates the grid of course review cards
@@ -27,8 +27,8 @@ const CardGrid = (props) => {
     return getAverageRating(b, 'enjoyment') - getAverageRating(a, 'enjoyment');
   };
 
-  const sortBestWorkload = (a, b) => {
-    return getAverageRating(b, 'workload') - getAverageRating(a, 'workload');
+  const sortBestManageability = (a, b) => {
+    return getAverageRating(b, 'manageability') - getAverageRating(a, 'manageability');
   };
 
   const sortsFunction = {
@@ -36,7 +36,7 @@ const CardGrid = (props) => {
     'Highest Rated': sortHighestRated,
     'Most Useful': sortMostUseful,
     'Most Enjoyable': sortMostEnjoyable,
-    'Best Workload': sortBestWorkload,
+    'Best Manageability': sortBestManageability,
   };
 
   const sortCourses = () => {

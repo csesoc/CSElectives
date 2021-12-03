@@ -47,9 +47,10 @@ class Database {
     const reviews = await this.getReviews();
 
     Object.keys(courses).forEach((courseCode) => {
-      courses[courseCode].reviews = courses[courseCode].reviews.map((reviewId) => {
-        return reviews[reviewId];
-      });
+      courses[courseCode].reviews = courses[courseCode].reviews.map((reviewId) => ({
+        id: reviewId,
+        ...reviews[reviewId],
+      }));
     });
 
     return courses;
@@ -115,11 +116,10 @@ class Database {
       courseCode: 'BINF2010',
       displayAuthor: false,
       rating: {
-        enjoyment: 3,
         overall: 3,
-        workload: 3,
-        difficulty: 3,
+        enjoyment: 3,
         usefulness: 3,
+        manageability: 3,
       },
       recommendedCourses: [],
       termTaken: '21T2',
@@ -138,6 +138,30 @@ class Database {
     });
 
     return docRef.id;
+  }
+
+  /**
+   *
+   * @param {string} reviewId
+   * @param {string} reason
+   */
+  async flagReview(reviewId, reason) {
+    addDoc(collection(this.db, 'flagged'), { reviewId, reason });
+  }
+
+  /**
+   * Gets flagged reviews
+   */
+  async getFlaggedReviews() {
+    const flaggedReviewsSnapshot = await this.getSnapshot('flagged');
+    const flaggedReviews = flaggedReviewsSnapshot.docs.map((doc) => doc.data());
+    // console.log(flaggedReviews);
+
+    const allReviews = await this.getReviews();
+
+    return flaggedReviews.filter((flagObject) => (flagObject.reviewId in allReviews)).map((flagObject) => {
+      return { ...flagObject, review: allReviews[flagObject.reviewId] };
+    });
   }
 
   /**

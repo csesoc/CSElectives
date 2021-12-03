@@ -8,7 +8,7 @@ const CourseRatings = (props) => {
     overall, setOverall,
     enjoyment, setEnjoyment,
     usefulness, setUsefulness,
-    workload, setWorkload,
+    manageability, setManageability,
   } = props;
 
   return (
@@ -84,14 +84,14 @@ const CourseRatings = (props) => {
           </h5>
           <div style={{ display: 'flex', paddingLeft: '0.5rem' }}>
             <ReviewRating
-              rating={workload}
+              rating={manageability}
               icon='circle'
               size='standard'
               palette='trafficlight'
               clickable
               hoverable
               captions={['🤬', '😥', '😐', '😀', '😍']}
-              onChange={(newWorkload) => setWorkload(newWorkload)}
+              onChange={(newManageability) => setManageability(newManageability)}
               spacing='1.5rem'
             />
           </div>
@@ -104,14 +104,12 @@ const CourseRatings = (props) => {
 CourseRatings.propTypes = {
   overall: PropTypes.number,
   setOverall: PropTypes.func,
-  difficulty: PropTypes.number,
-  setDifficulty: PropTypes.func,
   enjoyment: PropTypes.number,
   setEnjoyment: PropTypes.func,
   usefulness: PropTypes.number,
   setUsefulness: PropTypes.func,
-  workload: PropTypes.number,
-  setWorkload: PropTypes.func,
+  manageability: PropTypes.number,
+  setManageability: PropTypes.func,
 };
 
 export default CourseRatings;
