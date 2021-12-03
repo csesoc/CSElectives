@@ -1,14 +1,21 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/course-page.css';
-
 import { Button, Modal, Icon, Header, Form } from 'semantic-ui-react';
 
+import db from '../db/db';
+import '../styles/course-page.css';
+
 const FlagModal = (props) => {
+  const { reviewId } = props;
   const [open, setOpen] = useState(false);
   const [flagReason, setFlagReason] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+    db.flagReview(reviewId, flagReason);
+  };
 
   return (
     <div>
@@ -69,7 +76,7 @@ const FlagModal = (props) => {
             <div className='flag-submit-button'>
               {!submitted ? (
                 <Button
-                  onClick={() => setSubmitted(true)}
+                  onClick={() => handleSubmit()}
                   disabled={!flagReason}
                   content='Submit'
                 />
@@ -89,5 +96,8 @@ const FlagModal = (props) => {
   );
 };
 
+FlagModal.propTypes = {
+  reviewId: PropTypes.string,
+};
 
 export default FlagModal;
