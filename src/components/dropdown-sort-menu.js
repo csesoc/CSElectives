@@ -12,13 +12,9 @@ const DropdownSortMenu = (props) => {
 
   return (
     <Dropdown
-      placeholder='Highest Rated'
       selection
-      fluid
-      compact
       button
       options={options}
-      defaultValue={options[0]}
       onChange={changeActiveSort}
       value={activeSort}
     >
