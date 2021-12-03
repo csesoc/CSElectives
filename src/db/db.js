@@ -146,7 +146,7 @@ class Database {
    * @param {string} reason
    */
   async flagReview(reviewId, reason) {
-    const docRef = await addDoc(collection(this.db, 'flagged'), { reviewId, reason });
+    addDoc(collection(this.db, 'flagged'), { reviewId, reason });
   }
 
   /**
