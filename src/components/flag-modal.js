@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/course-page.css';
-
 import { Button, Modal, Icon, Header, Form } from 'semantic-ui-react';
+
 import db from '../db/db';
+import '../styles/course-page.css';
 
 const FlagModal = (props) => {
   const { reviewId } = props;
