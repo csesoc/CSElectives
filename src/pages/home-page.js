@@ -68,7 +68,6 @@ const HomePage = (props) => {
 
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
-    console.log(query);
   };
 
   console.log(majors);
@@ -194,6 +193,7 @@ const HomePage = (props) => {
               activeTermTags={activeTermTags}
               activePrefixTags={activePrefixTags}
               activeSort={activeSort}
+              query={query}
             />
           </Grid>
         )}
