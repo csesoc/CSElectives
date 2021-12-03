@@ -26,7 +26,7 @@ const sorts = [
   'Most Reviews',
   'Most Useful',
   'Most Enjoyable',
-  'Best Workload',
+  'Best Manageability',
 ];
 
 const majors = [

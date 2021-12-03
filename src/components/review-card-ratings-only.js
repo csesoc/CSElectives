@@ -8,7 +8,7 @@ import { Grid, Card, Rating } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
 
 const RatingsCard = (props) => {
-  const { reviewTitle, usefulProgress, workloadProgress, difficultyProgress,
+  const { reviewTitle, usefulProgress, manageabilityProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
 
   return (
@@ -37,7 +37,7 @@ const RatingsCard = (props) => {
             <Grid.Row columns={4} className='review-row'>
               <Grid.Column width={3}>
                 <Card.Header>Usefulness</Card.Header>
-                <Card.Header>Workload</Card.Header>
+                <Card.Header>Manageability</Card.Header>
               </Grid.Column>
               <Grid.Column width={5}>
                 <ReviewRating
@@ -46,23 +46,17 @@ const RatingsCard = (props) => {
                   size='small'
                 />
                 <ReviewRating
-                  rating={workloadProgress}
+                  rating={manageabilityProgress}
                   icon='circle'
                   size='small'
                 />
               </Grid.Column>
               <Grid.Column width={3}>
                 <Card.Header>Enjoyment</Card.Header>
-                <Card.Header>Difficulty</Card.Header>
               </Grid.Column>
               <Grid.Column width={5}>
                 <ReviewRating
                   rating={enjoymentProgress}
-                  icon='circle'
-                  size='small'
-                />
-                <ReviewRating
-                  rating={difficultyProgress}
                   icon='circle'
                   size='small'
                 />
@@ -78,9 +72,8 @@ const RatingsCard = (props) => {
 RatingsCard.propTypes = {
   reviewTitle: PropTypes.string,
   usefulProgress: PropTypes.number,
-  workloadProgress: PropTypes.number,
+  manageabilityProgress: PropTypes.number,
   enjoymentProgress: PropTypes.number,
-  difficultyProgress: PropTypes.number,
   reviewDate: PropTypes.number,
   overallRating: PropTypes.number,
   author: PropTypes.string,

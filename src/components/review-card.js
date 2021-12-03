@@ -7,7 +7,7 @@ import ReviewRating from './review-rating/review-rating';
 import FlagModal from '../components/flag-modal.js';
 
 const ReviewCard = (props) => {
-  const { reviewTitle, reviewComment, usefulProgress, workloadProgress,
+  const { reviewTitle, reviewComment, usefulProgress, manageabilityProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
 
 
@@ -58,9 +58,9 @@ const ReviewCard = (props) => {
                     />
                   </div>
                   <div className='review-ratings'>
-                    <Card.Header>Workload</Card.Header>
+                    <Card.Header>Manageability</Card.Header>
                     <ReviewRating
-                      rating={workloadProgress}
+                      rating={manageabilityProgress}
                       icon='circle'
                       size='small'
                       palette='trafficlight'
@@ -98,9 +98,8 @@ ReviewCard.propTypes = {
   reviewTitle: PropTypes.string,
   reviewComment: PropTypes.string,
   usefulProgress: PropTypes.number,
-  workloadProgress: PropTypes.number,
+  manageabilityProgress: PropTypes.number,
   enjoymentProgress: PropTypes.number,
-  difficultyProgress: PropTypes.number,
   reviewDate: PropTypes.number,
   overallRating: PropTypes.number,
   description: PropTypes.string,
