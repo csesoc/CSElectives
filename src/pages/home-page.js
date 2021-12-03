@@ -133,6 +133,15 @@ const HomePage = (props) => {
 
             <div className='dropdown-tags-box'>
               <DropdownTagsMenu
+                title='Prefix'
+                tagOptions={prefixOptions}
+                activeTags={activePrefixTags}
+                setActiveTags={setActivePrefixTags}
+                className='dropdown-tags'
+              />
+            </div>
+            <div className='dropdown-tags-box'>
+              <DropdownTagsMenu
                 title='Major'
                 tagOptions={majorOptions}
                 activeTags={activeMajorTags}
@@ -149,38 +158,26 @@ const HomePage = (props) => {
                 className='dropdown-tags'
               />
             </div>
-            <div className='dropdown-tags-box'>
-              <DropdownTagsMenu
-                title='Prefix'
-                tagOptions={prefixOptions}
-                activeTags={activePrefixTags}
-                setActiveTags={setActivePrefixTags}
-                className='dropdown-tags'
-              />
-            </div>
           </div>
         </Segment>
 
         {/* Tags component */}
         <div className='front-page-tags'>
           <HomePageTags
+            activeTags={activePrefixTags}
+            setActiveTags={setActivePrefixTags}
+            category='prefix'
+          />
+          <HomePageTags
             activeTags={activeMajorTags}
             setActiveTags={setActiveMajorTags}
             category='major'
           />
-
           <HomePageTags
             activeTags={activeTermTags}
             setActiveTags={setActiveTermTags}
             category='term'
           />
-
-          <HomePageTags
-            activeTags={activePrefixTags}
-            setActiveTags={setActivePrefixTags}
-            category='prefix'
-          />
-
         </div>
 
         {/* Code, name and desc hardcoded for testing purposes */}
