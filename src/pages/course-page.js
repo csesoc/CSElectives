@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import EmptyState from '../components/course-review/empty-state.js';
 import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';
@@ -45,11 +44,10 @@ const CoursePage = (props) => {
   ];
 
   const scoreTotal = (review) => {
-    return review.rating.difficulty
+    return review.rating.overall
     + review.rating.enjoyment
-    + review.rating.overall
     + review.rating.usefulness
-    + review.rating.workload;
+    + review.rating.manageability;
   };
 
 
@@ -115,9 +113,8 @@ const CoursePage = (props) => {
           reviewTitle={review.title}
           reviewComment={review.comment}
           usefulProgress={review.rating.usefulness}
-          workloadProgress={review.rating.workload}
+          manageabilityProgress={review.rating.manageability}
           enjoymentProgress={review.rating.enjoyment}
-          difficultyProgress={review.rating.difficulty}
           author={review.displayAuthor ? review.author : 'Anonymous'}
           termTaken={review.termTaken}
         />
@@ -193,8 +190,7 @@ const CoursePage = (props) => {
                   numReviews={course.reviews.length}
                   summaryDesc={course.description}
                   usefulAvg={getAverage('usefulness')}
-                  workloadAvg={getAverage('workload')}
-                  difficultyAvg={getAverage('difficulty')}
+                  manageabilityAvg={getAverage('manageability')}
                   enjoymentAvg={getAverage('enjoyment')}
                   tags={getTags()}
                 />

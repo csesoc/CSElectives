@@ -20,7 +20,7 @@ const ReviewModal = (props) => {
   const [overall, setOverall] = useState(0);
   const [enjoyment, setEnjoyment] = useState(0);
   const [usefulness, setUsefulness] = useState(0);
-  const [workload, setWorkload] = useState(0);
+  const [manageability, setManageability] = useState(0);
 
   const [anonymity, setAnonymity] = useState(true);
   const [reviewMessage, setReviewMessage] = useState(true);
@@ -40,7 +40,7 @@ const ReviewModal = (props) => {
       rating: {
         enjoyment,
         overall,
-        workload,
+        manageability,
         usefulness,
       },
       recommendedCourses: [],
@@ -112,8 +112,8 @@ const ReviewModal = (props) => {
                       setEnjoyment={setEnjoyment}
                       usefulness={usefulness}
                       setUsefulness={setUsefulness}
-                      workload={workload}
-                      setWorkload={setWorkload}
+                      manageability={manageability}
+                      setManageability={setManageability}
                     />
                   </div>
                   <div className='review-term-text'>
@@ -143,7 +143,7 @@ const ReviewModal = (props) => {
                   || !overall
                   || !enjoyment
                   || !usefulness
-                  || !workload
+                  || !manageability
                   || (reviewMessage && (!comment || !title))
                   }
                   onClick={handleSubmit}

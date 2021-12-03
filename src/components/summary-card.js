@@ -8,7 +8,7 @@ import ReviewRating from './review-rating/review-rating.js';
 
 const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, courseCode, overallRating, numReviews, summaryDesc,
-    usefulAvg, workloadAvg, difficultyAvg, enjoymentAvg, tags } = props;
+    usefulAvg, manageabilityAvg, enjoymentAvg, tags } = props;
 
   return (
     <div>
@@ -44,6 +44,13 @@ const SummaryCard = (props) => {
         <Grid.Row className='barchart-row' columns={3}>
           <Grid.Column width={5}>
             <div className='category-container'>
+              Enjoyment <br />
+              <div className='category-rating'>{enjoymentAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
+          </Grid.Column>
+          <Grid.Column width={5}>
+            <div className='category-container'>
               Usefulness <br />
               <div className='category-rating'>{usefulAvg}</div>
               <div className='category-small'>/5</div>
@@ -51,15 +58,8 @@ const SummaryCard = (props) => {
           </Grid.Column>
           <Grid.Column width={6}>
             <div className='category-container'>
-              Workload <br />
-              <div className='category-rating'>{workloadAvg}</div>
-              <div className='category-small'>/5</div>
-            </div>
-          </Grid.Column>
-          <Grid.Column width={5}>
-            <div className='category-container'>
-              Enjoyment <br />
-              <div className='category-rating'>{enjoymentAvg}</div>
+              Manageability <br />
+              <div className='category-rating'>{manageabilityAvg}</div>
               <div className='category-small'>/5</div>
             </div>
           </Grid.Column>
@@ -82,8 +82,7 @@ SummaryCard.propTypes = {
   numReviews: PropTypes.string,
   summaryDesc: PropTypes.string,
   usefulAvg: PropTypes.string,
-  workloadAvg: PropTypes.string,
-  difficultyAvg: PropTypes.string,
+  manageabilityAvg: PropTypes.string,
   enjoymentAvg: PropTypes.string,
   tags: PropTypes.array,
 };

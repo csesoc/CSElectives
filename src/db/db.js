@@ -115,11 +115,10 @@ class Database {
       courseCode: 'BINF2010',
       displayAuthor: false,
       rating: {
-        enjoyment: 3,
         overall: 3,
-        workload: 3,
-        difficulty: 3,
+        enjoyment: 3,
         usefulness: 3,
+        manageability: 3,
       },
       recommendedCourses: [],
       termTaken: '21T2',

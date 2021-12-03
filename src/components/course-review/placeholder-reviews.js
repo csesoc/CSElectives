@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, GridColumn, Placeholder, Segment } from 'semantic-ui-react';
+import { Grid, Placeholder, Segment } from 'semantic-ui-react';
 import '../../styles/course-page.css';
 
 const PlaceHolderReview = () => {

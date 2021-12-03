@@ -1,11 +1,10 @@
 
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
 import { Button, Modal, Icon, Header, Form } from 'semantic-ui-react';
 
-const FlagModal = (props) => {
+const FlagModal = () => {
   const [open, setOpen] = useState(false);
   const [flagReason, setFlagReason] = useState('');
   const [submitted, setSubmitted] = useState(false);
