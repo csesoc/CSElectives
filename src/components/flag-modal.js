@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
 import { Button, Modal, Icon, Header, Form } from 'semantic-ui-react';
+import db from '../db/db';
 
 const FlagModal = (props) => {
   const { reviewId } = props;
@@ -13,7 +14,7 @@ const FlagModal = (props) => {
 
   const handleSubmit = () => {
     setSubmitted(true);
-    console.log(reviewId);
+    db.flagReview(reviewId, flagReason);
   };
 
   return (
