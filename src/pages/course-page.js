@@ -103,11 +103,11 @@ const CoursePage = (props) => {
     return tags;
   };
 
-  // display review card
   const displayReview = (review) => {
     return (
       <>
         <ReviewCard
+          courseCode={courseCode}
           overallRating={review.rating.overall}
           reviewId={review.id}
           reviewDate={getReviewDate(review)}

@@ -36,6 +36,7 @@ const FlaggedReviewsPage = () => {
           <Segment key={idx}>
             <Header as='h2' content={`${flaggedReviewObject.reviewId}: ${flaggedReviewObject.reason}`} />
             <ReviewCard
+              courseCode={flaggedReviewObject.review.courseCode}
               overallRating={flaggedReviewObject.review.rating.overall}
               reviewId={flaggedReviewObject.reviewId}
               reviewDate={getReviewDate(flaggedReviewObject.review)}

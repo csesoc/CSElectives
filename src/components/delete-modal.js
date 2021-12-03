@@ -7,12 +7,12 @@ import db from '../db/db';
 import '../styles/course-page.css';
 
 const DeleteModal = (props) => {
-  const { reviewId } = props;
+  const { reviewId, courseCode } = props;
   const [open, setOpen] = useState(false);
 
   const handleDelete = () => {
+    db.deleteReview(reviewId, courseCode);
     setOpen(false);
-    console.log(`Deleting ${reviewId}`);
   };
 
   return (
@@ -49,6 +49,7 @@ const DeleteModal = (props) => {
 
 DeleteModal.propTypes = {
   reviewId: PropTypes.string,
+  courseCode: PropTypes.string,
 };
 
 export default DeleteModal;
