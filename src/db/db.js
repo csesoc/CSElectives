@@ -47,9 +47,10 @@ class Database {
     const reviews = await this.getReviews();
 
     Object.keys(courses).forEach((courseCode) => {
-      courses[courseCode].reviews = courses[courseCode].reviews.map((reviewId) => {
-        return reviews[reviewId];
-      });
+      courses[courseCode].reviews = courses[courseCode].reviews.map((reviewId) => ({
+        id: reviewId,
+        ...reviews[reviewId],
+      }));
     });
 
     return courses;
@@ -137,6 +138,10 @@ class Database {
     });
 
     return docRef.id;
+  }
+
+  async flagReview(reviewId) {
+
   }
 
   /**

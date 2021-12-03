@@ -7,7 +7,7 @@ import ReviewRating from './review-rating/review-rating';
 import FlagModal from '../components/flag-modal.js';
 
 const ReviewCard = (props) => {
-  const { reviewTitle, reviewComment, usefulProgress, manageabilityProgress,
+  const { reviewId, reviewTitle, reviewComment, usefulProgress, manageabilityProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
 
   return (
@@ -80,7 +80,7 @@ const ReviewCard = (props) => {
               <Grid.Column>
               </Grid.Column>
               <Grid.Column>
-                <FlagModal />
+                <FlagModal reviewId={reviewId} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -91,6 +91,7 @@ const ReviewCard = (props) => {
 };
 
 ReviewCard.propTypes = {
+  reviewId: PropTypes.string,
   reviewTitle: PropTypes.string,
   reviewComment: PropTypes.string,
   usefulProgress: PropTypes.number,
