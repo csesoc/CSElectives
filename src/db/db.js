@@ -150,6 +150,21 @@ class Database {
   }
 
   /**
+   * Gets flagged reviews
+   */
+  async getFlaggedReviews() {
+    const flaggedReviewsSnapshot = await this.getSnapshot('flagged');
+    const flaggedReviews = flaggedReviewsSnapshot.docs.map((doc) => doc.data());
+    // console.log(flaggedReviews);
+
+    const allReviews = await this.getReviews();
+
+    return flaggedReviews.filter((flagObject) => (flagObject.reviewId in allReviews)).map((flagObject) => {
+      return { ...flagObject, review: allReviews[flagObject.reviewId] };
+    });
+  }
+
+  /**
    * Logs user in. If user has never logged into CSElectives before, will create new account
    * @param {string} zid the user's zID
    * @param {string} zpass the user's password
