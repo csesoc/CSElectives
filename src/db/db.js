@@ -156,7 +156,10 @@ class Database {
    * @param {string} reason
    */
   async flagReview(reviewId, reason) {
-    addDoc(collection(this.db, 'flagged'), { reviewId, reason });
+    // TODO ELEC-274: fix this so that non-logged in users can also flag a review
+    try {
+      await addDoc(collection(this.db, 'flagged'), { reviewId, reason });
+    } catch {}
   }
 
   /**
