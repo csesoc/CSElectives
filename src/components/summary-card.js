@@ -44,6 +44,13 @@ const SummaryCard = (props) => {
         <Grid.Row className='barchart-row' columns={3}>
           <Grid.Column width={5}>
             <div className='category-container'>
+              Enjoyment <br />
+              <div className='category-rating'>{enjoymentAvg}</div>
+              <div className='category-small'>/5</div>
+            </div>
+          </Grid.Column>
+          <Grid.Column width={5}>
+            <div className='category-container'>
               Usefulness <br />
               <div className='category-rating'>{usefulAvg}</div>
               <div className='category-small'>/5</div>
@@ -53,13 +60,6 @@ const SummaryCard = (props) => {
             <div className='category-container'>
               Manageability <br />
               <div className='category-rating'>{manageabilityAvg}</div>
-              <div className='category-small'>/5</div>
-            </div>
-          </Grid.Column>
-          <Grid.Column width={5}>
-            <div className='category-container'>
-              Enjoyment <br />
-              <div className='category-rating'>{enjoymentAvg}</div>
               <div className='category-small'>/5</div>
             </div>
           </Grid.Column>

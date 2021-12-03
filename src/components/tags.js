@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { Icon, Label } from 'semantic-ui-react';
 
-
 const Tag = (props) => {
   const { label, className, activeTags, setActiveTags, clearable, clickable } = props;
 

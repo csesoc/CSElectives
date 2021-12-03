@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 import ReviewCard from '../components/review-card.js';
 import SummaryCard from '../components/summary-card.js';
-import ReviewModal from '../components/review-modal.js';
 import ReviewsBar from '../components/course-review/reviews-bar.js';
 import EmptyState from '../components/course-review/empty-state.js';
 import PlaceHolderSummary from '../components/course-review/placeholder-summary.js';

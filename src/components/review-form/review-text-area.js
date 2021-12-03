@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Icon } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 const TITLE_MAX_LENGTH = 80;
 

@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
-import { Grid, Card, Rating } from 'semantic-ui-react';
+import { Grid, Card } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
 import FlagModal from '../components/flag-modal.js';
 
 const ReviewCard = (props) => {
   const { reviewTitle, reviewComment, usefulProgress, manageabilityProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
-
 
   return (
     <div className='review-cards'>
@@ -41,13 +40,20 @@ const ReviewCard = (props) => {
                 <Card.Meta className='reviewCardAuthor'>
                   {author}
                 </Card.Meta>
-
-
               </Grid.Column>
             </Grid.Row>
             <Grid.Row className='review-row'>
               <Grid.Column>
                 <div className='review-ratings-container'>
+                  <div className='review-ratings'>
+                    <Card.Header>Enjoyment</Card.Header>
+                    <ReviewRating
+                      rating={enjoymentProgress}
+                      icon='circle'
+                      size='small'
+                      palette='trafficlight'
+                    />
+                  </div>
                   <div className='review-ratings'>
                     <Card.Header>Usefulness</Card.Header>
                     <ReviewRating
@@ -66,18 +72,8 @@ const ReviewCard = (props) => {
                       palette='trafficlight'
                     />
                   </div>
-                  <div className='review-ratings'>
-                    <Card.Header>Enjoyment</Card.Header>
-                    <ReviewRating
-                      rating={enjoymentProgress}
-                      icon='circle'
-                      size='small'
-                      palette='trafficlight'
-                    />
-                  </div>
                 </div>
                 <Card.Description>{reviewComment}</Card.Description>
-
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2} className='review-row'>

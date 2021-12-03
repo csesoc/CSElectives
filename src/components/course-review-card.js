@@ -15,7 +15,7 @@ const CourseReviewCard = (props) => {
       if (term == 0) {
         return 'Summer';
       } else {
-        return 'Term ' + term;
+        return `Term ${term}`;
       }
     }),
   };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CourseReviewCard from './course-review-card.js';
-import { Grid, Icon } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
