@@ -155,8 +155,6 @@ class Database {
   async getFlaggedReviews() {
     const flaggedReviewsSnapshot = await this.getSnapshot('flagged');
     const flaggedReviews = flaggedReviewsSnapshot.docs.map((doc) => doc.data());
-    // console.log(flaggedReviews);
-
     const allReviews = await this.getReviews();
 
     return flaggedReviews.filter((flagObject) => (flagObject.reviewId in allReviews)).map((flagObject) => {

@@ -20,7 +20,7 @@ const FlagModal = (props) => {
   return (
     <div>
       <Modal
-        trigger={<Icon name='flag outline icon' className='icon-flag-outline' />}
+        trigger={<Icon name='flag outline' className='icon-flag-outline' />}
         size='tiny'
         closeIcon
         onClose={() => {

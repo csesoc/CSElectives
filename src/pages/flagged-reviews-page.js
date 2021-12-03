@@ -15,7 +15,6 @@ const FlaggedReviewsPage = () => {
     const getFlaggedReviews = async () => {
       const newFlaggedReviews = await db.getFlaggedReviews();
       setFlaggedReviews(newFlaggedReviews);
-      console.log('flaggedReviews:', newFlaggedReviews);
     };
     getFlaggedReviews();
   }, []);
@@ -35,10 +34,10 @@ const FlaggedReviewsPage = () => {
         ? <>No flagged reviews</>
         : flaggedReviews.map((flaggedReviewObject, idx) => (
           <Segment key={idx}>
-            <Header as='h2' content={flaggedReviewObject.reason} />
+            <Header as='h2' content={`${flaggedReviewObject.reviewId}: ${flaggedReviewObject.reason}`} />
             <ReviewCard
               overallRating={flaggedReviewObject.review.rating.overall}
-              reviewId={flaggedReviewObject.review.id}
+              reviewId={flaggedReviewObject.reviewId}
               reviewDate={getReviewDate(flaggedReviewObject.review)}
               reviewTitle={flaggedReviewObject.review.title}
               reviewComment={flaggedReviewObject.review.comment}
