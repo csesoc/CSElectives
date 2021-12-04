@@ -16,6 +16,7 @@ const ReviewsBar = (props) => {
       </div>
       <div className='dropdown-reviews'>
         <Dropdown
+          fluid
           placeholder='Sort by'
           selection
           options={sortOptions}

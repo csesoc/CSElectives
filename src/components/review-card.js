@@ -22,7 +22,7 @@ const ReviewCard = (props) => {
         <Card.Content>
           <Grid>
             <Grid.Row columns={2} className='review-row'>
-              <Grid.Column>
+              <Grid.Column width={11}>
                 <Card.Header><h3>{reviewTitle}</h3></Card.Header>
                 <Card.Meta>
                   <div className='star-ratings'>
@@ -41,7 +41,7 @@ const ReviewCard = (props) => {
                   </div>
                 </Card.Meta>
               </Grid.Column>
-              <Grid.Column>
+              <Grid.Column width={5}>
                 <div className="Date" style={{ textAlign: 'right' }}>{reviewDate}</div>
                 <Card.Meta className='reviewCardAuthor'>
                   {author}
