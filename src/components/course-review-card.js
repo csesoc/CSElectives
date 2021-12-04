@@ -22,7 +22,7 @@ const CourseReviewCard = (props) => {
 
   return (
     <div className='card-container'>
-      <Card className='course-review-card' as={Link} to={page}>
+      <Card className='course-review-card' as={Link} to={page} target="_blank">
         <Card.Content className='card-contents-container'>
           <div className='card-contents-cell-left'>
             <Card.Header className='card-header'>{code}</Card.Header>
