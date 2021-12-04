@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { LoadingContext } from '../App.js';
+import { AdminsContext, LoadingContext, UserContext } from '../App.js';
 
 import '../styles/course-page.css';
 import ReviewCard from '../components/review-card.js';
@@ -9,6 +9,9 @@ import { Header, Segment } from 'semantic-ui-react';
 // Temporary page to see the reviews that have been flagged
 const FlaggedReviewsPage = () => {
   const loading = useContext(LoadingContext);
+  const admins = useContext(AdminsContext);
+  const user = useContext(UserContext);
+
   const [flaggedReviews, setFlaggedReviews] = useState([]);
 
   useEffect(() => {
@@ -19,7 +22,10 @@ const FlaggedReviewsPage = () => {
     getFlaggedReviews();
   }, []);
 
+  // Only show this page if the user is an admin
+  if (!admins.includes(user?.email)) return <Header as='h1' content='403 Forbidden' />;
   if (loading) return <></>;
+
   const getReviewDate = (review) => {
     const date = new Date(review.timestamp).getDate();
     const month = new Date(review.timestamp).getMonth();
