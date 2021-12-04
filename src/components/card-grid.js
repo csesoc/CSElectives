@@ -27,7 +27,7 @@ const CardGrid = (props) => {
     return getAverageRating(b, 'enjoyment') - getAverageRating(a, 'enjoyment');
   };
 
-  const sortBestManageability = (a, b) => {
+  const sortMostManageable = (a, b) => {
     return getAverageRating(b, 'manageability') - getAverageRating(a, 'manageability');
   };
 
@@ -36,7 +36,7 @@ const CardGrid = (props) => {
     'Highest Rated': sortHighestRated,
     'Most Useful': sortMostUseful,
     'Most Enjoyable': sortMostEnjoyable,
-    'Best Manageability': sortBestManageability,
+    'Most Manageable': sortMostManageable,
   };
 
   const sortCourses = () => {
