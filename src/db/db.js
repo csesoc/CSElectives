@@ -8,7 +8,18 @@ import {
   updateProfile,
 } from 'firebase/auth';
 
-import { getDocs, getFirestore, collection, addDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore/lite';
+import {
+  getDocs,
+  getDoc,
+  getFirestore,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from 'firebase/firestore/lite';
 
 import FirebaseConfig from '../assets/firebase-config.json';
 
@@ -26,6 +37,16 @@ class Database {
   constructor(firebaseConfig) {
     this.db = getFirestore(initializeApp(firebaseConfig));
     this.auth = getAuth();
+  }
+
+  /**
+   * @return {array} List of admin emails
+   */
+  async getAdmins() {
+    const docRef = doc(this.db, 'users', 'admins');
+    const docSnap = await getDoc(docRef);
+
+    return docSnap.data().emails;
   }
 
   /**
@@ -146,7 +167,10 @@ class Database {
    * @param {string} reason
    */
   async flagReview(reviewId, reason) {
-    addDoc(collection(this.db, 'flagged'), { reviewId, reason });
+    // TODO ELEC-274: fix this so that non-logged in users can also flag a review
+    try {
+      await addDoc(collection(this.db, 'flagged'), { reviewId, reason });
+    } catch {}
   }
 
   /**
@@ -155,8 +179,6 @@ class Database {
   async getFlaggedReviews() {
     const flaggedReviewsSnapshot = await this.getSnapshot('flagged');
     const flaggedReviews = flaggedReviewsSnapshot.docs.map((doc) => doc.data());
-    // console.log(flaggedReviews);
-
     const allReviews = await this.getReviews();
 
     return flaggedReviews.filter((flagObject) => (flagObject.reviewId in allReviews)).map((flagObject) => {
@@ -185,6 +207,25 @@ class Database {
         throw error;
       }
     }
+  }
+
+  /**
+   * deletes a review
+   * 1. deletes the review id from the course object's list of review IDs
+   * 2. deletes the review object from the reviews collection
+   * @param {string} reviewId
+   * @param {string} courseCode
+   *
+   */
+  async deleteReview(reviewId, courseCode) {
+    // Delete review ID from the course object's list of review IDs
+    const courseRef = doc(this.db, 'courses', courseCode);
+    updateDoc(courseRef, {
+      reviews: arrayRemove(reviewId),
+    });
+
+    // Delete review object from the 'reviews' collection in Google Firestore
+    deleteDoc(doc(this.db, 'reviews', reviewId));
   }
 
   /**

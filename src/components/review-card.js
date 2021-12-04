@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
@@ -6,9 +6,15 @@ import { Grid, Card } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
 import FlagModal from '../components/flag-modal.js';
 
+import DeleteModal from './delete-modal';
+import { AdminsContext, UserContext } from '../App.js';
+
 const ReviewCard = (props) => {
-  const { reviewId, reviewTitle, reviewComment, usefulProgress, manageabilityProgress,
+  const { courseCode, reviewId, reviewTitle, reviewComment, usefulProgress, manageabilityProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
+
+  const user = useContext(UserContext);
+  const admins = useContext(AdminsContext);
 
   return (
     <div className='review-cards'>
@@ -80,6 +86,8 @@ const ReviewCard = (props) => {
               <Grid.Column>
               </Grid.Column>
               <Grid.Column>
+                {/* Only show delete button if the logged in user is an admin */}
+                {admins.includes(user?.email) && <DeleteModal reviewId={reviewId} courseCode={courseCode} />}
                 <FlagModal reviewId={reviewId} />
               </Grid.Column>
             </Grid.Row>
@@ -91,6 +99,7 @@ const ReviewCard = (props) => {
 };
 
 ReviewCard.propTypes = {
+  courseCode: PropTypes.string,
   reviewId: PropTypes.string,
   reviewTitle: PropTypes.string,
   reviewComment: PropTypes.string,

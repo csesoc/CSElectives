@@ -162,27 +162,24 @@ const CardGrid = (props) => {
     const gridRow = outputCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
   }
-  if (outputCourses.length != 0) {
-    return gridArray.map((row, index) => {
-      return (
-        <Grid.Row key={index} stretched>
-          {row.map((course) => (
-            <Grid.Column key={course.id} columns='equal'>
-              <CourseReviewCard
-                code={course.courseCode}
-                name={course.title}
-                numReviews={course.reviews.length}
-                overallRating={getOverallRating(course)}
-                studyLevel={course.studyLevel}
-                terms={course.terms}
-              />
-            </Grid.Column>))}
-        </Grid.Row>
-      );
-    });
-  } else {
-    return (<NoResultsFound />);
-  }
+  if (outputCourses.length === 0) return <NoResultsFound />;
+  return gridArray.map((row, index) => {
+    return (
+      <Grid.Row key={index} stretched>
+        {row.map((course) => (
+          <Grid.Column key={course.id} columns='equal'>
+            <CourseReviewCard
+              code={course.courseCode}
+              name={course.title}
+              numReviews={course.reviews.length}
+              overallRating={getOverallRating(course)}
+              studyLevel={course.studyLevel}
+              terms={course.terms}
+            />
+          </Grid.Column>))}
+      </Grid.Row>
+    );
+  });
 };
 
 CardGrid.propTypes = {
