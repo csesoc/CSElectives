@@ -200,7 +200,7 @@ footer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 0rem;
   margin-bottom: 2.5rem;
 }
 
