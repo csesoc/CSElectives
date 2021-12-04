@@ -10,6 +10,7 @@ import {
 
 import {
   getDocs,
+  getDoc,
   getFirestore,
   collection,
   addDoc,
@@ -36,6 +37,16 @@ class Database {
   constructor(firebaseConfig) {
     this.db = getFirestore(initializeApp(firebaseConfig));
     this.auth = getAuth();
+  }
+
+  /**
+   * @return {array} List of admin emails
+   */
+  async getAdmins() {
+    const docRef = doc(this.db, 'users', 'admins');
+    const docSnap = await getDoc(docRef);
+
+    return docSnap.data().emails;
   }
 
   /**
