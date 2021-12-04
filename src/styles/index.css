@@ -211,14 +211,6 @@ footer {
   align-items: center;
 }
 
-.dropdown-tags-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3.5rem;
-  margin-left: 1rem;
-}
-
 .logo-size {
   width: 30%;
 }

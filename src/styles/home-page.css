@@ -1,5 +1,6 @@
 .sort-and-filter-container {
     display: flex;
+    margin-top: 0.5rem;
 }
 
 .search-section-background {
@@ -43,7 +44,7 @@
     justify-content: center;
     align-items: center;
     height: 3.5rem;
-    margin-left: 2rem;
+    margin-left: 1.1rem;
   }
 
 .card-container { 
