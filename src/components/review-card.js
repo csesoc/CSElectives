@@ -6,15 +6,15 @@ import { Grid, Card } from 'semantic-ui-react';
 import ReviewRating from './review-rating/review-rating';
 import FlagModal from '../components/flag-modal.js';
 
-import Admins from '../assets/admins.json';
 import DeleteModal from './delete-modal';
-import { UserContext } from '../App.js';
+import { AdminsContext, UserContext } from '../App.js';
 
 const ReviewCard = (props) => {
   const { courseCode, reviewId, reviewTitle, reviewComment, usefulProgress, manageabilityProgress,
     enjoymentProgress, reviewDate, overallRating, author, termTaken } = props;
 
   const user = useContext(UserContext);
+  const admins = useContext(AdminsContext);
 
   return (
     <div className='review-cards'>
@@ -87,7 +87,7 @@ const ReviewCard = (props) => {
               </Grid.Column>
               <Grid.Column>
                 {/* Only show delete button if the logged in user is an admin */}
-                {Admins.includes(user?.email) && <DeleteModal reviewId={reviewId} courseCode={courseCode} />}
+                {admins.includes(user?.email) && <DeleteModal reviewId={reviewId} courseCode={courseCode} />}
                 <FlagModal reviewId={reviewId} />
               </Grid.Column>
             </Grid.Row>
