@@ -41,7 +41,7 @@ const SummaryCard = (props) => {
             </div>
           </div>
         </Grid.Row>
-        <Grid.Row className='barchart-row' columns={3}>
+        <Grid.Row columns={3}>
           <Grid.Column width={5}>
             <div className='category-container'>
               Enjoyment <br />
