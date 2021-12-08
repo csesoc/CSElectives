@@ -1,5 +1,5 @@
-# Grab the latest Node base image
-FROM node:latest
+# Grab the Node base image
+FROM node:16.8.0
 
 # Copy package.json into the container
 COPY package.json ./
