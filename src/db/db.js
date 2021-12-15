@@ -8,7 +8,18 @@ import {
   updateProfile,
 } from 'firebase/auth';
 
-import { getDocs, getFirestore, collection, addDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore/lite';
+import {
+  getDocs,
+  getDoc,
+  getFirestore,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from 'firebase/firestore/lite';
 
 import FirebaseConfig from '../assets/firebase-config.json';
 
@@ -26,6 +37,16 @@ class Database {
   constructor(firebaseConfig) {
     this.db = getFirestore(initializeApp(firebaseConfig));
     this.auth = getAuth();
+  }
+
+  /**
+   * @return {array} List of admin emails
+   */
+  async getAdmins() {
+    const docRef = doc(this.db, 'users', 'admins');
+    const docSnap = await getDoc(docRef);
+
+    return docSnap.data().emails;
   }
 
   /**
@@ -47,9 +68,10 @@ class Database {
     const reviews = await this.getReviews();
 
     Object.keys(courses).forEach((courseCode) => {
-      courses[courseCode].reviews = courses[courseCode].reviews.map((reviewId) => {
-        return reviews[reviewId];
-      });
+      courses[courseCode].reviews = courses[courseCode].reviews.map((reviewId) => ({
+        id: reviewId,
+        ...reviews[reviewId],
+      }));
     });
 
     return courses;
@@ -115,11 +137,10 @@ class Database {
       courseCode: 'BINF2010',
       displayAuthor: false,
       rating: {
-        enjoyment: 3,
         overall: 3,
-        workload: 3,
-        difficulty: 3,
+        enjoyment: 3,
         usefulness: 3,
+        manageability: 3,
       },
       recommendedCourses: [],
       termTaken: '21T2',
@@ -138,6 +159,31 @@ class Database {
     });
 
     return docRef.id;
+  }
+
+  /**
+   *
+   * @param {string} reviewId
+   * @param {string} reason
+   */
+  async flagReview(reviewId, reason) {
+    // TODO ELEC-274: fix this so that non-logged in users can also flag a review
+    try {
+      await addDoc(collection(this.db, 'flagged'), { reviewId, reason });
+    } catch {}
+  }
+
+  /**
+   * Gets flagged reviews
+   */
+  async getFlaggedReviews() {
+    const flaggedReviewsSnapshot = await this.getSnapshot('flagged');
+    const flaggedReviews = flaggedReviewsSnapshot.docs.map((doc) => doc.data());
+    const allReviews = await this.getReviews();
+
+    return flaggedReviews.filter((flagObject) => (flagObject.reviewId in allReviews)).map((flagObject) => {
+      return { ...flagObject, review: allReviews[flagObject.reviewId] };
+    });
   }
 
   /**
@@ -161,6 +207,25 @@ class Database {
         throw error;
       }
     }
+  }
+
+  /**
+   * deletes a review
+   * 1. deletes the review id from the course object's list of review IDs
+   * 2. deletes the review object from the reviews collection
+   * @param {string} reviewId
+   * @param {string} courseCode
+   *
+   */
+  async deleteReview(reviewId, courseCode) {
+    // Delete review ID from the course object's list of review IDs
+    const courseRef = doc(this.db, 'courses', courseCode);
+    updateDoc(courseRef, {
+      reviews: arrayRemove(reviewId),
+    });
+
+    // Delete review object from the 'reviews' collection in Google Firestore
+    deleteDoc(doc(this.db, 'reviews', reviewId));
   }
 
   /**

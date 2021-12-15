@@ -184,3 +184,23 @@
     margin: auto;
     margin-top: 5rem;
 }
+
+@media only screen and (max-aspect-ratio: 3/4) {
+    .summary-card {
+        overflow-x: hidden;
+        overflow-y: hidden;
+        top: 20px;
+        width: 90%;
+        margin: auto;
+        height: fit-content;
+    }
+
+    .review-heading {
+        flex-wrap: wrap;
+    }
+
+    .dropdown-reviews {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}

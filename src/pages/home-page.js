@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
-import { useLocation } from 'react-router-dom';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
@@ -22,10 +21,11 @@ const createDropdownOption = (item) => ({
 });
 
 const sorts = [
-  'Most Popular',
-  'Most Useful',
+  'Highest Rated',
+  'Most Reviews',
   'Most Enjoyable',
-  'Lowest Difficulty',
+  'Most Useful',
+  'Most Manageable',
 ];
 
 const majors = [
@@ -63,11 +63,11 @@ const HomePage = (props) => {
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
+  const [activeSort, setActiveSort] = useState('Highest Rated');
   const [query, setQuery] = useState('');
 
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
-    console.log(query);
   };
 
   console.log(majors);
@@ -123,10 +123,23 @@ const HomePage = (props) => {
                 Sort by:
               </div>
               <div className='sort-dropdown-menu'>
-                <DropdownSortMenu options={sortOptions} />
+                <DropdownSortMenu
+                  activeSort={activeSort}
+                  setActiveSort={setActiveSort}
+                  options={sortOptions}
+                />
               </div>
             </div>
 
+            <div className='dropdown-tags-box'>
+              <DropdownTagsMenu
+                title='Prefix'
+                tagOptions={prefixOptions}
+                activeTags={activePrefixTags}
+                setActiveTags={setActivePrefixTags}
+                className='dropdown-tags'
+              />
+            </div>
             <div className='dropdown-tags-box'>
               <DropdownTagsMenu
                 title='Major'
@@ -145,38 +158,26 @@ const HomePage = (props) => {
                 className='dropdown-tags'
               />
             </div>
-            <div className='dropdown-tags-box'>
-              <DropdownTagsMenu
-                title='Prefix'
-                tagOptions={prefixOptions}
-                activeTags={activePrefixTags}
-                setActiveTags={setActivePrefixTags}
-                className='dropdown-tags'
-              />
-            </div>
           </div>
         </Segment>
 
         {/* Tags component */}
         <div className='front-page-tags'>
           <HomePageTags
+            activeTags={activePrefixTags}
+            setActiveTags={setActivePrefixTags}
+            category='prefix'
+          />
+          <HomePageTags
             activeTags={activeMajorTags}
             setActiveTags={setActiveMajorTags}
             category='major'
           />
-
           <HomePageTags
             activeTags={activeTermTags}
             setActiveTags={setActiveTermTags}
             category='term'
           />
-
-          <HomePageTags
-            activeTags={activePrefixTags}
-            setActiveTags={setActivePrefixTags}
-            category='prefix'
-          />
-
         </div>
 
         {/* Code, name and desc hardcoded for testing purposes */}
@@ -188,6 +189,8 @@ const HomePage = (props) => {
               activeMajorTags={activeMajorTags}
               activeTermTags={activeTermTags}
               activePrefixTags={activePrefixTags}
+              activeSort={activeSort}
+              query={query}
             />
           </Grid>
         )}
