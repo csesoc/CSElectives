@@ -85,19 +85,21 @@ const HomePage = (props) => {
           </h1>
           <h2>
             {/* {'"'}student reviews, by students, for students{'"'} by Timmy Huang?? */}
-            enhancing your student experience.
+            <span className='desc'>enhancing your student experience.</span>
           </h2>
+          <div className='start-reviewing'>
+            <Button
+              secondary
+              content='Start reviewing!'
+              onClick={
+                () => scrollToElement('#search-section', {
+                  ease: 'in-out-cube',
+                  duration: 1000,
+                })
+              }
+            />
+          </div>
 
-          <Button
-            secondary
-            content='Start reviewing!'
-            onClick={
-              () => scrollToElement('#search-section', {
-                ease: 'in-out-cube',
-                duration: 1000,
-              })
-            }
-          />
         </div>
 
         <div className='right'>
