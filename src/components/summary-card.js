@@ -22,7 +22,6 @@ const SummaryCard = (props) => {
             </div>
             <Header as='h1'>{summaryTitle}</Header>
             <div className='tags'>
-              <Tag className={tags.level.toLowerCase()} label={tags.level} />
               {tags.terms.map((term) => <Tag key={term} className="term" label={term} />)}
             </div>
             <a href={summaryLink} rel="noreferrer" target="_blank">

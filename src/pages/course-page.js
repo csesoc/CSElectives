@@ -91,7 +91,6 @@ const CoursePage = (props) => {
 
   const getTags = () => {
     const tags = {
-      level: course.studyLevel,
       terms: course.terms.map((term) => {
         if (term == 0) {
           return 'Summer';
