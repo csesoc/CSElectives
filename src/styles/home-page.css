@@ -149,7 +149,7 @@
 
 .title-wrapper h1 {
   font-family: 'nevis', sans-serif;
-  font-size: 7rem;
+  font-size: 9vw;
 }
 
 .title-wrapper h2 {
@@ -184,6 +184,10 @@
   color: transparent;
 }
 
+.desc {
+  font-size: 2rem;
+}
+
 .right .blob {
   position: absolute;
   top: 0;
@@ -204,6 +208,35 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-aspect-ratio: 3/4) and (max-width: 480px) {
+  .desc {
+    font-size: 1.5rem;
+  }
+
+  .title-wrapper h1 {
+    font-size: 16vw;
+  }
+
+  .title-wrapper .right {
+    width: 80%;
+    position: absolute;
+    margin-left: 10vw;
+    margin-top: 30vh;
+  }
+  .title-wrapper .left {
+    margin-top: 0;
+    width: 80%;
+    margin-left: 5vw;
+  }
+
+  .start-reviewing {
+    top: 80vh;
+    margin-left: 5vw;
+    position: absolute;
+  }
+  
 }
 
 #search-section {
