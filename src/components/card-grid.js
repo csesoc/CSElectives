@@ -173,7 +173,6 @@ const CardGrid = (props) => {
               name={course.title}
               numReviews={course.reviews.length}
               overallRating={getOverallRating(course)}
-              studyLevel={course.studyLevel}
               terms={course.terms}
             />
           </Grid.Column>))}
