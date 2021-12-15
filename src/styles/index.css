@@ -255,3 +255,7 @@ footer {
 .ui.dropdown .menu .item:hover {
   background: #F2F2F2;
 }
+
+.logo {
+  width: 45px;
+}

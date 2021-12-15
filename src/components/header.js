@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import LoginModal from './login-modal/login-modal.js';
-import Logo from '../assets/logo.svg';
+import Logo from '../assets/cselectives_beta.png';
 
 // This header will appear on all pages
 const Header = (props) => {
@@ -40,7 +40,10 @@ const Header = (props) => {
           name='home'
           onClick={handleItemClick}
         >
-          <Image src={Logo} size='small' />
+          <div className="logo">
+            <img src={Logo} width="50" />
+
+          </div>
         </Menu.Item>
         <Menu.Item
           as={Link}
