@@ -5,17 +5,31 @@ import scrollToElement from 'scroll-to-element';
 
 const ScrollButton = () =>{
   const [visible, setVisible] = useState(false);
+  let mobileView = false;
+  const mediaQuery = window.matchMedia('(min-width: 480px)');
+
+  const checkMobileView = (e) => {
+    if (e.matches) {
+      mobileView = false;
+    } else {
+      mobileView = true;
+    }
+  };
+
+  checkMobileView(mediaQuery);
+  mediaQuery.onchange = checkMobileView;
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
+    if (scrolled > 300 && mobileView === false) {
       setVisible(true);
-    } else if (scrolled <= 300) {
+    } else {
       setVisible(false);
     }
   };
 
   window.addEventListener('scroll', toggleVisible);
+
 
   return (
     <Transition visible={visible} animation='scale' duration={500}>
