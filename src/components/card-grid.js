@@ -174,6 +174,7 @@ const CardGrid = (props) => {
               numReviews={course.reviews.length}
               overallRating={getOverallRating(course)}
               terms={course.terms}
+              major={getMajor(course)}
             />
           </Grid.Column>))}
       </Grid.Row>

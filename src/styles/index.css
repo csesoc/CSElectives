@@ -4,10 +4,10 @@
   --csesoc-white: #ffffff;
   --csesoc-black: #303030;
 
-  --major-tags: #B2F7EF;
+  --major-tags: #D5AAFF;
   --term-tags: #F7D6E0;
   --prefix-tags: #A3C5E1;
-  --undergraduate: #D5AAFF;
+  --undergraduate: #B2F7EF;
   --postgraduate: #ACDEAA;
 
   --primary: #3A76F8;
@@ -180,7 +180,7 @@ footer {
 .course-review-card {
   display: flex;
   min-height: 230px;
-  min-width: 343px;
+  min-width: 345px;
   height: 100%;
   width: 100%;
 }
