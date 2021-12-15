@@ -7,7 +7,7 @@ import { Card, Popup } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CourseReviewCard = (props) => {
-  const { code, name, numReviews, overallRating, studyLevel, terms, major } = props;
+  const { code, name, numReviews, overallRating, terms, major } = props;
   const page = `course/${code}`;
   const tags = {
     major: major,
@@ -18,6 +18,17 @@ const CourseReviewCard = (props) => {
         return 'Term ' + term;
       }
     }),
+  };
+
+  const getTags = (tags) => {
+    if (tags.major == '') {
+      return tags.terms.map((term) => <Tag key={term} className="term" label={term} />);
+    } else {
+      return [
+        <Tag key={tags.major} className="major" label={tags.major} />,
+        tags.terms.map((term) => <Tag key={term} className="term" label={term} />),
+      ];
+    }
   };
 
   return (
@@ -46,8 +57,7 @@ const CourseReviewCard = (props) => {
           </div>
         </Card.Content>
         <Card.Content extra>
-          <Tag label={tags.major} />
-          {tags.terms.map((term) => <Tag key={term} className="term" label={term} />)}
+          {getTags(tags)}
         </Card.Content>
       </Card>
     </div>
@@ -59,7 +69,6 @@ CourseReviewCard.propTypes = {
   name: PropTypes.string,
   numReviews: PropTypes.number,
   overallRating: PropTypes.number,
-  studyLevel: PropTypes.string,
   terms: PropTypes.array,
   major: PropTypes.string,
 };
