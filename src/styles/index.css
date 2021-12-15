@@ -180,7 +180,7 @@ footer {
 .course-review-card {
   display: flex;
   min-height: 230px;
-  min-width: 343px;
+  min-width: 345px;
   height: 100%;
   width: 100%;
 }
