@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Form, Header, Message, Modal, Input, Divider } from 'semantic-ui-react';
+import { Button, Form, Header, Message, Modal, Input, Divider, Icon, Dropdown } from 'semantic-ui-react';
 
 import Verifier from '../../verifier/verifier.js';
 import Database from '../../db/db.js';
@@ -36,31 +36,37 @@ const LoginModal = (props) => {
 
   return (
     <>
-      <Modal
-        closeIcon
-        onClose={() => {
-          setOpen(false);
-          setLoginMessage('Login');
-        }}
-        onOpen={() => setOpen(true)}
-        open={open}
-        size='tiny'
-        trigger={<Button secondary style={{ backgroundColor: 'var(--csesoc-blue)' }}>Log In</Button>}
-      >
-        <Modal.Content>
-          {user ? (
-            <>
-              <Header as='h2'>
-                You are {user?.displayName}
-              </Header>
-              <div className='login-button'>
-                <Button
-                  content='Log out'
-                  onClick={handleLogOut}
-                />
-              </div>
-            </>
-          ) : (
+      {user ? (
+        <>
+          <Icon name='user outline' />
+          <Dropdown
+            floating
+            labeled
+            button
+            text={user?.displayName}
+          >
+            <Dropdown.Menu>
+              <Dropdown.Item
+                onClick={handleLogOut}
+              >
+                <h4>Log out</h4>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </>
+      ) : (
+        <Modal
+          closeIcon
+          onClose={() => {
+            setOpen(false);
+            setLoginMessage('Login');
+          }}
+          onOpen={() => setOpen(true)}
+          open={open}
+          size='tiny'
+          trigger={<Button secondary style={{ backgroundColor: 'var(--csesoc-blue)' }}>Log in</Button>}
+        >
+          <Modal.Content>
             <>
               <Header as='h2' content={loginMessage} />
               <Divider />
@@ -97,9 +103,11 @@ const LoginModal = (props) => {
                 </div>
               </Form>
             </>
-          )}
-        </Modal.Content>
-      </Modal>
+          </Modal.Content>
+        </Modal>
+
+      )
+      }
     </>
   );
 };

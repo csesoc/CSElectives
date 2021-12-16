@@ -1,3 +1,7 @@
 .login-button{
     text-align: right;
 }
+
+.button-colour{
+    background-color: 'var(--csesoc-blue)';
+}
