@@ -124,14 +124,14 @@ const ReviewModal = (props) => {
                   <div className='review-term-dropdown'>
                     <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
                   </div>
-                  <div className='review-anon-text'>
+                  {/* <div className='review-anon-text'>
                     <b>
                       <label>Would you like to remain anonymous?<span className='required'> *</span></label>
                     </b>
                   </div>
                   <div>
                     <AnonChoice anonymity={anonymity} setAnonymity={setAnonymity} />
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className='review-button'>
