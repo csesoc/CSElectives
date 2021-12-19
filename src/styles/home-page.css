@@ -236,6 +236,14 @@
     margin-left: 5vw;
     position: absolute;
   }
+
+  .right .blob {
+    width: 150%;
+    height: 300%;
+    transform: translate(-30%, -28%) rotate(-20deg) ;
+
+    background-size: 115%;
+  }
   
 }
 
