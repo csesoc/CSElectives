@@ -236,6 +236,21 @@
     margin-left: 5vw;
     position: absolute;
   }
+
+  .right .blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 300%;
+    transform: translate(-30%, -28%) rotate(-20deg) ;
+    z-index: -1;
+  
+    background-image: url(../assets/blobs/vivian-blob.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 115%;
+  }
   
 }
 
