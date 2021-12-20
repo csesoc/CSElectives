@@ -7,7 +7,7 @@ const ReviewChoice = (props) => {
 
   return (
     <Form.Group inline>
-      <label><b>Would you like to write a review?</b></label>
+      <label><b>Would you like to add a comment?</b></label>
       <Form.Radio
         label='Yes'
         name='reviewGroup'
