@@ -132,34 +132,36 @@ const HomePage = (props) => {
                 />
               </div>
             </div>
+            <div className='search-bar-wrapper'>
+              <div className='dropdown-tags-box'>
+                <DropdownTagsMenu
+                  title='Prefix'
+                  tagOptions={prefixOptions}
+                  activeTags={activePrefixTags}
+                  setActiveTags={setActivePrefixTags}
+                  className='dropdown-tags'
+                />
+              </div>
+              <div className='dropdown-tags-box'>
+                <DropdownTagsMenu
+                  title='Major'
+                  tagOptions={majorOptions}
+                  activeTags={activeMajorTags}
+                  setActiveTags={setActiveMajorTags}
+                  className='dropdown-tags'
+                />
+              </div>
+              <div className='dropdown-tags-box'>
+                <DropdownTagsMenu
+                  title='Term'
+                  tagOptions={termOptions}
+                  activeTags={activeTermTags}
+                  setActiveTags={setActiveTermTags}
+                  className='dropdown-tags'
+                />
+              </div>
+            </div>
 
-            <div className='dropdown-tags-box'>
-              <DropdownTagsMenu
-                title='Prefix'
-                tagOptions={prefixOptions}
-                activeTags={activePrefixTags}
-                setActiveTags={setActivePrefixTags}
-                className='dropdown-tags'
-              />
-            </div>
-            <div className='dropdown-tags-box'>
-              <DropdownTagsMenu
-                title='Major'
-                tagOptions={majorOptions}
-                activeTags={activeMajorTags}
-                setActiveTags={setActiveMajorTags}
-                className='dropdown-tags'
-              />
-            </div>
-            <div className='dropdown-tags-box'>
-              <DropdownTagsMenu
-                title='Term'
-                tagOptions={termOptions}
-                activeTags={activeTermTags}
-                setActiveTags={setActiveTermTags}
-                className='dropdown-tags'
-              />
-            </div>
           </div>
         </Segment>
 
