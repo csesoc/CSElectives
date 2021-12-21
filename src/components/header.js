@@ -10,8 +10,9 @@ import Logo from '../assets/cselectives_beta.png';
 const Header = (props) => {
   const [activeItem, setActiveItem] = useState('home');
   const { courses, open, setOpen, loginMessage, setLoginMessage } = props;
-  const history = useHistory();
+  // const history = useHistory();
 
+  /*
   const dropdownOptionFunc = (course) => {
     return {
       key: course.courseCode,
@@ -19,17 +20,20 @@ const Header = (props) => {
       value: course.courseCode,
     };
   };
+  */
 
-  const dropdownOptionArray = Object.values(courses).map((course) => dropdownOptionFunc(course));
+  // const dropdownOptionArray = Object.values(courses).map((course) => dropdownOptionFunc(course));
 
   const handleItemClick = (e, { name }) => {
     setActiveItem(name);
   };
 
+  /*
   const handleDropdownSelect = (e, { value }) => {
     history.push(`/course/${value}`);
     setActiveItem(value);
   };
+  */
 
   return (
     <Menu secondary>
@@ -45,6 +49,7 @@ const Header = (props) => {
 
           </div>
         </Menu.Item>
+
         <Menu.Item
           as={Link}
           to="/feedback"
@@ -54,10 +59,11 @@ const Header = (props) => {
         >
           Review the Dev Team
         </Menu.Item>
+        { /*
         <Menu.Item
           position='right'
         >
-          {activeItem !== 'home' && (
+          { (
             <Dropdown
               icon='search'
               placeholder='Search course'
@@ -71,7 +77,9 @@ const Header = (props) => {
           )
           }
         </Menu.Item>
-        <Menu.Item>
+        */ }
+
+        <Menu.Item position='right'>
           <LoginModal open={open} setOpen={setOpen} loginMessage={loginMessage} setLoginMessage={setLoginMessage} />
         </Menu.Item>
       </Container>
