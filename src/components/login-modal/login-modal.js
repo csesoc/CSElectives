@@ -43,7 +43,7 @@ const LoginModal = (props) => {
             floating
             labeled
             button
-            text={user?.displayName}
+            text={window.screen.width <= 480 ? '' : user?.displayName}
           >
             <Dropdown.Menu>
               <Dropdown.Item
