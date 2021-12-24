@@ -99,7 +99,17 @@ const HomePage = (props) => {
               }
             />
           </div>
-
+          <div className='dev-message'>
+            <h4>
+              Developer&apos;s Message <br />
+            </h4>
+            <p>
+              Thanks for checking out CSElectives! Please note that this website is beta and still under development.
+              If you have any feedback, feel free to provide it in the feedback form :) <br /> <br />
+              We also have an UberEats draw, where every review written will be entered to win a $10 UberEats voucher!
+              (Ends 14th Jan 11:59pm)
+            </p>
+          </div>
         </div>
 
         <div className='right'>
