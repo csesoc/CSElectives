@@ -333,3 +333,9 @@
   margin: auto;
   text-align: center;
 }
+
+@media only screen and (max-aspect-ratio: 3/4) and (max-width: 480px) {
+  .no-results-found-centre {
+    width: 100%;
+  }
+}
