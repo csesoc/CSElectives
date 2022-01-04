@@ -84,6 +84,7 @@ const ReviewModal = (props) => {
             <p>Please write your review here: make sure you have read the terms and conditions
               before posting. Feel free to include your overall experience with the course,
               how you found the assessments/workload and anything else you wanted to share!
+              All new reviews submitted will be anonymous.
             </p>
             <p><span className='required'>* Required</span>
               <span className='easterEgg'> YOU BETTER FILL IT OUT! ٩(๏_๏)۶ </span>
