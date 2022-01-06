@@ -70,8 +70,6 @@ const HomePage = (props) => {
     setQuery(value);
   };
 
-  console.log(majors);
-
   return (
     <>
       <div className='scroll-button-container'>
