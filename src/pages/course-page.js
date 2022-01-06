@@ -84,7 +84,7 @@ const CoursePage = (props) => {
 
   const getReviewDate = (review) => {
     const date = new Date(review.timestamp).getDate();
-    const month = new Date(review.timestamp).getMonth();
+    const month = new Date(review.timestamp).getMonth() + 1;
     const year = new Date(review.timestamp).getFullYear();
     return `${date}/${month}/${year}`;
   };
