@@ -115,7 +115,8 @@ const CoursePage = (props) => {
           usefulProgress={review.rating.usefulness}
           manageabilityProgress={review.rating.manageability}
           enjoymentProgress={review.rating.enjoyment}
-          author={review.displayAuthor ? review.author : 'Anonymous'}
+          // author={review.displayAuthor ? review.author : 'Anonymous'}
+          author={'Anonymous'}
           termTaken={review.termTaken}
         />
       </>
