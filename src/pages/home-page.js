@@ -104,8 +104,11 @@ const HomePage = (props) => {
             <p>
               Thanks for checking out CSElectives! Please note that this website is beta and still under development.
               If you have any feedback, feel free to provide it in the feedback form :) <br /> <br />
-              We also have an UberEats draw, where every review written will be entered to win a $10 UberEats voucher!
-              (Ends 22nd Jan 11:59pm)
+              We have an UberEats draw, where every review written will be entered to win a $10 UberEats voucher!
+              (Ends 22nd Jan 11:59pm) <br /> <br />
+              CSElectives team is also recruiting! If you&#39;re interested in the development of this project, projects
+              subcom applications close 16th Jan. More details can be found
+              <a href="https://fb.me/e/3r4RVffai" target="_blank" rel="noreferrer"> here</a>.
             </p>
           </div>
         </div>
