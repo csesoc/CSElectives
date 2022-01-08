@@ -102,7 +102,8 @@ const HomePage = (props) => {
               Developer&apos;s Message <br />
             </h4>
             <p>
-              Thanks for checking out CSElectives! Please note that this website is beta and still under development.
+              Thanks for checking out CSElectives, brought to you by CSESoc Studex 2021!
+              Please note that this website is beta and still under development.
               If you have any feedback, feel free to provide it in the feedback form :) <br /> <br />
               We have an UberEats draw, where every review written will be entered to win a $10 UberEats voucher!
               (Ends 22nd Jan 11:59pm) <br /> <br />
