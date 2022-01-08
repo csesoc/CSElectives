@@ -6,6 +6,8 @@ import CourseReviewCard from './course-review-card.js';
 import { Grid } from 'semantic-ui-react';
 import NoResultsFound from './no-results-found.js';
 
+import getAverageRating from '../helpers/AverageRating.js';
+
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
   const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort, query } = props;
@@ -44,31 +46,10 @@ const CardGrid = (props) => {
   };
 
   const getOverallRating = (course) => {
-    let total = 0;
-    let count = 0;
-    course.reviews.forEach((review) => {
-      total += review.rating['overall'];
-      count++;
-    });
-    if (count === 0) {
-      return <p>😢</p>;
-    }
-    const roundedAverage = Math.round(total / count * 10) / 10;
-    return roundedAverage.toFixed(1);
-  };
-
-  const getAverageRating = (course, ratingCategory) => {
-    let total = 0;
-    let count = 0;
-    course.reviews.forEach((review) => {
-      total += review.rating[ratingCategory];
-      count++;
-    });
-    if (count === 0) {
-      return 0;
-    }
-    const average = total / count;
-    return average.toFixed(1);
+    const rating = getAverageRating(course, 'overall');
+    // Since the minimum rating is 1, we can assume that if the average rating is 0,
+    // then there are no reviews for the course.
+    return rating > 0 ? rating : 'No reviews yet 😢';
   };
 
   // FILTER HELPER FUNCTIONS
