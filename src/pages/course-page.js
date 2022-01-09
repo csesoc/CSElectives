@@ -13,6 +13,8 @@ import PlaceHolderReview from '../components/course-review/placeholder-reviews.j
 import BlankSvg from '../assets/illustrations/blank_canvas.svg';
 import ScrollButton from '../components/scroll-button.js';
 
+import getAverageRating from '../helpers/AverageRating.js';
+
 import '../styles/course-page.css';
 
 const CoursePage = (props) => {
@@ -58,17 +60,7 @@ const CoursePage = (props) => {
     history.push('/');
   };
   const getAverage = (ratingCategory) => {
-    let total = 0;
-    let count = 0;
-    course.reviews.forEach((review) => {
-      total += review.rating[ratingCategory];
-      count++;
-    });
-    if (count === 0) {
-      return 0;
-    }
-    const average = total / count;
-    return average.toFixed(1);
+    return getAverageRating(course, ratingCategory);
   };
 
 
