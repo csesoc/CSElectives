@@ -110,6 +110,26 @@ const HomePage = (props) => {
               CSElectives team is also recruiting! If you&#39;re interested in the development of this project, projects
               subcom applications close 16th Jan. More details can be found
               <a href="https://fb.me/e/3r4RVffai" target="_blank" rel="noreferrer"> here</a>.
+              !\
+              <pre>             H|H|H|H|H           H__________________________________</pre>
+              <pre>             H|§|§|§|H           H|* * * * * *|---------------------|</pre>
+              <pre>             H|§|∞|§|H           H| * * * * * |---------------------|</pre>
+              <pre>             H|§|§|§|H           H|* * * * * *|---------------------|</pre>
+              <pre>             H|H|H|H|H           H| * * * * * |---------------------|</pre>
+              <pre>             H|H|H|H|H           H|---------------------------------|</pre>
+              <pre>          ===============        H|---------------------------------|</pre>
+              <pre>            /| _   _ |\          H|---------------------------------|</pre>
+              <pre>            (| O   O |)          H|---------------------------------|</pre>
+              <pre>            /|   U   |\          H-----------------------------------</pre>
+              <pre>             |  \=/  |           H</pre>
+              <pre>              \_..._/            H</pre>
+              <pre>              _|\I/|_            H</pre>
+              <pre>      _______/\| H |/\_______    H</pre>
+              <pre>     /       \ \   / /       \   H</pre>
+              <pre>    |         \ | | /         |  H</pre>
+              <pre>    |          ||o||          |  H</pre>
+              <pre>    |    |     ||o||     |    |  H</pre>
+              <pre>    |    |     ||o||     |    |  H   Carl Pilcher</pre>
             </p>
           </div>
         </div>
