@@ -32,7 +32,6 @@ const ReviewCard = (props) => {
                     <ReviewRating
                       rating={overallRating}
                       icon='star'
-                      size='standard'
                       palette='csesoc'
                     />
                   </div>
@@ -101,12 +100,12 @@ const ReviewCard = (props) => {
 ReviewCard.propTypes = {
   courseCode: PropTypes.string,
   reviewId: PropTypes.string,
+  reviewDate: PropTypes.string,
   reviewTitle: PropTypes.string,
   reviewComment: PropTypes.string,
   usefulProgress: PropTypes.number,
   manageabilityProgress: PropTypes.number,
   enjoymentProgress: PropTypes.number,
-  reviewDate: PropTypes.number,
   overallRating: PropTypes.number,
   description: PropTypes.string,
   author: PropTypes.string,

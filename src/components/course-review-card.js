@@ -68,7 +68,7 @@ CourseReviewCard.propTypes = {
   code: PropTypes.string,
   name: PropTypes.string,
   numReviews: PropTypes.number,
-  overallRating: PropTypes.number,
+  overallRating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   terms: PropTypes.array,
   major: PropTypes.string,
 };

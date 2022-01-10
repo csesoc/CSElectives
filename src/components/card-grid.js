@@ -63,7 +63,7 @@ const CardGrid = (props) => {
         }
       }
     }
-    return false;
+    return '';
   };
 
   const filterTermsFilter = (course) => {
@@ -147,8 +147,8 @@ const CardGrid = (props) => {
   return gridArray.map((row, index) => {
     return (
       <Grid.Row key={index} stretched>
-        {row.map((course) => (
-          <Grid.Column key={course.id} columns='equal'>
+        {row.map((course, index) => (
+          <Grid.Column key={index} columns='equal'>
             <CourseReviewCard
               code={course.courseCode}
               name={course.title}
