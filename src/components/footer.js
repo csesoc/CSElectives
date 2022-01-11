@@ -33,64 +33,64 @@ const Footer = () => {
             is deemed to be abusive, offensive or otherwise inappropriate. UNSW policies apply and if a
             breach is detected, further action may be taken with the University.
           </p>
-          {/* eslint-disable max-len */}
-          <pre>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMMMMMMWWWWWWWWWWWWWWWWWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMWNNXXXNNNNNNNNNNNNNNNXXNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMWNKOOOKXXNNNNNNNNNNNNNNX0OKNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMWKxxkkO0KXNNNNNNNNNNNNNXKOOKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMWXkllxkO0XXNNNNNNNNNNNXKOO0NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMWO::ok0KXNNNNNNNNNNNXK00KWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMWx:cxO0XX0OkxxddolcccllxWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMXl;lldolcc:k0c;;;,,,. ,WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMWo .;lcccldXWN00xc,,,olKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMW0:&apos;;ccoxOXNWWW0c::;,.d0WWWK0O0NWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMMKOo;:clc:xXK0KNO:;;,.l;:Odoc:dXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMWWNNNNNOol.,::cckoc:;:ol:lc:;&apos;.&apos;&apos;&apos;&apos;ck0XWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMW0dc;;;;::oo:ccll::c;;;&apos;.........&apos;,llcdOXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMWKl;;;,&apos;&apos;..............;:codxl;,,cddddkXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMWNkc::;,..&apos;,&apos;dkxxOOOx:xxc;.&apos;..cl:odoxXXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMWXkl;lc:.:,.&apos;,..,,,cd&apos;.&apos;:cl;;xx:ol:dO0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMNOxocc;.;l&apos;;:odxo,oKklxxddkOkclxoO00WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMWX0odl:o;.lxkdOO0Kkd0KxOKOkkdo;;.  .oNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMWN00c;;c,.;ookO0KOdk0xcx0Odld;:.    .XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMXl;c:.. .,;dx00d&apos;.;,;xOkdxO;kNo    &apos;kNWWMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMWWKl,&apos;     coxkO0OxoloO0xdkOxoK0.      .&apos;cxxxkk0XWMWNWMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMWNOl,..       ..&apos;:k0kdoccllcod00ld;&apos;x.      .;ooolllldkl:cxWMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMNold,... .       .:;,:kOOxc,&apos;;oOk00x&apos;...&apos;&apos;.    .:oolcccllllc:;x0WMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMx.,,&apos;  . .         .:oddllodOKXXkl:.. ..,&apos;       .llccccllloc&apos;,lNMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMW;.,;,.  .          ldxOkkoco0000k&apos; .&apos;,&apos;,,&apos;..     ,ll:;:lclOdc,.:&apos;lNMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMc  ..&apos;..          :k,;cdxoxx;,cld;   .,,,...&apos;...&apos;,,;,&apos;&apos;.;:dcc&apos; ;, :WMMMMMMMMM</pre>
-          <pre>MMMMMMMMMWl .   ...        .oOx&apos;&apos;,xOO0kx,,dd;oc,&apos;.:xx&apos;&apos;..,,&apos;... ..;::::. ol..0MMMMMMMMM</pre>
-          <pre>MMMMMMMMMo..               ddkko;:oxoc:;..oOOKWWNK0Ko&apos;.  ....,&apos; .;;;;:. .o: .xXMMMMMMMM</pre>
-          <pre>MMMMMMMMM0  ..         ...&apos;xoxkxdlokOkxl:oK00KWWWXKKx..,;,,;,;&apos;.&apos;,,,&apos;,  :,  &apos;c,WMMMMMMM</pre>
-          <pre>MMMMMMMMMWo .&apos;,&apos;...    .&apos;;ol::OK0Oxolcc,lxdOO0NWWWXKO..,;,,&apos;,,&apos;.&apos;&apos;&apos;&apos;.  ;.  ;: &apos;WMMMMMMM</pre>
-          <pre>MMMMMMMMNd;&apos;,;;;,,,,  .lOoxc&apos;&apos;:ddlclcc;:OkdkOKNNWWWX0 .&apos;;,,;;,&apos;;&apos;&apos;,. .;. &apos;kc  o0MMMMMMM</pre>
-          <pre>MMMMMMMMO  ....,;&apos;,,;c0Kkcxo,&apos;&apos;&apos;cd;... &apos;0O:okOKXNWWXx .&apos;;;;;,&apos;&apos;,,:;  .. :X: ,KoxMMMMMMM</pre>
-          <pre>MMMMMMMMWo  ...&apos;..;,;kKK0:ko;,,&apos;,&apos;... .,0XOOXNK00KXNc .,;;;;,&apos;&apos;&apos;:c,  ..;c..:X0dkMMMMMMM</pre>
-          <pre>MMMMMMMMWd......,:;.lXXKKkodo:;&apos;:d,    ,OKNWWKNWNXOk: .,,,;c,&apos;&apos;.lc.  .c:,;oXNxd0WMMMMMM</pre>
-          <pre>MMMMMMMMO. .....&apos;c&apos;.dNN0OK0ddc:;kxo.   ,OOXNWWXKXNKkc .,,,,;,,&apos;.lc.  .okkxNXdlxWMMMMMMM</pre>
-          <pre>MMMMMMMWd  ....,lc. lXNX0OKO,dOKkl;  . &apos;00OXNNNWX0XKd .,,,,,,,.,occ.  ,KXNWXkKWMMMMMMMM</pre>
-          <pre>MMMMMMMWx..,:;cl;...&apos;OKNN0KxdKo.       .d0ONXNWWWKK00  .&apos;,,,,&apos; :l:l;  .0XWMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMNd&apos;,;,;:&apos;....&apos;:k0KK0O0o.         .lcdKWWWNK00O. .,,,,,..lldd:cx;kXWMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMWc&apos;.&apos;..... ... .:c,okdc.    ..    .xxcOWWN00K0.  ,,,&apos;&apos; ;loK0kNNdkXWMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMM0, .....&apos;.        &apos;ll.     ..     oXXKK0k0ONXl  &apos;;,,..clkWMMMMWNMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMWx  .....                   ..    ;000kxOOXWNK,  ,,, &apos;olKMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMN&apos; ...  .        ..              ,NKOkk0KNWNWk, .&apos;; oWNWMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMWx                                .ldoc:dNNWWWd. .c.:WMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMWO:&apos;&apos;,&apos;                         .;;,cdONNWMMMNc...;:XWMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMWWX:&apos;.&apos;&apos;..                 .ddk0KXNWMMMMWK0XkNWKNMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMWWWWNd..             .  .KNNWNNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMMWo.             ,, cd0WWMWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMWXd&apos;  ;x;.       .:.&apos;XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMWN0ccdOOO00Ox..&apos;l;l&apos;OWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMMMMWWWWWWWN:.cXKXOOWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWXxkNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</pre>
-          <pre>                                                                                       </pre>
-          <pre>                           SUPPORT OPEN SOURCE CONTRIBUTORS                            </pre>
-          {/* eslint-disable max-len */}
+          {/*
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMWWWWWWWWWWWWWWWWWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMWNNXXXNNNNNNNNNNNNNNNXXNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMWNKOOOKXXNNNNNNNNNNNNNNX0OKNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMWKxxkkO0KXNNNNNNNNNNNNNXKOOKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMWXkllxkO0XXNNNNNNNNNNNXKOO0NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMWO::ok0KXNNNNNNNNNNNXK00KWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMWx:cxO0XX0OkxxddolcccllxWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMXl;lldolcc:k0c;;;,,,. ,WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMWo .;lcccldXWN00xc,,,olKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMW0:';ccoxOXNWWW0c::;,.d0WWWK0O0NWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMKOo;:clc:xXK0KNO:;;,.l;:Odoc:dXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMWWNNNNNOol.,::cckoc:;:ol:lc:;'.''''ck0XWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMW0dc;;;;::oo:ccll::c;;;'.........',llcdOXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMWKl;;;,''..............;:codxl;,,cddddkXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMWNkc::;,..','dkxxOOOx:xxc;.'..cl:odoxXXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMWXkl;lc:.:,.',..,,,cd'.':cl;;xx:ol:dO0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMNOxocc;.;l';:odxo,oKklxxddkOkclxoO00WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMWX0odl:o;.lxkdOO0Kkd0KxOKOkkdo;;.  .oNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMWN00c;;c,.;ookO0KOdk0xcx0Odld;:.    .XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMXl;c:.. .,;dx00d'.;,;xOkdxO;kNo    'kNWWMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMWWKl,'     coxkO0OxoloO0xdkOxoK0.      .'cxxxkk0XWMWNWMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMWNOl,..       ..':k0kdoccllcod00ld;'x.      .;ooolllldkl:cxWMMMMMMMMMMMMMM
+MMMMMMMMMMNold,... .       .:;,:kOOxc,';oOk00x'...''.    .:oolcccllllc:;x0WMMMMMMMMMMMM
+MMMMMMMMMMx.,,'  . .         .:oddllodOKXXkl:.. ..,'       .llccccllloc',lNMMMMMMMMMMMM
+MMMMMMMMMW;.,;,.  .          ldxOkkoco0000k' .',',,'..     ,ll:;:lclOdc,.:'lNMMMMMMMMMM
+MMMMMMMMMMc  ..'..          :k,;cdxoxx;,cld;   .,,,...'...',,;,''.;:dcc' ;, :WMMMMMMMMM
+MMMMMMMMMWl .   ...        .oOx'',xOO0kx,,dd;oc,'.:xx''..,,'... ..;::::. ol..0MMMMMMMMM
+MMMMMMMMMo..               ddkko;:oxoc:;..oOOKWWNK0Ko'.  ....,' .;;;;:. .o: .xXMMMMMMMM
+MMMMMMMMM0  ..         ...'xoxkxdlokOkxl:oK00KWWWXKKx..,;,,;,;'.',,,',  :,  'c,WMMMMMMM
+MMMMMMMMMWo .','...    .';ol::OK0Oxolcc,lxdOO0NWWWXKO..,;,,',,'.''''.  ;.  ;: 'WMMMMMMM
+MMMMMMMMNd;',;;;,,,,  .lOoxc'':ddlclcc;:OkdkOKNNWWWX0 .';,,;;,';'',. .;. 'kc  o0MMMMMMM
+MMMMMMMMO  ....,;',,;c0Kkcxo,'''cd;... '0O:okOKXNWWXx .';;;;,'',,:;  .. :X: ,KoxMMMMMMM
+MMMMMMMMWo  ...'..;,;kKK0:ko;,,','... .,0XOOXNK00KXNc .,;;;;,''':c,  ..;c..:X0dkMMMMMMM
+MMMMMMMMWd......,:;.lXXKKkodo:;':d,    ,OKNWWKNWNXOk: .,,,;c,''.lc.  .c:,;oXNxd0WMMMMMM
+MMMMMMMMO. .....'c'.dNN0OK0ddc:;kxo.   ,OOXNWWXKXNKkc .,,,,;,,'.lc.  .okkxNXdlxWMMMMMMM
+MMMMMMMWd  ....,lc. lXNX0OKO,dOKkl;  . '00OXNNNWX0XKd .,,,,,,,.,occ.  ,KXNWXkKWMMMMMMMM
+MMMMMMMWx..,:;cl;...'OKNN0KxdKo.       .d0ONXNWWWKK00  .',,,,' :l:l;  .0XWMMMMMMMMMMMMM
+MMMMMMMNd',;,;:'....':k0KK0O0o.         .lcdKWWWNK00O. .,,,,,..lldd:cx;kXWMMMMMMMMMMMMM
+MMMMMMMWc'.'..... ... .:c,okdc.    ..    .xxcOWWN00K0.  ,,,'' ;loK0kNNdkXWMMMMMMMMMMMMM
+MMMMMMMM0, .....'.        'll.     ..     oXXKK0k0ONXl  ';,,..clkWMMMMWNMMMMMMMMMMMMMMM
+MMMMMMMMWx  .....                   ..    ;000kxOOXWNK,  ,,, 'olKMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMN' ...  .        ..              ,NKOkk0KNWNWk, .'; oWNWMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMWx                                .ldoc:dNNWWWd. .c.:WMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMWO:'','                         .;;,cdONNWMMMNc...;:XWMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMWWX:'.''..                 .ddk0KXNWMMMMWK0XkNWKNMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMWWWWNd..             .  .KNNWNNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMWo.             ,, cd0WWMWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMWXd'  ;x;.       .:.'XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMWN0ccdOOO00Ox..'l;l'OWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMWWWWWWWN:.cXKXOOWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWXxkNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+
+                        SUPPORT OPEN SOURCE CONTRIBUTORS
+          */}
         </Grid.Column>
       </Grid>
     </Container>
