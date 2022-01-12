@@ -40,7 +40,6 @@ const CourseRatings = (props) => {
             <ReviewRating
               rating={enjoyment}
               icon='circle'
-              size='standard'
               palette='trafficlight'
               clickable
               hoverable
@@ -63,7 +62,6 @@ const CourseRatings = (props) => {
             <ReviewRating
               rating={usefulness}
               icon='circle'
-              size='standard'
               palette='trafficlight'
               clickable
               hoverable
@@ -86,7 +84,6 @@ const CourseRatings = (props) => {
             <ReviewRating
               rating={manageability}
               icon='circle'
-              size='standard'
               palette='trafficlight'
               clickable
               hoverable

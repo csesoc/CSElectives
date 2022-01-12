@@ -7,7 +7,7 @@ import Database from '../db/db.js';
 
 import '../styles/review-page.css';
 import CourseRatings from '../components/review-form/course-ratings';
-import AnonChoice from '../components/review-form/anon-choice';
+// import AnonChoice from '../components/review-form/anon-choice';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
 import ReviewChoice from './review-form/review-choice.js';

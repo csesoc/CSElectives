@@ -86,7 +86,7 @@ const ReviewRating = (props) => {
 ReviewRating.propTypes = {
   icon: PropTypes.string,
   size: PropTypes.string,
-  rating: PropTypes.number,
+  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   clickable: PropTypes.bool,
   hoverable: PropTypes.bool,
   captions: PropTypes.array,

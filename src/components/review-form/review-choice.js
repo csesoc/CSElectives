@@ -27,7 +27,7 @@ const ReviewChoice = (props) => {
 };
 
 ReviewChoice.propTypes = {
-  reviewMessage: PropTypes.string,
+  reviewMessage: PropTypes.bool,
   setReviewMessage: PropTypes.func,
 };
 

@@ -78,12 +78,12 @@ SummaryCard.propTypes = {
   summaryLink: PropTypes.string,
   courseCode: PropTypes.string,
   overallRating: PropTypes.string,
-  numReviews: PropTypes.string,
+  numReviews: PropTypes.number,
   summaryDesc: PropTypes.string,
   usefulAvg: PropTypes.string,
   manageabilityAvg: PropTypes.string,
   enjoymentAvg: PropTypes.string,
-  tags: PropTypes.array,
+  tags: PropTypes.object,
 };
 
 export default SummaryCard;

@@ -29,7 +29,7 @@ const ReviewsBar = (props) => {
 };
 
 ReviewsBar.propTypes = {
-  sortOptions: PropTypes.func,
+  sortOptions: PropTypes.array,
   handleSortChange: PropTypes.func,
   courseCode: PropTypes.string,
   setLoginMessage: PropTypes.func,

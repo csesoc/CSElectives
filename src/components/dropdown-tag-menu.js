@@ -16,10 +16,10 @@ const DropdownTagsMenu = (props) => {
     }
   };
 
-  const tagItems = (object) => {
+  const tagItems = (object, index) => {
     return (
       <Dropdown.Item
-        text={object.value}
+        key={index}
         onClick={toggleSelectionDrop}
       >
         <Checkbox
