@@ -78,7 +78,7 @@ const ReviewCard = (props) => {
                     />
                   </div>
                 </div>
-                <Card.Description>{reviewComment}</Card.Description>
+                <Card.Description className='review-description'>{reviewComment}</Card.Description>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2} className='review-row'>
