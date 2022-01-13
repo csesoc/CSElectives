@@ -48,5 +48,6 @@ class Verifier {
     });
   }
 }
-
+// Maybe consider having a quick verification before sending a POST request
+// Cuz currently, you can spam it with an empty input and it will just send a bunch of requests to verify.
 export default new Verifier('https://verify.csesoc.unsw.edu.au/v1');
