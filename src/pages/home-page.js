@@ -102,7 +102,7 @@ const HomePage = (props) => {
               Developer&apos;s Message <br />
             </h4>
             <p>
-              Thanks for checking out CSElectives, brought to you by CSESoc Studex 2021!
+              Thanks for checking out CSElectives!
               Please note that this website is beta and still under development.
               If you have any feedback, feel free to provide it in the feedback form :) <br /> <br />
             </p>
