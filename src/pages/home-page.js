@@ -104,7 +104,8 @@ const HomePage = (props) => {
             <p>
               Thanks for checking out CSElectives!
               Please note that this website is beta and still under development.
-              If you have any feedback, feel free to provide it in the feedback form :) <br /> <br />
+              If you have any feedback, feel free to provide it in the
+              <a href="https://cselectives.csesoc.unsw.edu.au/feedback"> feedback form </a> :)
             </p>
           </div>
         </div>
