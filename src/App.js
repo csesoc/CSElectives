@@ -14,6 +14,7 @@ import FeedbackPage from './pages/feedback-page.js';
 import NotFoundPage from './pages/not-found-page.js';
 import GoToTop from './components/go-to-top.js';
 import FlaggedReviewsPage from './pages/flagged-reviews-page.js';
+import CodeOfConductPage from './pages/code-of-conduct-page.js';
 
 export const LoadingContext = createContext(true);
 export const UserContext = createContext(null);
@@ -76,6 +77,7 @@ const App = () => {
                     <Route exact path='/login' component={LoginPage} />
                     <Route exact path='/feedback' component={FeedbackPage} />
                     <Route exact path='/flaggedreviews' component={FlaggedReviewsPage} />
+                    <Route exact path='/termsandconditions' component={CodeOfConductPage} />
                     <Route component={NotFoundPage} />
                   </Switch>
                 </Container>
