@@ -21,11 +21,11 @@ const createDropdownOption = (item) => ({
 });
 
 const sorts = [
-  'Highest Rated',
   'Most Reviews',
   'Most Enjoyable',
   'Most Useful',
   'Most Manageable',
+  'Highest Overall Rating',
 ];
 
 const majors = [
@@ -63,7 +63,7 @@ const HomePage = (props) => {
   const [activeMajorTags, setActiveMajorTags] = useState([]);
   const [activeTermTags, setActiveTermTags] = useState([]);
   const [activePrefixTags, setActivePrefixTags] = useState([]);
-  const [activeSort, setActiveSort] = useState('Highest Rated');
+  const [activeSort, setActiveSort] = useState('Most Reviews');
   const [query, setQuery] = useState('');
 
   const handleQueryChange = (e, { value }) => {
