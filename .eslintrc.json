@@ -38,6 +38,7 @@
         "react/jsx-props-no-multi-spaces": ["error"],
         "react/jsx-props-no-spreading": ["error"],
         "react/jsx-tag-spacing": ["error", {"beforeClosing": "never"}],
-        "react/jsx-wrap-multilines": ["error"]
+        "react/jsx-wrap-multilines": ["error"],
+        "react/react-in-jsx-scope": "off"
     }
 }

@@ -11,7 +11,7 @@ import CourseRatings from '../components/review-form/course-ratings';
 import TermTakenSelect from '../components/review-form/term-taken-select';
 import ReviewTextArea from '../components/review-form/review-text-area';
 import ReviewChoice from './review-form/review-choice.js';
-import { UserContext } from '../App.js';
+import { UserContext } from '../App';
 
 const ReviewModal = (props) => {
   const user = useContext(UserContext);

@@ -4,7 +4,7 @@ import { Button, Form, Header, Message, Modal, Input, Divider, Icon, Dropdown } 
 
 import Verifier from '../../verifier/verifier.js';
 import Database from '../../db/db.js';
-import { UserContext } from '../../App.js';
+import { UserContext } from '../../App';
 import '../../styles/login-page.css';
 
 const LoginModal = (props) => {

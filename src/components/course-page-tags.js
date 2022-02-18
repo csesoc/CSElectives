@@ -1,5 +1,5 @@
 import React from 'react';
-import Tag from './tags.js';
+import Tag from './Tags/Tags';
 
 const CoursePageTags = () => {
   return (

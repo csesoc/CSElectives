@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Header, Grid, Icon } from 'semantic-ui-react';
-import Tag from '../components/tags.js';
+import Tag from './Tags/Tags';
 import '../styles/course-page.css';
 import ReviewRating from './review-rating/review-rating.js';
 

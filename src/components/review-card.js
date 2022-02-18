@@ -7,7 +7,7 @@ import ReviewRating from './review-rating/review-rating';
 import FlagModal from '../components/flag-modal.js';
 
 import DeleteModal from './delete-modal';
-import { AdminsContext, UserContext } from '../App.js';
+import { AdminsContext, UserContext } from '../App';
 
 const ReviewCard = (props) => {
   const { courseCode, reviewId, reviewTitle, reviewComment, usefulProgress, manageabilityProgress,

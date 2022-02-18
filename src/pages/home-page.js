@@ -8,7 +8,7 @@ import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
 import HomePageTags from '../components/home-page-tags.js';
 import CardGrid from '../components/card-grid.js';
-import { LoadingContext } from '../App.js';
+import { LoadingContext } from '../App';
 import '../styles/home-page.css';
 
 import FeedbackSvg from '../assets/illustrations/feedback.svg';
