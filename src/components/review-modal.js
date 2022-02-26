@@ -27,10 +27,8 @@ const ReviewModal = (props) => {
   const [title, setTitle] = useState('');
   const [comment, setComment] = useState('');
   const [termTaken, setTermTaken] = useState('');
-  const [checkTnc, setCheckTnc] = useState(false);
 
   const [open, setOpen] = useState(false);
-  const handleClick = () => setCheckTnc(!checkTnc);
 
   const handleSubmit = async () =>{
     const review = {
@@ -105,15 +103,6 @@ const ReviewModal = (props) => {
                     setComment={setComment}
                     disabled={!reviewMessage}
                   />
-                  <br />
-                  <div
-                    className="ui checkbox"
-                  >
-                    <input type="checkbox" name="example" onClick={handleClick} checkTnc={checkTnc} />
-                    <label> I have read and agree with the
-                      <a href="https://cselectives.csesoc.unsw.edu.au/termsandconditions"> terms and conditions.</a>
-                    </label>
-                  </div>
                 </div>
                 <div className='review-form-left'>
                   <div style={{ display: 'flex', flexGrow: 1 }}>
@@ -133,9 +122,7 @@ const ReviewModal = (props) => {
                       <label>When did you complete the course?<span className='required'> *</span></label>
                     </b>
                   </div>
-                  <div
-                    className='review-term-dropdown'
-                  >
+                  <div className='review-term-dropdown'>
                     <TermTakenSelect termTaken={termTaken} setTermTaken={setTermTaken} />
                   </div>
                   {/* <div className='review-anon-text'>
@@ -159,7 +146,6 @@ const ReviewModal = (props) => {
                   || !usefulness
                   || !manageability
                   || (reviewMessage && (!comment || !title))
-                  || !checkTnc
                   }
                   onClick={handleSubmit}
                 >

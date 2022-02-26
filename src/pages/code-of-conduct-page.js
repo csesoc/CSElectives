@@ -4,14 +4,19 @@ const CodeOfConductPage = () => {
   return (
     <div>
       <h1>Terms and Conditions</h1>
+
       <h3>1. Your review must abide by the
         <a href="https://www.gs.unsw.edu.au/policy/documents/studentcodepolicy.pdf"> UNSW Student Code of Conduct</a>
       </h3>
+
       In addition to abiding by the Student Code of Conduct, we want to
       highlight the relevant sections, such as sections 4 and 5.3, which are outlined as follows:
+
       <br /> <br /><u>Section 4. Principles of open and respectful discussion</u> <br /> <br />
+
       The following principles of open and respectful discussion are key to fostering
       and preserving a safe and fair learning environment and a positive student experience at UNSW: <br />
+
       <ul>
         <li>UNSW encourages critical thought and open discussion, including of controversial ideas</li>
         <li>UNSW is a dynamic community where ideas can change, and there is a commitment to creating
@@ -25,6 +30,7 @@ const CodeOfConductPage = () => {
         </li>
         <li>Students accept differences amongst each other – both seen and unseen</li>
         <li>Students must permit others to express disagreement without fear of reprisal.</li>
+
       </ul>
       <br />
       <u>Section 5. Student Responsibilities: Responsibility 3: Observe standards of equity
@@ -48,7 +54,9 @@ const CodeOfConductPage = () => {
           affiliate where the direction or request supports safety, good order and compliance
           with UNSW policies and procedures.
         </li>
+
       </ul>
+
       <h3>2. Reviews must be relevant and based on real experiences</h3>
       <ul>
         <li>
@@ -96,6 +104,7 @@ const CodeOfConductPage = () => {
           for which they were not a student.
         </li>
       </ul>
+
       In summary, reviews which are deliberately faked, off-topic, use defamatory language, or engage
       in personal attacks are all in violation of our policy. We will remove reviews that violate our
       terms & conditions and can suspend abusive contributors.
@@ -129,7 +138,8 @@ const CodeOfConductPage = () => {
       </ul>
       <h3>4. Terms and conditions are subject to change within reason by the UNSW Computer Science and
         Engineering Society Executive team.
-      </h3> <br /><br />
+      </h3> <br />
+
     </div>
   );
 };
