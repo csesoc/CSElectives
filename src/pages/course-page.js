@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import { useHistory, useParams } from 'react-router-dom';
-import { LoadingContext } from '../App';
+import { LoadingContext } from '../App.js';
 import PropTypes from 'prop-types';
 
 import ReviewCard from '../components/review-card.js';

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { AdminsContext, LoadingContext, UserContext } from '../App';
+import { AdminsContext, LoadingContext, UserContext } from '../App.js';
 
 import '../styles/course-page.css';
 import ReviewCard from '../components/review-card.js';

@@ -1,8 +1,8 @@
-import { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 import { Container } from 'semantic-ui-react';
-import { onAuthStateChanged, User } from '@firebase/auth';
+import { onAuthStateChanged } from '@firebase/auth';
 
 import Database from './db/db.js';
 import HomePage from './pages/home-page.js';
@@ -17,12 +17,12 @@ import FlaggedReviewsPage from './pages/flagged-reviews-page.js';
 import CodeOfConductPage from './pages/code-of-conduct-page.js';
 
 export const LoadingContext = createContext(true);
-export const UserContext = createContext<User | null>(null);
+export const UserContext = createContext(null);
 export const AdminsContext = createContext([]);
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState(null);
   const [courses, setCourses] = useState({});
   const [admins, setAdmins] = useState([]);
   const [majors, setMajors] = useState({});
@@ -30,7 +30,9 @@ const App = () => {
   const [loginOpen, setLoginOpen] = useState(false); // hacky way, probs not prop drill this later
   const [loginMessage, setLoginMessage] = useState('Login');
 
-  onAuthStateChanged(Database.auth, (user) => setUser(user));
+  onAuthStateChanged(Database.auth, (user) => {
+    setUser(user);
+  });
 
   useEffect(() => {
     const getCourses = async () => {

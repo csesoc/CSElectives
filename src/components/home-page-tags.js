@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tag from './Tags/Tags';
+import Tag from './tags.js';
 
 const HomePageTags = (props) => {
   const { activeTags, setActiveTags, category } = props;

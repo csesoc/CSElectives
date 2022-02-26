@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tag from './Tags/Tags';
+import Tag from './tags.js';
 import ReviewRating from './review-rating/review-rating.js';
 
 import { Card, Popup } from 'semantic-ui-react';
