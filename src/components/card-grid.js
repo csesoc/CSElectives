@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CourseReviewCard from './course-review-card.js';
+import CourseReviewList from './course-review-list.js';
 
 import { Grid } from 'semantic-ui-react';
 import NoResultsFound from './no-results-found.js';
@@ -138,7 +139,7 @@ const CardGrid = (props) => {
 
   const outputCourses = sortAndFilterCourses(courses);
   const gridArray = [];
-  const colSize = 3;
+  const colSize = 1;
   for (let i = 0; i < outputCourses.length; i += colSize) {
     const gridRow = outputCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
@@ -149,13 +150,16 @@ const CardGrid = (props) => {
       <Grid.Row key={index} stretched>
         {row.map((course, index) => (
           <Grid.Column key={index} columns='equal'>
-            <CourseReviewCard
+            <CourseReviewList
               code={course.courseCode}
               name={course.title}
               numReviews={course.reviews.length}
               overallRating={getOverallRating(course)}
               terms={course.terms}
               major={getMajor(course)}
+              enjoyment={getAverageRating(course, 'enjoyment')}
+              usefulness={getAverageRating(course, 'usefulness')}
+              manageability={getAverageRating(course, 'manageability')}
             />
           </Grid.Column>))}
       </Grid.Row>

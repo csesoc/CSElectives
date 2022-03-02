@@ -99,6 +99,75 @@
   width: 80%;
 }
 
+.course-review-item {
+  width: 100%;
+  height: 100%;
+}
+
+.item-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  width: 100%;
+  
+}
+
+.item-contents-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  text-align: center;
+  text-justify: center;
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.item-contents-code {
+  width: 9.2%;
+  
+}
+.item-header {
+  font-weight: bold;
+  color: black;
+  padding-bottom: 2%;
+  
+}
+
+.item-contents-name {
+  text-align: left;
+  width: 25.1%;
+}
+
+.item-contents-tags {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  width: 18.3%;  
+}
+
+.item-ratings-stars {
+  width: 14.8%;  
+}
+
+.item-contents-enjoyment {
+  width: 7.7%;  
+}
+.item-contents-usefulness {
+  width: 7.7%;  
+}
+.item-contents-manageability {
+  width: 7.7%;  
+}
+
+.item-contents-major {
+  width: 11%;  
+}
+
+.item-contents-review-num {
+  width: 7.7%;  
+}
+
 .ui.checkbox.checkbox-major input:checked~.box:before,
 .ui.checkbox.checkbox-major input:checked~label:before,
 .ui.checkbox.checkbox-major input:focus:checked~.box:before,
