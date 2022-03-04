@@ -9,7 +9,7 @@ export default class App {
   readonly logger = getLogger();
   private ex = new ExpressWrapper();
   // if using db, uncomment relevant lines
-  private db = new Database("default");
+  // private db = new Database("default");
 
   // add services here
   private readonly nameService = new NameService();
@@ -26,13 +26,13 @@ export default class App {
 
   async start(): Promise<void> {
     this.logger.info("Starting up...");
-    await this.db.start();
+    // await this.db.start();
     await this.ex.start(config.get("api.port"));
     this.logger.info("Started HTTP Server and Database");
   }
 
   async stop(): Promise<void> {
     await this.ex.stop();
-    await this.db.stop();
+    // await this.db.stop();
   }
 }

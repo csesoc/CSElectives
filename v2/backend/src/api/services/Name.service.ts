@@ -1,8 +1,7 @@
 import { IPostNameRequestBody, IPostNameSuccessResponse } from "IApiResponses";
-import { Name } from "../../entity/Name";
 import { inspect } from "util";
 import { v4 as uuidv4 } from "uuid";
-import { formatError, getLogger } from "../../utils/Logger";
+import { getLogger } from "../../utils/Logger";
 
 export class NameService {
   private logger = getLogger();
@@ -15,16 +14,6 @@ export class NameService {
       nameId: nameId,
       name: nameDetails.name,
     };
-    const name = Name.create({
-      id: payload.nameId,
-      name: payload.name,
-    });
-    try {
-      await name.save();
-    } catch (err: any) {
-      this.logger.error(`Failed to save name ${formatError(err)}`);
-      return;
-    }
 
     const result = this.handleSuccessResponse(payload);
     return result;
