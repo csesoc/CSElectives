@@ -109,7 +109,6 @@
   align-items: stretch;
   justify-content: space-evenly;
   width: 100%;
-  
 }
 
 .item-contents-container {
@@ -182,46 +181,56 @@
   color: white;
   width: 100%;
   height: 100%;
-  display: flex;
   margin-bottom: 2.5%;
 }
 
 .topbar-contents-container {
   display: flex;
   align-items: stretch;
+  width: 100%;
+}
+
+.topbar-header {
+  font-weight: bold;
+  color: white;
+  font-size: 0.85em;
 }
 
 .topbar-item {
+  text-align: left;
   position: relative;
-  color: white;
-  padding: 2.5% 0 2.5% 0;
+  padding: 2% 0 2% 0;
 }
 
 .topbar-contents-code {
+  margin-left: 1%;
+  width: 7.5%;
+}
+.topbar-contents-name {
+  margin-left: 2.5%;
+  width: 20%;
+}
+.topbar-contents-tag {
   margin-left: 2%;
   width: 15%;
 }
-.topbar-contents-name {
-  width: 15%;
-}
-.topbar-contents-tag {
-  margin-left: 25%;
-  width: 5%;
-}
 .topbar-contents-rating {
-  width: 5%;
+  margin-left: 2%;
+  width: 10%;
 }
 .topbar-contents-enjoyability {
-  width: 5%;
+  margin-left: 1.8%;
+  width: 7.5%;
 }
 .topbar-contents-usefulness {
-  width: 5%;
+  width: 7%;
 }
 .topbar-contents-manageability {
-  width: 5%;
+
+  width: 7.7%;
 }
 .topbar-contents-major {
-  width: 5%;
+  width: 7.7%;
 }
 
 .ui.checkbox.checkbox-major input:checked~.box:before,
