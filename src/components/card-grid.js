@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import CourseReviewCard from './course-review-card.js';
 import CourseReviewList from './course-review-list.js';
+import TopBar from './course-review-list-topbar.js';
 
 import { Card, Grid } from 'semantic-ui-react';
 import NoResultsFound from './no-results-found.js';

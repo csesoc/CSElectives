@@ -11,6 +11,8 @@ import CardGrid, { switchView } from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
+import TopBar from '../components/course-review-list-topbar.js';
+
 import FeedbackSvg from '../assets/illustrations/feedback.svg';
 import ScrollButton from '../components/scroll-button.js';
 
@@ -206,6 +208,7 @@ const HomePage = (props) => {
 
         {/* Code, name and desc hardcoded for testing purposes */}
         {loading ? <span>loading...</span> : (
+<<<<<<< HEAD
           <Grid stackable doubling container columns={viewState === 'card' ? 'three' : 'one'}>
             <CardGrid
               courses={courses}
@@ -218,6 +221,22 @@ const HomePage = (props) => {
               view={viewState}
             />
           </Grid>
+=======
+          <>
+            <TopBar />
+            <Grid stackable doubling container columns='one'>
+              <CardGrid
+                courses={courses}
+                majors={majors}
+                activeMajorTags={activeMajorTags}
+                activeTermTags={activeTermTags}
+                activePrefixTags={activePrefixTags}
+                activeSort={activeSort}
+                query={query}
+              />
+            </Grid>
+          </>
+>>>>>>> 348fc1a429e1290f52b3e27979a3ca21d4775af4
         )}
       </section>
     </>
