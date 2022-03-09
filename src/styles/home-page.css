@@ -124,6 +124,7 @@
 }
 
 .item-contents-code {
+  text-align: left;
   width: 9.2%;
   
 }
@@ -141,9 +142,11 @@
 
 .item-contents-tags {
   display: flex;
+  position: relative;
   align-items: left;
   justify-content: left;
-  width: 18.3%;  
+  width: 18.3%;
+  top: -20%;
 }
 
 .item-ratings-stars {
