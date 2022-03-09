@@ -7,7 +7,7 @@ import scrollToElement from 'scroll-to-element';
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
 import HomePageTags from '../components/home-page-tags.js';
-import CardGrid from '../components/card-grid.js';
+import CardGrid, { switchView } from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
@@ -66,28 +66,11 @@ const HomePage = (props) => {
   const [activeSort, setActiveSort] = useState('Most Reviews');
   const [query, setQuery] = useState('');
 
-  const returnState = (
-    <Grid stackable doubling container columns='one'>
-      <CardGrid
-        courses={courses}
-        majors={majors}
-        activeMajorTags={activeMajorTags}
-        activeTermTags={activeTermTags}
-        activePrefixTags={activePrefixTags}
-        activeSort={activeSort}
-        query={query}
-      />
-    </Grid>
-  );
-
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
   };
 
-  const handleCheckboxChange = (e, { checked }) => {
-
-  };
-
+  const [viewState, setState] = useState('Card');
   return (
     <>
       <div className='scroll-button-container'>
@@ -189,9 +172,9 @@ const HomePage = (props) => {
             </div>
             <div className='card-list-switch'>
               <div className='card-label'>
-                Card
+                {viewState}
               </div>
-              <Checkbox toggle />
+              <Checkbox toggle onChange={switchView} />
               <div className='list-label'>
                 List
               </div>
@@ -221,12 +204,23 @@ const HomePage = (props) => {
 
         {/* Code, name and desc hardcoded for testing purposes */}
         {loading ? <span>loading...</span> : (
-          returnState
+          <Grid stackable doubling container columns='one'>
+            <CardGrid
+              courses={courses}
+              majors={majors}
+              activeMajorTags={activeMajorTags}
+              activeTermTags={activeTermTags}
+              activePrefixTags={activePrefixTags}
+              activeSort={activeSort}
+              query={query}
+            />
+          </Grid>
         )}
       </section>
     </>
   );
 };
+
 
 HomePage.propTypes = {
   courses: PropTypes.object,
