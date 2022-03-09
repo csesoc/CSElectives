@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button, Checkbox } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
 import HomePageTags from '../components/home-page-tags.js';
-import CardGrid from '../components/card-grid.js';
+import CardGrid, { switchView } from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
@@ -72,6 +72,7 @@ const HomePage = (props) => {
     setQuery(value);
   };
 
+  const [viewState, setState] = useState('Card');
   return (
     <>
       <div className='scroll-button-container'>
@@ -171,8 +172,17 @@ const HomePage = (props) => {
                 />
               </div>
             </div>
-
+            <div className='card-list-switch'>
+              <div className='card-label'>
+                {viewState}
+              </div>
+              <Checkbox toggle onChange={switchView} />
+              <div className='list-label'>
+                List
+              </div>
+            </div>
           </div>
+
         </Segment>
 
         {/* Tags component */}
@@ -215,6 +225,7 @@ const HomePage = (props) => {
     </>
   );
 };
+
 
 HomePage.propTypes = {
   courses: PropTypes.object,

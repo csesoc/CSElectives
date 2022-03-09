@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import CourseReviewCard from './course-review-card.js';
 import CourseReviewList from './course-review-list.js';
 import TopBar from './course-review-list-topbar.js';
 
-import { Grid } from 'semantic-ui-react';
+import { Card, Grid } from 'semantic-ui-react';
 import NoResultsFound from './no-results-found.js';
 
 import getAverageRating from '../helpers/AverageRating.js';
+
+
+let viewState = 'card';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
   const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort, query } = props;
 
+  const [returnViewState, setState] = useState(viewState);
+
+  const listVew = (course) =>
+    (
+      <CourseReviewList
+        code={course.courseCode}
+        name={course.title}
+        numReviews={course.reviews.length}
+        overallRating={getOverallRating(course)}
+        terms={course.terms}
+        major={getMajor(course)}
+        enjoyment={getAverageRating(course, 'enjoyment')}
+        usefulness={getAverageRating(course, 'usefulness')}
+        manageability={getAverageRating(course, 'manageability')}
+      />
+    );
   // SORT FUNCTIONS
   const sortMostReviews = (a, b) => {
     return b.reviews.length - a.reviews.length;
@@ -140,7 +159,7 @@ const CardGrid = (props) => {
 
   const outputCourses = sortAndFilterCourses(courses);
   const gridArray = [];
-  const colSize = 1;
+  const colSize = 3;
   for (let i = 0; i < outputCourses.length; i += colSize) {
     const gridRow = outputCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
@@ -168,6 +187,8 @@ const CardGrid = (props) => {
   });
 };
 
+export default CardGrid;
+
 CardGrid.propTypes = {
   courses: PropTypes.object.isRequired,
   majors: PropTypes.object.isRequired,
@@ -179,4 +200,12 @@ CardGrid.propTypes = {
 
 };
 
-export default CardGrid;
+export const switchView = () => {
+  if (viewState === 'list') {
+    viewState = 'card';
+  } else {
+    viewState = 'list';
+  }
+  console.log(viewState);
+};
+
