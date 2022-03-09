@@ -164,6 +164,9 @@
 }
 
 .item-contents-major {
+  position: relative;
+  top: -35%;
+  justify-content: center;
   width: 11%;  
 }
 
