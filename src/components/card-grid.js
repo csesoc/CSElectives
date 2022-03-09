@@ -18,7 +18,7 @@ const CardGrid = (props) => {
 
   const [returnViewState, setState] = useState(viewState);
 
-  const listVew = (course) =>
+  const listVew = (course) => 
     (
       <CourseReviewList
         code={course.courseCode}
