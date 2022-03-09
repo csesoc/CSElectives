@@ -38,6 +38,7 @@ const CourseReviewList = (props) => {
   };
 
   return (
+
     <div className='item-container'>
       <Item className='course-review-item' as={Link} to={page}>
         <Item.Content className='item-contents-container'>

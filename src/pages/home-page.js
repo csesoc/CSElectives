@@ -11,6 +11,8 @@ import CardGrid from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
 
+import TopBar from '../components/course-review-list-topbar.js';
+
 import FeedbackSvg from '../assets/illustrations/feedback.svg';
 import ScrollButton from '../components/scroll-button.js';
 
@@ -194,17 +196,20 @@ const HomePage = (props) => {
 
         {/* Code, name and desc hardcoded for testing purposes */}
         {loading ? <span>loading...</span> : (
-          <Grid stackable doubling container columns='one'>
-            <CardGrid
-              courses={courses}
-              majors={majors}
-              activeMajorTags={activeMajorTags}
-              activeTermTags={activeTermTags}
-              activePrefixTags={activePrefixTags}
-              activeSort={activeSort}
-              query={query}
-            />
-          </Grid>
+          <>
+            <TopBar />
+            <Grid stackable doubling container columns='one'>
+              <CardGrid
+                courses={courses}
+                majors={majors}
+                activeMajorTags={activeMajorTags}
+                activeTermTags={activeTermTags}
+                activePrefixTags={activePrefixTags}
+                activeSort={activeSort}
+                query={query}
+              />
+            </Grid>
+          </>
         )}
       </section>
     </>
