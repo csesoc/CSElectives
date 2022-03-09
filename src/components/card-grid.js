@@ -9,17 +9,14 @@ import NoResultsFound from './no-results-found.js';
 
 import getAverageRating from '../helpers/AverageRating.js';
 
-
-let viewState = 'card';
-
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
   const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort, query } = props;
 
-  const [returnViewState, setState] = useState(viewState);
+  const [viewState, setState] = useState('card');
 
-  const listVew = (course) => 
-    (
+  const listView = (course) => {
+    return (
       <CourseReviewList
         code={course.courseCode}
         name={course.title}
@@ -30,6 +27,18 @@ const CardGrid = (props) => {
         enjoyment={getAverageRating(course, 'enjoyment')}
         usefulness={getAverageRating(course, 'usefulness')}
         manageability={getAverageRating(course, 'manageability')}
+      />
+    );
+  };
+  const cardView = (course) =>
+    (
+      <CourseReviewCard
+        code={course.courseCode}
+        name={course.title}
+        numReviews={course.reviews.length}
+        overallRating={getOverallRating(course)}
+        terms={course.terms}
+        major={getMajor(course)}
       />
     );
   // SORT FUNCTIONS
@@ -169,17 +178,7 @@ const CardGrid = (props) => {
       <Grid.Row key={index} stretched>
         {row.map((course, index) => (
           <Grid.Column key={index} columns='equal'>
-            <CourseReviewList
-              code={course.courseCode}
-              name={course.title}
-              numReviews={course.reviews.length}
-              overallRating={getOverallRating(course)}
-              terms={course.terms}
-              major={getMajor(course)}
-              enjoyment={getAverageRating(course, 'enjoyment')}
-              usefulness={getAverageRating(course, 'usefulness')}
-              manageability={getAverageRating(course, 'manageability')}
-            />
+            {cardView(course)}
           </Grid.Column>))}
       </Grid.Row>
     );
