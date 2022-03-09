@@ -429,10 +429,26 @@
   
 }
 
+.card-list-switch {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  margin-left: 85%;
+  width: 10%;
+}
+
+.switch-label {
+  position: relative;
+  margin: auto;
+}
+
 #search-section {
   padding-top: 2rem;
   align-items: center;
 }
+
 
 .no-results-found-div {
   display: block;

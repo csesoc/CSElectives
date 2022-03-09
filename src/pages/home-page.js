@@ -74,6 +74,11 @@ const HomePage = (props) => {
 
   const [viewState, setState] = useState('card');
 
+  const topbar = () => {
+    if (viewState === 'list') {
+      return <TopBar />;
+    }
+  };
 
   return (
     <>
@@ -175,11 +180,11 @@ const HomePage = (props) => {
               </div>
             </div>
             <div className='card-list-switch'>
-              <div className='card-label'>
-                {viewState}
+              <div className='switch-label'>
+                Card
               </div>
               <Checkbox toggle onChange={() => viewState === 'card' ? setState('list') : setState('card') } />
-              <div className='list-label'>
+              <div className='switch-label'>
                 List
               </div>
             </div>
@@ -207,8 +212,8 @@ const HomePage = (props) => {
         </div>
 
         {/* Code, name and desc hardcoded for testing purposes */}
+        {topbar()}
         {loading ? <span>loading...</span> : (
-<<<<<<< HEAD
           <Grid stackable doubling container columns={viewState === 'card' ? 'three' : 'one'}>
             <CardGrid
               courses={courses}
@@ -221,22 +226,6 @@ const HomePage = (props) => {
               view={viewState}
             />
           </Grid>
-=======
-          <>
-            <TopBar />
-            <Grid stackable doubling container columns='one'>
-              <CardGrid
-                courses={courses}
-                majors={majors}
-                activeMajorTags={activeMajorTags}
-                activeTermTags={activeTermTags}
-                activePrefixTags={activePrefixTags}
-                activeSort={activeSort}
-                query={query}
-              />
-            </Grid>
-          </>
->>>>>>> 348fc1a429e1290f52b3e27979a3ca21d4775af4
         )}
       </section>
     </>

@@ -13,7 +13,6 @@ import getAverageRating from '../helpers/AverageRating.js';
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
   const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort, query, view } = props;
-
   const listView = (course) => {
     return (
       <CourseReviewList
@@ -166,7 +165,7 @@ const CardGrid = (props) => {
 
   const outputCourses = sortAndFilterCourses(courses);
   const gridArray = [];
-  const colSize = 3;
+  const colSize = view === 'card' ? 3 : 1;
   for (let i = 0; i < outputCourses.length; i += colSize) {
     const gridRow = outputCourses.slice(i, i + colSize);
     gridArray.push(gridRow);
