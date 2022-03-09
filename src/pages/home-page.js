@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import { Input, Segment, Grid, Image, Button, Checkbox } from 'semantic-ui-react';
@@ -70,7 +70,9 @@ const HomePage = (props) => {
     setQuery(value);
   };
 
-  const [viewState, setState] = useState('Card');
+  const [viewState, setState] = useState('card');
+
+
   return (
     <>
       <div className='scroll-button-container'>
@@ -174,7 +176,7 @@ const HomePage = (props) => {
               <div className='card-label'>
                 {viewState}
               </div>
-              <Checkbox toggle onChange={switchView} />
+              <Checkbox toggle onChange={() => viewState === 'card' ? setState('list') : setState('card') } />
               <div className='list-label'>
                 List
               </div>
@@ -204,7 +206,7 @@ const HomePage = (props) => {
 
         {/* Code, name and desc hardcoded for testing purposes */}
         {loading ? <span>loading...</span> : (
-          <Grid stackable doubling container columns='one'>
+          <Grid stackable doubling container columns={viewState === 'card' ? 'three' : 'one'}>
             <CardGrid
               courses={courses}
               majors={majors}
@@ -213,6 +215,7 @@ const HomePage = (props) => {
               activePrefixTags={activePrefixTags}
               activeSort={activeSort}
               query={query}
+              view={viewState}
             />
           </Grid>
         )}
@@ -225,6 +228,7 @@ const HomePage = (props) => {
 HomePage.propTypes = {
   courses: PropTypes.object,
   majors: PropTypes.object,
+  view: PropTypes.string,
 };
 
 export default HomePage;

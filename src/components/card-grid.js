@@ -11,9 +11,7 @@ import getAverageRating from '../helpers/AverageRating.js';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
-  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort, query } = props;
-
-  const [viewState, setState] = useState('card');
+  const { courses, majors, activeMajorTags, activeTermTags, activePrefixTags, activeSort, query, view } = props;
 
   const listView = (course) => {
     return (
@@ -178,7 +176,7 @@ const CardGrid = (props) => {
       <Grid.Row key={index} stretched>
         {row.map((course, index) => (
           <Grid.Column key={index} columns='equal'>
-            {cardView(course)}
+            {view === 'card' ? cardView(course) : listView(course)}
           </Grid.Column>))}
       </Grid.Row>
     );
@@ -195,15 +193,6 @@ CardGrid.propTypes = {
   activePrefixTags: PropTypes.array.isRequired,
   activeSort: PropTypes.string.isRequired,
   query: PropTypes.string.isRequired,
-
-};
-
-export const switchView = () => {
-  if (viewState === 'list') {
-    viewState = 'card';
-  } else {
-    viewState = 'list';
-  }
-  console.log(viewState);
+  view: PropTypes.string.isRequired,
 };
 
