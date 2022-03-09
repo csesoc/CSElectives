@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button, Checkbox } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
@@ -66,8 +66,26 @@ const HomePage = (props) => {
   const [activeSort, setActiveSort] = useState('Most Reviews');
   const [query, setQuery] = useState('');
 
+  const returnState = (
+    <Grid stackable doubling container columns='one'>
+      <CardGrid
+        courses={courses}
+        majors={majors}
+        activeMajorTags={activeMajorTags}
+        activeTermTags={activeTermTags}
+        activePrefixTags={activePrefixTags}
+        activeSort={activeSort}
+        query={query}
+      />
+    </Grid>
+  );
+
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
+  };
+
+  const handleCheckboxChange = (e, { checked }) => {
+
   };
 
   return (
@@ -169,8 +187,17 @@ const HomePage = (props) => {
                 />
               </div>
             </div>
-
+            <div className='card-list-switch'>
+              <div className='card-label'>
+                Card
+              </div>
+              <Checkbox toggle />
+              <div className='list-label'>
+                List
+              </div>
+            </div>
           </div>
+
         </Segment>
 
         {/* Tags component */}
@@ -194,17 +221,7 @@ const HomePage = (props) => {
 
         {/* Code, name and desc hardcoded for testing purposes */}
         {loading ? <span>loading...</span> : (
-          <Grid stackable doubling container columns='one'>
-            <CardGrid
-              courses={courses}
-              majors={majors}
-              activeMajorTags={activeMajorTags}
-              activeTermTags={activeTermTags}
-              activePrefixTags={activePrefixTags}
-              activeSort={activeSort}
-              query={query}
-            />
-          </Grid>
+          returnState
         )}
       </section>
     </>
