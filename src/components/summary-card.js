@@ -10,6 +10,38 @@ const SummaryCard = (props) => {
   const { summaryTitle, summaryLink, courseCode, overallRating, numReviews, summaryDesc,
     usefulAvg, manageabilityAvg, enjoymentAvg, tags } = props;
 
+  const getLinks = () => {
+    if (courseCode === 'COMP4920 / SENG4920') {
+      const year = new Date().getFullYear();
+      return (
+        <>
+          <a
+            href={`https://www.handbook.unsw.edu.au/undergraduate/courses/${year}/COMP4920/`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Icon name='external' /> COMP4920 Handbook Page
+          </a> <br />
+          <a
+            href={`https://www.handbook.unsw.edu.au/undergraduate/courses/${year}/SENG4920/`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Icon name='external' /> SENG4920 Handbook Page
+          </a> <br />
+        </>
+      );
+    };
+    return (
+      <>
+        <a href={summaryLink} rel="noreferrer" target="_blank">
+          <Icon name='external' /> {courseCode} Handbook Page
+        </a> <br />
+      </>
+    );
+  };
+
+
   return (
     <div>
       <Grid>
@@ -24,9 +56,7 @@ const SummaryCard = (props) => {
             <div className='tags'>
               {tags.terms.map((term) => <Tag key={term} className="term" label={term} />)}
             </div>
-            <a href={summaryLink} rel="noreferrer" target="_blank">
-              <Icon name='external' /> {courseCode} Handbook Page
-            </a> <br />
+            {getLinks()}
             <div className='star-ratings'>
               <span className='star-space'>
                 <ReviewRating
