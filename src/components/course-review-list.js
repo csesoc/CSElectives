@@ -68,9 +68,6 @@ const CourseReviewList = (props) => {
           <div className='item-contents-manageability'>
             <Item.Description>{manageability}</Item.Description>
           </div>
-          <div className='item-contents-major'>
-            <Item.Extra>{getTags(tags, 'major')}</Item.Extra>
-          </div>
           <div className='item-contents-review-num'>
             <Card.Meta>{numReviews}</Card.Meta>
           </div>

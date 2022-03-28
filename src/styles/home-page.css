@@ -123,6 +123,7 @@
 }
 
 .item-contents-code {
+  margin-left: 1.5%;
   text-align: left;
   width: 9.2%;
   
@@ -136,7 +137,7 @@
 
 .item-contents-name {
   text-align: left;
-  width: 25.1%;
+  width: 22%;
 }
 
 .item-contents-tags {
@@ -144,7 +145,7 @@
   position: relative;
   align-items: left;
   justify-content: left;
-  width: 18.3%;
+  width: 15%;
   top: -20%;
 }
 
@@ -160,13 +161,6 @@
 }
 .item-contents-manageability {
   width: 7.7%;  
-}
-
-.item-contents-major {
-  position: relative;
-  top: -35%;
-  justify-content: center;
-  width: 11%;  
 }
 
 .item-contents-review-num {
@@ -193,7 +187,7 @@
 .topbar-header {
   font-weight: bold;
   color: white;
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
 
 .topbar-item {
@@ -203,7 +197,7 @@
 }
 
 .topbar-contents-code {
-  margin-left: 1%;
+  margin-left: 3.5%;
   width: 7.5%;
 }
 .topbar-contents-name {
@@ -216,22 +210,23 @@
 }
 .topbar-contents-rating {
   margin-left: 2%;
-  width: 10%;
+  width: 12%;
 }
 .topbar-contents-enjoyability {
   margin-left: 1.8%;
-  width: 7.5%;
+  width: 8.5%;
 }
 .topbar-contents-usefulness {
   width: 7%;
 }
 .topbar-contents-manageability {
+  width: 8%;
+}
 
-  width: 7.7%;
+.topbar-contents-num {
+  width: 10%;
 }
-.topbar-contents-major {
-  width: 7.7%;
-}
+
 
 .ui.checkbox.checkbox-major input:checked~.box:before,
 .ui.checkbox.checkbox-major input:checked~label:before,

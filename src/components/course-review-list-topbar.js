@@ -27,9 +27,6 @@ const TopBar = () => {
           <div className='topbar-item topbar-contents-manageability'>
             <Item.Header className='topbar-header'>Manageability</Item.Header>
           </div>
-          <div className='topbar-item topbar-contents-major'>
-            <Item.Header className='topbar-header'>Major</Item.Header>
-          </div>
           <div className='topbar-item topbar-contents-num'>
             <Item.Header className='topbar-header'>No. of Reviews</Item.Header>
           </div>
