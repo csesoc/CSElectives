@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/course-page.css';
 
@@ -15,6 +15,15 @@ const ReviewCard = (props) => {
 
   const user = useContext(UserContext);
   const admins = useContext(AdminsContext);
+
+  const isLongReview = reviewComment.length > 500 ? true : false;
+
+  const [longReview, setLongReview] = useState(isLongReview); // not even sure if useState is needed for this
+  const [seeMore, setSeeMore] = useState(false);
+
+  const handleClick = () => setSeeMore(!seeMore);
+
+  console.log('Now on course review: ' + reviewId);
 
   return (
     <div className='review-cards'>
@@ -78,7 +87,10 @@ const ReviewCard = (props) => {
                     />
                   </div>
                 </div>
-                <Card.Description className='review-description'>{reviewComment}</Card.Description>
+                {/* eslint-disable-next-line max-len*/}
+                <Card.Description className='review-description'>{longReview && !seeMore ? reviewComment.substring(0, 250) + '...' : reviewComment}</Card.Description>
+                {/* eslint-disable-next-line max-len*/}
+                {longReview && <Card.Description className='review-seemore' onClick={handleClick}><a>{seeMore ? 'See Less' : 'See More'}</a></Card.Description>}
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2} className='review-row'>

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button, Checkbox } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button, Checkbox, Item } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';

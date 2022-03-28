@@ -123,9 +123,9 @@
 }
 
 .item-contents-code {
-  margin-left: 1.5%;
+  margin-left: 1.2%;
   text-align: left;
-  width: 9.2%;
+  width: 8%;
   
 }
 .item-header {
@@ -197,8 +197,8 @@
 }
 
 .topbar-contents-code {
-  margin-left: 3.5%;
-  width: 7.5%;
+  margin-left: 3.2%;
+  width: 7%;
 }
 .topbar-contents-name {
   margin-left: 2.5%;
@@ -217,7 +217,7 @@
   width: 8.5%;
 }
 .topbar-contents-usefulness {
-  width: 7%;
+  width: 8%;
 }
 .topbar-contents-manageability {
   width: 8%;
