@@ -14,11 +14,7 @@
 }
 
 .text-only-checkbox {
-  /* align-items: right; */
-  margin-right: 1.5rem;
-  margin-left: auto;
-  float: right;
-  /* margin-left: 2.5rem; */
+  margin-left: 2.5rem;
   margin-top: 1.1rem;
 }
 
