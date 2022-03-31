@@ -29,13 +29,8 @@ const ReviewTextArea = (props) => {
         rows={16}
         multiline
         placeholder={
-          // 'Things you can discuss: Experience with the assessments
-          // labs final exams Relative difficulty in managing the
-          //  workload Difficulty of core concepts Overall enjoyment
-          //  interesting topics you found. How strongly you recommend
-          //  it as an elective.'
           // eslint-disable-next-line max-len
-          'Feel free to discuss: \n Experience with the assessments labs final exams \nRelative difficulty in managing the workload \nDifficulty of core concepts \nOverall enjoyment / interesting topics you found \nHow strongly you recommend it as an elective.'
+          'Feel free to discuss: \n- Experience with the assessments, labs, final exams\n- Difficulty managing workload \n- Difficulty of core concepts \n- Overall enjoyment / interesting topics you found \n- How strongly you recommend it as an elective.'
         }
         fluid
         value={comment}
