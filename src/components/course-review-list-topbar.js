@@ -28,7 +28,7 @@ const TopBar = () => {
             <Item.Header className='topbar-header'>Manageability</Item.Header>
           </div>
           <div className='topbar-item topbar-contents-num'>
-            <Item.Header className='topbar-header'>No. of Reviews</Item.Header>
+            <Item.Header className='topbar-header'>Review Num</Item.Header>
           </div>
         </Item.Content>
       </Item>
