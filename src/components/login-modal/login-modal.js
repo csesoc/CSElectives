@@ -17,7 +17,7 @@ const LoginModal = (props) => {
   const [errorVisibility, setErrorVisibility] = useState(false);
 
   const handleSubmit = async () => {
-    const response = await Verifier.getUser(`z${zid}`, zpass);
+    const response = await Verifier.getUser(zid, zpass);
 
     if (response.status !== 200) {
       setErrorMsg(response.data.error);
@@ -27,7 +27,7 @@ const LoginModal = (props) => {
 
     // zID and password are correct!
     setErrorVisibility(false);
-    Database.login(`z${zid}`, zpass, response.data.displayName);
+    Database.login(zid, zpass, response.data.displayName);
   };
 
   const handleLogOut = async () => {
@@ -70,7 +70,7 @@ const LoginModal = (props) => {
             <>
               <Header as='h2' content={loginMessage} />
               <Divider />
-              <p> Please log in with the same credentials as your UNSW account</p>
+              <p>Please log in with the same credentials as your UNSW account</p>
               <Form>
                 <Message
                   negative
@@ -81,7 +81,6 @@ const LoginModal = (props) => {
                   <label>zID</label>
                   <Input
                     name='zID'
-                    label='z'
                     labelPosition='left'
                     value={zid}
                     onChange={(e, { value }) => setZid(value)}
