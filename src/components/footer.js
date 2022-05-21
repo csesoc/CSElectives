@@ -11,7 +11,7 @@ const Footer = () => {
         <Grid.Column width={3}>
           <Image className='csesoc-logo' src={CSESocLogo} size='small' />
           <p>
-            © 2021 — CSESoc UNSW
+            © {new Date().getFullYear()} — CSESoc UNSW
           </p>
         </Grid.Column>
         <Grid.Column>

@@ -27,7 +27,11 @@ const ReviewTextArea = (props) => {
       <Form.TextArea
         style={{ resize: 'none' }}
         rows={16}
-        placeholder={'Review'}
+        multiline
+        placeholder={
+          // eslint-disable-next-line max-len
+          'Feel free to discuss: \n- Experience with the assessments, labs, final exams\n- Difficulty managing workload \n- Difficulty of core concepts \n- Overall enjoyment / interesting topics you found \n- How strongly you recommend it as an elective.'
+        }
         fluid
         value={comment}
         onChange={(e, { value }) => setComment(value)}
