@@ -189,18 +189,7 @@ const CardGrid = (props) => {
       <Grid.Row key={index} stretched>
         {row.map((course, index) => (
           <Grid.Column key={index} columns='equal'>
-<<<<<<< HEAD
             {view === 'card' ? cardView(course) : listView(course)}
-=======
-            <CourseReviewCard
-              code={course.courseCode}
-              name={course.title}
-              numReviews={getNumReviews(course)}
-              overallRating={getOverallRating(course)}
-              terms={course.terms}
-              major={getMajor(course)}
-            />
->>>>>>> main
           </Grid.Column>))}
       </Grid.Row>
     );

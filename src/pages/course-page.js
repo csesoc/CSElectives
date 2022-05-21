@@ -95,11 +95,11 @@ const CoursePage = (props) => {
     return tags;
   };
 
-<<<<<<< HEAD
   const [textOnly, setTextOnly] = useState(false);
   const handleClickTextOnly = () => {
     setTextOnly(!textOnly);
-=======
+  };
+
   const getMergedAverage = (ratingCategory) => {
     return getMergedAverageRating(courses['COMP4920'], courses['SENG4920'], ratingCategory);
   };
@@ -108,7 +108,6 @@ const CoursePage = (props) => {
     const compcourse = courses['COMP4920'];
     const sengcourse = courses['SENG4920'];
     return compcourse.reviews.length + sengcourse.reviews.length;
->>>>>>> main
   };
 
   const displayReview = (review) => {
