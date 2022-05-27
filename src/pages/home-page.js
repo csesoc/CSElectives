@@ -1,15 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button, Checkbox, Item } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
 import DropdownSortMenu from '../components/dropdown-sort-menu';
 import HomePageTags from '../components/home-page-tags.js';
-import CardGrid from '../components/card-grid.js';
+import CardGrid, { switchView } from '../components/card-grid.js';
 import { LoadingContext } from '../App.js';
 import '../styles/home-page.css';
+
+import TopBar from '../components/course-review-list-topbar.js';
 
 import FeedbackSvg from '../assets/illustrations/feedback.svg';
 import ScrollButton from '../components/scroll-button.js';
@@ -68,6 +70,14 @@ const HomePage = (props) => {
 
   const handleQueryChange = (e, { value }) => {
     setQuery(value);
+  };
+
+  const [viewState, setState] = useState('card');
+
+  const topbar = () => {
+    if (viewState === 'list') {
+      return <TopBar />;
+    }
   };
 
   return (
@@ -169,8 +179,17 @@ const HomePage = (props) => {
                 />
               </div>
             </div>
-
+            <div className='card-list-switch'>
+              <div className='switch-label'>
+                Card
+              </div>
+              <Checkbox toggle onChange={() => viewState === 'card' ? setState('list') : setState('card') } />
+              <div className='switch-label'>
+                List
+              </div>
+            </div>
           </div>
+
         </Segment>
 
         {/* Tags component */}
@@ -193,8 +212,9 @@ const HomePage = (props) => {
         </div>
 
         {/* Code, name and desc hardcoded for testing purposes */}
+        {topbar()}
         {loading ? <span>loading...</span> : (
-          <Grid stackable doubling container columns='three'>
+          <Grid stackable doubling container columns={viewState === 'card' ? 'three' : 'one'}>
             <CardGrid
               courses={courses}
               majors={majors}
@@ -203,6 +223,7 @@ const HomePage = (props) => {
               activePrefixTags={activePrefixTags}
               activeSort={activeSort}
               query={query}
+              view={viewState}
             />
           </Grid>
         )}
@@ -211,9 +232,11 @@ const HomePage = (props) => {
   );
 };
 
+
 HomePage.propTypes = {
   courses: PropTypes.object,
   majors: PropTypes.object,
+  view: PropTypes.string,
 };
 
 export default HomePage;

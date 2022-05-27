@@ -95,6 +95,11 @@ const CoursePage = (props) => {
     return tags;
   };
 
+  const [textOnly, setTextOnly] = useState(false);
+  const handleClickTextOnly = () => {
+    setTextOnly(!textOnly);
+  };
+
   const getMergedAverage = (ratingCategory) => {
     return getMergedAverageRating(courses['COMP4920'], courses['SENG4920'], ratingCategory);
   };
@@ -165,9 +170,9 @@ const CoursePage = (props) => {
           return b.timestamp - a.timestamp;
         }).map((review, i) => {
           return (
-            <div key={i} className='reviews'>
-              {displayReview(review)}
-            </div>
+            !(textOnly && review.comment.length == 0)
+              ? <div key={i} className='reviews'>{ displayReview(review) }</div>
+              : null
           );
         })}
 
@@ -306,6 +311,7 @@ const CoursePage = (props) => {
             courseCode={courseCode}
             setLoginMessage={setLoginMessage}
             setLoginOpen={setLoginOpen}
+            handleClickTextOnly={handleClickTextOnly}
           />
           {loading ? <PlaceHolderReview /> : checkEmptyState() }
         </Grid.Column>
