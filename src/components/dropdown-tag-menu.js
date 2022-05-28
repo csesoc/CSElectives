@@ -6,11 +6,11 @@ import { Dropdown, Checkbox } from 'semantic-ui-react';
 const DropdownTagsMenu = (props) => {
   const { title, tagOptions, activeTags, setActiveTags } = props;
 
-  const toggleSelectionDrop = (e, { text }) => {
-    if (activeTags.includes(text)) {
-      setActiveTags(activeTags.filter((el) => el !== text));
+  const toggleSelectionDrop = (e, object ) => {
+    if (activeTags.includes(object.text)) {
+      setActiveTags(activeTags.filter((el) => el !== object.text));
     } else {
-      setActiveTags([...activeTags, text].sort(function(a, b) {
+      setActiveTags([...activeTags, object.text].sort(function(a, b) {
         return a.toLowerCase().localeCompare(b.toLowerCase());
       }));
     }
@@ -20,7 +20,9 @@ const DropdownTagsMenu = (props) => {
     return (
       <Dropdown.Item
         key={index}
-        onClick={toggleSelectionDrop}
+        text={object.text}
+        value={object.value}
+        onClick={(e, object) => toggleSelectionDrop(e, object)}
       >
         <Checkbox
           className={'checkbox-' + title.toLowerCase()}
