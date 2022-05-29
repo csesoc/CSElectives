@@ -1,21 +1,26 @@
-# Grab the Node base image
-FROM node:16.8.0
+# Grab the latest Node base image
+FROM node:16.15.0-alpine as builder
 
-# Copy package.json into the container
-COPY package.json ./
+# Set the current working directory inside the container
+WORKDIR /app
 
-# Install node modules inside the container using the copied package.json
-RUN yarn install
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-# Copy the entire project into the container
 COPY . .
 
-# Build yarn
-RUN yarn build
+RUN yarn run build
 
-# Expose the port to the outside world
-EXPOSE 8080
+# nginx state for serving content
+FROM nginx:1.21.6-alpine
+# Set working directory to nginx asset directory
+WORKDIR /usr/share/nginx/html
+# Remove default nginx static assets
+RUN rm -rf ./*
+# Copy static assets from builder stage
+COPY --from=builder /app/build .
 
-# Run the server
-RUN npm install -g serve
-ENTRYPOINT serve -l 8080 -s build
+EXPOSE 80
+
+# Containers run nginx with global directives and daemon off
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
