@@ -84,7 +84,7 @@ const LoginModal = (props) => {
                     labelPosition='left'
                     value={zid}
                     onChange={(e, { value }) => setZid(value)}
-                    placeholder='5555555'
+                    placeholder='z5555555'
                   />
                 </Form.Field>
                 <Form.Input
