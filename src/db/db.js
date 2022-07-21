@@ -154,6 +154,13 @@ class Database {
 
     // Insert auto generated id into course object
     const courseRef = doc(this.db, 'courses', reviewObject.courseCode);
+    if (reviewObject.courseCode === 'COMP4920' || reviewObject.courseCode === 'SENG4920') {
+      const courseCode_ = (reviewObject.courseCode === 'COMP4920') ? 'SENG4920' : 'COMP4920';
+      const courseRef_ = doc(this.db, 'courses', courseCode_);
+      await updateDoc(courseRef_, {
+        reviews: arrayUnion(docRef.id),
+      });
+    }
     await updateDoc(courseRef, {
       reviews: arrayUnion(docRef.id),
     });
@@ -220,6 +227,13 @@ class Database {
   async deleteReview(reviewId, courseCode) {
     // Delete review ID from the course object's list of review IDs
     const courseRef = doc(this.db, 'courses', courseCode);
+    if (courseCode === 'COMP4920' || courseCode === 'SENG4920') {
+      const courseCode_ = (courseCode === 'COMP4920') ? 'SENG4920' : 'COMP4920';
+      const courseRef_ = doc(this.db, 'courses', courseCode_);
+      updateDoc(courseRef_, {
+        reviews: arrayRemove(reviewId),
+      });
+    }
     updateDoc(courseRef, {
       reviews: arrayRemove(reviewId),
     });
