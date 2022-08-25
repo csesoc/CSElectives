@@ -14,7 +14,6 @@ import BlankSvg from '../assets/illustrations/blank_canvas.svg';
 import ScrollButton from '../components/scroll-button.js';
 
 import getAverageRating from '../helpers/AverageRating.js';
-import getMergedAverageRating from '../helpers/MergedAverageRating.js';
 
 import '../styles/course-page.css';
 
@@ -75,6 +74,13 @@ const CoursePage = (props) => {
     return `${course.title}`;
   };
 
+  const getCourseCode = () => {
+    if (course.courseCode === 'COMP4920' || course.courseCode === 'SENG4920') {
+      return 'COMP4920 / SENG4920';
+    }
+    return course.courseCode;
+  };
+
   const getReviewDate = (review) => {
     const date = new Date(review.timestamp).getDate();
     const month = new Date(review.timestamp).getMonth() + 1;
@@ -98,16 +104,6 @@ const CoursePage = (props) => {
   const [textOnly, setTextOnly] = useState(false);
   const handleClickTextOnly = () => {
     setTextOnly(!textOnly);
-  };
-
-  const getMergedAverage = (ratingCategory) => {
-    return getMergedAverageRating(courses['COMP4920'], courses['SENG4920'], ratingCategory);
-  };
-
-  const getMergedNumReviews = () => {
-    const compcourse = courses['COMP4920'];
-    const sengcourse = courses['SENG4920'];
-    return compcourse.reviews.length + sengcourse.reviews.length;
   };
 
   const displayReview = (review) => {
@@ -180,102 +176,6 @@ const CoursePage = (props) => {
     );
   };
 
-  const checkMergedEmptyState = () => {
-    const compcourse = courses['COMP4920'];
-    const sengcourse = courses['SENG4920'];
-    if (compcourse.reviews.length + sengcourse.reviews.length === 0) {
-      return (
-        <>
-          <div className='blank'>
-            <Image className='blank-svg' fluid src={BlankSvg} />
-          </div>
-          <EmptyState handleClickHome={handleClickHome} />
-        </>
-      );
-    }
-    const mergedReviews = compcourse.reviews.concat(sengcourse.reviews);
-    return (
-      <>
-        {mergedReviews.sort((a, b) => {
-          const aScore = scoreTotal(a);
-          const bScore = scoreTotal(b);
-
-          // Sorts reviews by ratings, total score and time created
-          if (sort === 'rating-descending') {
-            if (a.rating.overall === b.rating.overall) {
-              if (aScore === bScore) return b.timestamp - a.timestamp;
-              return bScore - aScore;
-            }
-            return b.rating.overall - a.rating.overall;
-          }
-
-          if (sort === 'rating-ascending') {
-            if (a.rating.overall === b.rating.overall) {
-              if (aScore === bScore) return a.timestamp - b.timestamp;
-              return aScore - bScore;
-            }
-            return a.rating.overall - b.rating.overall;
-          }
-
-          // Default is most recent
-          return b.timestamp - a.timestamp;
-        }).map((review, i) => {
-          return (
-            <div key={i} className='reviews'>
-              {displayReview(review)}
-            </div>
-          );
-        })}
-
-      </>
-    );
-  };
-
-  if (courseCode === 'COMP4920' || courseCode === 'SENG4920') {
-    return (
-      <>
-        <div className='scroll-button-container'>
-          <ScrollButton />
-        </div>
-        <Grid stackable>
-          <Grid.Column width={7}>
-            <div className='summary-card'>
-              {loading
-                ? <PlaceHolderSummary />
-                : (
-                  <SummaryCard
-                    summaryTitle={getSummaryTitle()}
-                    summaryLink={getLink()}
-                    courseCode={'COMP4920 / SENG4920'}
-                    overallRating={getMergedAverage('overall')}
-                    numReviews={getMergedNumReviews()}
-                    summaryDesc={course.description}
-                    usefulAvg={getMergedAverage('usefulness')}
-                    manageabilityAvg={getMergedAverage('manageability')}
-                    enjoymentAvg={getMergedAverage('enjoyment')}
-                    tags={getTags()}
-                  />
-                )
-              }
-            </div>
-          </Grid.Column>
-          <Grid.Column width={9}>
-            <ReviewsBar
-              sortOptions={sortOptions}
-              handleSortChange={handleSortChange}
-              handleClick={handleClick}
-              courseCode={courseCode}
-              setLoginMessage={setLoginMessage}
-              setLoginOpen={setLoginOpen}
-            />
-            {loading ? <PlaceHolderReview /> : checkMergedEmptyState() }
-          </Grid.Column>
-        </Grid>
-      </>
-    );
-  }
-
-
   return (
     <>
       <div className='scroll-button-container'>
@@ -290,7 +190,7 @@ const CoursePage = (props) => {
                 <SummaryCard
                   summaryTitle={getSummaryTitle()}
                   summaryLink={getLink()}
-                  courseCode={courseCode}
+                  courseCode={getCourseCode()}
                   overallRating={getAverage('overall')}
                   numReviews={course.reviews.length}
                   summaryDesc={course.description}
