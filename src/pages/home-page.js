@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Segment, Grid, Image, Button, Checkbox, Item } from 'semantic-ui-react';
+import { Input, Segment, Grid, Image, Button, Checkbox, Item, Icon } from 'semantic-ui-react';
 import scrollToElement from 'scroll-to-element';
 
 import DropdownTagsMenu from '../components/dropdown-tag-menu';
@@ -151,41 +151,47 @@ const HomePage = (props) => {
               </div>
             </div>
             <div className='search-bar-wrapper'>
-              <div className='dropdown-tags-box'>
-                <DropdownTagsMenu
-                  title='Prefix'
-                  tagOptions={prefixOptions}
-                  activeTags={activePrefixTags}
-                  setActiveTags={setActivePrefixTags}
-                  className='dropdown-tags'
-                />
+              <div className='filter-wrapper'>
+                <div className='dropdown-tags-box'>
+                  <DropdownTagsMenu
+                    title='Prefix'
+                    tagOptions={prefixOptions}
+                    activeTags={activePrefixTags}
+                    setActiveTags={setActivePrefixTags}
+                    className='dropdown-tags'
+                  />
+                </div>
+                <div className='dropdown-tags-box'>
+                  <DropdownTagsMenu
+                    title='Major'
+                    tagOptions={majorOptions}
+                    activeTags={activeMajorTags}
+                    setActiveTags={setActiveMajorTags}
+                    className='dropdown-tags'
+                  />
+                </div>
+                <div className='dropdown-tags-box'>
+                  <DropdownTagsMenu
+                    title='Term'
+                    tagOptions={termOptions}
+                    activeTags={activeTermTags}
+                    setActiveTags={setActiveTermTags}
+                    className='dropdown-tags'
+                  />
+                </div>
               </div>
-              <div className='dropdown-tags-box'>
-                <DropdownTagsMenu
-                  title='Major'
-                  tagOptions={majorOptions}
-                  activeTags={activeMajorTags}
-                  setActiveTags={setActiveMajorTags}
-                  className='dropdown-tags'
-                />
-              </div>
-              <div className='dropdown-tags-box'>
-                <DropdownTagsMenu
-                  title='Term'
-                  tagOptions={termOptions}
-                  activeTags={activeTermTags}
-                  setActiveTags={setActiveTermTags}
-                  className='dropdown-tags'
-                />
-              </div>
-            </div>
-            <div className='card-list-switch'>
-              <div className='switch-label'>
-                Card
-              </div>
-              <Checkbox toggle onChange={() => viewState === 'card' ? setState('list') : setState('card') } />
-              <div className='switch-label'>
-                List
+
+              <div className='card-list-switch'>
+                <Button.Group basic>
+                  <Button
+                    icon='grid layout'
+                    onClick={() => setState('card')}
+                  />
+                  <Button
+                    icon='bars'
+                    onClick={() => setState('list')}
+                  />
+                </Button.Group>
               </div>
             </div>
           </div>

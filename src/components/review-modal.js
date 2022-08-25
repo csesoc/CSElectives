@@ -112,6 +112,7 @@ const ReviewModal = (props) => {
                     <input type="checkbox" name="example" onClick={handleClick} checkTnc={checkTnc} />
                     <label> I have read and agree with the
                       <a href="https://cselectives.csesoc.unsw.edu.au/termsandconditions"> terms and conditions.</a>
+                      <span className='required'> *</span>
                     </label>
                   </div>
                 </div>
