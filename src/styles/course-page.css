@@ -192,6 +192,10 @@
   margin-top: 5rem;
 }
 
+.summary-desc {
+  white-space: pre-line;
+}
+
 @media only screen and (max-aspect-ratio: 3/4) {
   .summary-card {
     overflow-x: hidden;
