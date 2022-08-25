@@ -9,7 +9,6 @@ import { Card, Grid } from 'semantic-ui-react';
 import NoResultsFound from './no-results-found.js';
 
 import getAverageRating from '../helpers/AverageRating.js';
-import getMergedAverageRating from '../helpers/MergedAverageRating.js';
 
 // This function creates the grid of course review cards
 const CardGrid = (props) => {
@@ -74,10 +73,6 @@ const CardGrid = (props) => {
   };
 
   const getOverallRating = (course) => {
-    if (course.courseCode === 'COMP4920' || course.courseCode === 'SENG4920') {
-      const mergedRating = getMergedAverageRating(courses['COMP4920'], courses['SENG4920'], 'overall');
-      return mergedRating > 0 ? mergedRating : 'No reviews yet 😢';
-    }
     const rating = getAverageRating(course, 'overall');
     // Since the minimum rating is 1, we can assume that if the average rating is 0,
     // then there are no reviews for the course.
@@ -176,13 +171,6 @@ const CardGrid = (props) => {
     gridArray.push(gridRow);
   }
   if (outputCourses.length === 0) return <NoResultsFound />;
-
-  const getNumReviews = (course) => {
-    if (course.courseCode === 'COMP4920' || course.courseCode === 'SENG4920') {
-      return courses['COMP4920'].reviews.length + courses['SENG4920'].reviews.length;
-    };
-    return course.reviews.length;
-  };
 
   return gridArray.map((row, index) => {
     return (
