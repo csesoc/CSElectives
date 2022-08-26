@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Grid, Icon } from 'semantic-ui-react';
+import { Header, Grid, Icon, Message } from 'semantic-ui-react';
 import Tag from '../components/tags.js';
 import '../styles/course-page.css';
 import ReviewRating from './review-rating/review-rating.js';
@@ -41,6 +41,19 @@ const SummaryCard = (props) => {
     );
   };
 
+  const addDisclaimer = () => {
+    if (courseCode === 'COMP4920 / SENG4920') {
+      return (
+        <>
+          <Message negative>
+            Please note that this course is undergoing some major changes from 22T3 onwards,
+            so old reviews may not be representative of how the course is currently run.
+          </Message>
+          <br />
+        </>
+      );
+    }
+  };
 
   return (
     <div>
@@ -93,12 +106,13 @@ const SummaryCard = (props) => {
             </div>
           </Grid.Column>
         </Grid.Row>
-
         <Grid.Row className='grid-bottom'>
-          {summaryDesc}
+          {addDisclaimer()}
+          <div className='summary-desc'>
+            {summaryDesc}
+          </div>
         </Grid.Row>
       </Grid>
-
     </div>
   );
 };
