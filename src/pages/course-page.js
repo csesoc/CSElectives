@@ -35,6 +35,11 @@ const CoursePage = (props) => {
       value: 'most-recent',
     },
     {
+      key: 'Most Recent Term',
+      text: 'Most Recent Term',
+      value: 'most-recent-term',
+    },
+    {
       key: 'Highest Rating to Lowest',
       text: 'Highest Rating to Lowest',
       value: 'rating-descending',
@@ -160,6 +165,10 @@ const CoursePage = (props) => {
               return aScore - bScore;
             }
             return a.rating.overall - b.rating.overall;
+          }
+
+          if (sort === 'most-recent-term') {
+            return b.termTaken.localeCompare(a.termTaken);
           }
 
           // Default is most recent
