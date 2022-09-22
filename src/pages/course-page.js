@@ -35,9 +35,9 @@ const CoursePage = (props) => {
       value: 'most-recent',
     },
     {
-      key: 'Most Recent Term',
-      text: 'Most Recent Term',
-      value: 'most-recent-term',
+      key: 'Most Recently Taken',
+      text: 'Most Recently Taken',
+      value: 'most-recently-taken',
     },
     {
       key: 'Highest Rating to Lowest',
@@ -167,7 +167,7 @@ const CoursePage = (props) => {
             return a.rating.overall - b.rating.overall;
           }
 
-          if (sort === 'most-recent-term') {
+          if (sort === 'most-recently-taken') {
             return b.termTaken.localeCompare(a.termTaken);
           }
 
