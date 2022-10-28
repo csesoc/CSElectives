@@ -45,19 +45,23 @@ const CardGrid = (props) => {
   };
 
   const sortHighestRated = (a, b) => {
-    return getAverageRating(b, 'overall') - getAverageRating(a, 'overall');
+    return getAverageRating(b, 'overall') - getAverageRating(a, 'overall')
+    || b.reviews.length - a.reviews.length;
   };
 
   const sortMostUseful = (a, b) => {
-    return getAverageRating(b, 'usefulness') - getAverageRating(a, 'usefulness');
+    return getAverageRating(b, 'usefulness') - getAverageRating(a, 'usefulness')
+    || b.reviews.length - a.reviews.length;
   };
 
   const sortMostEnjoyable = (a, b) => {
-    return getAverageRating(b, 'enjoyment') - getAverageRating(a, 'enjoyment');
+    return getAverageRating(b, 'enjoyment') - getAverageRating(a, 'enjoyment')
+    || b.reviews.length - a.reviews.length;
   };
 
   const sortMostManageable = (a, b) => {
-    return getAverageRating(b, 'manageability') - getAverageRating(a, 'manageability');
+    return getAverageRating(b, 'manageability') - getAverageRating(a, 'manageability')
+    || b.reviews.length - a.reviews.length;
   };
 
   const sortsFunction = {
